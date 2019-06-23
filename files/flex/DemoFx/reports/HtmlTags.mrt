@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer application="StiReport" version="1.02" type="Flex">
+  <Dictionary Ref="1" isKey="true" type="Dictionary">
+    <Databases isList="true" count="0"/>
+    <DataSources isList="true" count="0"/>
+    <Relations isList="true" count="0"/>
+    <Report isRef="0"/>
+    <Variables isList="true" count="0"/>
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0"/>
+  <MetaTags isList="true" count="0"/>
+  <Pages isList="true" count="1">
+    <Page1 Ref="2" isKey="true" type="Page">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="3">
+        <PageHeader1 Ref="3" isKey="true" type="PageHeaderBand">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,19,4.8</ClientRectangle>
+          <Components isList="true" count="2">
+            <Text222 Ref="4" isKey="true" type="Text">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.2,0.2,18.8,4.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Courier New,72,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text222</Name>
+              <Page isRef="2"/>
+              <Parent isRef="3"/>
+              <Text>&lt;color="#00ee00"&gt;H&lt;color="#ff8800"&gt;T&lt;color="#0088ff"&gt;M&lt;color="#ff00ff"&gt;L&lt;color="#ff0000"&gt;-&lt;color="#4488ff"&gt;t&lt;color="#eeaa00"&gt;a&lt;color="#2e8b57"&gt;g&lt;color="#b22222"&gt;s</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text222>
+            <Text6 Ref="5" isKey="true" type="Text">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <Brush>[192:255:255:255]</Brush>
+              <ClientRectangle>0,0,18.8,4.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Courier New,72,Bold</Font>
+              <Guid>569bfdb0ca12494fb938f0f6b79b3668</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text6</Name>
+              <Page isRef="2"/>
+              <Parent isRef="3"/>
+              <Text>&lt;color="#00ee00"&gt;H&lt;color="#ff8800"&gt;T&lt;color="#0088ff"&gt;M&lt;color="#ff00ff"&gt;L&lt;color="#ff0000"&gt;-&lt;color="#4488ff"&gt;t&lt;color="#eeaa00"&gt;a&lt;color="#2e8b57"&gt;g&lt;color="#b22222"&gt;s</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text6>
+          </Components>
+          <Conditions isList="true" count="0"/>
+          <Name>PageHeader1</Name>
+          <Page isRef="2"/>
+          <Parent isRef="2"/>
+        </PageHeader1>
+        <DataBand1 Ref="6" isKey="true" type="DataBand">
+          <Brush>Transparent</Brush>
+          <CanGrow>False</CanGrow>
+          <ClientRectangle>0,6,19,5</ClientRectangle>
+          <Components isList="true" count="3">
+            <Text111 Ref="7" isKey="true" type="Text">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,1.4,19,1.8</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Courier New,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text111</Name>
+              <Page isRef="2"/>
+              <Parent isRef="6"/>
+              <Text>&amp;lt;b&amp;gt; &amp;lt;/b&amp;gt;
+&amp;lt;i&amp;gt; &amp;lt;/i&amp;gt;
+&amp;lt;u&amp;gt; &amp;lt;/u&amp;gt;</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+            </Text111>
+            <Text11 Ref="8" isKey="true" type="Text">
+              <Brush>PapayaWhip</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,19,1</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,14.25</Font>
+              <Guid>cafa53f943f941fda551890fe8952f63</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text11</Name>
+              <Page isRef="2"/>
+              <Parent isRef="6"/>
+              <Text>Text Style</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text11>
+            <Text1 Ref="9" isKey="true" type="Text">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,3.2,19,1.8</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Courier New,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="2"/>
+              <Parent isRef="6"/>
+              <Text>&lt;b&gt;Bold &lt;/b&gt;&lt;br&gt;
+&lt;i&gt;Italic &lt;/i&gt;&lt;br&gt;
+&lt;u&gt;Underlined&lt;/u&gt;
+&lt;br&gt;</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+            </Text1>
+          </Components>
+          <Conditions isList="true" count="0"/>
+          <Filters isList="true" count="0"/>
+          <Name>DataBand1</Name>
+          <Page isRef="2"/>
+          <Parent isRef="2"/>
+          <Sort isList="true" count="0"/>
+        </DataBand1>
+        <DataBand5 Ref="10" isKey="true" type="DataBand">
+          <Brush>Transparent</Brush>
+          <CanGrow>False</CanGrow>
+          <ClientRectangle>0,11.8,19,5.8</ClientRectangle>
+          <Components isList="true" count="3">
+            <Text8 Ref="11" isKey="true" type="Text">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,1.4,19,2.2</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Courier New,12</Font>
+              <Guid>ee0a9b36b5554e03b5fda576a10af8b8</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text8</Name>
+              <Page isRef="2"/>
+              <Parent isRef="10"/>
+              <Text>&amp;lt;font face="FontName" color="#rrggbb"&amp;gt; &amp;lt;/font&amp;gt;&lt;br&gt;
+&amp;lt;font face="FontName"&amp;gt; &amp;lt;/font&amp;gt;&lt;br&gt;
+&amp;lt;font color="#rrggbb"&amp;gt; &amp;lt;/font&amp;gt;
+&lt;br&gt;</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+            </Text8>
+            <Text12 Ref="12" isKey="true" type="Text">
+              <Brush>PapayaWhip</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,19,1</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,14.25</Font>
+              <Guid>9f968cb2c3d84ed9bb83df1d7c96b626</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text12</Name>
+              <Page isRef="2"/>
+              <Parent isRef="10"/>
+              <Text>Fonts</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text12>
+            <Text2 Ref="13" isKey="true" type="Text">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,3.6,19,2.2</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Courier New,12</Font>
+              <Guid>c146f282a2b01cc1aa78f589b35cf422</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="2"/>
+              <Parent isRef="10"/>
+              <Text>&lt;font face="Arial" color="#ff0000"&gt;Arial&lt;br&gt;
+&lt;font face="Times" color="#00cc00"&gt;Times&lt;br&gt;
+&lt;font face="Courier" color="#0000ff"&gt;Courier
+&lt;br&gt;</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+            </Text2>
+          </Components>
+          <Conditions isList="true" count="0"/>
+          <Filters isList="true" count="0"/>
+          <Name>DataBand5</Name>
+          <Page isRef="2"/>
+          <Parent isRef="2"/>
+          <Sort isList="true" count="0"/>
+        </DataBand5>
+      </Components>
+      <Conditions isList="true" count="0"/>
+      <Guid>f24a76bd929a4802b3dc83411212fd02</Guid>
+      <LargeHeight>True</LargeHeight>
+      <LargeHeightFactor>2</LargeHeightFactor>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page1</Name>
+      <PageHeight>29.7</PageHeight>
+      <PageWidth>21</PageWidth>
+      <Report isRef="0"/>
+      <Watermark Ref="14" isKey="true" type="Stimulsoft.Report.Components.StiWatermark">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PrinterSettings Ref="15" isKey="true" type="Stimulsoft.Report.Print.StiPrinterSettings"/>
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Html-tags</ReportAlias>
+  <ReportChanged>08/10/2012 03:08:44 PM</ReportChanged>
+  <ReportCreated>11/28/2008 12:01:28 PM</ReportCreated>
+  <ReportFile>HtmlTags.mdz</ReportFile>
+  <ReportGuid>6012a2235f10b22f84c1106fc609f4fb</ReportGuid>
+  <ReportName>Html-tags</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2012.2.1316</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    
+    public class Html_tags : Stimulsoft.Report.StiReport
+    {
+        
+        public Html_tags()
+        {
+            this.InitializeComponent();
+        }
+        #region StiReport Designer generated code - do not modify#endregion StiReport Designer generated code - do not modify
+    }
+}</Script>
+  <ScriptLanguage>VB</ScriptLanguage>
+  <Styles isList="true" count="0"/>
+</StiSerializer>

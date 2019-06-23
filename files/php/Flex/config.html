@@ -1,0 +1,485 @@
+<html>
+<head>
+	<title>Stimulsoft Reports.PHP</title>
+	<link href="styles.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+	<h1>Stimulsoft Reports.PHP (Flash version) - Configuration</h1>
+	<hr><br>
+
+	<h2>
+	The <b>config.xml</b> file is used to configure the <b>DesignerFx</b> and <b>ViewerFx</b>. This file is automatically called by the designer or viewer 
+	immediately after loading.<br><br><br>
+	
+	The <b>Appearance</b> section defines the appearance of the components:<br><br>
+	<table cellpadding="0" cellspacing="0" border="0" width="70%">
+		<tr><td><table class="border" cellpadding="0" cellspacing="1" border="0">
+			<tr>
+				<td class="property">DateFormat</td>
+				<td class="text">Specifies the date and time format for dialog boxes, as well as for variables of the corresponding type in the parameters panel. By default, the date and time format set on the client side is used.</td>
+			</tr><tr>
+				<td class="property">ShowFormsHelp</td>
+				<td class="text">Enables displaying a link to online documentation in the titles of the dialog forms of the designer. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowFormsHints</td>
+				<td class="text">Enables displaying tooltips when hovering over the interface elements in the dialog boxes of the designer. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowTooltips</td>
+				<td class="text">Enables displaying tooltips for the designer controls when the mouse hovers over. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowTooltipsHelp</td>
+				<td class="text">Enables displaying links to online documentation in tooltips for the designer controls. By default, the property is set to true.</td>
+			</tr>
+		</table></td></tr>
+	</table><br>
+	
+	The <b>Connection</b> section defines the connection settings:<br><br>
+	<table cellpadding="0" cellspacing="0" border="0" width="70%">
+		<tr><td><table class="border" cellpadding="0" cellspacing="1" border="0">
+			<tr>
+				<td class="property">ClientRepeatCount</td>
+				<td class="text">Sets the number of times to retry the request to the server when an error occurs in the response. By default, the property is set to 1.</td>
+			</tr><tr>
+				<td class="property">ClientRequestTimeout</td>
+				<td class="text">Sets the time to wait for a response from the server in seconds, after which an error will be generated. The default value is 20 seconds. For big reports, it is recommended to increase this value.</td>
+			</tr><tr>
+				<td class="property">EnableDataLogger</td>
+				<td class="text">Sets the logging mode for all client side requests and server responses to a special repository. When you enable the property, the new Save Log File item will be added to the menu. It allows you to save the query and response logs to a text file. By default, the property is set to false.</td>
+			</tr><tr>
+				<td class="property">EnableUrlGuid</td>
+				<td class="text">Adds to the URL a random Guid, which prevents the caching report files and data. By default, the property is set to false.</td>
+			</tr><tr>
+				<td class="property">ShowCancelButton</td>
+				<td class="text">Enables displaying the Cancel button in the load data from the server window. By default, the property is set to false.</td>
+			</tr>
+		</table></td></tr>
+	</table><br>
+	
+	The <b>Designer</b> section defines the DesignerFx component settings:<br><br>
+	<table cellpadding="0" cellspacing="0" border="0" width="70%">
+		<tr><td><table class="border" cellpadding="0" cellspacing="1" border="0">
+			<tr>
+				<td class="property">AlwaysUpdateReportFileName</td>
+				<td class="text">Always update the report file name in the save event function. By default, the property is set to false.</td>
+			</tr><tr>
+				<td class="property">AutoSaveInterval</td>
+				<td class="text">Specifies the time interval (in minutes) through which the designer automatically calls the action to save the report. The default value is set to 0 minutes (auto-saving is disabled).</td>
+			</tr><tr>
+				<td class="property">DefaultPaperSize</td>
+				<td class="text">Sets the default paper size for new page. By default, the property is set to Custom value (none of the standard paper size is not specified).</td>
+			</tr><tr>
+				<td class="property">DefaultReportUnit</td>
+				<td class="text">Sets the default report unit for all components. By default, the property is set to Centimeters.</td>
+			</tr><tr>
+				<td class="property">DontAskSaveReport</td>
+				<td class="text">Disables the save report file name dialog. By default, the property is set to false.</td>
+			</tr><tr>
+				<td class="property">ExitUrl</td>
+				<td class="text">Specifies the URL address when clicking the Exit button in the main menu of the designer.</td>
+			</tr><tr>
+				<td class="property">RunWizardAfterLoad</td>
+				<td class="text">Enables displaying the window of the render report wizard when the designer runs. By default, the property is set to false.</td>
+			</tr><tr>
+				<td class="property">Title</td>
+				<td class="text">Specifies the title of the web browser window on the page on what the designer is placed. By default, the property has an empty value and, in this case, as the title of the browser window will be the name or alias of the report.</td>
+			</tr>
+		</table></td></tr>
+	</table><br>
+	
+	The <b>Designer / Appearance</b> section defines the appearance settings:<br><br>
+	<table cellpadding="0" cellspacing="0" border="0" width="70%">
+		<tr><td><table class="border" cellpadding="0" cellspacing="1" border="0">
+			<tr>
+				<td class="property">GridSizeCentimetres</td>
+				<td class="text">Specifies the grid size for the Centimetres units. By default, the property is set to 0.2.</td>
+			</tr><tr>
+				<td class="property">GridSizeHundredthsOfInch</td>
+				<td class="text">Specifies the grid size for the Hundredths of Inch units. By default, the property is set to 10.</td>
+			</tr><tr>
+				<td class="property">GridSizeInch</td>
+				<td class="text">Specifies the grid size for the Inch units. By default, the property is set to 0.1.</td>
+			</tr><tr>
+				<td class="property">GridSizeMillimeters</td>
+				<td class="text">Specifies the grid size for the Millimeters units. By default, the property is set to 2.</td>
+			</tr><tr>
+				<td class="property">SetReportModifiedWhenOpening</td>
+				<td class="text">Specifies the report, opened when the designer runs, as already changed. By default, the property is set to false.</td>
+			</tr><tr>
+				<td class="property">ShowMoreDetailsButton</td>
+				<td class="text">Enables displaying the More Details button in the error message. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowSaveFileDialog</td>
+				<td class="text">Enables displaying the dialog to insert a report name when it is saved. The name of the report will be transferred in the parameters of the report designer. By default, the property is set to false.</td>
+			</tr>
+		</table></td></tr>
+	</table><br>
+	
+	The <b>Designer / Database</b> section defines the databases settings:<br><br>
+	<table cellpadding="0" cellspacing="0" border="0" width="70%">
+		<tr><td><table class="border" cellpadding="0" cellspacing="1" border="0">
+			<tr>
+				<td class="property">AdapterFirebird</td>
+				<td class="text">Enables the Firebird database adapter for the designer. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">AdapterMongoDB</td>
+				<td class="text">Enables the MongoDB database adapter for the designer. By default, the property is set to false. Currently not supported.</td>
+			</tr><tr>
+				<td class="property">AdapterMySql</td>
+				<td class="text">Enables the MySQL database adapter for the designer. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">AdapterOdbc</td>
+				<td class="text">Enables the Odbc database adapter for the designer. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">AdapterOracle</td>
+				<td class="text">Enables the Oracle database adapter for the designer. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">AdapterPostgreSQL</td>
+				<td class="text">Enables the PostgreSQL database adapter for the designer. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">AdapterSql</td>
+				<td class="text">Enables the MS SQL database adapter for the designer. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">AdapterXmlData</td>
+				<td class="text">Enables the XML database adapter for the designer. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">AdapterVirtual</td>
+				<td class="text">Enables the Virtual data sources for the designer. By default, the property is set to true.</td>
+			</tr>
+		</table></td></tr>
+	</table><br>
+	
+	The <b>Designer / Dictionary</b> section defines the dictionary settings:<br><br>
+	<table cellpadding="0" cellspacing="0" border="0" width="70%">
+		<tr><td><table class="border" cellpadding="0" cellspacing="1" border="0">
+			<tr>
+				<td class="property">AllowModifyConnections</td>
+				<td class="text">Allows editing connections in the data dictionary. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">AllowModifyDataSources</td>
+				<td class="text">Allows editing data sources in the data dictionary. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">AllowModifyDictionary</td>
+				<td class="text">Allows editing data dictionary. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">AllowModifyRelations</td>
+				<td class="text">Allows editing connections in the data dictionary. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">AllowModifyVariables</td>
+				<td class="text">Allows editing variables in the data dictionary. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">CachePreviewData</td>
+				<td class="text">Enables cache for data rows. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowActionsMenu</td>
+				<td class="text">Enables showing the Actions menu in the data dictionary. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowConnectionType</td>
+				<td class="text">Enables showing the type of connection in the data dictionary. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowOnlyAliasForBusinessObject</td>
+				<td class="text">Enables showing the mode of showing aliases for business objects. By default, the property is set to false.</td>
+			</tr><tr>
+				<td class="property">ShowOnlyAliasForDatabase</td>
+				<td class="text">Enables showing the mode of showing aliases for connections. By default, the property is set to false.</td>
+			</tr><tr>
+				<td class="property">ShowOnlyAliasForDataColumn</td>
+				<td class="text">Enables showing the mode of showing aliases for columns. By default, the property is set to false.</td>
+			</tr><tr>
+				<td class="property">ShowOnlyAliasForDataRelation</td>
+				<td class="text">Enables showing the mode of showing aliases for relations. By default, the property is set to false.</td>
+			</tr><tr>
+				<td class="property">ShowOnlyAliasForDataSource</td>
+				<td class="text">Enables showing the mode of showing aliases for data sources. By default, the property is set to false.</td>
+			</tr><tr>
+				<td class="property">ShowOnlyAliasForVariable</td>
+				<td class="text">Enables showing the mode of showing aliases for variables. By default, the property is set to false.</td>
+			</tr><tr>
+				<td class="property">ShowTestConnectionButton</td>
+				<td class="text">Enables showing the Test button in the edit connection dialog. By default, the property is set to true.</td>
+			</tr>
+		</table></td></tr>
+	</table><br>
+	
+	The <b>Designer / MainMenu</b> section defines the file menu settings:<br><br>
+	<table cellpadding="0" cellspacing="0" border="0" width="70%">
+		<tr><td><table class="border" cellpadding="0" cellspacing="1" border="0">
+			<tr>
+				<td class="property">Caption</td>
+				<td class="text">Specifies the title of the main menu. By default, the standard title is used.</td>
+			</tr><tr>
+				<td class="property">ShowClose</td>
+				<td class="text">Enables showing the Close item of the main menu. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowExitButton</td>
+				<td class="text">Enables showing the Exit item of the main menu. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowNew</td>
+				<td class="text">Enables showing the New item of the main menu. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowNewPage</td>
+				<td class="text">Enables showing the New Page item of the main menu. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowNewReport</td>
+				<td class="text">Enables showing the New Report item of the main menu. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowNewReportWithWizard</td>
+				<td class="text">Enables showing the New Report With Wizard item of the main menu. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowOpenReport</td>
+				<td class="text">Enables showing the Open Report item of the main menu. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowSaveAs</td>
+				<td class="text">Enables showing the Save Report As item of the main menu. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowSaveReport</td>
+				<td class="text">Enables showing the Save Report item of the main menu. By default, the property is set to true.</td>
+			</tr>
+		</table></td></tr>
+	</table><br>
+	
+	The <b>Designer / Toolbar</b> section defines the settings of panels:<br><br>
+	<table cellpadding="0" cellspacing="0" border="0" width="70%">
+		<tr><td><table class="border" cellpadding="0" cellspacing="1" border="0">
+			<tr>
+				<td class="property">ShowAboutButton</td>
+				<td class="text">Enables showing the About item of the main menu. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowDictionaryTab</td>
+				<td class="text">Enables showing data dictionary. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowPreviewReportTab</td>
+				<td class="text">Enables showing the report preview window. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowSelectLanguage</td>
+				<td class="text">Enables a list of available localizations. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">Zoom</td>
+				<td class="text">Sets the zoom for displaying report pages. The default setting is Default value - latest zoom mode will be applied. The values are from 20 to 500 percent. Also it may have the following values: Default, OnePage, PageWidth, PageHeight.</td>
+			</tr>
+		</table></td></tr>
+	</table><br>
+	
+	The <b>Localizations</b> section defines the interface localization:<br><br>
+	<table cellpadding="0" cellspacing="0" border="0" width="70%">
+		<tr><td><table class="border" cellpadding="0" cellspacing="1" border="0">
+			<tr>
+				<td class="property">Localization</td>
+				<td class="text">Interface localization that will be loaded and applied by default. The value is the localization file name without extansion. For example, &lt;Localization&gt;en&lt;/Localization&gt;. The localization XML files should be located in the localization folder on the server side. If the Default value is specified to the localization, the previously selected localization will be applied.</td>
+			</tr>
+		</table></td></tr>
+	</table><br>
+	
+	The <b>Theme</b> section defines the interface theme:<br><br>
+	<table cellpadding="0" cellspacing="0" border="0" width="70%">
+		<tr><td><table class="border" cellpadding="0" cellspacing="1" border="0">
+			<tr>
+				<td class="property">Theme</td>
+				<td class="text">Specifies the theme of the components layout. The default value is Office2013. Also it may have the following values: Office2013, Blue, Silver, Black. The Silver and Black values are intended only for the ViewerFx component.</td>
+			</tr>
+		</table></td></tr>
+	</table><br>
+	
+	The <b>Print</b> section defines the print settings of the report:<br><br>
+	<table cellpadding="0" cellspacing="0" border="0" width="70%">
+		<tr><td><table class="border" cellpadding="0" cellspacing="1" border="0">
+			<tr>
+				<td class="property">AllowDefaultPrint</td>
+				<td class="text">Enables the Default report printing mode in the print report dialog box of the report viewer. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">AllowPrintToHtml</td>
+				<td class="text">Enables the Print as HTML report printing mode in the print report dialog box of the report viewer. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">AutoPageOrientation</td>
+				<td class="text">Enables automatic page rotation of the report if the report page orientation does not match the page orientation settings of the printer. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">AutoPageScale</td>
+				<td class="text">Enables automatic scaling of the report page to fit the paper size. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">PrintAsBitmap</td>
+				<td class="text">Enables report printing by means of a graphical snapshot of the report page. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowPrintDialog</td>
+				<td class="text">Enables displaying the report printing dialog box. If the print dialog is disabled, then, clicking the button, will immediately display the system print dialog, the report will be printed in the Default mode. By default, the property is set to true.</td>
+			</tr>
+		</table></td></tr>
+	</table><br>
+	
+	The <b>Viewer</b> section defines the ViewerFx component settings:<br><br>
+	<table cellpadding="0" cellspacing="0" border="0" width="70%">
+		<tr><td><table class="border" cellpadding="0" cellspacing="1" border="0">
+			<tr>
+				<td class="property">DefaultEmail</td>
+				<td class="text">Sets the default recipient email, i.e. the address to which the email with the attached report will be sent.</td>
+			</tr><tr>
+				<td class="property">ExitUrl</td>
+				<td class="text">Specifies the URL address when clicking the Exit button in the main toolbar of the viewer.</td>
+			</tr><tr>
+				<td class="property">Title</td>
+				<td class="text">Specifies the title of the web browser window on the page on what the viewer is placed. By default, the property has an empty value and, in this case, as the title of the browser window will be the name or alias of the report.</td>
+			</tr>
+		</table></td></tr>
+	</table><br>
+	
+	The <b>Viewer / Appearance</b> section defines the appearance settings:<br><br>
+	<table cellpadding="0" cellspacing="0" border="0" width="70%">
+		<tr><td><table class="border" cellpadding="0" cellspacing="1" border="0">
+			<tr>
+				<td class="property">AllowDrawSegmentMode</td>
+				<td class="text">Enables drawing the blue lines of the segmented report pages. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">AutoHideScrollbars</td>
+				<td class="text">Enables automatic hiding of report scrollbars, if they are not required. By default, the property is set to false.</td>
+			</tr><tr>
+				<td class="property">CurrentPageBorderColor</td>
+				<td class="text">Sets the border color of the selected (current) report page. By default, the property is set to Gold (or Blue for the Office2013 theme).</td>
+			</tr><tr>
+				<td class="property">OpenLinksTarget</td>
+				<td class="text">ESets the target window for opening the links contained in the report. By default, the property is set to _blank (new window).</td>
+			</tr><tr>
+				<td class="property">ShowEmailDialog</td>
+				<td class="text">Enables displaying settings for sending the report via email. If the dialog box is disabled, the email will be sent with the settings set on the server side. By default the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowEmailExportDialog</td>
+				<td class="text">Enables displaying export options dialog box when sending email. If the property is set to false, the export will be done with the default settings. By default the property is set to true.</td>
+			</tr><tr>
+				<td class="property">VariablesPanelColumns</td>
+				<td class="text">Sets the number of columns to display report parameters. By default, there are 2 columns.</td>
+			</tr><tr>
+				<td class="property">VariablesPanelEditorWidth</td>
+				<td class="text">Sets the width of editable fields in the parameters panel. The default width is 200 pixels.</td>
+			</tr>
+		</table></td></tr>
+	</table><br>
+	
+	The <b>Viewer / Exports</b> section defines the export settings, and also allows hide unnecessary export formats from the save menu:<br><br>
+	<table cellpadding="0" cellspacing="0" border="0" width="70%">
+		<tr><td><table class="border" cellpadding="0" cellspacing="1" border="0">
+			<tr>
+				<td class="property">Destination</td>
+				<td class="text">Sets the destination for exported report stream. The property may have the following values: Local - save file to local computer, Remote - send file to remote server, LocalAndRemote - save file to local computer, then send file to remote server. By default, the property is set to Local.</td>
+			</tr><tr>
+				<td class="property">ShowExportDialog</td>
+				<td class="text">Enables showing export options dialog box. If the property is false, the export will be done with the default settings. By default the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowExportToCsv</td>
+				<td class="text">Enables the export menu item CSV File. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowExportToDocument</td>
+				<td class="text">Enables the export menu item Document File. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowExportToExcel</td>
+				<td class="text">Enables the export menu item Microsoft Excel File. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowExportToExcel2007</td>
+				<td class="text">Enables the export menu item Microsoft Word 2007/2010 File. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowExportToHtml</td>
+				<td class="text">Enables the export menu item HMTL File. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowExportToHtml5</td>
+				<td class="text">Enables the export menu item HMTL5 File. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowExportToPdf</td>
+				<td class="text">Enables the export menu item Adobe PDF File. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowExportToRtf</td>
+				<td class="text">Enables the export menu item Rich Text File. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowExportToText</td>
+				<td class="text">Enables the export menu item Text File. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowExportToWord2007</td>
+				<td class="text">Enables the export menu item Microsoft Word 2007/2010 File. By default, the property is set to true.</td>
+			</tr>
+		</table></td></tr>
+	</table><br>
+	
+	The <b>Viewer / Toolbar</b> section defines the settings of the panels:<br><br>
+	<table cellpadding="0" cellspacing="0" border="0" width="70%">
+		<tr><td><table class="border" cellpadding="0" cellspacing="1" border="0">
+			<tr>
+				<td class="property">ShowAboutButton</td>
+				<td class="text">Enables showing the button - About - on the toolbar of the viewer. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowBookmarksButton</td>
+				<td class="text">Enables showing the button - Bookmarks - on the toolbar of the viewer. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowDesignButton</td>
+				<td class="text">Enables showing the button - Design - on the toolbar of the viewer. By default, the property is set to false.</td>
+			</tr><tr>
+				<td class="property">ShowExitButton</td>
+				<td class="text">Enables showing the button - Exit - on the toolbar of the viewer. By default, the property is set to false.</td>
+			</tr><tr>
+				<td class="property">ShowFindButton</td>
+				<td class="text">Enables showing the button - Find - on the toolbar of the viewer. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowFirstPageButton</td>
+				<td class="text">Enables showing the button - First Page -on the navigation panel of the viewer. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowFullScreenButton</td>
+				<td class="text">Enables showing the button - Full Screen - on the toolbar of the viewer. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowGoToPageButton</td>
+				<td class="text">Enables showing the button - Go To Page - on the navigation panel of the viewer. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowLastPageButton</td>
+				<td class="text">Enables showing the button - Last Page - on the navigation panel of the viewer. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowMainToolbar</td>
+				<td class="text">Enables showing the viewer main toolbar. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowNavigateToolbar</td>
+				<td class="text">Enables the navigation panel for the report. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowNextPageButton</td>
+				<td class="text">Enables showing the button - Next Page - on the navigation panel of the viewer. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowOpenButton</td>
+				<td  class="text">Enables showing the button - Open - on the toolbar of the viewer. By default, the property is set to false.</td>
+			</tr><tr>
+				<td class="property">ShowPageViewModeContinuousButton</td>
+				<td class="text">Enables showing the button - Continuous Page - on the report preview panel. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowPageViewModeMultipleButton</td>
+				<td  class="text">Enables showing the button - Multiple Page - on the report preview panel. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowPageViewModeSingleButton</td>
+				<td class="text">Enables showing the button - Single Page - on the report preview panel. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowParametersButton</td>
+				<td class="text">Enables showing the button - Parameters - on the toolbar of the viewer. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowParametersPanel</td>
+				<td class="text">Enables showing the parameters panel of the viewer. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowPreviousPageButton</td>
+				<td class="text">Enables showing the button - Previous Page - on the navigation panel of the viewer. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowPrintButton</td>
+				<td class="text">Enables showing the button - Print - on the toolbar of the viewer. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowSaveButton</td>
+				<td class="text">Enables showing the button - Save - on the toolbar of the viewer. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowSendEMailButton</td>
+				<td class="text">Enables showing the button - Send Email - on the toolbar of the viewer. By default, the property is set to false.</td>
+			</tr><tr>
+				<td class="property">ShowThumbnailsButton</td>
+				<td class="text">Enables showing report page thumbnails in the special panel of the viewer. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowViewModeToolbar</td>
+				<td class="text">Enables showing the report preview panel. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">ShowZoom</td>
+				<td class="text">Enables showing zoom buttons. By default, the property is set to true.</td>
+			</tr><tr>
+				<td class="property">Zoom</td>
+				<td class="text">Sets the zoom for displaying report pages. The default setting is Default value - latest zoom mode will be applied. The values are from 20 to 500 percent. Also it may have the following values: Default, OnePage, TwoPages, PageWidth.</td>
+			</tr>
+		</table></td></tr>
+	</table><br>
+	
+	</h2>
+	
+	<a href="index.html">Back</a><br><br>
+</body>
