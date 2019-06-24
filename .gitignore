@@ -1,4 +1,4 @@
-jdk
-jre
-sdk
-make
+/jdk/
+/jre/
+/sdk/
+/make/
