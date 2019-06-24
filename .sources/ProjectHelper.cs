@@ -375,8 +375,10 @@ namespace Builder
                 argument = String.Format(
                     //"-XX:MaxPermSize=256m -Xmx768m -XX:+UseParallelGC -jar {0}/lib/adt.jar -package -storetype pkcs12 -keystore Stimulsoft.p12 -storepass 112 {1}/{2} {3}/{4}-app.xml -C {1} {5}",
                     //"-XX:MaxPermSize=256m -Xmx768m -XX:+UseParallelGC -jar {0}/lib/adt.jar -package -storetype pkcs12 -keystore StimulsoftCertificate.pfx -storepass Vandals1002 -tsa none {1}/{2} {3}/{4}-app.xml -C {1} {5}",
-                    "-XX:MaxPermSize=256m -Xmx768m -XX:+UseParallelGC -jar {0}/lib/adt.jar -package -storetype pkcs12 -keystore StimulsoftCertificate.pfx -storepass Vandals1002 -tsa http://timestamp.digicert.com {1}/{2} {3}/{4}-app.xml -C {1} {5}",
                     //"-XX:MaxPermSize=256m -Xmx768m -XX:+UseParallelGC -jar {0}/lib/adt.jar -package -storetype pkcs12 -keystore StimulsoftCertificate.pfx -storepass Vandals1002 {1}/{2} {3}/{4}-app.xml -C {1} {5}",
+                    //"-XX:MaxPermSize=256m -Xmx768m -XX:+UseParallelGC -jar {0}/lib/adt.jar -package -storetype pkcs12 -keystore StimulsoftCertificate.pfx -storepass Vandals1002 -tsa http://timestamp.digicert.com {1}/{2} {3}/{4}-app.xml -C {1} {5}",
+                    //"-XX:MaxPermSize=256m -Xmx768m -XX:+UseParallelGC -jar {0}/lib/adt.jar -package -storetype pkcs12 -keystore d:\\Stimulsoft\\StimulsoftCertificate.p12 -storepass Vandals1002 -tsa http://timestamp.digicert.com {1}/{2} {3}/{4}-app.xml -C {1} {5}",
+                    "-XX:MaxPermSize=256m -Xmx768m -XX:+UseParallelGC -jar {0}/lib/adt.jar -package -storetype pkcs12 -keystore d:\\Stimulsoft\\Sign\\StimulsoftCertificate.pfx -storepass Vandals1002 -tsa http://timestamp.digicert.com {1}/{2} {3}/{4}-app.xml -C {1} {5}",
                     FlexSdkPath, TempPath, project.ProjectNameOutput + ".air", project.CompilingSrc, project.MainClass.Substring(0, project.MainClass.Length - 5), project.Output);
 
                 foreach (String packed in project.Packed)
