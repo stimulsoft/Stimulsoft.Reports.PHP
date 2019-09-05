@@ -11,7 +11,7 @@ namespace Builder
     class ProjectHelper
     {
         public static DialogForm Dialog = new DialogForm();
-        public static string FlexSources = @"D:\Stimulsoft\Reports.Flex\";
+        public static string FlexSources = @"D:\Stimulsoft\Stimulsoft.Reports.Flex\";
         public static string FlexSdkPath = "sdk";
         public static string TempPath = "temp";
         public static string JavaPath = "jre";
