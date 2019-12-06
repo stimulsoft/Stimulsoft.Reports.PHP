@@ -367,12 +367,15 @@ class StiHelper {
 					else command[p] = args[p];
 				}
 				
+				var isNullOrEmpty = function (value) {
+					return value == null || value === "" || value === undefined;
+				}
 				var json = JSON.stringify(command);
 				if (!callback) callback = function (message) {
-					if (Stimulsoft.System.StiError.errorMessageForm && !String.isNullOrEmpty(message)) {
+					if (Stimulsoft.System.StiError.errorMessageForm && !isNullOrEmpty(message)) {
 						var obj = JSON.parse(message);
-						if (!obj.success || !String.isNullOrEmpty(obj.notice)) {
-							var message = String.isNullOrEmpty(obj.notice) ? "There was some error" : obj.notice;
+						if (!obj.success || !isNullOrEmpty(obj.notice)) {
+							var message = isNullOrEmpty(obj.notice) ? "There was some error" : obj.notice;
 							Stimulsoft.System.StiError.errorMessageForm.show(message, obj.success);
 						}
 					}
