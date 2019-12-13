@@ -5,11 +5,19 @@ require_once 'adapters/mssql.php';
 require_once 'adapters/firebird.php';
 require_once 'adapters/postgresql.php';
 require_once 'adapters/oracle.php';
-require_once 'email/class.phpmailer.php';
-require_once 'email/class.pop3.php';
-require_once 'email/class.smtp.php';
-require_once 'email/PHPMailerAutoload.php';
 
+if (substr(PHP_VERSION, 0, 1) == '5') {
+	require_once 'phpmailer/v5/class.phpmailer.php';
+	require_once 'phpmailer/v5/class.pop3.php';
+	require_once 'phpmailer/v5/class.smtp.php';
+	require_once 'phpmailer/v5/PHPMailerAutoload.php';
+}
+else {
+	require_once 'phpmailer/v6/PHPMailer.php';
+	require_once 'phpmailer/v6/SMTP.php';
+	require_once 'phpmailer/v6/POP3.php';
+	require_once 'phpmailer/v6/Exception.php';
+}
 
 function stiErrorHandler($errNo, $errStr, $errFile, $errLine) {
 	$result = StiResult::error("[".$errNo."] ".$errStr." (".$errFile.", Line ".$errLine.")");
@@ -173,8 +181,8 @@ class StiHandler {
 		
 		// Detect auth mode
 		$auth = $settings->host != null && $settings->login != null && $settings->password != null;
-
-		$mail = new PHPMailer(true);
+		
+		$mail = substr(PHP_VERSION, 0, 1) == '5' ? new PHPMailer(true) : new PHPMailer\PHPMailer\PHPMailer(true);
 		if ($auth) $mail->IsSMTP();
 		try {
 			$mail->CharSet = $settings->charset;
