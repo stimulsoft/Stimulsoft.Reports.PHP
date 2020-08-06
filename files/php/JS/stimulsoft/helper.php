@@ -365,7 +365,9 @@ class StiHelper {
 			if (args) {
 				if (args.event == 'BeginProcessData') {
 					args.preventDefault = true;
-					if (args.database == 'XML' || args.database == 'JSON' || args.database == 'Excel' || args.database == 'Data from DataSet, DataTables')
+					if (args.database == 'XML' || args.database == 'JSON' || args.database == 'Excel')
+						return callback(null);
+					if (args.database == 'Data from DataSet, DataTables')
 						return callback(args);
 				}
 				var command = {};
