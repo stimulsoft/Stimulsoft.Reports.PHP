@@ -1,7 +1,0 @@
-@echo off
-chcp 1251
-c:
-cd "Program Files\Adobe\Adobe Flash Builder 4.7 (64 Bit)\sdks\4.6.0\bin"
-asdoc -main-title "Stimulsoft Reports.Flex Class Reference" -window-title "Stimulsoft Reports.Flex Class Reference" -source-path "e:\1\Stimulsoft_DesignerFx\src" -source-path+="e:\1\Stimulsoft_DesignerFx_Images2013\src" -source-path+="e:\1\Stimulsoft_DesignerFx_Images\src" -source-path+="e:\1\Stimulsoft_ViewerFx\src" -source-path+="e:\1\Stimulsoft_Report\src" -source-path+="e:\1\Stimulsoft_Base\src" -source-path+="e:\1\Stimulsoft_ControlsFx\src" -source-path+="e:\1\Stimulsoft_Database\src" -source-path+="e:\1\Stimulsoft_Preloader\src" -source-path+="e:\1\Stimulsoft_PropertyGrid\src" -source-path+="e:\1\Stimulsoft_Report_Check\src" -source-path+="e:\1\ApiProvider_Flex\src" -doc-sources "e:\1\Stimulsoft_DesignerFx\src" -doc-sources+="e:\1\Stimulsoft_DesignerFx_Images2013\src" -doc-sources+="e:\1\Stimulsoft_DesignerFx_Images\src" -doc-sources+="e:\1\Stimulsoft_ViewerFx\src" -doc-sources+="e:\1\Stimulsoft_Report\src" -doc-sources+="e:\1\Stimulsoft_Base\src" -doc-sources+="e:\1\Stimulsoft_ControlsFx\src" -doc-sources+="e:\1\Stimulsoft_Database\src" -doc-sources+="e:\1\Stimulsoft_Preloader\src" -doc-sources+="e:\1\Stimulsoft_PropertyGrid\src" -doc-sources+="e:\1\Stimulsoft_Report_Check\src" -doc-sources+="e:\1\ApiProvider_Flex\src" -output "d:\Stimulsoft\Flex\.Builder\ClassReference" -define+=CONFIG::Demo,false -define+=CONFIG::Release,false -define+=CONFIG::AspNet,true
-
-d:
