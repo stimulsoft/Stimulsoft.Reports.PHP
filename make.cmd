@@ -9,6 +9,8 @@ cd D:\Builder
 
 if "%build_version%"=="" ( 
 	echo Please specify the release version!
+	echo.
+	echo Usage: make version [product]
 	goto done
 )
 
@@ -78,3 +80,4 @@ echo -- Build
 :done
 cd D:\Builder
 echo.
+set /p key="Press Enter to exit "
