@@ -88,12 +88,20 @@ $handler->onEndExportReport = function ($event) {
 
 $handler->onEmailReport = function ($event) {
 	
-	// This data will be used when sending the report by mail. You must set the correct values.
+	// These parameters will be used when sending the report by email. You must set the correct values.
 	$event->settings->from = "******@gmail.com";
 	$event->settings->host = "smtp.gmail.com";
 	$event->settings->login = "******";
 	$event->settings->password = "******";
-	$event->settings->port = 465;
+	
+	// These parameters are optional.
+	//$event->settings->name = "John Smith";
+	//$event->settings->port = 465;
+	//$event->settings->cc[] = "copy1@gmail.com";
+	//$event->settings->bcc[] = "copy2@gmail.com";
+	//$event->settings->bcc[] = "copy3@gmail.com John Smith";
+	
+	return StiResult::success("Email sent successfully.");
 };
 
 $handler->onDesignReport = function ($event) {

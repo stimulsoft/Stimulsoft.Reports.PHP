@@ -147,7 +147,7 @@ class StiEmailSettings {
 	public $from = null;
 
 	// Name and surname of the sender
-	public $name = "John Smith";
+	public $name = null;
 
 	// Email address of the recipient
 	public $to = null;
@@ -178,6 +178,12 @@ class StiEmailSettings {
 
 	// Password
 	public $password = null;
+	
+	// The array of 'cc' addresses.
+	public $cc = array();
+	
+	// The array of 'bcc' addresses.
+	public $bcc = array();
 }
 
 class StiDatabaseEventArgs {

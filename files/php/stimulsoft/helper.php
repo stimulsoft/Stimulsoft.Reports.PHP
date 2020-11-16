@@ -69,6 +69,23 @@ class StiHandler {
 		return $result.$query;
 	}
 	
+	private function addAddress($param, $settings, $mail) {
+		$arr = $settings->$param;
+		
+		if ($arr != null && count($arr) > 0) {
+			if ($param == 'cc') $mail->clearCCs();
+			else $mail->clearBCCs();
+			
+			foreach ($arr as $value) {
+				$name = mb_strpos($value, ' ') > 0 ? mb_substr($value, mb_strpos($value, ' ')) : '';
+				$address = strlen($name) > 0 ? mb_substr($value, 0, mb_strpos($value, ' ')) : $value;
+				
+				if ($param == 'cc') $mail->addCC($address, $name);
+				else $mail->addBCC($address, $name);
+			}
+		}
+	}
+	
 	
 // Events
 
@@ -211,6 +228,10 @@ class StiHandler {
 				$mail->Username = $settings->login;
 				$mail->Password = $settings->password;
 			}
+			
+			// Fill CC and BCC
+			$this->addAddress('cc', $settings, $mail);
+			$this->addAddress('bcc', $settings, $mail);
 			
 			$mail->Send();
 		}
