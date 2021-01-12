@@ -73,9 +73,9 @@ xcopy ..\files\js\dbs\src\* Sources_%build_date%\DBS-JS\* /e /q
 if not "%build_pack%"=="" goto done
 
 :build
-echo.
-echo -- Build
-..\7z a -tzip -mx=7 -mmt8 -bsp2 "Build_%build_version%_%build_date%.zip" "Build_%build_version%_%build_date%" | findstr /i "Build_%build_version%_%build_date% everything warning error"
+REM echo.
+REM echo -- Build
+REM ..\7z a -tzip -mx=7 -mmt8 -bsp2 "Build_%build_version%_%build_date%.zip" "Build_%build_version%_%build_date%" | findstr /i "Build_%build_version%_%build_date% everything warning error"
 
 :done
 cd D:\Builder
