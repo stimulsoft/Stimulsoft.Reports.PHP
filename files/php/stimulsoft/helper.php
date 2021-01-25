@@ -5,6 +5,7 @@ require_once 'adapters/mssql.php';
 require_once 'adapters/firebird.php';
 require_once 'adapters/postgresql.php';
 require_once 'adapters/oracle.php';
+require_once 'adapters/odbc.php';
 
 if (substr(PHP_VERSION, 0, 1) == '5') {
 	require_once 'phpmailer/v5/class.phpmailer.php';
@@ -282,6 +283,7 @@ class StiHandler {
 			case StiDatabaseType::Firebird: $connection = new StiFirebirdAdapter(); break;
 			case StiDatabaseType::PostgreSQL: $connection = new StiPostgreSqlAdapter(); break;
 			case StiDatabaseType::Oracle: $connection = new StiOracleAdapter(); break;
+			case StiDatabaseType::ODBC: $connection = new StiOdbcAdapter(); break;
 		}
 		
 		if (isset($connection)) {

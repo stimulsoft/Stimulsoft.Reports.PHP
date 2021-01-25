@@ -26,6 +26,7 @@ class StiDatabaseType {
 	const PostgreSQL = "PostgreSQL";
 	const Firebird = "Firebird";
 	const Oracle = "Oracle";
+	const ODBC = "ODBC";
 }
 
 class StiEventType {
