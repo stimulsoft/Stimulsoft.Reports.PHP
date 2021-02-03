@@ -40,31 +40,51 @@ class StiHandler {
 		if (!isset($result)) $result = StiResult::success();
 		if ($result === true) return StiResult::success();
 		if ($result === false) return StiResult::error();
-		if (gettype($result) == "string") return StiResult::error($result);
+		if (gettype($result) == 'string') return StiResult::error($result);
 		if (isset($args)) $result->object = $args;
 		return $result;
 	}
 	
 	private function getQueryParameters($query) {
 		$result = array();
-		while (strpos($query, "{") !== false) {
-			$query = substr($query, strpos($query, "{") + 1);
-			$parameterName = substr($query, 0, strpos($query, "}"));
-			$result[$parameterName] = null;
+		
+		while (mb_strpos($query, '@') !== false) {
+			$query = mb_substr($query, mb_strpos($query, '@') + 1);
+			
+			$parameterName = '';
+			while (strlen($query) > 0) {
+				$char = mb_substr($query, 0, 1);
+				if (!preg_match('/[a-zA-Z0-9_-]/', $char)) break;
+				
+				$parameterName .= $char;
+				$query = mb_substr($query, 1);
+			}
+			
+			if (strlen($parameterName) > 0)
+				$result[$parameterName] = null;
 		}
 		
 		return $result;
 	}
 	
 	private function applyQueryParameters($query, $values) {
-		$result = "";
-		while (strpos($query, "{") !== false) {
-			$result .= substr($query, 0, strpos($query, "{"));
-			$query = substr($query, strpos($query, "{") + 1);
-			$parameterName = substr($query, 0, strpos($query, "}"));
+		$result = '';
+		
+		while (mb_strpos($query, '@') !== false) {
+			$result .= mb_substr($query, 0, mb_strpos($query, '@'));
+			$query = mb_substr($query, mb_strpos($query, '@') + 1);
+			
+			$parameterName = '';
+			while (strlen($query) > 0) {
+				$char = mb_substr($query, 0, 1);
+				if (!preg_match('/[a-zA-Z0-9_-]/', $char)) break;
+				
+				$parameterName .= $char;
+				$query = mb_substr($query, 1);
+			}
+			
 			if (isset($values) && isset($values[$parameterName]) && !is_null($values[$parameterName])) $result .= strval($values[$parameterName]);
-			else $result .= "{".$parameterName."}";
-			$query = substr($query, strpos($query, "}") + 1);
+			else $result .= '@'.$parameterName;
 		}
 		
 		return $result.$query;
@@ -89,6 +109,53 @@ class StiHandler {
 	
 	
 // Events
+
+	public $onPrepareVariables = null;
+	private function invokePrepareVariables($request) {
+		$args = new stdClass();
+		$args->sender = $request->sender;
+		
+		$args->variables = array();
+		if (isset($request->variables)) {
+			foreach ($request->variables as $item) {
+				$request->variables[$item->name] = $item;
+				$variableObject = new stdClass();
+				$variableObject->value = $item->value;
+				$variableObject->type = $item->type;
+				
+				if (substr($item->type, -5) === 'Range') {
+					$variableObject->value = new stdClass();
+					$variableObject->value->from = $item->value->from;
+					$variableObject->value->to = $item->value->to;
+				}
+				
+				$args->variables[$item->name] = $variableObject;
+			}
+		}
+		
+		$result = $this->checkEventResult($this->onPrepareVariables, $args);
+		
+		if (isset($result->object)) {
+			$variables = array();
+			foreach ($result->object->variables as $key => $item) {
+				// Send only changed or new values
+				if (!array_key_exists($key, $request->variables) || 
+					$item->value != $request->variables[$key]->value || 
+					substr($item->type, -5) === 'Range' && (
+						$item->value->from != $request->variables[$key]->value->from || 
+						$item->value->to != $request->variables[$key]->value->to)
+				) {
+					if (!is_object($item)) $item = (object)$item;
+					$item->name = $key;
+					array_push($variables, $item);
+				}
+			}
+			
+			$result->variables = $variables;
+		}
+		
+		return $result;
+	}
 
 	public $onBeginProcessData = null;
 	private function invokeBeginProcessData($request) {
@@ -314,6 +381,9 @@ class StiHandler {
 					if (isset($result->object) && isset($result->object->result)) return $result->object->result;
 					return $result;
 					
+				case StiEventType::PrepareVariables:
+					return $this->invokePrepareVariables($request);
+					
 				case StiEventType::CreateReport:
 					return $this->invokeCreateReport($request);
 					
@@ -401,21 +471,22 @@ class StiHelper {
 			}
 			var command = {};
 			for (var p in args) {
-				if (p == 'report' && args.report != null) command.report = JSON.parse(args.report.saveToJsonString());
-				else if (p == 'settings' && args.settings != null) command.settings = args.settings;
+				if (p == 'report') {
+					if (args.report && (args.event == 'SaveReport' || args.event == 'SaveAsReport'))
+						command.report = JSON.parse(args.report.saveToJsonString());
+				}
+				else if (p == 'settings' && args.settings) command.settings = args.settings;
 				else if (p == 'data') command.data = Stimulsoft.System.Convert.toBase64String(args.data);
+				else if (p == 'variables') command[p] = this.getVariables(args[p]);
 				else command[p] = args[p];
 			}
 			
-			var isNullOrEmpty = function (value) {
-				return value == null || value === '' || value === undefined;
-			}
 			var sendText = Stimulsoft.Report.Dictionary.StiSqlAdapterService.getStringCommand(command);
 			if (!callback) callback = function (message) {
-				if (Stimulsoft.System.StiError.errorMessageForm && !isNullOrEmpty(message)) {
+				if (Stimulsoft.System.StiError.errorMessageForm && !this.isNullOrEmpty(message)) {
 					var obj = JSON.parse(message);
-					if (!obj.success || !isNullOrEmpty(obj.notice)) {
-						var message = isNullOrEmpty(obj.notice) ? 'There was some error' : obj.notice;
+					if (!obj.success || !this.isNullOrEmpty(obj.notice)) {
+						var message = this.isNullOrEmpty(obj.notice) ? 'There was some error' : obj.notice;
 						Stimulsoft.System.StiError.errorMessageForm.show(message, obj.success);
 					}
 				}
@@ -454,6 +525,21 @@ class StiHelper {
 			request.abort();
 		}
 	};
+	
+	StiHelper.prototype.isNullOrEmpty = function (value) {
+		return value == null || value === '' || value === undefined;
+	}
+	
+	StiHelper.prototype.getVariables = function (variables) {
+		if (variables) {
+			for (var variable of variables) {
+				if (variable.type == 'DateTime' && variable.value != null)
+					variable.value = variable.value.toString('YYYY-MM-DD HH:mm:SS');
+			}
+		}
+		
+		return variables;
+	}
 	
 	StiHelper.prototype.getUrlVars = function (json, callback) {
 		var vars = {};

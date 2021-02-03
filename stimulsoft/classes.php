@@ -30,6 +30,7 @@ class StiDatabaseType {
 }
 
 class StiEventType {
+	const PrepareVariables = "PrepareVariables";
 	const ExecuteQuery = "ExecuteQuery";
 	const BeginProcessData = "BeginProcessData";
 	//const EndProcessData = "EndProcessData";
@@ -96,6 +97,7 @@ class StiRequest {
 		if (isset($obj->fileName)) $this->fileName = $obj->fileName;
 		if (isset($obj->format)) $this->format = $obj->format;
 		if (isset($obj->settings)) $this->settings = $obj->settings;
+		if (isset($obj->variables)) $this->variables = $obj->variables;
 		if (isset($obj->report)) {
 			$this->report = $obj->report;
 			if (defined('JSON_UNESCAPED_SLASHES'))
