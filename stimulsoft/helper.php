@@ -45,29 +45,7 @@ class StiHandler {
 		return $result;
 	}
 	
-	private function getQueryParameters($query) {
-		$result = array();
-		
-		while (mb_strpos($query, '@') !== false) {
-			$query = mb_substr($query, mb_strpos($query, '@') + 1);
-			
-			$parameterName = '';
-			while (strlen($query) > 0) {
-				$char = mb_substr($query, 0, 1);
-				if (!preg_match('/[a-zA-Z0-9_-]/', $char)) break;
-				
-				$parameterName .= $char;
-				$query = mb_substr($query, 1);
-			}
-			
-			if (strlen($parameterName) > 0)
-				$result[$parameterName] = null;
-		}
-		
-		return $result;
-	}
-	
-	private function applyQueryParameters($query, $values) {
+	private function applyQueryParameters($query, $parameters, $escape) {
 		$result = '';
 		
 		while (mb_strpos($query, '@') !== false) {
@@ -83,8 +61,28 @@ class StiHandler {
 				$query = mb_substr($query, 1);
 			}
 			
-			if (isset($values) && isset($values[$parameterName]) && !is_null($values[$parameterName])) $result .= strval($values[$parameterName]);
-			else $result .= '@'.$parameterName;
+			$replaced = false;
+			foreach ($parameters as $key => $item) {
+				if (strtolower($key) == strtolower($parameterName)) {
+					switch ($item->typeGroup) {
+						case 'number':
+							$result .= $item->value;
+							break;
+							
+						case 'datetime':
+							$result .= "'".$item->value."'";
+							break;
+							
+						default:
+							$result .= "'".($escape ? addcslashes($item->value, "\\\"'") : $item->value)."'";
+							break;
+					}
+					
+					$replaced = true;
+				}
+			}
+			
+			if (!$replaced) $result .= '@'.$parameterName;
 		}
 		
 		return $result.$query;
@@ -166,10 +164,18 @@ class StiHandler {
 		$args->queryString = isset($request->queryString) ? $request->queryString : null;
 		$args->dataSource = isset($request->dataSource) ? $request->dataSource : null;
 		$args->connection = isset($request->connection) ? $request->connection : null;
-		if (isset($request->queryString)) $args->parameters = $this->getQueryParameters($request->queryString);
+		if (isset($request->queryString) && isset($request->parameters)) {
+			$args->parameters = array();
+			foreach ($request->parameters as $item) {
+				$args->parameters[$item->name] = $item;
+				unset($item->name);
+			}
+		}
 		
 		$result = $this->checkEventResult($this->onBeginProcessData, $args);
-		if (isset($result->object->queryString) && isset($args->parameters)) $result->object->queryString = $this->applyQueryParameters($result->object->queryString, $args->parameters);
+		if (isset($result->object->queryString) && isset($args->parameters))
+			$result->object->queryString = $this->applyQueryParameters($result->object->queryString, $args->parameters, $request->escapeQueryParameters);
+		
 		return $result;
 	}
 	
@@ -539,15 +545,6 @@ class StiHelper {
 		}
 		
 		return variables;
-	}
-	
-	StiHelper.prototype.getUrlVars = function (json, callback) {
-		var vars = {};
-		var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
-			function (m, key, value) {
-				vars[key] = decodeURI(value);
-		});
-		return vars;
 	}
 	
 	function StiHelper(url, timeout) {
