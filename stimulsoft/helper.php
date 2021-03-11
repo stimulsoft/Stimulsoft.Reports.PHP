@@ -173,7 +173,7 @@ class StiHandler {
 		}
 		
 		$result = $this->checkEventResult($this->onBeginProcessData, $args);
-		if (isset($result->object->queryString) && isset($args->parameters))
+		if (isset($result->object->queryString) && isset($args->parameters) && count($args->parameters) > 0)
 			$result->object->queryString = $this->applyQueryParameters($result->object->queryString, $args->parameters, $request->escapeQueryParameters);
 		
 		return $result;
