@@ -67,11 +67,11 @@ $handler->onBeginProcessData = function ($args) {
 	*/
 	
 	
-	// You can send a successful result:
+	// You can send a successful result
 	return StiResult::success();
-	// You can send an informational message:
+	// You can send an informational message
 	//return StiResult::success("Warning or other useful information.");
-	// You can send an error message:
+	// You can send an error message
 	//return StiResult::error("A message about some connection error.");
 };
 
