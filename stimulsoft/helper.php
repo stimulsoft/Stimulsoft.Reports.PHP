@@ -159,6 +159,7 @@ class StiHandler {
 	private function invokeBeginProcessData($request) {
 		$args = new stdClass();
 		$args->sender = $request->sender;
+		$args->command = isset($request->queryString) ? "TestConnection" : "ExecuteQuery";
 		$args->database = $request->database;
 		$args->connectionString = isset($request->connectionString) ? $request->connectionString : null;
 		$args->queryString = isset($request->queryString) ? $request->queryString : null;

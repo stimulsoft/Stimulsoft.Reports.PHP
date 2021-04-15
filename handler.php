@@ -48,7 +48,7 @@ $handler->onBeginProcessData = function ($args) {
 	// You can change the connection string
 	/*
 	if ($connection == "MyConnectionName")
-		$args->connectionString = "Server=localhost;Database=test;Port=3306;";
+		$args->connectionString = "Server=localhost;Database=test;uid=root;password=******;";
 	*/
 	
 	// You can change the SQL query
