@@ -498,7 +498,7 @@ class StiHelper {
 					}
 				}
 			}
-			jsHelper.send(sendText, callback);
+			Stimulsoft.Helper.send(sendText, callback);
 		}
 	}
 	
@@ -562,12 +562,14 @@ class StiHelper {
 		}
 	}
 	
-	jsHelper = new StiHelper('<?php echo $handler; ?>', <?php echo $timeout; ?>);
+	Stimulsoft = Stimulsoft || {};
+	Stimulsoft.Helper = new StiHelper('<?php echo $handler; ?>', <?php echo $timeout; ?>);
+	jsHelper = jsHelper || Stimulsoft.Helper;
 </script>
 <?php
 	}
 	
 	public static function createHandler() {
-		?>jsHelper.process(arguments[0], arguments[1]);<?php
+		?>Stimulsoft.Helper.process(arguments[0], arguments[1]);<?php
 	}
 }

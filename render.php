@@ -34,7 +34,7 @@ require_once 'stimulsoft/helper.php';
 			report.onBeginProcessData = function (args, callback) {
 				
 				// Call the server-side handler
-				jsHelper.process(args, callback);
+				Stimulsoft.Helper.process(args, callback);
 			}
 			
 			*/
