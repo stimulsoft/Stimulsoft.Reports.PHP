@@ -21,6 +21,7 @@ class StiSender {
 class StiDatabaseType {
 	const XML = "XML";
 	const JSON = "JSON";
+	const Excel = "Excel";
 	const MySQL = "MySQL";
 	const MSSQL = "MS SQL";
 	const PostgreSQL = "PostgreSQL";
@@ -31,7 +32,6 @@ class StiDatabaseType {
 
 class StiEventType {
 	const PrepareVariables = "PrepareVariables";
-	const ExecuteQuery = "ExecuteQuery";
 	const BeginProcessData = "BeginProcessData";
 	//const EndProcessData = "EndProcessData";
 	const CreateReport = "CreateReport";
@@ -43,6 +43,11 @@ class StiEventType {
 	const EndExportReport = "EndExportReport";
 	const EmailReport = "EmailReport";
 	const DesignReport = "DesignReport";
+}
+
+class StiCommand {
+	const TestConnection = "TestConnection";
+	const ExecuteQuery = "ExecuteQuery";
 }
 
 class StiExportFormat {
@@ -85,8 +90,8 @@ class StiRequest {
 		}
 		
 		if (isset($obj->sender)) $this->sender = $obj->sender;
-		if (isset($obj->command)) $this->event = $obj->command;
 		if (isset($obj->event)) $this->event = $obj->event;
+		if (isset($obj->command)) $this->command = $obj->command;
 		if (isset($obj->connectionString)) $this->connectionString = $obj->connectionString;
 		if (isset($obj->queryString)) $this->queryString = $obj->queryString;
 		if (isset($obj->database)) $this->database = $obj->database;

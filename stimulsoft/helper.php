@@ -21,14 +21,14 @@ else {
 }
 
 function stiErrorHandler($errNo, $errStr, $errFile, $errLine) {
-	$result = StiResult::error("[".$errNo."] ".$errStr." (".$errFile.", Line ".$errLine.")");
+	$result = StiResult::error("[$errNo] $errStr ($errFile, Line $errLine)");
 	StiResponse::json($result);
 }
 
 function stiShutdownFunction() {
 	$err = error_get_last();
-	if ($err != null && (($err["type"] & E_COMPILE_ERROR) || ($err["type"] & E_ERROR) || ($err["type"] & E_CORE_ERROR) || ($err["type"] & E_RECOVERABLE_ERROR))) {
-		$result = StiResult::error("[".$err["type"]."] ".$err["message"]." (".$err["file"].", Line ".$err["line"].")");
+	if ($err != null && (($err['type'] & E_COMPILE_ERROR) || ($err['type'] & E_ERROR) || ($err['type'] & E_CORE_ERROR) || ($err['type'] & E_RECOVERABLE_ERROR))) {
+		$result = StiResult::error("[{$err['type']}] {$err['message']} ({$err['file']}, Line {$err['line']})");
 		StiResponse::json($result);
 	}
 }
@@ -159,7 +159,7 @@ class StiHandler {
 	private function invokeBeginProcessData($request) {
 		$args = new stdClass();
 		$args->sender = $request->sender;
-		$args->command = isset($request->queryString) ? "TestConnection" : "ExecuteQuery";
+		$args->command = $request->command;
 		$args->database = $request->database;
 		$args->connectionString = isset($request->connectionString) ? $request->connectionString : null;
 		$args->queryString = isset($request->queryString) ? $request->queryString : null;
@@ -337,8 +337,8 @@ class StiHandler {
 	
 	public function registerErrorHandlers() {
 		error_reporting(0);
-		set_error_handler("stiErrorHandler");
-		register_shutdown_function("stiShutdownFunction");
+		set_error_handler('stiErrorHandler');
+		register_shutdown_function('stiShutdownFunction');
 	}
 	
 	public function process($response = true) {
@@ -374,15 +374,23 @@ class StiHandler {
 		if ($result->success) {
 			switch ($request->event) {
 				case StiEventType::BeginProcessData:
-				case StiEventType::ExecuteQuery:
 					$result = $this->invokeBeginProcessData($request);
 					if (!$result->success) return $result;
 					$queryString = $result->object->queryString;
 					$result = $this->createConnection($result->object);
 					if (!$result->success) return $result;
 					$connection = $result->object;
-					if (isset($queryString)) $result = $connection->execute($queryString);
-					else $result = $connection->test();
+					
+					switch ($request->command) {
+						case StiCommand::TestConnection:
+							$result = $connection->test();
+							break;
+							
+						case StiCommand::ExecuteQuery:
+							$result = $connection->execute($queryString);
+							break;
+					}
+					
 					$result = $this->invokeEndProcessData($request, $result);
 					if (!$result->success) return $result;
 					if (isset($result->object) && isset($result->object->result)) return $result->object->result;
@@ -561,10 +569,10 @@ class StiHelper {
 			Stimulsoft.Base.StiLicense.loadFromFile("stimulsoft/license.php");
 		}
 	}
-	
+
 	Stimulsoft = Stimulsoft || {};
 	Stimulsoft.Helper = new StiHelper('<?php echo $handler; ?>', <?php echo $timeout; ?>);
-	jsHelper = jsHelper || Stimulsoft.Helper;
+	jsHelper = typeof jsHelper !== 'undefined' ? jsHelper : Stimulsoft.Helper;
 </script>
 <?php
 	}
