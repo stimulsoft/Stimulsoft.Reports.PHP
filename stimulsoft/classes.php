@@ -33,7 +33,6 @@ class StiDatabaseType {
 class StiEventType {
 	const PrepareVariables = "PrepareVariables";
 	const BeginProcessData = "BeginProcessData";
-	//const EndProcessData = "EndProcessData";
 	const CreateReport = "CreateReport";
 	const OpenReport = "OpenReport";
 	const SaveReport = "SaveReport";
@@ -92,6 +91,7 @@ class StiRequest {
 		if (isset($obj->sender)) $this->sender = $obj->sender;
 		if (isset($obj->event)) $this->event = $obj->event;
 		if (isset($obj->command)) $this->command = $obj->command;
+		if (!isset($obj->event) && isset($obj->command) && ($obj->command == StiCommand::TestConnection || StiCommand::ExecuteQuery)) $this->event = StiEventType::BeginProcessData;
 		if (isset($obj->connectionString)) $this->connectionString = $obj->connectionString;
 		if (isset($obj->queryString)) $this->queryString = $obj->queryString;
 		if (isset($obj->database)) $this->database = $obj->database;
