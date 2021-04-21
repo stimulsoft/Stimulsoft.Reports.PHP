@@ -184,6 +184,10 @@ class StiHandler {
 	private function invokeEndProcessData($request, $result) {
 		$args = new stdClass();
 		$args->sender = $request->sender;
+		$args->command = $request->command;
+		$args->database = $request->database;
+		$args->dataSource = isset($request->dataSource) ? $request->dataSource : null;
+		$args->connection = isset($request->connection) ? $request->connection : null;
 		$args->result = $result;
 		return $this->checkEventResult($this->onEndProcessData, $args);
 	}
