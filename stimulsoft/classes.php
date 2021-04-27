@@ -19,9 +19,6 @@ class StiSender {
 }
 
 class StiDatabaseType {
-	const XML = "XML";
-	const JSON = "JSON";
-	const Excel = "Excel";
 	const MySQL = "MySQL";
 	const MSSQL = "MS SQL";
 	const PostgreSQL = "PostgreSQL";
@@ -50,12 +47,23 @@ class StiCommand {
 }
 
 class StiExportFormat {
-	const Html = "Html";
-	const Html5 = "Html5";
-	const Pdf = "Pdf";
-	const Excel2007 = "Excel2007";
-	const Word2007 = "Word2007";
-	const Csv = "Csv";
+	const Pdf = 1;
+	const Text = 11;
+	const Excel2007 = 14;
+	const Word2007 = 15;
+	const Csv = 17;
+	const ImageSvg = 28;
+	const Html = 32;
+	const Ods = 33;
+	const Odt = 34;
+	const Ppt2007 = 35;
+	const Html5 = 36;
+	const Document = 1000;
+}
+
+class StiExportAction {
+	const ExportReport = 1;
+	const SendEmail = 2;
 }
 
 class StiRequest {
@@ -100,6 +108,8 @@ class StiRequest {
 		if (isset($obj->timeout)) $this->timeout = $obj->timeout;
 		if (isset($obj->data)) $this->data = $obj->data;
 		if (isset($obj->fileName)) $this->fileName = $obj->fileName;
+		if (isset($obj->action)) $this->action = $obj->action;
+		if (isset($obj->printAction)) $this->printAction = $obj->printAction;
 		if (isset($obj->format)) $this->format = $obj->format;
 		if (isset($obj->settings)) $this->settings = $obj->settings;
 		if (isset($obj->variables)) $this->variables = $obj->variables;
@@ -125,8 +135,7 @@ class StiRequest {
 class StiResponse {
 	public static function json($result, $exit = true) {
 		unset($result->object);
-		if (defined('JSON_UNESCAPED_SLASHES')) echo json_encode($result, JSON_UNESCAPED_SLASHES);
-		else echo json_encode($result);
+		echo defined('JSON_UNESCAPED_SLASHES') ? json_encode($result, JSON_UNESCAPED_SLASHES) : json_encode($result);
 		if ($exit) exit;
 	}
 }

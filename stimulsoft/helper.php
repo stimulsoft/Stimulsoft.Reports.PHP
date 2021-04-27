@@ -105,6 +105,25 @@ class StiHandler {
 		}
 	}
 	
+	private function getExportFormatName($format) {
+		switch ($format) {
+			case StiExportFormat::Pdf: return 'Pdf';
+			case StiExportFormat::Text: return 'Text';
+			case StiExportFormat::Excel2007: return 'Excel2007';
+			case StiExportFormat::Word2007: return 'Word2007';
+			case StiExportFormat::Csv: return 'Csv';
+			case StiExportFormat::ImageSvg: return 'ImageSvg';
+			case StiExportFormat::Html: return 'Html';
+			case StiExportFormat::Ods: return 'Ods';
+			case StiExportFormat::Odt: return 'Odt';
+			case StiExportFormat::Ppt2007: return 'Ppt2007';
+			case StiExportFormat::Html5: return 'Html5';
+			case StiExportFormat::Document: return 'Document';
+		}
+		
+		return $format;
+	}
+	
 	
 // Events
 
@@ -231,6 +250,7 @@ class StiHandler {
 		$args = new stdClass();
 		$args->sender = $request->sender;
 		$args->fileName = $request->fileName;
+		$args->printAction = $request->printAction;
 		return $this->checkEventResult($this->onPrintReport, $args);
 	}
 	
@@ -238,10 +258,17 @@ class StiHandler {
 	private function invokeBeginExportReport($request) {
 		$args = new stdClass();
 		$args->sender = $request->sender;
-		$args->settings = $request->settings;
+		$args->action = $request->action;
 		$args->format = $request->format;
+		$args->formatName = $this->getExportFormatName($request->format);
+		$args->settings = $request->settings;
 		$args->fileName = $request->fileName;
-		return $this->checkEventResult($this->onBeginExportReport, $args);
+		
+		$result = $this->checkEventResult($this->onBeginExportReport, $args);
+		$result->fileName = $args->fileName;
+		$result->settings = $args->settings;
+		
+		return $result;
 	}
 	
 	public $onEndExportReport = null;
@@ -249,6 +276,7 @@ class StiHandler {
 		$args = new stdClass();
 		$args->sender = $request->sender;
 		$args->format = $request->format;
+		$args->formatName = $this->getExportFormatName($request->format);
 		$args->fileName = $request->fileName;
 		$args->data = $request->data;
 		return $this->checkEventResult($this->onEndExportReport, $args);
@@ -481,13 +509,16 @@ class StiHelper {
 <script type="text/javascript">
 	StiHelper.prototype.process = function (args, callback) {
 		if (args) {
-			if (args.event == 'BeginProcessData') {
+			if (callback)
 				args.preventDefault = true;
+			
+			if (args.event == 'BeginProcessData') {
 				if (args.database == 'XML' || args.database == 'JSON' || args.database == 'Excel')
 					return callback(null);
 				if (args.database == 'Data from DataSet, DataTables')
 					return callback(args);
 			}
+			
 			var command = {};
 			for (var p in args) {
 				if (p == 'report') {
@@ -526,21 +557,28 @@ class StiHelper {
 				if (request.status == 200) {
 					var responseText = request.responseText;
 					request.abort();
-					callback(responseText);
+					
+					try {
+						var args = JSON.parse(responseText);
+						callback(args);
+					}
+					catch (e) {
+						Stimulsoft.System.StiError.showError(e.message);
+					}
 				}
 				else {
-					Stimulsoft.System.StiError.showError('[' + request.status + '] ' + request.statusText, false);
+					Stimulsoft.System.StiError.showError('Server response error: [' + request.status + '] ' + request.statusText);
 				}
 			};
 			request.onerror = function (e) {
 				var errorMessage = 'Connect to remote error: [' + request.status + '] ' + request.statusText;
-				Stimulsoft.System.StiError.showError(errorMessage, false);
+				Stimulsoft.System.StiError.showError(errorMessage);
 			};
 			request.send(json);
 		}
 		catch (e) {
 			var errorMessage = 'Connect to remote error: ' + e.message;
-			Stimulsoft.System.StiError.showError(errorMessage, false);
+			Stimulsoft.System.StiError.showError(errorMessage);
 			request.abort();
 		}
 	};
