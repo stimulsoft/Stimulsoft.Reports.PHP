@@ -111,6 +111,7 @@ class StiRequest {
 		if (isset($obj->action)) $this->action = $obj->action;
 		if (isset($obj->printAction)) $this->printAction = $obj->printAction;
 		if (isset($obj->format)) $this->format = $obj->format;
+		if (isset($obj->formatName)) $this->formatName = $obj->formatName;
 		if (isset($obj->settings)) $this->settings = $obj->settings;
 		if (isset($obj->variables)) $this->variables = $obj->variables;
 		if (isset($obj->parameters)) $this->parameters = $obj->parameters;

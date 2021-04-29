@@ -105,25 +105,6 @@ class StiHandler {
 		}
 	}
 	
-	private function getExportFormatName($format) {
-		switch ($format) {
-			case StiExportFormat::Pdf: return 'Pdf';
-			case StiExportFormat::Text: return 'Text';
-			case StiExportFormat::Excel2007: return 'Excel2007';
-			case StiExportFormat::Word2007: return 'Word2007';
-			case StiExportFormat::Csv: return 'Csv';
-			case StiExportFormat::ImageSvg: return 'ImageSvg';
-			case StiExportFormat::Html: return 'Html';
-			case StiExportFormat::Ods: return 'Ods';
-			case StiExportFormat::Odt: return 'Odt';
-			case StiExportFormat::Ppt2007: return 'Ppt2007';
-			case StiExportFormat::Html5: return 'Html5';
-			case StiExportFormat::Document: return 'Document';
-		}
-		
-		return $format;
-	}
-	
 	
 // Events
 
@@ -260,7 +241,7 @@ class StiHandler {
 		$args->sender = $request->sender;
 		$args->action = $request->action;
 		$args->format = $request->format;
-		$args->formatName = $this->getExportFormatName($request->format);
+		$args->formatName = $request->formatName;
 		$args->settings = $request->settings;
 		$args->fileName = $request->fileName;
 		
@@ -276,8 +257,9 @@ class StiHandler {
 		$args = new stdClass();
 		$args->sender = $request->sender;
 		$args->format = $request->format;
-		$args->formatName = $this->getExportFormatName($request->format);
+		$args->formatName = $request->formatName;
 		$args->fileName = $request->fileName;
+		$args->fileExtension = $this->getFileExtension($request->format);
 		$args->data = $request->data;
 		return $this->checkEventResult($this->onEndExportReport, $args);
 	}
@@ -294,6 +276,7 @@ class StiHandler {
 		$args->sender = $request->sender;
 		$args->settings = $settings;
 		$args->format = $request->format;
+		$args->formatName = $request->formatName;
 		$args->fileName = $request->fileName;
 		$args->data = base64_decode($request->data);
 		
@@ -467,12 +450,11 @@ class StiHandler {
 	
 	private function getFileExtension($format) {
 		switch ($format) {
-			case StiExportFormat::Html:
-			case StiExportFormat::Html5:
-				return "html";
-				
 			case StiExportFormat::Pdf:
 				return "pdf";
+				
+			case StiExportFormat::Text:
+				return "txt";
 				
 			case StiExportFormat::Excel2007:
 				return "xlsx";
@@ -482,14 +464,33 @@ class StiHandler {
 				
 			case StiExportFormat::Csv:
 				return "csv";
+				
+			case StiExportFormat::ImageSvg:
+				return "svg";
+				
+			case StiExportFormat::Html:
+			case StiExportFormat::Html5:
+				return "html";
+				
+			case StiExportFormat::Ods:
+				return "ods";
+				
+			case StiExportFormat::Odt:
+				return "odt";
+				
+			case StiExportFormat::Ppt2007:
+				return "pptx";
+				
+			case StiExportFormat::Document:
+				return "mdc";
 		}
-		return "";
+		
+		return $format;
 	}
 }
 
 
 // JavaScript helper
-
 
 class StiHelper {
 	public static function createOptions() {
@@ -532,13 +533,10 @@ class StiHelper {
 			}
 			
 			var sendText = Stimulsoft.Report.Dictionary.StiSqlAdapterService.getStringCommand(command);
-			if (!callback) callback = function (message) {
-				if (Stimulsoft.System.StiError.errorMessageForm && !this.isNullOrEmpty(message)) {
-					var obj = JSON.parse(message);
-					if (!obj.success || !this.isNullOrEmpty(obj.notice)) {
-						var message = this.isNullOrEmpty(obj.notice) ? 'There was some error' : obj.notice;
-						Stimulsoft.System.StiError.errorMessageForm.show(message, obj.success);
-					}
+			if (!callback) callback = function (args) {
+				if (!args.success || !Stimulsoft.System.StiString.isNullOrEmpty(args.notice)) {
+					var message = Stimulsoft.System.StiString.isNullOrEmpty(args.notice) ? 'There was some error' : args.notice;
+					Stimulsoft.System.StiError.showError(message, true, args.success);
 				}
 			}
 			Stimulsoft.Helper.send(sendText, callback);
