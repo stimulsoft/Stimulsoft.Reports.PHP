@@ -339,14 +339,6 @@ class StiHandler {
 		return $result;
 	}
 	
-	public $onDesignReport = null;
-	private function invokeDesignReport($request) {
-		$args = new stdClass();
-		$args->sender = $request->sender;
-		$args->fileName = $request->fileName;
-		return $this->checkEventResult($this->onDesignReport, $args);
-	}
-	
 	
 // Methods
 	
@@ -437,9 +429,6 @@ class StiHandler {
 						
 				case StiEventType::EmailReport:
 					return $this->invokeEmailReport($request);
-					
-				case StiEventType::DesignReport;
-					return $this->invokeDesignReport($request);
 			}
 			
 			$result = StiResult::error("Unknown event [".$request->event."]");
