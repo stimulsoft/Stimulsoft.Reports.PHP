@@ -64,7 +64,7 @@ require_once 'stimulsoft/helper.php';
 		/*
 		
 		// Save report template on the server side.
-		designer.onSaveReport = function (args) {
+		designer.onSaveReport = function (args, callback) {
 			
 			// Call the server-side handler
 			Stimulsoft.Helper.process(args, callback);
