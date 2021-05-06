@@ -61,9 +61,11 @@ $handler->onBeginProcessData = function ($args) {
 	// You can change the SQL query parameters with the required values
 	// For example: SELECT * FROM @Parameter1 WHERE Id = @Parameter2 AND Date > @Parameter3
 	/*
-	$args->parameters['Parameter1']->value = 'TableName';
-	$args->parameters['Parameter2']->value = 10;
-	$args->parameters['Parameter3']->value = '2019-01-20';
+	if ($dataSource == 'MyDataSourceWithParams') {
+		$args->parameters['Parameter1']->value = 'TableName';
+		$args->parameters['Parameter2']->value = 10;
+		$args->parameters['Parameter3']->value = '2019-01-20';
+	}
 	*/
 	
 	
