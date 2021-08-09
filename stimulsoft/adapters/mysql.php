@@ -271,7 +271,7 @@ class StiMySqlAdapter {
 				
 				if ($query->num_rows > 0) {
 					$isColumnsEmpty = count($result->columns) == 0;
-					while ($rowItem = $query->fetch_assoc()) {
+					while ($rowItem = $isColumnsEmpty ? $query->fetch_assoc() : $query->fetch_row()) {
 						$row = array();
 						foreach ($rowItem as $key => $value) {
 							if ($isColumnsEmpty && count($result->columns) < count($rowItem)) $result->columns[] = $key;
