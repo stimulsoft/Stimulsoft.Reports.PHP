@@ -10,9 +10,9 @@
 	Stimulsoft Reports.PHP - Quick Start
 	<hr><br>
 	<a href="viewer.php">Open Viewer</a><br>
-	<a href="designer.php">Open Designer</a><br>
-	<a href="render.php">Export Report</a><br><br>
+	<a href="designer.php">Open Designer</a><br><br>
 	<a href="activate.php">How to Activate</a><br>
-	<a href="https://www.stimulsoft.com/en/documentation">Documentation</a><br>
+	<a href="https://github.com/stimulsoft/Samples-JS-PHP" target="_blank">Samples</a><br>
+	<a href="https://www.stimulsoft.com/en/documentation" target="_blank">Documentation</a><br>
 </body>
 </html>
