@@ -192,9 +192,11 @@ class StiFirebirdAdapter {
 				return base64_encode($value);
 			
 			case 'datetime':
+				if (strlen($value) == 0) return null;
 				return date("Y-m-d\TH:i:s.v", strtotime($value));
 			
 			case 'time':
+				if (strlen($value) == 0) return null;
 				return date("H:i:s.v", strtotime($value));
 				
 			case 'string':
