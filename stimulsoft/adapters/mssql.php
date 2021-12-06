@@ -281,6 +281,7 @@ class StiMsSqlAdapter {
 				return date("Y-m-d\TH:i:s.v", strtotime($value));
 				
 			case 'datetimeoffset':
+				if (strlen($value) == 0) return null;
 				$offset = substr($value, strpos($value, '+'));
 				$value = substr($value, 0, strpos($value, '+'));
 				return date("Y-m-d\TH:i:s.v", strtotime($value)).$offset;
