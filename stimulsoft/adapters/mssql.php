@@ -272,22 +272,22 @@ class StiMsSqlAdapter {
 	}
 	
 	public function getValue($type, $value) {
+		if ($value == null || strlen($value) == 0)
+			return null;
+		
 		switch ($type) {
 			case 'array':
 				return base64_encode($value);
 			
 			case 'datetime':
-				if (strlen($value) == 0) return null;
 				return date("Y-m-d\TH:i:s.v", strtotime($value));
 				
 			case 'datetimeoffset':
-				if (strlen($value) == 0) return null;
 				$offset = substr($value, strpos($value, '+'));
 				$value = substr($value, 0, strpos($value, '+'));
 				return date("Y-m-d\TH:i:s.v", strtotime($value)).$offset;
 			
 			case 'time':
-				if (strlen($value) == 0) return null;
 				return date("H:i:s.v", strtotime($value));
 		}
 		

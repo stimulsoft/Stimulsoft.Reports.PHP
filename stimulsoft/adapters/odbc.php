@@ -152,16 +152,17 @@ class StiOdbcAdapter {
 	}
 	
 	public function getValue($type, $value) {
+		if ($value == null || strlen($value) == 0)
+			return null;
+		
 		switch ($type) {
 			case 'array':
 				return base64_encode($value);
 			
 			case 'datetime':
-				if (strlen($value) == 0) return null;
 				return date("Y-m-d\TH:i:s.v", strtotime($value));
 			
 			case 'time':
-				if (strlen($value) == 0) return null;
 				return date("H:i:s.v", strtotime($value));
 		}
 		

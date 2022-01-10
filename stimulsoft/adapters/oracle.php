@@ -190,12 +190,14 @@ class StiOracleAdapter {
 	}
 	
 	public function getValue($type, $value) {
+		if ($value == null || strlen($value) == 0)
+			return null;
+		
 		switch ($type) {
 			case 'array':
 				return base64_encode($value);
 			
 			case 'datetime':
-				if (strlen($value) == 0) return null;
 				$timestamp = DateTime::createFromFormat("d#M#y H#i#s*A", $value);
 				return $timestamp !== false ? $timestamp->format("Y-m-d\TH:i:s.v") : date("Y-m-d\TH:i:s.v", strtotime($value));
 		}
