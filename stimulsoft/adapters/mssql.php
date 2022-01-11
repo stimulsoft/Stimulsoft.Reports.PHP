@@ -1,6 +1,6 @@
 <?php
 class StiMsSqlAdapter {
-	public $version = '2022.1.2';
+	public $version = '2022.1.3';
 	public $checkVersion = true;
 	
 	private $info = null;
@@ -272,7 +272,7 @@ class StiMsSqlAdapter {
 	}
 	
 	public function getValue($type, $value) {
-		if ($value == null || strlen($value) == 0)
+		if (is_null($value) || strlen($value) == 0)
 			return null;
 		
 		switch ($type) {
