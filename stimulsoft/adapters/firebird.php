@@ -195,10 +195,16 @@ class StiFirebirdAdapter {
 				return base64_encode($value);
 			
 			case 'datetime':
-				return date("Y-m-d\TH:i:s.v", strtotime($value));
+				$timestamp = strtotime($value);
+				$format = date("Y-m-d\TH:i:s.v", $timestamp);
+				if (strpos($format, '.v') > 0) $format = date("Y-m-d\TH:i:s.000", $timestamp);
+				return $format;
 			
 			case 'time':
-				return date("H:i:s.v", strtotime($value));
+				$timestamp = strtotime($value);
+				$format = date("H:i:s.v", $timestamp);
+				if (strpos($format, '.v') > 0) $format = date("H:i:s.000", $timestamp);
+				return $format;
 				
 			case 'string':
 				return utf8_encode($value);
