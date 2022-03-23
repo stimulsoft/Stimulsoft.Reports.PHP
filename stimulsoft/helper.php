@@ -539,7 +539,7 @@ class StiHelper {
 				else command[p] = args[p];
 			}
 			
-			var sendText = Stimulsoft.Report.Dictionary.StiSqlAdapterService.getStringCommand(command);
+			var sendText = Stimulsoft.Report.Dictionary.StiSqlAdapterService.encodeCommand(command);
 			if (!callback) callback = function (args) {
 				if (!args.success || !Stimulsoft.System.StiString.isNullOrEmpty(args.notice)) {
 					var message = Stimulsoft.System.StiString.isNullOrEmpty(args.notice) ? 'There was some error' : args.notice;
