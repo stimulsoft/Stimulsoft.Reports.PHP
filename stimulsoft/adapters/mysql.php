@@ -261,6 +261,8 @@ class StiMySqlAdapter {
 				return base64_encode($value);
 			
 			case 'datetime':
+                // Replace invalid dates with NULL
+                if ($value == "0000-00-00 00:00:00") return null;
 				$timestamp = strtotime($value);
 				$format = date("Y-m-d\TH:i:s.v", $timestamp);
 				if (strpos($format, '.v') > 0) $format = date("Y-m-d\TH:i:s.000", $timestamp);
