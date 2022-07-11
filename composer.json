@@ -1,0 +1,36 @@
+{
+  "name": "stimulsoft/stimulsoft.reports.php",
+  "description": "Stimulsoft.Reports distribution for PHP",
+  "homepage": "https://www.stimulsoft.com/",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "require": {
+    "php": ">=5.3",
+    "phpmailer/phpmailer": "^v5.2|^6.6",
+    "ext-mbstring": "*",
+    "ext-json": "*"
+  },
+  "suggest": {
+    "ext-pdo": "*",
+    "ext-oci8": "*",
+    "ext-interbase": "*",
+    "ext-pgsql": "*",
+    "ext-odbc": "*",
+    "ext-sqlsrv": "*",
+    "ext-mssql": "*",
+    "ext-mysqli": "*"
+  },
+  "autoload": {
+    "classmap": [
+      "stimulsoft/adapters/classes.php",
+      "stimulsoft/adapters/firebird.php",
+      "stimulsoft/adapters/mssql.php",
+      "stimulsoft/adapters/mysql.php",
+      "stimulsoft/adapters/odbc.php",
+      "stimulsoft/adapters/oracle.php",
+      "stimulsoft/adapters/postgresql.php",
+      "stimulsoft/classes.php",
+      "stimulsoft/helper.php"
+    ]
+  }
+}

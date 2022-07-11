@@ -18,15 +18,6 @@ class StiSender {
 	const Designer = "Designer";
 }
 
-class StiDatabaseType {
-	const MySQL = "MySQL";
-	const MSSQL = "MS SQL";
-	const PostgreSQL = "PostgreSQL";
-	const Firebird = "Firebird";
-	const Oracle = "Oracle";
-	const ODBC = "ODBC";
-}
-
 class StiEventType {
 	const PrepareVariables = "PrepareVariables";
 	const BeginProcessData = "BeginProcessData";
@@ -111,35 +102,6 @@ class StiRequest {
 		}
 		
 		return StiResult::success(null, $this);
-	}
-}
-
-class StiResponse {
-	public static function json($result, $exit = true) {
-		unset($result->object);
-		echo defined('JSON_UNESCAPED_SLASHES') ? json_encode($result, JSON_UNESCAPED_SLASHES) : json_encode($result);
-		if ($exit) exit;
-	}
-}
-
-class StiResult {
-	public $success = true;
-	public $notice = null;
-	public $object = null;
-
-	public static function success($notice = null, $object = null) {
-		$result = new StiResult();
-		$result->success = true;
-		$result->notice = $notice;
-		$result->object = $object;
-		return $result;
-	}
-
-	public static function error($notice = null) {
-		$result = new StiResult();
-		$result->success = false;
-		$result->notice = $notice;
-		return $result;
 	}
 }
 
