@@ -1,154 +1,109 @@
 <?php
-class StiMsSqlAdapter {
-	public $version = '2022.3.2';
-	public $checkVersion = true;
-	
-	private $info = null;
-	private $link = null;
-	
-	private function getLastErrorResult() {
-		$code = 0;
-		$message = 'Unknown';
-		
-		if ($this->info->isPdo) {
-			$info = $this->link->errorInfo();
-			$code = $info[0];
-			if (count($info) >= 3) $message = $info[2];
-		}
-		else if ($this->info->isMicrosoft) {
-			if (($errors = sqlsrv_errors()) != null) {
-				$error = $errors[count($errors) - 1];
-				$code = $error['code'];
-				$message = $error['message'];
-			}
-		}
-		else {
-			$error = mssql_get_last_message();
-			if ($error) $message = $error;
-		}
-		
-		if ($code == 0) return StiResult::error($message);
-		return StiResult::error("[$code] $message");
-	}
-	
-	private function connect() {
-		if ($this->info->isPdo) {
-			try {
-				$this->link = new PDO($this->info->dsn, $this->info->userId, $this->info->password);
-			}
-			catch (PDOException $e) {
-				$code = $e->getCode();
-				$message = $e->getMessage();
-				return StiResult::error("[$code] $message");
-			}
-			
-			return StiResult::success();
-		}
-		
-		if ($this->info->isMicrosoft) {
-			if (!function_exists('sqlsrv_connect'))
-				return StiResult::error('MS SQL driver not found. Please configure your PHP server to work with MS SQL.');
-			
-			sqlsrv_configure('WarningsReturnAsErrors', 0);
-			$this->link = sqlsrv_connect(
-					$this->info->host, 
-					array(
-						'UID' => $this->info->userId,
-						'PWD' => $this->info->password,
-						'Database' => $this->info->database,
-						'LoginTimeout' => 10,
-						'ReturnDatesAsStrings' => true,
-						'CharacterSet' => $this->info->charset
-					));
-			
-			if (!$this->link)
-				return $this->getLastErrorResult();
-				
-			return StiResult::success();
-		}
-		
-		$this->link = mssql_connect($this->info->host, $this->info->userId, $this->info->password);
-		if (!$this->link)
-			return $this->getLastErrorResult();
-		
-		if (!mssql_select_db($this->info->database, $this->link))
-			return $this->getLastErrorResult();
-		
-		return StiResult::success();
-	}
-	
-	private function disconnect() {
-		if (!$this->link) return;
-		if (!$this->info->isPdo) $this->info->isMicrosoft ? sqlsrv_close($this->link) : mssql_close($this->link);
-		$this->link = null;
-	}
-	
-	public function parse($connectionString) {
-		$connectionString = trim($connectionString);
-		
-		$info = new stdClass();
-		$info->isMicrosoft = !function_exists('mssql_connect');
-		$info->isPdo = mb_strpos($connectionString, 'sqlsrv:') !== false;
-		$info->dsn = '';
-		$info->host = '';
-		$info->database = '';
-		$info->userId = '';
-		$info->password = '';
-		$info->charset = 'UTF-8';
-		
-		$parameters = explode(';', $connectionString);
-		foreach ($parameters as $parameter) {
-			if (mb_strpos($parameter, '=') < 1) {
-				if ($info->isPdo) $info->dsn .= $parameter.';';
-				continue;
-			}
-		
-			$pos = mb_strpos($parameter, '=');
-			$name = mb_strtolower(trim(mb_substr($parameter, 0, $pos)));
-			$value = trim(mb_substr($parameter, $pos + 1));
-			
-			switch ($name) {
-				case 'server':
-				case 'data source':
-					$info->host = $value;
-					if ($info->isPdo) $info->dsn .= $parameter.';';
-					break;
-						
-				case 'database':
-				case 'initial catalog':
-				case 'dbname':
-					$info->database = $value;
-					if ($info->isPdo) $info->dsn .= $parameter.';';
-					break;
-						
-				case 'uid':
-				case 'user':
-				case 'user id':
-					$info->userId = $value;
-					break;
-						
-				case 'pwd':
-				case 'password':
-					$info->password = $value;
-					break;
-					
-				case 'charset':
-					$info->charset = $value;
-					if ($info->isPdo) $info->dsn .= $parameter.';';
-					break;
-					
-				default:
-					if ($info->isPdo && mb_strlen($parameter) > 0) $info->dsn .= $parameter.';';
-					break;
-			}
-		}
-		
-		if (mb_strlen($info->dsn) > 0 && mb_substr($info->dsn, mb_strlen($info->dsn) - 1) == ';')
-			$info->dsn = mb_substr($info->dsn, 0, mb_strlen($info->dsn) - 1);
-		
-		$this->info = $info;
-	}
-	
+require_once 'class.sql_adapter.php';
+
+class StiMsSqlAdapter extends StiSqlAdapter {
+    protected function getLastNativeError() {
+        $code = 0;
+        if ($this->info->isMicrosoft) {
+            if (($errors = sqlsrv_errors()) != null) {
+                $error = $errors[count($errors) - 1];
+                $code = $error['code'];
+                $message = $error['message'];
+            }
+        } else {
+            $error = mssql_get_last_message();
+            if ($error) $message = $error;
+        }
+        return array('code' => $code, 'error' => $error);
+    }
+
+    protected function connectViaNativeDriver() {
+        if ($this->info->isMicrosoft) {
+            if (!function_exists('sqlsrv_connect'))
+                return StiResult::error('MS SQL driver not found. Please configure your PHP server to work with MS SQL.');
+
+            sqlsrv_configure('WarningsReturnAsErrors', 0);
+            $this->link = sqlsrv_connect(
+                $this->info->host,
+                array(
+                    'UID' => $this->info->userId,
+                    'PWD' => $this->info->password,
+                    'Database' => $this->info->database,
+                    'LoginTimeout' => 10,
+                    'ReturnDatesAsStrings' => true,
+                    'CharacterSet' => $this->info->charset
+                ));
+
+            if (!$this->link)
+                return $this->getLastErrorResult();
+
+            return StiResult::success();
+        }
+
+        $this->link = mssql_connect($this->info->host, $this->info->userId, $this->info->password);
+        if (!$this->link)
+            return $this->getLastErrorResult();
+
+        if (!mssql_select_db($this->info->database, $this->link))
+            return $this->getLastErrorResult();
+
+        return StiResult::success();
+    }
+
+    protected function closeNativeConnection() {
+        $this->info->isMicrosoft ? sqlsrv_close($this->link) : mssql_close($this->link);
+    }
+
+    protected function getNewConnectionInfo($connectionString) {
+        $info = new stdClass();
+        $info->isMicrosoft = !function_exists('mssql_connect');
+        $info->isPdo = mb_strpos($connectionString, 'sqlsrv:') !== false;
+        $info->dsn = '';
+        $info->host = '';
+        $info->database = '';
+        $info->userId = '';
+        $info->password = '';
+        $info->charset = 'UTF-8';
+        return $info;
+    }
+
+    protected function processConnectionParameter($info, $name, $value, $parameter) {
+        switch ($name) {
+            case 'server':
+            case 'data source':
+                $info->host = $value;
+                if ($info->isPdo) $info->dsn .= $parameter.';';
+                break;
+
+            case 'database':
+            case 'initial catalog':
+            case 'dbname':
+                $info->database = $value;
+                if ($info->isPdo) $info->dsn .= $parameter.';';
+                break;
+
+            case 'uid':
+            case 'user':
+            case 'user id':
+                $info->userId = $value;
+                break;
+
+            case 'pwd':
+            case 'password':
+                $info->password = $value;
+                break;
+
+            case 'charset':
+                $info->charset = $value;
+                if ($info->isPdo) $info->dsn .= $parameter.';';
+                break;
+
+            default:
+                if ($info->isPdo && mb_strlen($parameter) > 0) $info->dsn .= $parameter.';';
+                break;
+        }
+    }
+
 	private function getStringType($type) {
 		switch ($type) {
 			case -6:
@@ -263,12 +218,6 @@ class StiMsSqlAdapter {
 		}
 		
 		return 'string';
-	}
-	
-	public function test() {
-		$result = $this->connect();
-		if ($result->success) $this->disconnect();
-		return $result;
 	}
 	
 	public function getValue($type, $value) {

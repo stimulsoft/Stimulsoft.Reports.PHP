@@ -1,134 +1,86 @@
 <?php
-class StiPostgreSqlAdapter {
-	public $version = '2022.3.2';
-	public $checkVersion = true;
-	
-	private $info = null;
-	private $link = null;
 
-	private function getLastErrorResult() {
-		$code = 0;
-		$message = 'Unknown';
-		
-		if ($this->info->isPdo) {
-			$info = $this->link->errorInfo();
-			$code = $info[0];
-			if (count($info) >= 3) $message = $info[2];
-		}
-		else {
-			$error = pg_last_error();
-			if ($error) $message = $error;
-		}
-		
-		if ($code == 0) return StiResult::error($message);
-		return StiResult::error("[$code] $message");
-	}
+require_once 'class.sql_adapter.php';
 
-	private function connect() {
-		if ($this->info->isPdo) {
-			try {
-				$this->link = new PDO($this->info->dsn, $this->info->userId, $this->info->password);
-			}
-			catch (PDOException $e) {
-				$code = $e->getCode();
-				$message = $e->getMessage();
-				return StiResult::error("[$code] $message");
-			}
-			
-			return StiResult::success();
-		}
-		
-		if (!function_exists('pg_connect'))
-			return StiResult::error('PostgreSQL driver not found. Please configure your PHP server to work with PostgreSQL.');
-		
-		$connectionString = "host='".$this->info->host."' port='".$this->info->port."' dbname='".$this->info->database."' user='".$this->info->userId."' password='".$this->info->password."' options='--client_encoding=".$this->info->charset."'";
-		$this->link = pg_connect($connectionString);
-		if (!$this->link)
-			return $this->getLastErrorResult();
-		
-		return StiResult::success();
-	}
+class StiPostgreSqlAdapter extends StiSqlAdapter {
+    protected function getLastNativeError() {
+        return array('code' => 0, 'error' => pg_last_error());
+    }
 
-	private function disconnect() {
-		if (!$this->link) return;
-		if (!$this->info->isPdo) pg_close($this->link);
-		$this->link = null;
-	}
+    protected function connectViaNativeDriver() {
+        if (!function_exists('pg_connect'))
+            return StiResult::error('PostgreSQL driver not found. Please configure your PHP server to work with PostgreSQL.');
 
-	public function parse($connectionString) {
-		$connectionString = trim($connectionString);
-		
-		$info = new stdClass();
-		$info->isPdo = mb_strpos($connectionString, 'pgsql:') !== false;
-		$info->dsn = '';
-		$info->host = '';
-		$info->port = 5432;
-		$info->database = '';
-		$info->userId = '';
-		$info->password = '';
-		$info->charset = 'utf8';
+        $connectionString = "host='".$this->info->host."' port='".$this->info->port."' dbname='".$this->info->database."' user='".$this->info->userId."' password='".$this->info->password."' options='--client_encoding=".$this->info->charset."'";
+        $this->link = pg_connect($connectionString);
+        if (!$this->link)
+            return $this->getLastErrorResult();
 
-		$parameters = explode(';', $connectionString);
-		foreach ($parameters as $parameter) {
-			if (mb_strpos($parameter, '=') < 1) {
-				if ($info->isPdo) $info->dsn .= $parameter.';';
-				continue;
-			}
-			
-			$pos = mb_strpos($parameter, '=');
-			$name = mb_strtolower(trim(mb_substr($parameter, 0, $pos)));
-			$value = trim(mb_substr($parameter, $pos + 1));
+        return StiResult::success();
+    }
 
-			switch ($name)
-			{
-				case 'server':
-				case 'host':
-				case 'location':
-					$info->host = $value;
-					if ($info->isPdo) $info->dsn .= $parameter.';';
-					break;
+    protected function closeNativeConnection() {
+        pg_close($this->link);
+    }
 
-				case 'port':
-					$info->port = $value;
-					if ($info->isPdo) $info->dsn .= $parameter.';';
-					break;
-						
-				case 'database':
-				case 'data source':
-				case 'dbname':
-					$info->database = $value;
-					if ($info->isPdo) $info->dsn .= $parameter.';';
-					break;
-						
-				case 'uid':
-				case 'user':
-				case 'userid':
-				case 'user id':
-				case 'username':
-					$info->userId = $value;
-					break;
-						
-				case 'pwd':
-				case 'password':
-					$info->password = $value;
-					break;
-					
-				case 'charset':
-					$info->charset = $value;
-					break;
-					
-				default:
-					if ($info->isPdo && mb_strlen($parameter) > 0) $info->dsn .= $parameter.';';
-					break;
-			}
-		}
+    protected function getNewConnectionInfo($connectionString) {
+        $info = new stdClass();
+        $info->isPdo = mb_strpos($connectionString, 'pgsql:') !== false;
+        $info->dsn = '';
+        $info->host = '';
+        $info->port = 5432;
+        $info->database = '';
+        $info->userId = '';
+        $info->password = '';
+        $info->charset = 'utf8';
+        return $info;
+    }
 
-		if (mb_strlen($info->dsn) > 0 && mb_substr($info->dsn, mb_strlen($info->dsn) - 1) == ';')
-			$info->dsn = mb_substr($info->dsn, 0, mb_strlen($info->dsn) - 1);
-		
-		$this->info = $info;
-	}
-	
+    protected function processConnectionParameter($info, $name, $value, $parameter) {
+        switch ($name)
+        {
+            case 'server':
+            case 'host':
+            case 'location':
+                $info->host = $value;
+                if ($info->isPdo) $info->dsn .= $parameter.';';
+                break;
+
+            case 'port':
+                $info->port = $value;
+                if ($info->isPdo) $info->dsn .= $parameter.';';
+                break;
+
+            case 'database':
+            case 'data source':
+            case 'dbname':
+                $info->database = $value;
+                if ($info->isPdo) $info->dsn .= $parameter.';';
+                break;
+
+            case 'uid':
+            case 'user':
+            case 'userid':
+            case 'user id':
+            case 'username':
+                $info->userId = $value;
+                break;
+
+            case 'pwd':
+            case 'password':
+                $info->password = $value;
+                break;
+
+            case 'charset':
+                $info->charset = $value;
+                break;
+
+            default:
+                if ($info->isPdo && mb_strlen($parameter) > 0) $info->dsn .= $parameter.';';
+                break;
+        }
+    }
+
 	private function parseType($meta) {
 		$type = strtolower($this->info->isPdo ? $meta['native_type'] : $meta);
 		if (substr($type, 0, 1) == '_') $type = 'array';
@@ -182,12 +134,6 @@ class StiPostgreSqlAdapter {
 		return 'string';
 	}
 
-	public function test() {
-		$result = $this->connect();
-		if ($result->success) $this->disconnect();
-		return $result;
-	}
-	
 	public function getValue($type, $value) {
 		if (is_null($value) || strlen($value) == 0)
 			return null;

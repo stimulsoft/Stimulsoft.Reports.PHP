@@ -1,20 +1,16 @@
 <?php
-class StiOdbcAdapter {
-	public $version = '2022.3.2';
-	public $checkVersion = true;
-	
-	private $info = null;
-	private $link = null;
-	
-	private function getLastErrorResult($result) {
-		$code = odbc_error($result);
-		$message = odbc_errormsg($result);
+require_once 'class.sql_adapter.php';
+
+class StiOdbcAdapter extends StiSqlAdapter {
+	protected function getLastErrorResult() {
+		$code = odbc_error();
+		$message = odbc_errormsg();
 		
 		if ($code == 0) return StiResult::error($message);
 		return StiResult::error("[$code] $message");
 	}
 	
-	private function connect() {
+	protected function connect() {
 		$this->link = odbc_connect($this->info->dsn, $this->info->userId, $this->info->password);
 		
 		if (!$this->link)
@@ -23,20 +19,25 @@ class StiOdbcAdapter {
 		return StiResult::success();
 	}
 	
-	private function disconnect() {
+	protected function disconnect() {
 		if (!$this->link) return;
 		odbc_close($this->link);
 		$this->link = null;
 	}
-	
-	public function parse($connectionString) {
+
+    protected function getNewConnectionInfo($connectionString) {
+        $info = new stdClass();
+        $info->dsn = '';
+        $info->userId = '';
+        $info->password = '';
+        return $info;
+    }
+
+    public function parse($connectionString) {
 		$connectionString = trim($connectionString);
-		
-		$info = new stdClass();
-		$info->dsn = '';
-		$info->userId = '';
-		$info->password = '';
-		
+
+        $info = $this->getNewConnectionInfo($connectionString);
+
 		$parameters = explode(';', $connectionString);
 		foreach ($parameters as $parameter) {
 			
@@ -143,12 +144,6 @@ class StiOdbcAdapter {
 		}
 		
 		return 'string';
-	}
-	
-	public function test() {
-		$result = $this->connect();
-		if ($result->success) $this->disconnect();
-		return $result;
 	}
 	
 	public function getValue($type, $value) {
