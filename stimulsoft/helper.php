@@ -619,7 +619,7 @@ class StiHelper {
 		}
 		
 		if (Stimulsoft && Stimulsoft.Base) {
-			Stimulsoft.Base.StiLicense.loadFromFile("stimulsoft/license.php");
+			Stimulsoft.Base.StiLicense.loadFromFile('/stimulsoft/license.php');
 		}
 	}
 
