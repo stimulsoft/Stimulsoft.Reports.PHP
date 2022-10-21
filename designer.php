@@ -10,10 +10,6 @@ require_once 'vendor/autoload.php';
 	<title>Stimulsoft Reports.PHP - Designer</title>
 	<style>html, body { font-family: sans-serif; }</style>
 
-	<!-- Office2013 White-Blue style -->
-	<link href="css/stimulsoft.viewer.office2013.whiteblue.css" rel="stylesheet">
-	<link href="css/stimulsoft.designer.office2013.whiteblue.css" rel="stylesheet">
-
 	<!-- Stimulsoft Reports.JS -->
 	<script src="scripts/stimulsoft.reports.js" type="text/javascript"></script>
 	
@@ -22,7 +18,7 @@ require_once 'vendor/autoload.php';
 	<script src="scripts/stimulsoft.designer.js" type="text/javascript"></script>
 	
 	<!-- Stimulsoft Blockly editor for JS Designer -->
-	<script src="scripts/stimulsoft.blockly.js" type="text/javascript"></script>
+	<script src="scripts/stimulsoft.blockly.editor.js" type="text/javascript"></script>
 	
 	<?php
 		// Add JavaScript helpers and init options to work with the PHP server

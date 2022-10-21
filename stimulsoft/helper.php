@@ -377,8 +377,8 @@ class StiHandler extends StiBaseHandler {
 				case StiEventType::OpenReport:
 					return $this->invokeOpenReport($request);
 
-                case StiEventType::SaveAsReport:
                 case StiEventType::SaveReport:
+                case StiEventType::SaveAsReport:
 					return $this->invokeSaveReport($request);
 
                 case StiEventType::PrintReport:
@@ -566,7 +566,7 @@ class StiHelper {
 		}
 		
 		if (Stimulsoft && Stimulsoft.Base) {
-			Stimulsoft.Base.StiLicense.loadFromFile("stimulsoft/license.php");
+			Stimulsoft.Base.StiLicense.loadFromFile('/stimulsoft/license.php');
 		}
 	}
 
