@@ -1,8 +1,18 @@
 <?php
 require_once 'vendor/autoload.php';
 
-$handler = new StiHandler();
-$handler->registerErrorHandlers();
+// You can configure the security level as you required.
+// By default is to allow any requests from any domains.
+
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Engaged-Auth-Token');
+header('Cache-Control: no-cache');
+
+
+$handler = new \Stimulsoft\StiHandler();
+$handler->process();
+
+exit();
 
 $handler->onPrepareVariables = function ($args) {
 	// You can change the values of the variables used in the report.
@@ -20,7 +30,7 @@ $handler->onPrepareVariables = function ($args) {
 	$args->variables['NewVariable'] = ['value' => 'New Value'];
 	*/
 	
-	return StiResult::success();
+	return \Stimulsoft\StiResult::success();
 };
 
 $handler->onBeginProcessData = function ($args) {
@@ -61,7 +71,7 @@ $handler->onBeginProcessData = function ($args) {
 	
 	
 	// You can send a successful result
-	return StiResult::success();
+	return \Stimulsoft\StiResult::success();
 	// You can send an informational message
 	//return StiResult::success('Warning or other useful information.');
 	// You can send an error message
@@ -71,7 +81,7 @@ $handler->onBeginProcessData = function ($args) {
 $handler->onPrintReport = function ($args) {
 	$fileName = $args->fileName; // Report file name
 	
-	return StiResult::success();
+	return \Stimulsoft\StiResult::success();
 };
 
 $handler->onBeginExportReport = function ($args) {
@@ -82,7 +92,7 @@ $handler->onBeginExportReport = function ($args) {
 	// Report file name
 	$fileName = $args->fileName;
 	
-	return StiResult::success();
+	return \Stimulsoft\StiResult::success();
 };
 
 $handler->onEndExportReport = function ($args) {
@@ -100,7 +110,7 @@ $handler->onEndExportReport = function ($args) {
 	file_put_contents('reports/'.$fileName.'.'.$fileExtension, base64_decode($data));
 	
 	//return StiResult::success();
-	return StiResult::success('Successful export of the report.');
+	return \Stimulsoft\StiResult::success('Successful export of the report.');
 	//return StiResult::error('An error occurred while exporting the report.');
 };
 
@@ -118,11 +128,11 @@ $handler->onEmailReport = function ($args) {
 	//$args->settings->bcc[] = 'copy2@gmail.com';
 	//$args->settings->bcc[] = 'copy3@gmail.com John Smith';
 	
-	return StiResult::success('Email sent successfully.');
+	return \Stimulsoft\StiResult::success('Email sent successfully.');
 };
 
 $handler->onDesignReport = function ($args) {
-	return StiResult::success();
+	return \Stimulsoft\StiResult::success();
 };
 
 $handler->onCreateReport = function ($args) {
@@ -130,7 +140,7 @@ $handler->onCreateReport = function ($args) {
 	$report = $args->report;
 	//$args->report = file_get_contents('reports/SimpleList.mrt');
 	
-	return StiResult::success();
+	return \Stimulsoft\StiResult::success();
 };
 
 $handler->onSaveReport = function ($args) {
@@ -145,13 +155,13 @@ $handler->onSaveReport = function ($args) {
 	file_put_contents('reports/'.$fileName.'.mrt', $reportJson);
 	
 	//return StiResult::success();
-	return StiResult::success('Save Report OK: '.$fileName);
+	return \Stimulsoft\StiResult::success('Save Report OK: '.$fileName);
 	//return StiResult::error('Save Report ERROR. Message from server side.');
 };
 
 $handler->onSaveAsReport = function ($args) {
 	// The event works the same as 'onSaveReport'
-	return StiResult::success();
+	return \Stimulsoft\StiResult::success();
 };
 
 // Process request

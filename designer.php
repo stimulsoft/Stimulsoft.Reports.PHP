@@ -1,5 +1,8 @@
 <?php
 require_once 'vendor/autoload.php';
+
+use Stimulsoft\StiComponentType;
+use Stimulsoft\StiHelper;
 ?>
 
 <!DOCTYPE html>
@@ -10,21 +13,31 @@ require_once 'vendor/autoload.php';
 	<title>Stimulsoft Reports.PHP - Designer</title>
 	<style>html, body { font-family: sans-serif; }</style>
 
-	<!-- Stimulsoft Reports.JS -->
-	<script src="scripts/stimulsoft.reports.js" type="text/javascript"></script>
-	
-	<!-- Stimulsoft JS Viewer (for preview tab) and Stimulsoft JS Designer -->
-	<script src="scripts/stimulsoft.viewer.js" type="text/javascript"></script>
-	<script src="scripts/stimulsoft.designer.js" type="text/javascript"></script>
-	
-	<!-- Stimulsoft Blockly editor for JS Designer -->
-	<script src="scripts/stimulsoft.blockly.editor.js" type="text/javascript"></script>
-	
-	<?php
-		// Add JavaScript helpers and init options to work with the PHP server
-		// You can change the handler file and timeout if required
-		StiHelper::init('handler.php', 30);
-	?>
+    <?php
+    // Creating a component deployment helper
+    $helper = new StiHelper();
+
+    // Adding designer, viewer and report engine JavaScript
+    $helper->renderScripts(StiComponentType::Designer);
+
+    // You can change the set of scripts to be loaded using the options
+    /*
+    $options = new \Stimulsoft\StiJavaScriptOptions();
+    $options->dashboards = false;
+    $helper->renderScripts(StiComponentType::Designer, $options);
+    */
+
+    // Adding JavaScript functions to work with the PHP server
+    $helper->renderHandler();
+
+    // You can change the handler file and timeout if required
+    /*
+    $options = new \Stimulsoft\StiHandlerOptions();
+    $options->handler->url = 'handler.php';
+    $options->handler->timeout = 30;
+    $helper->renderHandler($handlerOptions);
+    */
+    ?>
 	
 	<script type="text/javascript">
 		// Create and set options.
@@ -70,7 +83,7 @@ require_once 'vendor/autoload.php';
 		
 		// Create a report and load a template from an MRT file:
 		var report = new Stimulsoft.Report.StiReport();
-		report.loadFile("reports/SimpleList.mrt");
+		report.loadFile("reports/ReportMySql.mrt");
 		
 		// Assigning a report to the Designer:
 		designer.report = report;
