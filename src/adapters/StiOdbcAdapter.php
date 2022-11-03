@@ -1,17 +1,19 @@
 <?php
 
-namespace Stimulsoft;
+namespace Stimulsoft\Adapters;
+
+use Stimulsoft\StiResult;
 
 class StiOdbcAdapter extends StiSqlAdapter
 {
     public $version = '2022.3.3';
     public $checkVersion = true;
 
-    protected function getLastErrorResult($result)
+    protected function getLastErrorResult()
     {
         $message = 'Unknown';
-        $code = odbc_error($result);
-        $error = odbc_errormsg($result);
+        $code = odbc_error();
+        $error = odbc_errormsg();
         if ($error) $message = $error;
 
         return $code == 0 ? StiResult::error($message) : StiResult::error("[$code] $message");
@@ -22,7 +24,7 @@ class StiOdbcAdapter extends StiSqlAdapter
         $this->link = odbc_connect($this->info->dsn, $this->info->userId, $this->info->password);
 
         if (!$this->link)
-            return $this->getLastErrorResult(null);
+            return $this->getLastErrorResult();
 
         return StiResult::success();
     }

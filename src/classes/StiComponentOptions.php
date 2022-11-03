@@ -18,7 +18,7 @@ class StiComponentOptions
                     $result .= $this->{$name};
                 else {
                     $currentValue = $this->{$name};
-                    /*if ($currentValue != $defaultValue)*/ {
+                    if ($currentValue != $defaultValue) {
                         $stringValue = in_array($name, $this->enums) ? $currentValue : var_export($currentValue, true);
                         if ($stringValue == 'NULL') $stringValue = 'null';
                         $result .= "$this->group.$name = $stringValue;\n";

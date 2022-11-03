@@ -3,6 +3,12 @@
 namespace Stimulsoft;
 
 use ReflectionClass;
+use Stimulsoft\Adapters\StiFirebirdAdapter;
+use Stimulsoft\Adapters\StiMsSqlAdapter;
+use Stimulsoft\Adapters\StiMySqlAdapter;
+use Stimulsoft\Adapters\StiOdbcAdapter;
+use Stimulsoft\Adapters\StiOracleAdapter;
+use Stimulsoft\Adapters\StiPostgreSqlAdapter;
 
 class StiDataHandler
 {

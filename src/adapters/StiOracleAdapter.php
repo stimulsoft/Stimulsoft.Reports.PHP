@@ -1,8 +1,9 @@
 <?php
 
-namespace Stimulsoft;
+namespace Stimulsoft\Adapters;
 
 use DateTime;
+use Stimulsoft\StiResult;
 
 class StiOracleAdapter extends StiSqlAdapter
 {

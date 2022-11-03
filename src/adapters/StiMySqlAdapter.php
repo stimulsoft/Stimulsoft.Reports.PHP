@@ -1,8 +1,9 @@
 <?php
 
-namespace Stimulsoft;
+namespace Stimulsoft\Adapters;
 
 use mysqli;
+use Stimulsoft\StiResult;
 
 class StiMySqlAdapter extends StiSqlAdapter
 {

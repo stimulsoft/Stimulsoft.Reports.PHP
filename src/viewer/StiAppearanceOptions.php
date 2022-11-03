@@ -29,7 +29,7 @@ class StiAppearanceOptions extends StiComponentOptions
     public $rightToLeft = false;
 
     /** Gets or sets a value which indicates which indicates that the viewer is displayed in full screen mode. */
-    public $fullScreenMode = true;
+    public $fullScreenMode = false;
 
     /** Gets or sets a value which indicates that the viewer will show the report area with scrollbars. */
     public $scrollbarsMode = false;
@@ -50,7 +50,7 @@ class StiAppearanceOptions extends StiComponentOptions
     public $showDialogsHelp = true;
 
     /** Gets or sets the alignment of the viewer page. */
-    public $pageAlignment = StiContentAlignment::Default_;
+    public $pageAlignment = StiContentAlignment::DefaultValue;
 
     /** Gets or sets a value which indicates that the shadow of the page will be displayed in the viewer. */
     public $showPageShadow = false;

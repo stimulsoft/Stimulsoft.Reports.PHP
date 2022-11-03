@@ -1,6 +1,8 @@
 <?php
 
-namespace Stimulsoft;
+namespace Stimulsoft\Adapters;
+
+use Stimulsoft\StiResult;
 
 class StiFirebirdAdapter extends StiSqlAdapter
 {

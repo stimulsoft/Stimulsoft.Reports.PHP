@@ -1,7 +1,9 @@
 <?php
 require_once 'vendor/autoload.php';
 
+use Stimulsoft\Enums\StiToolbarDisplayMode;
 use Stimulsoft\Enums\StiViewerTheme;
+use Stimulsoft\Enums\StiZoomMode;
 use Stimulsoft\StiComponentType;
 use Stimulsoft\StiHelper;
 use Stimulsoft\Viewer\StiViewerOptions;
@@ -48,29 +50,21 @@ use Stimulsoft\Viewer\StiViewerOptions;
     <script type="text/javascript">
         <?php
         $options = new StiViewerOptions();
-        $options->appearance->allowMobileMode = true;
-        $options->appearance->allowTouchZoom = 1;
-        $options->appearance->backgroundColor = 'red';
-
         $options->appearance->theme = StiViewerTheme::Office2022WhiteGreen;
-
+        $options->appearance->fullScreenMode = true;
+        $options->appearance->scrollbarsMode = true;
+        $options->toolbar->displayMode = StiToolbarDisplayMode::Separated;
+        $options->appearance->backgroundColor = 'gray';
         echo $options;
-        //$options->render();
         ?>
         // Create and set options.
         // More options can be found in the documentation at the link:
         // https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_js_web_viewer_settings.htm
-        var options = new Stimulsoft.Viewer.StiViewerOptions();
-        options.toolbar.showSendEmailButton = true;
-        options.toolbar.displayMode = Stimulsoft.Viewer.StiToolbarDisplayMode.Separated;
-        options.appearance.fullScreenMode = true;
-        options.appearance.scrollbarsMode = true;
-        options.height = "600px"; // Height for non-fullscreen mode
 
         // Create Viewer component.
         // A description of the parameters can be found in the documentation at the link:
         // https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_js_web_viewer_showing_reports.htm
-        var viewer = new Stimulsoft.Viewer.StiViewer(options, "StiViewer", false);
+        var viewer = new Stimulsoft.Viewer.StiViewer(viewerOptions, "StiViewer", false);
 
         // Optional Viewer events for fine tuning. You can uncomment and change any event or all of them, if necessary.
         // In this case, the built-in handler will be overridden by the selected event.
@@ -143,7 +137,8 @@ use Stimulsoft\Viewer\StiViewerOptions;
 
         // Create a report and load a template from an MRT file:
         var report = new Stimulsoft.Report.StiReport();
-        report.loadFile("reports/ReportMySql.mrt");
+        //report.loadFile("reports/ReportMySql.mrt");
+        report.loadFile("reports/SimpleList.mrt");
 
         // Assigning a report to the Viewer:
         viewer.report = report;

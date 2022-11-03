@@ -1,10 +1,13 @@
 <?php
 
-namespace Stimulsoft;
+namespace Stimulsoft\Adapters;
 
 use DateTime;
 use PDO;
 use PDOException;
+use Stimulsoft\StiDataResult;
+use Stimulsoft\StiConnectionInfo;
+use Stimulsoft\StiResult;
 
 class StiSqlAdapter
 {
@@ -38,7 +41,7 @@ class StiSqlAdapter
             return $code == 0 ? StiResult::error($message) : StiResult::error("[$code] $message");
         }
 
-        return StiAdapterResult::success();
+        return StiDataResult::success();
     }
 
     protected function disconnect()
