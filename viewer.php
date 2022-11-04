@@ -3,9 +3,11 @@ require_once 'vendor/autoload.php';
 
 use Stimulsoft\Enums\StiToolbarDisplayMode;
 use Stimulsoft\Enums\StiViewerTheme;
-use Stimulsoft\Enums\StiZoomMode;
 use Stimulsoft\StiComponentType;
-use Stimulsoft\StiHelper;
+use Stimulsoft\StiHandler;
+use Stimulsoft\StiJavaScriptHelper;
+use Stimulsoft\StiReport;
+use Stimulsoft\StiViewer;
 use Stimulsoft\Viewer\StiViewerOptions;
 
 ?>
@@ -22,33 +24,34 @@ use Stimulsoft\Viewer\StiViewerOptions;
     </style>
 
     <?php
-    // Creating a component deployment helper
-    $helper = new StiHelper();
-
     // Loading the necessary JavaScript for the components
-    $helper->renderScripts(StiComponentType::Viewer);
+    $helper = new StiJavaScriptHelper(StiComponentType::Viewer);
+    echo $helper;
 
     // You can change the set of scripts to be loaded using the options
     /*
     $options = new \Stimulsoft\StiJavaScriptOptions();
     $options->dashboards = false;
-    $helper->renderScripts(StiComponentType::Viewer, $engineOptions);
-    */
-
-    // Adding JavaScript functions to work with the PHP server
-    $helper->renderHandler();
-
-    // You can change the handler file and timeout if required
-    /*
-    $options = new \Stimulsoft\StiHandlerOptions();
-    $options->handler->url = 'handler.php';
-    $options->handler->timeout = 30;
-    $helper->renderHandler($options);
+    $helper = StiJavaScriptHelper(StiComponentType::Viewer, $engineOptions);
+    echo $helper;
     */
     ?>
 
-    <script type="text/javascript">
-        <?php
+    <script type="text/javascript"><?php
+        $handler = new StiHandler();
+
+        // You can change the handler options (request url and timeout) if required
+        /*
+        $options = new \Stimulsoft\StiHandlerOptions();
+        $options->handler->url = 'handler.php';
+        $options->handler->timeout = 30;
+        $handler = new StiHandler($options);
+        */
+
+        // Render all JavaScript functions to work with the PHP server
+        echo $handler;
+
+
         $options = new StiViewerOptions();
         $options->appearance->theme = StiViewerTheme::Office2022WhiteGreen;
         $options->appearance->fullScreenMode = true;
@@ -56,7 +59,20 @@ use Stimulsoft\Viewer\StiViewerOptions;
         $options->toolbar->displayMode = StiToolbarDisplayMode::Separated;
         $options->appearance->backgroundColor = 'gray';
         echo $options;
+
+        $viewer = new StiViewer($options);
+        echo $viewer;
+
+        $report = new StiReport();
+
+        $viewer->report = $report;
+        $viewer->renderHtml('viewerContent');
+
         ?>
+    </script>
+
+    <script type="text/javascript">
+
         // Create and set options.
         // More options can be found in the documentation at the link:
         // https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_js_web_viewer_settings.htm
@@ -64,7 +80,7 @@ use Stimulsoft\Viewer\StiViewerOptions;
         // Create Viewer component.
         // A description of the parameters can be found in the documentation at the link:
         // https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_js_web_viewer_showing_reports.htm
-        var viewer = new Stimulsoft.Viewer.StiViewer(viewerOptions, "StiViewer", false);
+        //var viewer = new Stimulsoft.Viewer.StiViewer(viewerOptions, "StiViewer", false);
 
         // Optional Viewer events for fine tuning. You can uncomment and change any event or all of them, if necessary.
         // In this case, the built-in handler will be overridden by the selected event.
@@ -136,17 +152,17 @@ use Stimulsoft\Viewer\StiViewerOptions;
         */
 
         // Create a report and load a template from an MRT file:
-        var report = new Stimulsoft.Report.StiReport();
+        //var report = new Stimulsoft.Report.StiReport();
         //report.loadFile("reports/ReportMySql.mrt");
-        report.loadFile("reports/SimpleList.mrt");
+        //report.loadFile("reports/SimpleList.mrt");
 
         // Assigning a report to the Viewer:
-        viewer.report = report;
+        //viewer.report = report;
 
         // After loading the HTML page, display the visual part of the Viewer in the specified container.
-        function onLoad() {
-            viewer.renderHtml("viewerContent");
-        }
+        //function onLoad() {
+        //    viewer.renderHtml("viewerContent");
+        //}
     </script>
 </head>
 <body onload="onLoad();">

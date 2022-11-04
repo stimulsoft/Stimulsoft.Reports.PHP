@@ -27,16 +27,16 @@ class StiViewerOptions extends StiComponentOptions
 
     public function __toString()
     {
-        return "let $this->group = new Stimulsoft.Viewer.StiViewerOptions();\n" . parent::__toString();
+        return "let $this->property = new Stimulsoft.Viewer.StiViewerOptions();\n" . parent::__toString();
     }
 
-    public function __construct($group = 'viewerOptions')
+    public function __construct($property = 'viewerOptions')
     {
-        parent::__construct($group);
+        parent::__construct($property);
 
-        $this->appearance = new StiAppearanceOptions("$group.appearance");
-        $this->toolbar = new StiToolbarOptions("$group.toolbar");
-        $this->exports = new StiExportsOptions("$group.exports");
-        $this->email = new StiEmailOptions("$group.email");
+        $this->appearance = new StiAppearanceOptions("$property.appearance");
+        $this->toolbar = new StiToolbarOptions("$property.toolbar");
+        $this->exports = new StiExportsOptions("$property.exports");
+        $this->email = new StiEmailOptions("$property.email");
     }
 }
