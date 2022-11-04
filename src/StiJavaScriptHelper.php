@@ -7,7 +7,7 @@ class StiJavaScriptHelper
     public $componentType;
     public $options;
 
-    public function __toString()
+    public function getHtml()
     {
         $scripts = array();
         if ($this->options->reports)
@@ -38,10 +38,15 @@ class StiJavaScriptHelper
 
         $result = '';
         foreach ($scripts as $name) {
-            $result .= '<script src="scripts/'.$name.'" type="text/javascript"></script>';
+            $result .= "<script src=\"scripts/$name\" type=\"text/javascript\"></script>\n";
         }
 
         return $result;
+    }
+
+    public function renderHtml()
+    {
+        echo $this->getHtml();
     }
 
     public function __construct($componentType, $options = null)

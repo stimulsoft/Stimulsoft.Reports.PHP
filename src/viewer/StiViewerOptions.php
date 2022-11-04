@@ -25,9 +25,9 @@ class StiViewerOptions extends StiComponentOptions
     /** Gets or sets the height of the viewer. */
     public $height = '';
 
-    public function __toString()
+    public function getHtml()
     {
-        return "let $this->property = new Stimulsoft.Viewer.StiViewerOptions();\n" . parent::__toString();
+        return "let $this->property = new Stimulsoft.Viewer.StiViewerOptions();\n" . parent::getHtml();
     }
 
     public function __construct($property = 'viewerOptions')

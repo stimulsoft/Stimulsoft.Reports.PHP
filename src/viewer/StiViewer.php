@@ -1,31 +1,108 @@
 <?php
 
-namespace Stimulsoft;
+namespace Stimulsoft\Viewer;
 
-use Stimulsoft\Viewer\StiViewerOptions;
+use Stimulsoft\Report\StiReport;
 
 class StiViewer
 {
-    /** @var StiViewerOptions $options */
+    public $id;
+
+    /** @var StiViewerOptions */
     public $options;
-    public $viewerId;
+
+    /** @var StiReport */
     public $report;
 
-    public function renderHtml($element)
+    /** @var bool
+     * Process report variables before rendering.
+     */
+    public $onPrepareVariablesEvent = false;
+
+    /** @var bool
+     * Process SQL data sources. It can be used if it is necessary to correct the parameters of the data request.
+     */
+    public $onBeginProcessData = false;
+
+    /** @var bool */
+    public $onEndProcessData = false;
+
+    /** @var bool */
+    public $onPrintReport = false;
+
+    /** @var bool
+     * Manage export settings and, if necessary, transfer them to the server and manage there.
+     */
+    public $onBeginExportReport = false;
+
+    /** @var bool
+     * Process exported report file on the server side.
+     */
+    public $onEndExportReport = false;
+
+    /** @var bool TODO */
+    //public $onInteraction = false;
+
+    /** @var bool
+     * Send exported report to Email.
+     */
+    public $onEmailReport = false;
+
+    public function getHtml($element = null, $renderOptionsHtml = true, $renderReportHtml = true)
     {
-        echo 'viewer.renderHtml(' . (strlen($element) > 0 ? "'$element'" : '') . ");\n";
+        $result = '';
+
+        if ($renderOptionsHtml && $this->options)
+            $result .= $this->options->getHtml();
+
+        $optionsProperty = $this->options ? $this->options->property : 'null';
+        $viewerProperty = $this->id == 'StiViewer' ? 'viewer' : $this->id;
+        $result .= "let $viewerProperty = new Stimulsoft.Viewer.StiViewer($optionsProperty, '$this->id', false);\n";
+
+        if ($this->onPrepareVariablesEvent)
+            $result .= "$viewerProperty.onPrepareVariables = function (args, callback) { Stimulsoft.Helper.process(args, callback); }\n";
+
+        if ($this->onBeginProcessData)
+            $result .= "$viewerProperty.onBeginProcessData = function (args, callback) { Stimulsoft.Helper.process(args, callback); }\n";
+
+        if ($this->onEndProcessData)
+            $result .= "$viewerProperty.onEndProcessData = function (args) { Stimulsoft.Helper.process(args); }\n";
+
+        if ($this->onPrintReport)
+            $result .= "$viewerProperty.onPrintReport = function (args) { Stimulsoft.Helper.process(args); }\n";
+
+        if ($this->onBeginExportReport)
+            $result .= "$viewerProperty.onBeginExportReport = function (args, callback) { Stimulsoft.Helper.process(args, callback); }\n";
+
+        if ($this->onEndExportReport)
+            $result .= "$viewerProperty.onEndExportReport = function (args) { args.preventDefault = true; Stimulsoft.Helper.process(args); }\n";
+
+        /*if ($this->onInteraction) TODO
+            $result .= "$viewerProperty.onInteraction = function (args, callback) { Stimulsoft.Helper.process(args, callback); }\n";*/
+
+        if ($this->onEmailReport)
+            $result .= "$viewerProperty.onEmailReport = function (args) { Stimulsoft.Helper.process(args); }\n";
+
+        if ($this->report != null) {
+            if ($renderReportHtml)
+                $result .= $this->report->getHtml();
+
+            $result .= "$viewerProperty.report = {$this->report->reportId};\n";
+        }
+
+        $result .= "$viewerProperty.renderHtml(" . (strlen($element) > 0 ? "'$element'" : '') . ");\n";
+
+        return $result;
     }
 
-    public function __toString()
+    public function renderHtml($element = null, $renderOptionsHtml = true, $renderReportHtml = true)
     {
-        $result = "<script type=\"text/javascript\">\n";
-        $result .= "var $this->viewerId = new Stimulsoft.Viewer.StiViewer({$this->options->property}, '$this->viewerId', false);\n";
-        return $result . "</script>\n";
+        echo $this->getHtml($element, $renderOptionsHtml, $renderReportHtml);
     }
 
-    public function __construct($options = null, $viewerId = 'StiViewer')
+    public function __construct($options = null, $id = 'StiViewer')
     {
-        $this->options = $options != null ? $options : new StiViewerOptions();
-        $this->viewerId = $viewerId;
+        $this->options = $options;
+        $this->id = strlen($id) > 0 ? $id : 'StiViewer';
     }
 }

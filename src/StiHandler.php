@@ -448,7 +448,7 @@ class StiHandler extends StiDataHandler
 
     // Render JavaScript part
 
-    public function __toString()
+    public function getHtml()
     {
         return "StiHelper.prototype.process = function (args, callback) {
                 if (args) {
@@ -556,7 +556,18 @@ class StiHandler extends StiDataHandler
 
             Stimulsoft = Stimulsoft || {};
             Stimulsoft.Helper = new StiHelper('{$this->options->url}', {$this->options->timeout});
-            jsHelper = typeof jsHelper !== 'undefined' ? jsHelper : Stimulsoft.Helper;";
+            jsHelper = typeof jsHelper !== 'undefined' ? jsHelper : Stimulsoft.Helper;
+            ";
+    }
+
+    public function renderHtml()
+    {
+        echo $this->getHtml();
+    }
+
+    public function __toString()
+    {
+        return $this->getHtml();
     }
 
     public function __construct($options = null)

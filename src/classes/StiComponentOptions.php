@@ -7,15 +7,15 @@ class StiComponentOptions
     public $property;
     protected $enums = [];
 
-    public function __toString()
+    public function getHtml()
     {
-        $result = '<script type="text/javascript">';
+        $result = '';
         $className = get_class($this);
         $vars = get_class_vars($className);
         foreach ($vars as $name => $defaultValue) {
-            if ($name != 'group' && $name != 'enums') {
+            if ($name != 'property' && $name != 'enums') {
                 if (is_object($this->{$name}))
-                    $result .= $this->{$name};
+                    $result .= $this->{$name}->getHtml();
                 else {
                     $currentValue = $this->{$name};
                     if ($currentValue != $defaultValue) {
@@ -27,7 +27,12 @@ class StiComponentOptions
             }
         }
 
-        return $result . '</script>';
+        return $result;
+    }
+
+    public function renderHtml()
+    {
+        echo $this->getHtml();
     }
 
     public function __construct($property = '')

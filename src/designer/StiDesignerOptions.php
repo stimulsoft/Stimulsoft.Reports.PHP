@@ -1,6 +1,8 @@
 <?php
 
-class StiDesignerOptions
+namespace Stimulsoft;
+
+class StiDesignerOptions extends StiComponentOptions
 {
 
 }
