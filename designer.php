@@ -4,8 +4,8 @@ require_once 'vendor/autoload.php';
 use Stimulsoft\Designer\Enums\StiDesignerTheme;
 use Stimulsoft\Designer\StiDesigner;
 use Stimulsoft\Designer\StiDesignerOptions;
+use Stimulsoft\Enums\StiComponentType;
 use Stimulsoft\Report\StiReport;
-use Stimulsoft\StiComponentType;
 use Stimulsoft\StiHandler;
 use Stimulsoft\StiJavaScriptHelper;
 
@@ -17,9 +17,11 @@ use Stimulsoft\StiJavaScriptHelper;
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <title>Stimulsoft Reports.PHP - Designer</title>
-    <style>html, body {
+    <style>
+        html, body {
             font-family: sans-serif;
-        }</style>
+        }
+    </style>
 
     <?php
     // Loading the necessary JavaScript for the components
@@ -35,7 +37,8 @@ use Stimulsoft\StiJavaScriptHelper;
     */
     ?>
 
-    <script type="text/javascript">function onLoad() {<?php
+    <script type="text/javascript">function onLoad() {
+            <?php
             // Render all JavaScript functions to work with the PHP server
             $handler = new StiHandler();
             $handler->renderHtml();
@@ -66,7 +69,8 @@ use Stimulsoft\StiJavaScriptHelper;
             $designer->report = $report;
 
             $designer->renderHtml('designerContent');
-            ?>}
+            ?>
+        }
     </script>
 </head>
 <body onload="onLoad();">

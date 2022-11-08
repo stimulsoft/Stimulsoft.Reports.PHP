@@ -2,6 +2,8 @@
 
 namespace Stimulsoft;
 
+use Stimulsoft\Enums\StiComponentType;
+
 class StiJavaScriptHelper
 {
     public $componentType;

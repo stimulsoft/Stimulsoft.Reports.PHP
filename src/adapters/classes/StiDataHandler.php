@@ -9,6 +9,8 @@ use Stimulsoft\Adapters\StiMySqlAdapter;
 use Stimulsoft\Adapters\StiOdbcAdapter;
 use Stimulsoft\Adapters\StiOracleAdapter;
 use Stimulsoft\Adapters\StiPostgreSqlAdapter;
+use Stimulsoft\Enums\StiCommand;
+use Stimulsoft\Enums\StiDatabaseType;
 
 class StiDataHandler
 {

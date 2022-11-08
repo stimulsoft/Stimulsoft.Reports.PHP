@@ -5,6 +5,9 @@ namespace Stimulsoft;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
 use Stimulsoft\Adapters\StiSqlAdapter;
+use Stimulsoft\Enums\StiCommand;
+use Stimulsoft\Enums\StiEventType;
+use Stimulsoft\Enums\StiExportFormat;
 
 class StiHandler extends StiDataHandler
 {
@@ -365,7 +368,6 @@ class StiHandler extends StiDataHandler
                     if (!$result->success) break;
                     $queryString = $result->object->queryString;
                     $result = $this->getDataAdapter($result->object);
-                    $result->handlerVersion = $this->version;
                     if (!$result->success) break;
 
                     $dataAdapter = $result->object;
@@ -383,7 +385,6 @@ class StiHandler extends StiDataHandler
 
                     /** @var StiDataResult $result */
                     $result = $this->invokeEndProcessData($request, $result);
-                    $result->handlerVersion = $this->version;
                     $result->adapterVersion = $dataAdapter->version;
                     $result->checkVersion = $dataAdapter->checkVersion;
                     if (!$result->success) break;
@@ -391,7 +392,6 @@ class StiHandler extends StiDataHandler
                     if (isset($result->object) && isset($result->object->result)) {
                         /** @var StiResult $result */
                         $result = $result->object->result;
-                        $result->handlerVersion = $this->version;
                         $result->adapterVersion = $dataAdapter->version;
                         $result->checkVersion = $dataAdapter->checkVersion;
                     }
@@ -439,8 +439,14 @@ class StiHandler extends StiDataHandler
             }
         }
 
+        $result->handlerVersion = $this->version;
+        if ($request->event != StiEventType::BeginProcessData) {
+            unset($result->adapterVersion);
+            unset($result->checkVersion);
+        }
+
         if ($response)
-            StiResponse::json($result, $request->encode);
+            StiResponse::json($result, $request->event == StiEventType::BeginProcessData && $request->encode);
 
         return $result;
     }

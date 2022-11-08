@@ -14,38 +14,31 @@ class StiViewer
     /** @var StiReport */
     public $report;
 
-    /** @var bool
-     * Process report variables before rendering.
-     */
-    public $onPrepareVariablesEvent = false;
-
-    /** @var bool
-     * Process SQL data sources. It can be used if it is necessary to correct the parameters of the data request.
-     */
+    /** The event is invoked before data request, which needed to render a report. */
     public $onBeginProcessData = false;
 
-    /** @var bool */
+    /** The event is invoked after loading data before rendering a report. */
     public $onEndProcessData = false;
 
-    /** @var bool */
+    /** The event is invoked before rendering a report after preparing report variables. */
+    public $onPrepareVariables = false;
+
+    /** The event is invoked before printing a report. */
     public $onPrintReport = false;
 
-    /** @var bool
-     * Manage export settings and, if necessary, transfer them to the server and manage there.
-     */
+    /** The event is invoked before exporting a report after the dialog of export settings. */
     public $onBeginExportReport = false;
 
-    /** @var bool
-     * Process exported report file on the server side.
-     */
+    /** The event is invoked after exporting a report till its saving as a file. */
     public $onEndExportReport = false;
 
-    /** @var bool TODO */
+    /**
+     * The event is invoked while interactive action of the viewer (dynamic sorting, collapsing, drill-down, applying of parameters)
+     * until processing values by the report generator. TODO
+     */
     //public $onInteraction = false;
 
-    /** @var bool
-     * Send exported report to Email.
-     */
+    /** The event is invoked after exporting a report before sending it by Email. */
     public $onEmailReport = false;
 
     public function getHtml($element = null)
@@ -59,7 +52,7 @@ class StiViewer
         $viewerProperty = $this->id == 'StiViewer' ? 'viewer' : $this->id;
         $result .= "let $viewerProperty = new Stimulsoft.Viewer.StiViewer($optionsProperty, '$this->id', false);\n";
 
-        if ($this->onPrepareVariablesEvent)
+        if ($this->onPrepareVariables)
             $result .= "$viewerProperty.onPrepareVariables = function (args, callback) { Stimulsoft.Helper.process(args, callback); }\n";
 
         if ($this->onBeginProcessData)

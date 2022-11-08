@@ -14,6 +14,30 @@ class StiDesigner
     /** @var StiReport */
     public $report;
 
+    /** The event is invoked before data request, which are needed to render a report. */
+    public $onBeginProcessData = false;
+
+    /** The event is invoked after loading data before rendering a report. */
+    public $onEndProcessData = false;
+
+    /** The event is invoked before rendering a report after preparing report variables. */
+    public $onPrepareVariables = false;
+
+    /** The event is invoked after creation a new report in the designer. */
+    public $onCreateReport = false;
+
+    /** The event is invoked before opening a report from the designer menu. TODO */
+    //public $onOpenReport = false;
+
+    /** The event is invoked when saving a report in the designer. */
+    public $onSaveReport = false;
+
+    /** The event is invoked when saving a report in the designer with a preliminary input of the file name. */
+    public $onSaveAsReport = false;
+
+    /** The event is invoked when going to the report view tab. TODO */
+    //public $onPreviewReport = false;
+
     public function getHtml($element = null)
     {
         $result = '';
@@ -25,7 +49,23 @@ class StiDesigner
         $designerProperty = $this->id == 'StiDesigner' ? 'designer' : $this->id;
         $result .= "let $designerProperty = new Stimulsoft.Designer.StiDesigner($optionsProperty, '$this->id', false);\n";
 
+        if ($this->onPrepareVariables)
+            $result .= "$designerProperty.onPrepareVariables = function (args, callback) { Stimulsoft.Helper.process(args, callback); }\n";
 
+        if ($this->onBeginProcessData)
+            $result .= "$designerProperty.onBeginProcessData = function (args, callback) { Stimulsoft.Helper.process(args, callback); }\n";
+
+        if ($this->onEndProcessData)
+            $result .= "$designerProperty.onEndProcessData = function (args) { Stimulsoft.Helper.process(args); }\n";
+
+        if ($this->onCreateReport)
+            $result .= "$designerProperty.onCreateReport = function (args, callback) { Stimulsoft.Helper.process(args, callback); }\n";
+
+        if ($this->onSaveReport)
+            $result .= "$designerProperty.onSaveReport = function (args, callback) { Stimulsoft.Helper.process(args, callback); }\n";
+
+        if ($this->onSaveAsReport)
+            $result .= "$designerProperty.onSaveAsReport = function (args, callback) { Stimulsoft.Helper.process(args, callback); }\n";
 
         if ($this->report != null) {
             if (!$this->report->isHtmlRendered)

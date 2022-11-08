@@ -2,6 +2,9 @@
 
 namespace Stimulsoft;
 
+use Stimulsoft\Enums\StiCommand;
+use Stimulsoft\Enums\StiEventType;
+
 class StiRequest extends StiDataRequest
 {
     public $sender;

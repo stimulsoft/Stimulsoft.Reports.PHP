@@ -1,8 +1,8 @@
 <?php
 require_once 'vendor/autoload.php';
 
+use Stimulsoft\Enums\StiComponentType;
 use Stimulsoft\Report\StiReport;
-use Stimulsoft\StiComponentType;
 use Stimulsoft\StiHandler;
 use Stimulsoft\StiJavaScriptHelper;
 use Stimulsoft\Viewer\Enums\StiToolbarDisplayMode;
@@ -18,7 +18,8 @@ use Stimulsoft\Viewer\StiViewerOptions;
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <title>Stimulsoft Reports.PHP - Viewer</title>
-    <style>html, body {
+    <style>
+        html, body {
             font-family: sans-serif;
         }
     </style>
@@ -37,7 +38,8 @@ use Stimulsoft\Viewer\StiViewerOptions;
     */
     ?>
 
-    <script type="text/javascript">function onLoad() {<?php
+    <script type="text/javascript">function onLoad() {
+            <?php
             // Render all JavaScript functions to work with the PHP server
             $handler = new StiHandler();
             $handler->renderHtml();
@@ -61,7 +63,7 @@ use Stimulsoft\Viewer\StiViewerOptions;
 
             // Creating Viewer component
             $viewer = new StiViewer($options);
-            //$viewer->onPrepareVariablesEvent = true;
+            $viewer->onPrepareVariables = true;
 
             // Creating a report
             $report = new StiReport();
@@ -71,7 +73,8 @@ use Stimulsoft\Viewer\StiViewerOptions;
             $viewer->report = $report;
 
             $viewer->renderHtml('viewerContent');
-            ?>}
+            ?>
+        }
     </script>
 </head>
 <body onload="onLoad();">

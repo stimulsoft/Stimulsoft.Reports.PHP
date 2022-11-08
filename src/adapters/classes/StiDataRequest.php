@@ -2,6 +2,8 @@
 
 namespace Stimulsoft;
 
+use Stimulsoft\Enums\StiCommand;
+
 class StiDataRequest
 {
     public $encode = false;
