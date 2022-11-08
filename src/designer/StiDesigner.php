@@ -1,6 +1,6 @@
 <?php
 
-namespace Stimulsoft;
+namespace Stimulsoft\Designer;
 
 use Stimulsoft\Report\StiReport;
 
@@ -14,14 +14,34 @@ class StiDesigner
     /** @var StiReport */
     public $report;
 
-    public function getHtml($element = null, $renderOptionsHtml = true, $renderReportHtml = true)
+    public function getHtml($element = null)
     {
-        return '';
+        $result = '';
+
+        if ($this->options && !$this->options->isHtmlRendered)
+            $result .= $this->options->getHtml();
+
+        $optionsProperty = $this->options ? $this->options->property : 'null';
+        $designerProperty = $this->id == 'StiDesigner' ? 'designer' : $this->id;
+        $result .= "let $designerProperty = new Stimulsoft.Designer.StiDesigner($optionsProperty, '$this->id', false);\n";
+
+
+
+        if ($this->report != null) {
+            if (!$this->report->isHtmlRendered)
+                $result .= $this->report->getHtml();
+
+            $result .= "$designerProperty.report = {$this->report->reportId};\n";
+        }
+
+        $result .= "$designerProperty.renderHtml(" . (strlen($element) > 0 ? "'$element'" : '') . ");\n";
+
+        return $result;
     }
 
-    public function renderHtml($element = null, $renderOptionsHtml = true, $renderReportHtml = true)
+    public function renderHtml($element = null)
     {
-        echo $this->getHtml($element, $renderOptionsHtml, $renderReportHtml);
+        echo $this->getHtml($element);
     }
 
     public function __construct($options = null, $id = 'StiDesigner')

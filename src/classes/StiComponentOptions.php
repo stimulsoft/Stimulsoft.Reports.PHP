@@ -5,6 +5,8 @@ namespace Stimulsoft;
 class StiComponentOptions
 {
     public $property;
+    public $isHtmlRendered = false;
+
     protected $enums = [];
 
     public function getHtml()
@@ -27,6 +29,7 @@ class StiComponentOptions
             }
         }
 
+        $this->isHtmlRendered = true;
         return $result;
     }
 

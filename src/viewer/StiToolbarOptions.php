@@ -2,12 +2,12 @@
 
 namespace Stimulsoft\Viewer;
 
-use Stimulsoft\Enums\StiContentAlignment;
-use Stimulsoft\Enums\StiPrintDestination;
-use Stimulsoft\Enums\StiShowMenuMode;
-use Stimulsoft\Enums\StiToolbarDisplayMode;
-use Stimulsoft\Enums\StiWebViewMode;
 use Stimulsoft\StiComponentOptions;
+use Stimulsoft\Viewer\Enums\StiContentAlignment;
+use Stimulsoft\Viewer\Enums\StiPrintDestination;
+use Stimulsoft\Viewer\Enums\StiShowMenuMode;
+use Stimulsoft\Viewer\Enums\StiToolbarDisplayMode;
+use Stimulsoft\Viewer\Enums\StiWebViewMode;
 
 /** A class which controls settings of the viewer toolbar. */
 class StiToolbarOptions extends StiComponentOptions

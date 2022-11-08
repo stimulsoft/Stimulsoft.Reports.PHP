@@ -27,6 +27,9 @@ class StiViewerOptions extends StiComponentOptions
 
     public function getHtml()
     {
+        if (strpos($this->property, '.') > 0)
+            return parent::getHtml();
+
         return "let $this->property = new Stimulsoft.Viewer.StiViewerOptions();\n" . parent::getHtml();
     }
 

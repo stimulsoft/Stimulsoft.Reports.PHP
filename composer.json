@@ -8,7 +8,8 @@
     "php": ">=5.6",
     "phpmailer/phpmailer": "^6.6",
     "ext-mbstring": "*",
-    "ext-json": "*"
+    "ext-json": "*",
+    "ext-zlib": "*"
   },
   "suggest": {
     "ext-pdo": "*",

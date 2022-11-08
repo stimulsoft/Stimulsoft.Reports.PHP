@@ -48,11 +48,11 @@ class StiViewer
      */
     public $onEmailReport = false;
 
-    public function getHtml($element = null, $renderOptionsHtml = true, $renderReportHtml = true)
+    public function getHtml($element = null)
     {
         $result = '';
 
-        if ($renderOptionsHtml && $this->options)
+        if ($this->options && !$this->options->isHtmlRendered)
             $result .= $this->options->getHtml();
 
         $optionsProperty = $this->options ? $this->options->property : 'null';
@@ -84,7 +84,7 @@ class StiViewer
             $result .= "$viewerProperty.onEmailReport = function (args) { Stimulsoft.Helper.process(args); }\n";
 
         if ($this->report != null) {
-            if ($renderReportHtml)
+            if (!$this->report->isHtmlRendered)
                 $result .= $this->report->getHtml();
 
             $result .= "$viewerProperty.report = {$this->report->reportId};\n";
@@ -95,9 +95,9 @@ class StiViewer
         return $result;
     }
 
-    public function renderHtml($element = null, $renderOptionsHtml = true, $renderReportHtml = true)
+    public function renderHtml($element = null)
     {
-        echo $this->getHtml($element, $renderOptionsHtml, $renderReportHtml);
+        echo $this->getHtml($element);
     }
 
     public function __construct($options = null, $id = 'StiViewer')

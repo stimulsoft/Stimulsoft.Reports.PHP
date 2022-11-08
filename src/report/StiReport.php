@@ -5,6 +5,8 @@ namespace Stimulsoft\Report;
 class StiReport
 {
     public $reportId;
+    public $isHtmlRendered = false;
+
     private $reportString;
     private $reportUrl;
 
@@ -45,6 +47,7 @@ class StiReport
         else if (strlen($this->reportString) > 0)
             $result .= "$this->reportId.loadPacked('$this->reportString');\n";
 
+        $this->isHtmlRendered = true;
         return $result;
     }
 

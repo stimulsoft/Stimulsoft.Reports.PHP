@@ -565,11 +565,6 @@ class StiHandler extends StiDataHandler
         echo $this->getHtml();
     }
 
-    public function __toString()
-    {
-        return $this->getHtml();
-    }
-
     public function __construct($options = null)
     {
         parent::__construct();

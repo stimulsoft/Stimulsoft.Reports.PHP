@@ -1,12 +1,12 @@
 <?php
 require_once 'vendor/autoload.php';
 
-use Stimulsoft\Enums\StiToolbarDisplayMode;
-use Stimulsoft\Enums\StiViewerTheme;
 use Stimulsoft\Report\StiReport;
 use Stimulsoft\StiComponentType;
 use Stimulsoft\StiHandler;
 use Stimulsoft\StiJavaScriptHelper;
+use Stimulsoft\Viewer\Enums\StiToolbarDisplayMode;
+use Stimulsoft\Viewer\Enums\StiViewerTheme;
 use Stimulsoft\Viewer\StiViewer;
 use Stimulsoft\Viewer\StiViewerOptions;
 

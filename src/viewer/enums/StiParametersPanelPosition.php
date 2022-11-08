@@ -1,6 +1,6 @@
 <?php
 
-namespace Stimulsoft\Enums;
+namespace Stimulsoft\Viewer\Enums;
 
 class StiParametersPanelPosition
 {
