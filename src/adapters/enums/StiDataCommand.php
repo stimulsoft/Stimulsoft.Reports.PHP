@@ -2,7 +2,7 @@
 
 namespace Stimulsoft\Enums;
 
-class StiCommand
+class StiDataCommand
 {
     const GetSupportedAdapters = 'GetSupportedAdapters';
     const TestConnection = 'TestConnection';

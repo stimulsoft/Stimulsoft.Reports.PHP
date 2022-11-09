@@ -3,6 +3,7 @@
 namespace Stimulsoft\Adapters;
 
 use DateTime;
+use Stimulsoft\StiDataResult;
 use Stimulsoft\StiResult;
 
 class StiOracleAdapter extends StiSqlAdapter
@@ -44,7 +45,7 @@ class StiOracleAdapter extends StiSqlAdapter
         if (!$this->link)
             return $this->getLastErrorResult();
 
-        return StiResult::success();
+        return StiDataResult::success();
     }
 
     protected function disconnect()

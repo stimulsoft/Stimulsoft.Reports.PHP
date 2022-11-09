@@ -38,7 +38,8 @@ use Stimulsoft\Viewer\StiViewerOptions;
     */
     ?>
 
-    <script type="text/javascript">function onLoad() {
+    <script type="text/javascript">
+        function onLoad() {
             <?php
             // Render all JavaScript functions to work with the PHP server
             $handler = new StiHandler();
@@ -59,11 +60,18 @@ use Stimulsoft\Viewer\StiViewerOptions;
             $options->appearance->fullScreenMode = true;
             $options->appearance->scrollbarsMode = true;
             $options->toolbar->displayMode = StiToolbarDisplayMode::Separated;
+            $options->toolbar->showSendEmailButton = true;
             $options->appearance->backgroundColor = 'gray';
 
             // Creating Viewer component
             $viewer = new StiViewer($options);
             $viewer->onPrepareVariables = true;
+            $viewer->onBeginProcessData = true;
+            $viewer->onEndProcessData = true;
+            $viewer->onPrintReport = true;
+            $viewer->onBeginExportReport = true;
+            $viewer->onEndExportReport = true;
+            $viewer->onEmailReport = true;
 
             // Creating a report
             $report = new StiReport();

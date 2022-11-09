@@ -2,6 +2,7 @@
 
 namespace Stimulsoft\Adapters;
 
+use Stimulsoft\StiDataResult;
 use Stimulsoft\StiResult;
 
 class StiFirebirdAdapter extends StiSqlAdapter
@@ -38,7 +39,7 @@ class StiFirebirdAdapter extends StiSqlAdapter
         if (!$this->link)
             return $this->getLastErrorResult();
 
-        return StiResult::success();
+        return StiDataResult::success();
     }
 
     protected function disconnect()

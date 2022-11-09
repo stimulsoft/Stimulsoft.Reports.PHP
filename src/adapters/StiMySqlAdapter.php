@@ -3,6 +3,7 @@
 namespace Stimulsoft\Adapters;
 
 use mysqli;
+use Stimulsoft\StiDataResult;
 use Stimulsoft\StiResult;
 
 class StiMySqlAdapter extends StiSqlAdapter
@@ -38,7 +39,7 @@ class StiMySqlAdapter extends StiSqlAdapter
         if (!$this->link->set_charset($this->info->charset))
             return $this->getLastErrorResult();
 
-        return StiResult::success();
+        return StiDataResult::success();
     }
 
     protected function disconnect()

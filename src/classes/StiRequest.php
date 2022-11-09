@@ -2,7 +2,7 @@
 
 namespace Stimulsoft;
 
-use Stimulsoft\Enums\StiCommand;
+use Stimulsoft\Enums\StiDataCommand;
 use Stimulsoft\Enums\StiEventType;
 
 class StiRequest extends StiDataRequest
@@ -25,7 +25,7 @@ class StiRequest extends StiDataRequest
 
     protected function checkRequestParams($obj)
     {
-        if (!isset($obj->event) && isset($obj->command) && ($obj->command == StiCommand::TestConnection || StiCommand::ExecuteQuery))
+        if (!isset($obj->event) && isset($obj->command) && ($obj->command == StiDataCommand::TestConnection || StiDataCommand::ExecuteQuery))
             $this->event = StiEventType::BeginProcessData;
 
         if (isset($obj->report)) {

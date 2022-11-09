@@ -2,6 +2,7 @@
 
 namespace Stimulsoft\Adapters;
 
+use Stimulsoft\StiDataResult;
 use Stimulsoft\StiResult;
 
 class StiMsSqlAdapter extends StiSqlAdapter
@@ -58,7 +59,7 @@ class StiMsSqlAdapter extends StiSqlAdapter
             if (!$this->link)
                 return $this->getLastErrorResult();
 
-            return StiResult::success();
+            return StiDataResult::success();
         }
 
         $this->link = mssql_connect($this->info->host, $this->info->userId, $this->info->password);

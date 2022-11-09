@@ -5,9 +5,15 @@ namespace Stimulsoft;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
 use Stimulsoft\Adapters\StiSqlAdapter;
-use Stimulsoft\Enums\StiCommand;
+use Stimulsoft\Enums\StiDataCommand;
 use Stimulsoft\Enums\StiEventType;
+use Stimulsoft\Enums\StiExportAction;
 use Stimulsoft\Enums\StiExportFormat;
+use Stimulsoft\Enums\StiPrintAction;
+use Stimulsoft\Events\StiDataEventArgs;
+use Stimulsoft\Events\StiExportEventArgs;
+use Stimulsoft\Events\StiReportEventArgs;
+use Stimulsoft\Events\StiVariablesEventArgs;
 
 class StiHandler extends StiDataHandler
 {
@@ -148,7 +154,7 @@ class StiHandler extends StiDataHandler
 
     private function invokeBeginProcessData($request)
     {
-        $args = new StiEventArgs();
+        $args = new StiDataEventArgs();
         $args->populateVars($request);
 
         if (isset($request->queryString) && isset($request->parameters)) {
@@ -168,15 +174,16 @@ class StiHandler extends StiDataHandler
 
     private function invokeEndProcessData($request, $result)
     {
-        $args = new StiEventArgs();
-        $args->sender = $request->sender;
+        $args = new StiDataEventArgs();
+        $args->populateVars($request);
         $args->result = $result;
+
         return $this->checkEventResult($this->onEndProcessData, $args);
     }
 
     private function invokePrepareVariables($request)
     {
-        $args = new StiEventArgs();
+        $args = new StiVariablesEventArgs();
         $args->sender = $request->sender;
 
         $args->variables = array();
@@ -223,7 +230,7 @@ class StiHandler extends StiDataHandler
 
     private function invokeCreateReport($request)
     {
-        $args = new StiEventArgs();
+        $args = new StiReportEventArgs();
         $args->populateVars($request);
 
         $result = $this->checkEventResult($this->onCreateReport, $args);
@@ -234,14 +241,14 @@ class StiHandler extends StiDataHandler
 
     private function invokeOpenReport($request)
     {
-        $args = new StiEventArgs();
+        $args = new StiReportEventArgs();
         $args->sender = $request->sender;
         return $this->checkEventResult($this->onOpenReport, $args);
     }
 
     private function invokeSaveReport($request)
     {
-        $args = new StiEventArgs();
+        $args = new StiReportEventArgs();
         $args->populateVars($request);
 
         return $this->checkEventResult($this->onSaveReport, $args);
@@ -249,7 +256,7 @@ class StiHandler extends StiDataHandler
 
     private function invokeSaveAsReport($request)
     {
-        $args = new StiEventArgs();
+        $args = new StiReportEventArgs();
         $args->populateVars($request);
 
         return $this->checkEventResult($this->onSaveAsReport, $args);
@@ -257,16 +264,21 @@ class StiHandler extends StiDataHandler
 
     private function invokePrintReport($request)
     {
-        $args = new StiEventArgs();
+        $args = new StiExportEventArgs();
         $args->populateVars($request);
+
+        $args->action = $args->action == null ? StiExportAction::PrintReport : $args->action;
+        $args->format = $args->printAction == StiPrintAction::PrintPdf ? StiExportFormat::Pdf : StiExportFormat::Html;
+        $args->formatName = $args->printAction == StiPrintAction::PrintPdf ? 'Pdf' : 'Html';
 
         return $this->checkEventResult($this->onPrintReport, $args);
     }
 
     private function invokeBeginExportReport($request)
     {
-        $args = new StiEventArgs();
+        $args = new StiExportEventArgs();
         $args->populateVars($request);
+        $args->fileExtension = $this->getFileExtension($request->format);
 
         $result = $this->checkEventResult($this->onBeginExportReport, $args);
         $result->fileName = $args->fileName;
@@ -277,8 +289,9 @@ class StiHandler extends StiDataHandler
 
     private function invokeEndExportReport($request)
     {
-        $args = new StiEventArgs();
+        $args = new StiExportEventArgs();
         $args->populateVars($request);
+        $args->action = $args->action == null ? StiExportAction::ExportReport : $args->action;
         $args->fileExtension = $this->getFileExtension($request->format);
 
         return $this->checkEventResult($this->onEndExportReport, $args);
@@ -292,20 +305,16 @@ class StiHandler extends StiDataHandler
         $settings->message = $request->settings->message;
         $settings->attachmentName = $request->fileName . '.' . $this->getFileExtension($request->format);
 
-        $args = new StiEventArgs();
-        $args->sender = $request->sender;
-        $args->settings = $settings;
-        $args->format = $request->format;
-        $args->formatName = $request->formatName;
-        $args->fileName = $request->fileName;
-        $args->data = base64_decode($request->data);
+        $args = new StiExportEventArgs();
+        $args->populateVars($request);
+        $args->emailSettings = $settings;
 
         $result = $this->checkEventResult($this->onEmailReport, $args);
         if (!$result->success) return $result;
 
         $guid = substr(md5(uniqid() . mt_rand()), 0, 12);
         if (!file_exists('tmp')) mkdir('tmp');
-        file_put_contents('tmp/' . $guid . '.' . $args->fileName, $args->data);
+        file_put_contents('tmp/' . $guid . '.' . $args->fileName, base64_decode($args->data));
 
         // Detect auth mode
         $auth = $settings->host != null && $settings->login != null && $settings->password != null;
@@ -366,20 +375,21 @@ class StiHandler extends StiDataHandler
                 case StiEventType::BeginProcessData:
                     $result = $this->invokeBeginProcessData($request);
                     if (!$result->success) break;
-                    $queryString = $result->object->queryString;
-                    $result = $this->getDataAdapter($result->object);
+                    $request->connectionString = $result->object->connectionString;
+                    $request->queryString = $result->object->queryString;
+                    $result = $this->getDataAdapter($request);
                     if (!$result->success) break;
 
                     $dataAdapter = $result->object;
 
                     /** @var StiSqlAdapter $dataAdapter */
                     switch ($request->command) {
-                        case StiCommand::TestConnection:
+                        case StiDataCommand::TestConnection:
                             $result = $dataAdapter->test();
                             break;
 
-                        case StiCommand::ExecuteQuery:
-                            $result = $dataAdapter->execute($queryString);
+                        case StiDataCommand::ExecuteQuery:
+                            $result = $dataAdapter->execute($request->queryString);
                             break;
                     }
 
@@ -446,7 +456,7 @@ class StiHandler extends StiDataHandler
         }
 
         if ($response)
-            StiResponse::json($result, $request->event == StiEventType::BeginProcessData && $request->encode);
+            StiResponse::json($result);
 
         return $result;
     }

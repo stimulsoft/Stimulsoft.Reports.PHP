@@ -9,7 +9,7 @@ use Stimulsoft\Adapters\StiMySqlAdapter;
 use Stimulsoft\Adapters\StiOdbcAdapter;
 use Stimulsoft\Adapters\StiOracleAdapter;
 use Stimulsoft\Adapters\StiPostgreSqlAdapter;
-use Stimulsoft\Enums\StiCommand;
+use Stimulsoft\Enums\StiDataCommand;
 use Stimulsoft\Enums\StiDatabaseType;
 
 class StiDataHandler
@@ -79,7 +79,7 @@ class StiDataHandler
         $request = new StiDataRequest();
         $result = $request->parse();
         if ($result->success) {
-            if ($result->object->command == StiCommand::GetSupportedAdapters) {
+            if ($result->object->command == StiDataCommand::GetSupportedAdapters) {
                 $reflectionClass = new ReflectionClass('\Stimulsoft\StiDatabaseType');
                 $databases = $reflectionClass->getConstants();
                 $result = array(
@@ -90,7 +90,7 @@ class StiDataHandler
             else {
                 $result = $this->getDataAdapter($request);
                 $dataAdapter = $result->object;
-                $result = $request->command == StiCommand::TestConnection
+                $result = $request->command == StiDataCommand::TestConnection
                     ? $dataAdapter->test()
                     : $dataAdapter->execute($request->queryString);
                 $result->handlerVersion = $this->version;

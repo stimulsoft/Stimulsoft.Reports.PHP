@@ -2,6 +2,7 @@
 
 namespace Stimulsoft\Adapters;
 
+use Stimulsoft\StiDataResult;
 use Stimulsoft\StiResult;
 
 class StiPostgreSqlAdapter extends StiSqlAdapter
@@ -36,7 +37,7 @@ class StiPostgreSqlAdapter extends StiSqlAdapter
         if (!$this->link)
             return $this->getLastErrorResult();
 
-        return StiResult::success();
+        return StiDataResult::success();
     }
 
     protected function disconnect()

@@ -2,7 +2,7 @@
 
 namespace Stimulsoft;
 
-use Stimulsoft\Enums\StiCommand;
+use Stimulsoft\Enums\StiDataCommand;
 
 class StiDataRequest
 {
@@ -53,10 +53,10 @@ class StiDataRequest
         if (isset($obj->command))
             $this->command = $obj->command;
 
-        if ($this->command == StiCommand::GetSupportedAdapters)
+        if ($this->command == StiDataCommand::GetSupportedAdapters)
             return StiResult::success(null, $this);
 
-        if ($this->command != StiCommand::TestConnection && $this->command != StiCommand::ExecuteQuery)
+        if ($this->command != StiDataCommand::TestConnection && $this->command != StiDataCommand::ExecuteQuery)
             return StiResult::error('Unknown command [' . $this->command . ']');
 
         return StiResult::success(null, $this);

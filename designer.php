@@ -37,7 +37,8 @@ use Stimulsoft\StiJavaScriptHelper;
     */
     ?>
 
-    <script type="text/javascript">function onLoad() {
+    <script type="text/javascript">
+        function onLoad() {
             <?php
             // Render all JavaScript functions to work with the PHP server
             $handler = new StiHandler();
