@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="1">
+      <ConnectionMySql Ref="2" type="Stimulsoft.Report.Dictionary.StiMySqlDatabase" isKey="true">
+        <Alias>ConnectionMySql</Alias>
+        <ConnectionStringEncrypted>49D1CUhnQ/1GTuj0xBjjbotaaaHmV9PdbxWhCGgNJRPDVlPrVVABhMdJ4cToGKA71t5pwk8JEfDCBtns8VzrH4J49ctNWdOZwkXRjWk9dQ==</ConnectionStringEncrypted>
+        <Name>ConnectionMySql</Name>
+      </ConnectionMySql>
+    </Databases>
+    <DataSources isList="true" count="1">
+      <DataSource Ref="3" type="Stimulsoft.Report.Dictionary.StiMySqlSource" isKey="true">
+        <Alias>DataSource</Alias>
+        <Columns isList="true" count="4">
+          <value>CHARACTER_SET_NAME,System.String</value>
+          <value>DEFAULT_COLLATE_NAME,System.String</value>
+          <value>DESCRIPTION,System.String</value>
+          <value>MAXLEN,System.Int32</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>18eef158f3fc4c8ab12ab6e2a67f12eb</Key>
+        <Name>DataSource</Name>
+        <NameInSource>ConnectionMySql</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from CHARACTER_SETS</SqlCommand>
+      </DataSource>
+    </DataSources>
+    <Relations isList="true" count="0" />
+    <Report isRef="0" />
+    <Resources isList="true" count="0" />
+    <Variables isList="true" count="0" />
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <Key>9b7d03735fe34c2694cb8735cdd5b3ca</Key>
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="4" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>White</Brush>
+      <Components isList="true" count="2">
+        <Data1 Ref="5" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <CanBreak>True</CanBreak>
+          <ClientRectangle>0,0.4,19.6,0.8</ClientRectangle>
+          <ComponentPlacement>p.Page1</ComponentPlacement>
+          <Components isList="true" count="3">
+            <Text1 Ref="6" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <ClientRectangle>0,0,5,0.6</ClientRectangle>
+              <ComponentPlacement>d.Data1</ComponentPlacement>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <ShiftMode>None</ShiftMode>
+              <Text>{DataSource.CHARACTER_SET_NAME}</Text>
+              <TextBrush>[153:50:204]</TextBrush>
+            </Text1>
+            <Text2 Ref="7" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <ClientRectangle>5,0,10.8,0.6</ClientRectangle>
+              <ComponentPlacement>d.Data1</ComponentPlacement>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <ShiftMode>None</ShiftMode>
+              <Text>{DataSource.DESCRIPTION}</Text>
+              <TextBrush>[34:139:34]</TextBrush>
+            </Text2>
+            <Text3 Ref="8" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <ClientRectangle>15.8,0,3.8,0.6</ClientRectangle>
+              <ComponentPlacement>d.Data1</ComponentPlacement>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text3</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <ShiftMode>None</ShiftMode>
+              <Text>{DataSource.MAXLEN}</Text>
+              <TextBrush>[255:165:0]</TextBrush>
+            </Text3>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataSourceName>DataSource</DataSourceName>
+          <Expressions isList="true" count="0" />
+          <Filters isList="true" count="0" />
+          <Name>Data1</Name>
+          <Page isRef="4" />
+          <Parent isRef="4" />
+          <Sort isList="true" count="0" />
+        </Data1>
+        <FooterBand1 Ref="9" type="FooterBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <CanBreak>True</CanBreak>
+          <ClientRectangle>0,2,19.6,0.8</ClientRectangle>
+          <ComponentPlacement>p.Page1</ComponentPlacement>
+          <Components isList="true" count="1">
+            <Text4 Ref="10" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <ClientRectangle>15.8,0,3.8,0.8</ClientRectangle>
+              <ComponentPlacement>f.FooterBand1</ComponentPlacement>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,18,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text4</Name>
+              <Page isRef="4" />
+              <Parent isRef="9" />
+              <ShiftMode>None</ShiftMode>
+              <Text>{Sum(DataSource.MAXLEN)}</Text>
+              <TextBrush>[255:165:0]</TextBrush>
+            </Text4>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Expressions isList="true" count="0" />
+          <Name>FooterBand1</Name>
+          <Page isRef="4" />
+          <Parent isRef="4" />
+        </FooterBand1>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Expressions isList="true" count="0" />
+      <Guid>F04DD92D512497EFC050677E31E3F453</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page1</Name>
+      <PageHeight>27.9</PageHeight>
+      <PageWidth>21.6</PageWidth>
+      <Report isRef="0" />
+      <Watermark Ref="11" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+        <Font>Arial,10</Font>
+        <TextBrush>Black</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PreviewMode>StandardAndDotMatrix</PreviewMode>
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>3/9/2022 10:34:31 AM</ReportChanged>
+  <ReportCreated>10/28/2010 1:08:55 PM</ReportCreated>
+  <ReportFile>D:\Stimulsoft\Reports\ReportMySql.mrt</ReportFile>
+  <ReportGuid>cabdcd03d7b9480d8e23c2cccf92b6fb</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2022.2.1.0</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.ReportControls;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    
+    public class SimpleList : Stimulsoft.Report.StiReport
+    {
+        
+		public SimpleList()
+        {
+            this.InitializeComponent();
+        }
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="1">
+    <Odd Ref="12" type="Stimulsoft.Report.StiStyle" isKey="true">
+      <Brush>PapayaWhip</Brush>
+      <Conditions isList="true" count="0" />
+      <Font>Arial,8</Font>
+      <Name>Odd</Name>
+      <NegativeTextBrush>Red</NegativeTextBrush>
+      <TextBrush>Black</TextBrush>
+    </Odd>
+  </Styles>
+</StiSerializer>

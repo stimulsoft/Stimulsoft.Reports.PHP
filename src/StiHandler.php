@@ -19,6 +19,7 @@ class StiHandler extends StiDataHandler
 {
     public $version = '2022.4.3';
     public $options;
+    public $license;
 
     public $onBeginProcessData;
     public $onEndProcessData;
@@ -474,7 +475,7 @@ class StiHandler extends StiDataHandler
 
     public function getHtml()
     {
-        return "StiHelper.prototype.process = function (args, callback) {
+        $result = "StiHelper.prototype.process = function (args, callback) {
                 if (args) {
                     if (callback)
                         args.preventDefault = true;
@@ -582,6 +583,11 @@ class StiHandler extends StiDataHandler
             Stimulsoft.Helper = new StiHelper('{$this->options->url}', {$this->options->timeout});
             jsHelper = typeof jsHelper !== 'undefined' ? jsHelper : Stimulsoft.Helper;
             ";
+
+        if (!$this->license->isHtmlRendered)
+            $result .= $this->license->getHtml();
+
+        return $result;
     }
 
     public function renderHtml()
@@ -594,5 +600,6 @@ class StiHandler extends StiDataHandler
         parent::__construct();
 
         $this->options = $options != null ? $options : new StiHandlerOptions();
+        $this->license = new StiLicense();
     }
 }
