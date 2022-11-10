@@ -320,32 +320,40 @@ class StiHandler extends StiDataHandler
         $auth = $settings->host != null && $settings->login != null && $settings->password != null;
 
         $mail = new PHPMailer(true);
-        if ($auth) $mail->IsSMTP();
+        if ($auth) $mail->isSMTP();
         try {
             $mail->CharSet = $settings->charset;
-            $mail->IsHTML(false);
+            $mail->isHTML(false);
             $mail->From = $settings->from;
             $mail->FromName = $settings->name;
 
             // Add Emails list
             $emails = preg_split('/[,;]/', $settings->to);
             foreach ($emails as $settings->to) {
-                $mail->AddAddress(trim($settings->to));
+                $mail->addAddress(trim($settings->to));
             }
 
             // Fill email fields
             $mail->Subject = htmlspecialchars($settings->subject);
             $mail->Body = $settings->message;
-            $mail->AddAttachment('tmp/' . $guid . '.' . $args->fileName, $settings->attachmentName);
+            $mail->addAttachment('tmp/' . $guid . '.' . $args->fileName, $settings->attachmentName);
 
             // Fill auth fields
             if ($auth) {
                 $mail->Host = $settings->host;
                 $mail->Port = $settings->port;
-                $mail->SMTPAuth = true;
-                $mail->SMTPSecure = $settings->secure;
                 $mail->Username = $settings->login;
                 $mail->Password = $settings->password;
+
+                $mail->SMTPAuth = true;
+                $mail->SMTPSecure = $settings->secure;
+                $mail->SMTPOptions = array(
+                    'ssl' => array(
+                        'verify_peer' => false,
+                        'verify_peer_name' => false,
+                        'allow_self_signed' => true
+                    )
+                );
             }
 
             // Fill CC and BCC
@@ -471,11 +479,11 @@ class StiHandler extends StiDataHandler
                     if (callback)
                         args.preventDefault = true;
 
-                    if (args.event === 'BeginProcessData') {
+                    if (args.event === 'BeginProcessData' || args.event === 'EndProcessData') {
                         if (args.database === 'XML' || args.database === 'JSON' || args.database === 'Excel')
-                            return callback(null);
+                            return callback ? callback(null) : null;
                         if (args.database === 'Data from DataSet, DataTables')
-                            return callback(args);
+                            return callback ? callback(args) : null;
                     }
 
                     let command = {};

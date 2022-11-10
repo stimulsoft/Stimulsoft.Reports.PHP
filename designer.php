@@ -60,15 +60,18 @@ use Stimulsoft\StiJavaScriptHelper;
 
             // Creating Designer component
             $designer = new StiDesigner($options);
-            //$designer->onPrepareVariablesEvent = true;
+            $designer->onBeginProcessData = true;
+            $designer->onSaveReport = true;
 
             // Creating a report
             $report = new StiReport();
-            $report->loadFile("reports/ReportMySql.mrt");
+            $report->loadFile("reports/SimpleList.mrt");
+            //$report->loadFile("reports/ReportMySql.mrt");
             //$report->load("reports/ReportMySql.mrt");
 
             $designer->report = $report;
 
+            // Output of the HTML representation of the component
             $designer->renderHtml('designerContent');
             ?>
         }

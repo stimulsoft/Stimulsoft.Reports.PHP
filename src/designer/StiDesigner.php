@@ -38,6 +38,7 @@ class StiDesigner
     /** The event is invoked when going to the report view tab. TODO */
     //public $onPreviewReport = false;
 
+    /** Get the HTML representation of the component. */
     public function getHtml($element = null)
     {
         $result = '';
@@ -79,6 +80,7 @@ class StiDesigner
         return $result;
     }
 
+    /** Output of the HTML representation of the component. */
     public function renderHtml($element = null)
     {
         echo $this->getHtml($element);

@@ -65,21 +65,20 @@ use Stimulsoft\Viewer\StiViewerOptions;
 
             // Creating Viewer component
             $viewer = new StiViewer($options);
-            $viewer->onPrepareVariables = true;
+
+            // Adding the necessary event handlers.
             $viewer->onBeginProcessData = true;
-            $viewer->onEndProcessData = true;
-            $viewer->onPrintReport = true;
-            $viewer->onBeginExportReport = true;
-            $viewer->onEndExportReport = true;
             $viewer->onEmailReport = true;
 
             // Creating a report
             $report = new StiReport();
-            $report->loadFile("reports/ReportMySql.mrt");
+            $report->loadFile("reports/SimpleList.mrt");
+            //$report->loadFile("reports/ReportMySql.mrt");
             //$report->load("reports/ReportMySql.mrt");
 
             $viewer->report = $report;
 
+            // Output of the HTML representation of the component
             $viewer->renderHtml('viewerContent');
             ?>
         }

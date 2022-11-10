@@ -41,6 +41,7 @@ class StiViewer
     /** The event is invoked after exporting a report before sending it by Email. */
     public $onEmailReport = false;
 
+    /** Get the HTML representation of the component. */
     public function getHtml($element = null)
     {
         $result = '';
@@ -88,6 +89,7 @@ class StiViewer
         return $result;
     }
 
+    /** Output of the HTML representation of the component. */
     public function renderHtml($element = null)
     {
         echo $this->getHtml($element);

@@ -12,7 +12,6 @@ require_once 'vendor/autoload.php';
 
 // You can configure the security level as you required.
 // By default is to allow any requests from any domains.
-
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Engaged-Auth-Token');
 header('Cache-Control: no-cache');
@@ -71,9 +70,9 @@ $handler->onBeginProcessData = function ($args)
     // You can send a successful result
     return StiResult::success();
     // You can send an informational message
-    //return StiResult::success('Warning or other useful information.');
+    //return StiResult::success('Some warning or other useful information.');
     // You can send an error message
-    //return StiResult::error('A message about some connection error.');
+    //return StiResult::error('Message about any connection error.');
 };
 
 /** @var $args StiDataEventArgs */
@@ -82,7 +81,7 @@ $handler->onEndProcessData = function ($args)
     return StiResult::success();
 };
 
-/** @var $args StiReportEventArgs */
+/** @var $args StiExportEventArgs */
 $handler->onPrintReport = function ($args)
 {
     return StiResult::success();
@@ -102,7 +101,7 @@ $handler->onEndExportReport = function ($args)
     file_put_contents('reports/' . $args->fileName . '.' . $args->fileExtension, base64_decode($args->data));
 
     //return StiResult::success();
-    return StiResult::success('Successful export of the report.');
+    return StiResult::success('Exporting the report was successful.');
     //return StiResult::error('An error occurred while exporting the report.');
 };
 
@@ -111,7 +110,7 @@ $handler->onEmailReport = function ($args)
 {
     // These parameters will be used when sending the report by email. You must set the correct values.
     $args->emailSettings->from = '*****@gmail.com';
-    $args->emailSettings->host = 'smtp.gmail.com';
+    $args->emailSettings->host = 'smtp.google.com';
     $args->emailSettings->login = '*****';
     $args->emailSettings->password = '*****';
 
@@ -137,12 +136,16 @@ $handler->onCreateReport = function ($args)
 /** @var $args StiReportEventArgs */
 $handler->onSaveReport = function ($args)
 {
+    $reportFileName = strlen($args->fileName) > 0 ? $args->fileName : 'Report.mrt';
+    if (strlen($reportFileName) < 5 || substr($reportFileName, -4) !== '.mrt')
+        $reportFileName .= '.mrt';
+
     // For example, you can save a report to the 'reports' folder on the server-side.
-    file_put_contents('reports/' . $args->fileName . '.mrt', $args->reportJson);
+    file_put_contents('reports/' . $reportFileName, $args->reportJson);
 
     //return StiResult::success();
-    return StiResult::success('Save Report OK: ' . $args->fileName);
-    //return StiResult::error('Save Report ERROR. Message from server side.');
+    return StiResult::success('Report file saved successfully as ' . $args->fileName);
+    //return StiResult::error('An error occurred while saving the report file on the server side.');
 };
 
 /** @var $args StiReportEventArgs */

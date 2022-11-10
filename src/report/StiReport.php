@@ -37,6 +37,7 @@ class StiReport
         $this->reportUrl = null;
     }
 
+    /** Get the HTML representation of the component. */
     public function getHtml()
     {
         $result = "let $this->reportId = new Stimulsoft.Report.StiReport();\n";
@@ -51,6 +52,7 @@ class StiReport
         return $result;
     }
 
+    /** Output of the HTML representation of the component. */
     public function renderHtml()
     {
         echo $this->getHtml();

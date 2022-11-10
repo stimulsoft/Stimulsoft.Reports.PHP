@@ -37,6 +37,7 @@ class StiDesignerOptions extends StiComponentOptions
     /** A class which controls settings of the preview window. */
     public $viewerOptions;
 
+    /** Get the HTML representation of the component. */
     public function getHtml()
     {
         return "let $this->property = new Stimulsoft.Designer.StiDesignerOptions();\n" . parent::getHtml();

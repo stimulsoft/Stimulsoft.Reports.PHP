@@ -9,6 +9,7 @@ class StiComponentOptions
 
     protected $enums = [];
 
+    /** Get the HTML representation of the component. */
     public function getHtml()
     {
         $result = '';
@@ -33,6 +34,7 @@ class StiComponentOptions
         return $result;
     }
 
+    /** Output of the HTML representation of the component. */
     public function renderHtml()
     {
         echo $this->getHtml();

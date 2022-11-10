@@ -25,6 +25,7 @@ class StiViewerOptions extends StiComponentOptions
     /** Gets or sets the height of the viewer. */
     public $height = '';
 
+    /** Get the HTML representation of the component. */
     public function getHtml()
     {
         if (strpos($this->property, '.') > 0)
