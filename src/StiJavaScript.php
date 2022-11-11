@@ -12,9 +12,7 @@ class StiJavaScript
 
     public function getHtml()
     {
-        $dashboardsDir = $_SERVER['DOCUMENT_ROOT'] . '/vendor/stimulsoft/dashboards-php';
-        $dashboards = is_dir($dashboardsDir);
-
+        $dashboards = class_exists('\Stimulsoft\Report\StiDashboard');
         $extension = $this->packed ? 'pack.js' : 'js';
 
         $scripts = array();

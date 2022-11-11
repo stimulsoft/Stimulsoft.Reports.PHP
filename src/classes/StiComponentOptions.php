@@ -10,6 +10,20 @@ class StiComponentOptions
     protected $enums = [];
     protected $ignore = ['ignore', 'enums', 'property', 'localization'];
 
+    protected function getLocalizationPath($localization)
+    {
+        if (strlen($localization) == 0)
+            return null;
+
+        if (strlen($localization) < 5 || substr($localization, -4) != '.xml')
+            $localization .= '.xml';
+
+        if (!preg_match('/[\/\\\]/', $localization))
+            $localization = '/vendor/stimulsoft/reports-php/public/localization/' . $localization;
+
+        return $localization;
+    }
+
     /** Get the HTML representation of the component. */
     public function getHtml()
     {

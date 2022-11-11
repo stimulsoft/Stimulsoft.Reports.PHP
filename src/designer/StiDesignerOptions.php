@@ -44,8 +44,10 @@ class StiDesignerOptions extends StiComponentOptions
     public function getHtml()
     {
         $result = '';
-        if (strlen($this->localization) > 0)
-            $result .= "Stimulsoft.Base.Localization.StiLocalization.setLocalizationFile('vendor/stimulsoft/reports-php/public/localization/$this->localization');\n";
+
+        $localizationPath = $this->getLocalizationPath($this->localization);
+        if ($localizationPath != null)
+            $result .= "Stimulsoft.Base.Localization.StiLocalization.setLocalizationFile('$localizationPath');\n";
 
         $result .= "let $this->property = new Stimulsoft.Designer.StiDesignerOptions();\n";
 
