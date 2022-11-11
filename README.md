@@ -61,6 +61,8 @@ Create and render the component in the `<script>` section of the page:
 
 You can try the [Live Demo](http://demo.stimulsoft.com/#Js)
 
+[Sample projects](https://github.com/stimulsoft/Samples-JS-PHP)
+
 Read more about [Stimulsoft Reports.PHP](https://www.stimulsoft.com/en/products/reports-php)
 
 [Free Download](https://www.stimulsoft.com/en/downloads)
