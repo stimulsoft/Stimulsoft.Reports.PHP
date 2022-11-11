@@ -3,12 +3,13 @@
 namespace Stimulsoft\Adapters;
 
 use DateTime;
+use Exception;
 use Stimulsoft\StiDataResult;
 use Stimulsoft\StiResult;
 
-class StiOracleAdapter extends StiSqlAdapter
+class StiOracleAdapter extends StiDataAdapter
 {
-    public $version = '2022.3.3';
+    public $version = '2022.4.4';
     public $checkVersion = true;
 
     protected $driverName = 'oci';
@@ -88,7 +89,7 @@ class StiOracleAdapter extends StiSqlAdapter
         }
     }
 
-    protected function parseType($meta)
+    protected function parseType($meta, $extended = false)
     {
         switch ($meta) {
             case 'SMALLINT':
@@ -112,8 +113,12 @@ class StiOracleAdapter extends StiSqlAdapter
 
             case 'BFILE':
             case 'BLOB':
+                return $extended ? 'blob' : 'array';
+
             case 'LONG':
             case 'CLOB':
+                return $extended ? 'clob' : 'string';
+
             case 'RAW':
             case 100:
             case 101:
@@ -125,6 +130,16 @@ class StiOracleAdapter extends StiSqlAdapter
 
     protected function getValue($type, $value)
     {
+        if ($type == 'blob' || $type == 'clob') {
+            try {
+                $data = $value->load();
+                return $type == 'blob' ? base64_encode($data) : $data . "\n";
+            }
+            catch (Exception $e) {
+                return null;
+            }
+        }
+
         if (is_null($value) || strlen($value) == 0)
             return null;
 
@@ -150,6 +165,7 @@ class StiOracleAdapter extends StiSqlAdapter
             return $this->getLastErrorResult();
 
         $result->count = oci_num_fields($query);
+        $types = array();
 
         for ($i = 1; $i <= $result->count; $i++) {
             $name = oci_field_name($query, $i);
@@ -157,13 +173,14 @@ class StiOracleAdapter extends StiSqlAdapter
 
             $type = oci_field_type($query, $i);
             $result->types[] = $this->parseType($type);
+            $types[] = $this->parseType($type, true);
         }
 
         while ($rowItem = oci_fetch_assoc($query)) {
             $row = array();
             foreach ($rowItem as $key => $value) {
                 if (count($result->columns) < count($rowItem)) $result->columns[] = $key;
-                $type = $result->types[count($row)];
+                $type = $types[count($row)];
                 $row[] = $this->getValue($type, $value);
             }
             $result->rows[] = $row;

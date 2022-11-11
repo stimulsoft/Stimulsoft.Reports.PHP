@@ -10,6 +10,11 @@ use Stimulsoft\StiComponentOptions;
 /** A class which controls settings of the dictionary. */
 class StiDictionaryOptions extends StiComponentOptions
 {
+    protected $enums = [
+        'useAliases', 'newReportDictionary', 'dataSourcesPermissions', 'dataConnectionsPermissions', 'dataColumnsPermissions',
+        'dataRelationsPermissions', 'businessObjectsPermissions', 'variablesPermissions', 'resourcesPermissions'
+    ];
+
     /** Gets or sets a visibility of the other category in the new connection form. */
     public $showAdaptersInNewConnectionForm = true;
 

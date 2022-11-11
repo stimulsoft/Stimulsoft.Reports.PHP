@@ -6,9 +6,9 @@ use mysqli;
 use Stimulsoft\StiDataResult;
 use Stimulsoft\StiResult;
 
-class StiMySqlAdapter extends StiSqlAdapter
+class StiMySqlAdapter extends StiDataAdapter
 {
-    public $version = '2022.3.3';
+    public $version = '2022.4.4';
     public $checkVersion = true;
 
     protected $driverName = 'mysql';

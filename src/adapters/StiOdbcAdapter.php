@@ -5,9 +5,9 @@ namespace Stimulsoft\Adapters;
 use Stimulsoft\StiDataResult;
 use Stimulsoft\StiResult;
 
-class StiOdbcAdapter extends StiSqlAdapter
+class StiOdbcAdapter extends StiDataAdapter
 {
-    public $version = '2022.3.3';
+    public $version = '2022.4.4';
     public $checkVersion = true;
 
     protected function getLastErrorResult()

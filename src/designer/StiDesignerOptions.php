@@ -7,40 +7,49 @@ use Stimulsoft\Viewer\StiViewerOptions;
 
 class StiDesignerOptions extends StiComponentOptions
 {
-    /** A class which controls settings of the designer appearance. */
+    /** @var string Gets or sets a path to the localization file for the designer. */
+    public $localization;
+
+    /** @var StiAppearanceOptions A class which controls settings of the designer appearance. */
     public $appearance;
 
-    /** A class which controls settings of the designer toolbar. */
+    /** @var StiToolbarOptions A class which controls settings of the designer toolbar. */
     public $toolbar;
 
-    /** A class which controls settings of the bands. */
+    /** @var StiBandsOptions A class which controls settings of the bands. */
     public $bands;
 
-    /** A class which controls settings of the cross-bands. */
+    /** @var StiCrossBandsOptions A class which controls settings of the cross-bands. */
     public $crossBands;
 
-    /** A class which controls settings of the components. */
+    /** @var StiComponentOptions A class which controls settings of the components. */
     public $components;
 
-    /** A class which controls settings of the dashboardElements. */
+    /** @var StiDashboardElementsOptions A class which controls settings of the dashboardElements. */
     public $dashboardElements;
 
-    /** A class which controls settings of the dictionary. */
+    /** @var StiDictionaryOptions A class which controls settings of the dictionary. */
     public $dictionary;
 
-    /** Gets or sets the width of the designer. */
-    public $width = "100%";
+    /** @var string Gets or sets the width of the designer. */
+    public $width = '100%';
 
-    /** Gets or sets the height of the designer. */
-    public $height = "800px";
+    /** @var string Gets or sets the height of the designer. */
+    public $height = '800px';
 
-    /** A class which controls settings of the preview window. */
+    /** @var StiViewerOptions A class which controls settings of the preview window. */
     public $viewerOptions;
 
     /** Get the HTML representation of the component. */
     public function getHtml()
     {
-        return "let $this->property = new Stimulsoft.Designer.StiDesignerOptions();\n" . parent::getHtml();
+        $result = '';
+        if (strlen($this->localization) > 0)
+            $result .= "Stimulsoft.Base.Localization.StiLocalization.setLocalizationFile('vendor/stimulsoft/reports-php/public/localization/$this->localization');\n";
+
+        $result .= "let $this->property = new Stimulsoft.Designer.StiDesignerOptions();\n";
+
+        return $result . parent::getHtml();
     }
 
     public function __construct($property = 'designerOptions')

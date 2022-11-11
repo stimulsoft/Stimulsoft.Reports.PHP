@@ -8,6 +8,7 @@ class StiComponentOptions
     public $isHtmlRendered = false;
 
     protected $enums = [];
+    protected $ignore = ['ignore', 'enums', 'property', 'localization'];
 
     /** Get the HTML representation of the component. */
     public function getHtml()
@@ -16,7 +17,7 @@ class StiComponentOptions
         $className = get_class($this);
         $vars = get_class_vars($className);
         foreach ($vars as $name => $defaultValue) {
-            if ($name != 'property' && $name != 'enums') {
+            if (!in_array($name, $this->ignore)) {
                 if (is_object($this->{$name}))
                     $result .= $this->{$name}->getHtml();
                 else {

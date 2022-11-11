@@ -13,6 +13,11 @@ use Stimulsoft\StiComponentOptions;
 /** A class which controls settings of the designer appearance. */
 class StiAppearanceOptions extends StiComponentOptions
 {
+    protected $enums = [
+        'defaultUnit', 'interfaceType', 'propertiesGridPosition', 'datePickerFirstDayOfWeek',
+        'wizardTypeRunningAfterLoad', 'zoom', 'theme'
+    ];
+
     /** Gets or sets a default value of unit in the designer. */
     public $defaultUnit = StiReportUnitType::Centimeters;
 

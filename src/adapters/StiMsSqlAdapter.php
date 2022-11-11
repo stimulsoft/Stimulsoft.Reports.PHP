@@ -5,9 +5,9 @@ namespace Stimulsoft\Adapters;
 use Stimulsoft\StiDataResult;
 use Stimulsoft\StiResult;
 
-class StiMsSqlAdapter extends StiSqlAdapter
+class StiMsSqlAdapter extends StiDataAdapter
 {
-    public $version = '2022.3.3';
+    public $version = '2022.4.4';
     public $checkVersion = true;
 
     protected $driverName = 'sqlsrv';

@@ -4,7 +4,7 @@ namespace Stimulsoft;
 
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
-use Stimulsoft\Adapters\StiSqlAdapter;
+use Stimulsoft\Adapters\StiDataAdapter;
 use Stimulsoft\Enums\StiDataCommand;
 use Stimulsoft\Enums\StiEventType;
 use Stimulsoft\Enums\StiExportAction;
@@ -17,7 +17,7 @@ use Stimulsoft\Events\StiVariablesEventArgs;
 
 class StiHandler extends StiDataHandler
 {
-    public $version = '2022.4.3';
+    public $version = '2022.4.4';
     public $options;
     public $license;
 
@@ -372,9 +372,7 @@ class StiHandler extends StiDataHandler
         return isset($error) ? StiResult::error($error) : $result;
     }
 
-
-    // Process request
-
+    /** Start processing the request from the client side. */
     public function process($response = true)
     {
         $request = new StiRequest();
@@ -386,12 +384,12 @@ class StiHandler extends StiDataHandler
                     if (!$result->success) break;
                     $request->connectionString = $result->object->connectionString;
                     $request->queryString = $result->object->queryString;
-                    $result = $this->getDataAdapter($request);
+                    $result = StiDataAdapter::getDataAdapterResult($request);
                     if (!$result->success) break;
 
                     $dataAdapter = $result->object;
 
-                    /** @var StiSqlAdapter $dataAdapter */
+                    /** @var StiDataAdapter $dataAdapter */
                     switch ($request->command) {
                         case StiDataCommand::TestConnection:
                             $result = $dataAdapter->test();
@@ -470,9 +468,7 @@ class StiHandler extends StiDataHandler
         return $result;
     }
 
-
-    // Render JavaScript part
-
+    /** Get the HTML representation of the component. */
     public function getHtml()
     {
         $result = "StiHelper.prototype.process = function (args, callback) {
@@ -573,10 +569,6 @@ class StiHandler extends StiDataHandler
                     Stimulsoft.StiOptions.WebServer.url = url;
                     Stimulsoft.StiOptions.WebServer.timeout = timeout;
                 }
-
-                if (Stimulsoft && Stimulsoft.Base) {
-                    Stimulsoft.Base.StiLicense.loadFromFile('/stimulsoft/license.php');
-                }
             }
 
             Stimulsoft = Stimulsoft || {};
@@ -590,6 +582,7 @@ class StiHandler extends StiDataHandler
         return $result;
     }
 
+    /** Output of the HTML representation of the component. */
     public function renderHtml()
     {
         echo $this->getHtml();

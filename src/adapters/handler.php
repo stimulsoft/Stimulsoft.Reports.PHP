@@ -8,12 +8,12 @@ require_once 'enums\StiDataCommand.php';
 require_once 'classes\StiConnectionInfo.php';
 require_once 'classes\StiDataRequest.php';
 require_once 'classes\StiResult.php';
-require_once 'classes\StiDataRequest.php';
+require_once 'classes\StiDataResult.php';
 require_once 'classes\StiResponse.php';
 require_once 'classes\StiDataHandler.php';
 
 // Data adapters for supported database types
-require_once 'StiSqlAdapter.php';
+require_once 'StiDataAdapter.php';
 require_once 'StiFirebirdAdapter.php';
 require_once 'StiMsSqlAdapter.php';
 require_once 'StiMySqlAdapter.php';

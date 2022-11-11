@@ -8,25 +8,25 @@ class StiReport
     public $isHtmlRendered = false;
 
     private $reportString;
-    private $reportUrl;
+    private $reportFile;
 
-    private function getReportFileExt($fileUrl)
+    private function getReportFileExt($filePath)
     {
-        return substr($fileUrl, strlen($fileUrl) > 3 ? -3 : 0);
+        return substr($filePath, strlen($filePath) > 3 ? -3 : 0);
     }
 
-    public function loadFile($fileUrl)
+    public function loadFile($filePath)
     {
         $this->clearReport();
-        $this->reportUrl = $fileUrl;
+        $this->reportFile = $filePath;
     }
 
-    public function load($fileUrl)
+    public function load($filePath)
     {
         $this->clearReport();
-        if (file_exists($fileUrl)) {
-            $this->reportString = file_get_contents($fileUrl);
-            if ($this->getReportFileExt($fileUrl) == 'mrt')
+        if (file_exists($filePath)) {
+            $this->reportString = file_get_contents($filePath);
+            if ($this->getReportFileExt($filePath) == 'mrt')
                 $this->reportString = base64_encode(gzencode($this->reportString));
         }
     }
@@ -34,7 +34,7 @@ class StiReport
     private function clearReport()
     {
         $this->reportString = null;
-        $this->reportUrl = null;
+        $this->reportFile = null;
     }
 
     /** Get the HTML representation of the component. */
@@ -42,8 +42,8 @@ class StiReport
     {
         $result = "let $this->reportId = new Stimulsoft.Report.StiReport();\n";
 
-        if (strlen($this->reportUrl) > 0)
-            $result .= "$this->reportId.loadFile('$this->reportUrl');\n";
+        if (strlen($this->reportFile) > 0)
+            $result .= "$this->reportId.loadFile('$this->reportFile');\n";
 
         else if (strlen($this->reportString) > 0)
             $result .= "$this->reportId.loadPacked('$this->reportString');\n";

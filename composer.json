@@ -1,7 +1,8 @@
 {
-  "name": "stimulsoft/stimulsoft.reports.php",
+  "name": "stimulsoft/reports-php",
   "description": "Stimulsoft Reports.PHP",
-  "homepage": "https://www.stimulsoft.com/",
+  "keywords": ["report", "reporting", "generator", "designer", "data", "json", "sql", "export", "pdf", "excel", "word", "html", "barcode", "qr-code", "charts"],
+  "homepage": "https://www.stimulsoft.com/en/products/reports-php",
   "minimum-stability": "stable",
   "license": "proprietary",
   "require": {

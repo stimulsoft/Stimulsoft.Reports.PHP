@@ -9,6 +9,5 @@ class StiJavaScriptOptions
     public $reportsExport = true;
     public $reportsImportXlsx = true;
     public $reportsMaps = true;
-    public $dashboards = true;
     public $blocklyEditor = true;
 }

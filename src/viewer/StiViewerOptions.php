@@ -7,22 +7,25 @@ use Stimulsoft\StiComponentOptions;
 /** A class which controls settings of the viewer. */
 class StiViewerOptions extends StiComponentOptions
 {
-    /** A class which controls settings of the viewer appearance. */
+    /** @var string Gets or sets a path to the localization file for the viewer. */
+    public $localization;
+
+    /** @var StiAppearanceOptions A class which controls settings of the viewer appearance. */
     public $appearance;
 
-    /** A class which controls settings of the viewer toolbar. */
+    /** @var StiToolbarOptions A class which controls settings of the viewer toolbar. */
     public $toolbar;
 
-    /** A class which controls the export options. */
+    /** @var StiExportsOptions A class which controls the export options. */
     public $exports;
 
-    /** A class which controls the export options. */
+    /** @var StiEmailOptions A class which controls the export options. */
     public $email;
 
-    /** Gets or sets the width of the viewer. */
+    /** @var string Gets or sets the width of the viewer. */
     public $width = '100%';
 
-    /** Gets or sets the height of the viewer. */
+    /** @var string Gets or sets the height of the viewer. */
     public $height = '';
 
     /** Get the HTML representation of the component. */
@@ -31,7 +34,13 @@ class StiViewerOptions extends StiComponentOptions
         if (strpos($this->property, '.') > 0)
             return parent::getHtml();
 
-        return "let $this->property = new Stimulsoft.Viewer.StiViewerOptions();\n" . parent::getHtml();
+        $result = '';
+        if (strlen($this->localization) > 0)
+            $result .= "Stimulsoft.Base.Localization.StiLocalization.setLocalizationFile('vendor/stimulsoft/reports-php/public/localization/$this->localization');\n";
+
+        $result .= "let $this->property = new Stimulsoft.Viewer.StiViewerOptions();\n";
+
+        return $result . parent::getHtml();
     }
 
     public function __construct($property = 'viewerOptions')

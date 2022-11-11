@@ -3,18 +3,12 @@
 namespace Stimulsoft;
 
 use ReflectionClass;
-use Stimulsoft\Adapters\StiFirebirdAdapter;
-use Stimulsoft\Adapters\StiMsSqlAdapter;
-use Stimulsoft\Adapters\StiMySqlAdapter;
-use Stimulsoft\Adapters\StiOdbcAdapter;
-use Stimulsoft\Adapters\StiOracleAdapter;
-use Stimulsoft\Adapters\StiPostgreSqlAdapter;
+use Stimulsoft\Adapters\StiDataAdapter;
 use Stimulsoft\Enums\StiDataCommand;
-use Stimulsoft\Enums\StiDatabaseType;
 
 class StiDataHandler
 {
-    public $version = '2022.3.3';
+    public $version = '2022.4.4';
 
     private function stiErrorHandler($errNo, $errStr, $errFile, $errLine)
     {
@@ -31,56 +25,21 @@ class StiDataHandler
         }
     }
 
-    public function registerErrorHandlers()
+    private function registerErrorHandlers()
     {
         set_error_handler(array($this, 'stiErrorHandler'));
         register_shutdown_function(array($this, 'stiShutdownFunction'));
         error_reporting(0);
     }
 
-    protected function getDataAdapter($request)
-    {
-        switch ($request->database) {
-            case StiDatabaseType::MySQL:
-                $dataAdapter = new StiMySqlAdapter();
-                break;
-
-            case StiDatabaseType::MSSQL:
-                $dataAdapter = new StiMsSqlAdapter();
-                break;
-
-            case StiDatabaseType::Firebird:
-                $dataAdapter = new StiFirebirdAdapter();
-                break;
-
-            case StiDatabaseType::PostgreSQL:
-                $dataAdapter = new StiPostgreSqlAdapter();
-                break;
-
-            case StiDatabaseType::Oracle:
-                $dataAdapter = new StiOracleAdapter();
-                break;
-
-            case StiDatabaseType::ODBC:
-                $dataAdapter = new StiOdbcAdapter();
-                break;
-        }
-
-        if (isset($dataAdapter)) {
-            $dataAdapter->parse($request->connectionString);
-            return StiResult::success(null, $dataAdapter);
-        }
-
-        return StiResult::error("Unknown database type [$request->database]");
-    }
-
-    public function process()
+    /** Start processing the request from the client side. */
+    public function process($response = true)
     {
         $request = new StiDataRequest();
         $result = $request->parse();
         if ($result->success) {
             if ($result->object->command == StiDataCommand::GetSupportedAdapters) {
-                $reflectionClass = new ReflectionClass('\Stimulsoft\StiDatabaseType');
+                $reflectionClass = new ReflectionClass('\Stimulsoft\Enums\StiDatabaseType');
                 $databases = $reflectionClass->getConstants();
                 $result = array(
                     'success' => true,
@@ -88,7 +47,9 @@ class StiDataHandler
                 );
             }
             else {
-                $result = $this->getDataAdapter($request);
+                $result = StiDataAdapter::getDataAdapterResult($request);
+
+                /** @var StiDataAdapter $dataAdapter */
                 $dataAdapter = $result->object;
                 $result = $request->command == StiDataCommand::TestConnection
                     ? $dataAdapter->test()
@@ -99,7 +60,10 @@ class StiDataHandler
             }
         }
 
-        StiResponse::json($result, $request->encode);
+        if ($response)
+            StiResponse::json($result, $request->encode);
+
+        return $result;
     }
 
     public function __construct()
