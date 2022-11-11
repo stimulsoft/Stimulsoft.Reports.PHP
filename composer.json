@@ -1,0 +1,30 @@
+{
+  "name": "stimulsoft/reports-php",
+  "description": "Stimulsoft Reports.PHP",
+  "keywords": ["report", "reporting", "generator", "designer", "data", "json", "sql", "export", "pdf", "excel", "word", "html", "barcode", "qr-code", "charts"],
+  "homepage": "https://www.stimulsoft.com/en/products/reports-php",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "require": {
+    "php": ">=5.6",
+    "phpmailer/phpmailer": "^6.6",
+    "ext-mbstring": "*",
+    "ext-json": "*",
+    "ext-zlib": "*"
+  },
+  "suggest": {
+    "ext-pdo": "*",
+    "ext-oci8": "*",
+    "ext-interbase": "*",
+    "ext-pgsql": "*",
+    "ext-odbc": "*",
+    "ext-sqlsrv": "*",
+    "ext-mssql": "*",
+    "ext-mysqli": "*"
+  },
+  "autoload": {
+    "classmap": [
+      "src/"
+    ]
+  }
+}
