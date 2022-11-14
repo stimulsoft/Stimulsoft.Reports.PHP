@@ -21,16 +21,37 @@ class StiHandler extends StiDataHandler
     public $options;
     public $license;
 
+    /** The event is invoked before data request, which needed to render a report. */
     public $onBeginProcessData;
+
+    /** The event is invoked after loading data before rendering a report. */
     public $onEndProcessData;
+
+    /** The event is invoked before rendering a report after preparing report variables. */
     public $onPrepareVariables;
+
+    /** The event is invoked after creation a new report in the designer. */
     public $onCreateReport;
+
+    /** The event is invoked before opening a report from the designer menu. TODO */
     public $onOpenReport;
+
+    /** The event is invoked when saving a report in the designer. */
     public $onSaveReport;
+
+    /** The event is invoked when saving a report in the designer with a preliminary input of the file name. */
     public $onSaveAsReport;
+
+    /** The event is invoked before printing a report. */
     public $onPrintReport;
+
+    /** The event is invoked before exporting a report after the dialog of export settings. */
     public $onBeginExportReport;
+
+    /** The event is invoked after exporting a report till its saving as a file. */
     public $onEndExportReport;
+
+    /** The event is invoked after exporting a report before sending it by Email. */
     public $onEmailReport;
 
 
@@ -89,47 +110,6 @@ class StiHandler extends StiDataHandler
         }
 
         return $result . $query;
-    }
-
-    private function getFileExtension($format)
-    {
-        switch ($format) {
-            case StiExportFormat::Pdf:
-                return "pdf";
-
-            case StiExportFormat::Text:
-                return "txt";
-
-            case StiExportFormat::Excel2007:
-                return "xlsx";
-
-            case StiExportFormat::Word2007:
-                return "docx";
-
-            case StiExportFormat::Csv:
-                return "csv";
-
-            case StiExportFormat::ImageSvg:
-                return "svg";
-
-            case StiExportFormat::Html:
-            case StiExportFormat::Html5:
-                return "html";
-
-            case StiExportFormat::Ods:
-                return "ods";
-
-            case StiExportFormat::Odt:
-                return "odt";
-
-            case StiExportFormat::Ppt2007:
-                return "pptx";
-
-            case StiExportFormat::Document:
-                return "mdc";
-        }
-
-        return strtolower($format);
     }
 
     private function addAddress($param, $settings, $mail)
@@ -279,7 +259,7 @@ class StiHandler extends StiDataHandler
     {
         $args = new StiExportEventArgs();
         $args->populateVars($request);
-        $args->fileExtension = $this->getFileExtension($request->format);
+        $args->fileExtension = StiExportFormat::getFileExtension($request->format);
 
         $result = $this->checkEventResult($this->onBeginExportReport, $args);
         $result->fileName = $args->fileName;
@@ -293,7 +273,7 @@ class StiHandler extends StiDataHandler
         $args = new StiExportEventArgs();
         $args->populateVars($request);
         $args->action = $args->action == null ? StiExportAction::ExportReport : $args->action;
-        $args->fileExtension = $this->getFileExtension($request->format);
+        $args->fileExtension = StiExportFormat::getFileExtension($request->format);
 
         return $this->checkEventResult($this->onEndExportReport, $args);
     }
@@ -304,7 +284,7 @@ class StiHandler extends StiDataHandler
         $settings->to = $request->settings->email;
         $settings->subject = $request->settings->subject;
         $settings->message = $request->settings->message;
-        $settings->attachmentName = $request->fileName . '.' . $this->getFileExtension($request->format);
+        $settings->attachmentName = $request->fileName . '.' . StiExportFormat::getFileExtension($request->format);
 
         $args = new StiExportEventArgs();
         $args->populateVars($request);
