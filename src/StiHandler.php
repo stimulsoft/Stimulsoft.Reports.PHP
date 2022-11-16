@@ -451,7 +451,8 @@ class StiHandler extends StiDataHandler
     /** Get the HTML representation of the component. */
     public function getHtml()
     {
-        $result = "StiHelper.prototype.process = function (args, callback) {
+        $result = /** @lang JavaScript */
+            "StiHelper.prototype.process = function (args, callback) {
                 if (args) {
                     if (callback)
                         args.preventDefault = true;
