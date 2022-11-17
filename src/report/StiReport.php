@@ -8,6 +8,7 @@ class StiReport
 {
     public $reportId;
     public $isHtmlRendered = false;
+    public $isTemplate = true;
 
     private $reportString;
     private $reportFile;
@@ -15,9 +16,11 @@ class StiReport
     private $documentFile;
     private $exportFormat;
     private $exportFile;
+    private $renderCallback;
 
     private function clearReport()
     {
+        $this->isTemplate = true;
         $this->reportString = null;
         $this->reportFile = null;
         $this->documentString = null;
@@ -49,6 +52,7 @@ class StiReport
     public function loadDocumentFile($filePath)
     {
         $this->clearReport();
+        $this->isTemplate = false;
         $this->exportFile = pathinfo($filePath, PATHINFO_FILENAME);
         $this->documentFile = $filePath;
     }
@@ -57,8 +61,9 @@ class StiReport
     public function loadDocument($filePath)
     {
         $this->clearReport();
-        $this->exportFile = pathinfo($filePath, PATHINFO_FILENAME);
         if (file_exists($filePath)) {
+            $this->isTemplate = false;
+            $this->exportFile = pathinfo($filePath, PATHINFO_FILENAME);
             $this->documentString = file_get_contents($filePath);
             if (pathinfo($filePath, PATHINFO_EXTENSION) == 'mdc')
                 $this->documentString = base64_encode(gzencode($this->documentString));
@@ -69,6 +74,12 @@ class StiReport
     public function exportDocument($format)
     {
         $this->exportFormat = $format;
+    }
+
+    /** Building a report and calling a JavaScript callback function, if it is set. */
+    public function render($callback = null)
+    {
+        $this->renderCallback = $callback != null ? $callback : 'null';
     }
 
     /** Get the HTML representation of the component. */
@@ -88,13 +99,17 @@ class StiReport
         else if (strlen($this->documentString) > 0)
             $result .= "$this->reportId.loadPackedDocument('$this->documentString');\n";
 
+        if ($this->renderCallback != null && $this->isTemplate) {
+            $callback = $this->renderCallback != 'null' ? $this->renderCallback : '';
+            $result .= "$this->reportId.renderAsync($callback);\n";
+        }
+
         if ($this->exportFormat != null) {
-            $notRendered = strlen($this->reportFile) > 0 || strlen($this->reportString) > 0;
             $exportFileExt = StiExportFormat::getFileExtension($this->exportFormat);
             $exportMimeType = StiExportFormat::getMimeType($this->exportFormat);
             $exportName = StiExportFormat::getFormatName($this->exportFormat);
 
-            if ($notRendered)
+            if ($this->isTemplate)
                 $result .= "$this->reportId.renderAsync(function () {\n";
 
             $result .= "report.exportDocumentAsync(function (data) {
@@ -102,7 +117,7 @@ class StiReport
                         }, Stimulsoft.Report.StiExportFormat.$exportName);
                     ";
 
-            if ($notRendered)
+            if ($this->isTemplate)
                 $result .= "});\n";
         }
 
