@@ -17,9 +17,6 @@ class StiViewer
     /** The event is invoked before data request, which needed to render a report. */
     public $onBeginProcessData = false;
 
-    /** The event is invoked after loading data before rendering a report. */
-    public $onEndProcessData = false;
-
     /** The event is invoked before rendering a report after preparing report variables. */
     public $onPrepareVariables = false;
 
@@ -58,9 +55,6 @@ class StiViewer
 
         if ($this->onBeginProcessData)
             $result .= "$viewerProperty.onBeginProcessData = function (args, callback) { Stimulsoft.Helper.process(args, callback); }\n";
-
-        if ($this->onEndProcessData)
-            $result .= "$viewerProperty.onEndProcessData = function (args) { Stimulsoft.Helper.process(args); }\n";
 
         if ($this->onPrintReport)
             $result .= "$viewerProperty.onPrintReport = function (args) { Stimulsoft.Helper.process(args); }\n";

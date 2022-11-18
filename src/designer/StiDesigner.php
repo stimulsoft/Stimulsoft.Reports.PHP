@@ -17,9 +17,6 @@ class StiDesigner
     /** The event is invoked before data request, which are needed to render a report. */
     public $onBeginProcessData = false;
 
-    /** The event is invoked after loading data before rendering a report. */
-    public $onEndProcessData = false;
-
     /** The event is invoked before rendering a report after preparing report variables. */
     public $onPrepareVariables = false;
 
@@ -55,9 +52,6 @@ class StiDesigner
 
         if ($this->onBeginProcessData)
             $result .= "$designerProperty.onBeginProcessData = function (args, callback) { Stimulsoft.Helper.process(args, callback); }\n";
-
-        if ($this->onEndProcessData)
-            $result .= "$designerProperty.onEndProcessData = function (args) { Stimulsoft.Helper.process(args); }\n";
 
         if ($this->onCreateReport)
             $result .= "$designerProperty.onCreateReport = function (args, callback) { Stimulsoft.Helper.process(args, callback); }\n";

@@ -9,9 +9,6 @@ class StiReport
     /** The event is invoked before data request, which needed to render a report. */
     public $onBeginProcessData = false;
 
-    /** The event is invoked after loading data before rendering a report. */
-    public $onEndProcessData = false;
-
     /** The event is invoked before rendering a report after preparing report variables. */
     public $onPrepareVariables = false;
 
@@ -130,9 +127,6 @@ class StiReport
 
         if ($this->onBeginProcessData)
             $result .= "$this->reportId.onBeginProcessData = function (args, callback) { Stimulsoft.Helper.process(args, callback); }\n";
-
-        if ($this->onEndProcessData)
-            $result .= "$this->reportId.onEndProcessData = function (args) { Stimulsoft.Helper.process(args); }\n";
 
         if (strlen($this->reportFile) > 0)
             $result .= "$this->reportId.loadFile('$this->reportFile');\n";
