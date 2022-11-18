@@ -21,6 +21,8 @@ class StiHandler extends StiDataHandler
     public $options;
     public $license;
     public $encryptData = true;
+    public $escapeQueryParameters = true;
+    public $passQueryParametersToReport = false;
 
     /** The event is invoked before data request, which needed to render a report. */
     public $onBeginProcessData;
@@ -560,6 +562,12 @@ class StiHandler extends StiDataHandler
 
         if (!$this->encryptData)
             $result .= "StiOptions.WebServer.encryptData = false;\n";
+
+        if (!$this->escapeQueryParameters)
+            $result .= "StiOptions.WebServer.escapeQueryParameters = false;\n";
+
+        if ($this->passQueryParametersToReport)
+            $result .= "StiOptions.WebServer.passQueryParametersToReport = true;\n";
 
         if (!$this->license->isHtmlRendered)
             $result .= $this->license->getHtml();
