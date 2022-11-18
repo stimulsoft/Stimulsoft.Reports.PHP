@@ -20,6 +20,7 @@ class StiHandler extends StiDataHandler
     public $version = '2022.4.4';
     public $options;
     public $license;
+    public $encryptData = true;
 
     /** The event is invoked before data request, which needed to render a report. */
     public $onBeginProcessData;
@@ -556,6 +557,9 @@ class StiHandler extends StiDataHandler
             Stimulsoft.Helper = new StiHelper('{$this->options->url}', {$this->options->timeout});
             jsHelper = typeof jsHelper !== 'undefined' ? jsHelper : Stimulsoft.Helper;
             ";
+
+        if (!$this->encryptData)
+            $result .= "StiOptions.WebServer.encryptData = false;\n";
 
         if (!$this->license->isHtmlRendered)
             $result .= $this->license->getHtml();
