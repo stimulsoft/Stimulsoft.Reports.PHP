@@ -28,49 +28,78 @@ class StiReport
         $this->exportFile = null;
     }
 
-    /** Load a report template from a file or URL address. */
-    public function loadFile($filePath)
+    /**
+     * Loading a report template from a file or URL address.
+     * @param string $filePath The path to the file or the URL of the report template.
+     * @param bool $load Loading a report file on the server side.
+     */
+    public function loadFile($filePath, $load = false)
     {
         $this->clearReport();
         $this->exportFile = pathinfo($filePath, PATHINFO_FILENAME);
-        $this->reportFile = $filePath;
-    }
-
-    /** Load a report template from a file or URL address and send it as a packed string in Base64 format. */
-    public function load($filePath)
-    {
-        $this->clearReport();
-        $this->exportFile = pathinfo($filePath, PATHINFO_FILENAME);
-        if (file_exists($filePath)) {
-            $this->reportString = file_get_contents($filePath);
-            if (pathinfo($filePath, PATHINFO_EXTENSION) == 'mrt')
-                $this->reportString = base64_encode(gzencode($this->reportString));
+        if ($load) {
+            $extension = pathinfo($filePath, PATHINFO_EXTENSION);
+            if (file_exists($filePath) && $extension == 'mrt') {
+                $reportString = file_get_contents($filePath);
+                $this->reportString = base64_encode(gzencode($reportString));
+            }
+        }
+        else {
+            $this->reportFile = $filePath;
         }
     }
 
-    /** Load a rendered report from a file or URL address. */
-    public function loadDocumentFile($filePath)
+    /**
+     * Loading a report template from an XML or JSON string and send it as a packed string in Base64 format.
+     * @param string $data Report template in XML or JSON format.
+     * @param string $fileName The name of the report file to be used for saving and exporting.
+     */
+    public function load($data, $fileName = 'Report')
+    {
+        $this->clearReport();
+        $this->exportFile = $fileName;
+        $this->reportString = base64_encode(gzencode($data));
+    }
+
+    /**
+     * Load a rendered report from a file or URL address.
+     * @param string $filePath The path to the file or the URL of the rendered report.
+     * @param bool $load Loading a report file on the server side.
+     */
+    public function loadDocumentFile($filePath, $load = false)
     {
         $this->clearReport();
         $this->isTemplate = false;
         $this->exportFile = pathinfo($filePath, PATHINFO_FILENAME);
-        $this->documentFile = $filePath;
-    }
-
-    /** Load a rendered report from a file or URL address and send it as a packed string in Base64 format. */
-    public function loadDocument($filePath)
-    {
-        $this->clearReport();
-        if (file_exists($filePath)) {
-            $this->isTemplate = false;
-            $this->exportFile = pathinfo($filePath, PATHINFO_FILENAME);
-            $this->documentString = file_get_contents($filePath);
-            if (pathinfo($filePath, PATHINFO_EXTENSION) == 'mdc')
-                $this->documentString = base64_encode(gzencode($this->documentString));
+        if ($load) {
+            $extension = pathinfo($filePath, PATHINFO_EXTENSION);
+            if (file_exists($filePath) && $extension == 'mdc') {
+                $documentString = file_get_contents($filePath);
+                $this->documentString = base64_encode(gzencode($documentString));
+            }
+        }
+        else {
+            $this->documentFile = $filePath;
         }
     }
 
-    /** Exporting the report to the specified format and saving it as a file on the client side. */
+    /**
+     * Load a rendered report from an XML or JSON string and send it as a packed string in Base64 format.
+     * @param string $data Rendered report in XML or JSON format.
+     * @param string $fileName The name of the report file to be used for saving and exporting.
+     */
+    public function loadDocument($data, $fileName = 'Report')
+    {
+        $this->clearReport();
+        $this->isTemplate = false;
+        $this->exportFile = $fileName;
+        $this->documentString = base64_encode(gzencode($data));
+    }
+
+    /**
+     * Exporting the report to the specified format and saving it as a file on the client side.
+     * @param string $format The type of the export. Is equal to one of the values of the StiExportFormat enumeration.
+     */
     public function exportDocument($format)
     {
         $this->exportFormat = $format;
