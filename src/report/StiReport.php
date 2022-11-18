@@ -6,6 +6,15 @@ use Stimulsoft\Enums\StiExportFormat;
 
 class StiReport
 {
+    /** The event is invoked before data request, which needed to render a report. */
+    public $onBeginProcessData = false;
+
+    /** The event is invoked after loading data before rendering a report. */
+    public $onEndProcessData = false;
+
+    /** The event is invoked before rendering a report after preparing report variables. */
+    public $onPrepareVariables = false;
+
     public $reportId;
     public $isHtmlRendered = false;
     public $isTemplate = true;
@@ -115,6 +124,15 @@ class StiReport
     public function getHtml()
     {
         $result = "let $this->reportId = new Stimulsoft.Report.StiReport();\n";
+
+        if ($this->onPrepareVariables)
+            $result .= "$this->reportId.onPrepareVariables = function (args, callback) { Stimulsoft.Helper.process(args, callback); }\n";
+
+        if ($this->onBeginProcessData)
+            $result .= "$this->reportId.onBeginProcessData = function (args, callback) { Stimulsoft.Helper.process(args, callback); }\n";
+
+        if ($this->onEndProcessData)
+            $result .= "$this->reportId.onEndProcessData = function (args) { Stimulsoft.Helper.process(args); }\n";
 
         if (strlen($this->reportFile) > 0)
             $result .= "$this->reportId.loadFile('$this->reportFile');\n";
