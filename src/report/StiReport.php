@@ -3,17 +3,16 @@
 namespace Stimulsoft\Report;
 
 use Stimulsoft\Enums\StiExportFormat;
+use Stimulsoft\StiHtmlComponent;
 
-class StiReport
+class StiReport extends StiHtmlComponent
 {
-    /** The event is invoked before data request, which needed to render a report. */
-    public $onBeginProcessData = false;
-
     /** The event is invoked before rendering a report after preparing report variables. */
-    public $onPrepareVariables = false;
+    public $onPrepareVariables;
 
-    public $reportId;
-    public $isHtmlRendered = false;
+    /** The event is invoked before data request, which needed to render a report. */
+    public $onBeginProcessData;
+
     public $isTemplate = true;
 
     private $reportString;
@@ -120,29 +119,29 @@ class StiReport
     /** Get the HTML representation of the component. */
     public function getHtml()
     {
-        $result = "let $this->reportId = new Stimulsoft.Report.StiReport();\n";
+        $result = "let $this->id = new Stimulsoft.Report.StiReport();\n";
 
         if ($this->onPrepareVariables)
-            $result .= "$this->reportId.onPrepareVariables = function (args, callback) { Stimulsoft.Helper.process(args, callback); }\n";
+            $result .= $this->getEventHtml('onPrepareVariables', true);
 
         if ($this->onBeginProcessData)
-            $result .= "$this->reportId.onBeginProcessData = function (args, callback) { Stimulsoft.Helper.process(args, callback); }\n";
+            $result .= $this->getEventHtml('onBeginProcessData'. true);
 
         if (strlen($this->reportFile) > 0)
-            $result .= "$this->reportId.loadFile('$this->reportFile');\n";
+            $result .= "$this->id.loadFile('$this->reportFile');\n";
 
         else if (strlen($this->reportString) > 0)
-            $result .= "$this->reportId.loadPacked('$this->reportString');\n";
+            $result .= "$this->id.loadPacked('$this->reportString');\n";
 
         else if (strlen($this->documentFile) > 0)
-            $result .= "$this->reportId.loadDocumentFile('$this->documentFile');\n";
+            $result .= "$this->id.loadDocumentFile('$this->documentFile');\n";
 
         else if (strlen($this->documentString) > 0)
-            $result .= "$this->reportId.loadPackedDocument('$this->documentString');\n";
+            $result .= "$this->id.loadPackedDocument('$this->documentString');\n";
 
         if ($this->renderCallback != null && $this->isTemplate) {
             $callback = $this->renderCallback != 'null' ? $this->renderCallback : '';
-            $result .= "$this->reportId.renderAsync($callback);\n";
+            $result .= "$this->id.renderAsync($callback);\n";
         }
 
         if ($this->exportFormat != null) {
@@ -151,7 +150,7 @@ class StiReport
             $exportName = StiExportFormat::getFormatName($this->exportFormat);
 
             if ($this->isTemplate)
-                $result .= "$this->reportId.renderAsync(function () {\n";
+                $result .= "$this->id.renderAsync(function () {\n";
 
             $result .= "report.exportDocumentAsync(function (data) {
                             Stimulsoft.System.StiObject.saveAs(data, '$this->exportFile.$exportFileExt', '$exportMimeType');
@@ -166,14 +165,8 @@ class StiReport
         return $result;
     }
 
-    /** Output of the HTML representation of the component. */
-    public function renderHtml()
+    public function __construct($id = 'report')
     {
-        echo $this->getHtml();
-    }
-
-    public function __construct($reportId = 'report')
-    {
-        $this->reportId = strlen($reportId) > 0 ? $reportId : 'report';
+        $this->id = strlen($id) > 0 ? $id : 'report';
     }
 }

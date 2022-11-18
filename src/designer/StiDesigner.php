@@ -3,11 +3,10 @@
 namespace Stimulsoft\Designer;
 
 use Stimulsoft\Report\StiReport;
+use Stimulsoft\StiHtmlComponent;
 
-class StiDesigner
+class StiDesigner extends StiHtmlComponent
 {
-    public $id;
-
     /** @var StiDesignerOptions */
     public $options;
 
@@ -40,33 +39,33 @@ class StiDesigner
     {
         $result = '';
 
-        if ($this->options && !$this->options->isHtmlRendered)
+        if ($this->options instanceof StiDesignerOptions && !$this->options->isHtmlRendered)
             $result .= $this->options->getHtml();
 
-        $optionsProperty = $this->options ? $this->options->property : 'null';
+        $optionsProperty = $this->options instanceof StiDesignerOptions ? $this->options->property : 'null';
         $designerProperty = $this->id == 'StiDesigner' ? 'designer' : $this->id;
         $result .= "let $designerProperty = new Stimulsoft.Designer.StiDesigner($optionsProperty, '$this->id', false);\n";
 
         if ($this->onPrepareVariables)
-            $result .= "$designerProperty.onPrepareVariables = function (args, callback) { Stimulsoft.Helper.process(args, callback); }\n";
+            $result .= $this->getEventHtml('onPrepareVariables', true);
 
         if ($this->onBeginProcessData)
-            $result .= "$designerProperty.onBeginProcessData = function (args, callback) { Stimulsoft.Helper.process(args, callback); }\n";
+            $result .= $this->getEventHtml('onBeginProcessData', true);
 
         if ($this->onCreateReport)
-            $result .= "$designerProperty.onCreateReport = function (args, callback) { Stimulsoft.Helper.process(args, callback); }\n";
+            $result .= $this->getEventHtml('onCreateReport', true);
 
         if ($this->onSaveReport)
-            $result .= "$designerProperty.onSaveReport = function (args, callback) { Stimulsoft.Helper.process(args, callback); }\n";
+            $result .= $this->getEventHtml('onSaveReport', true);
 
         if ($this->onSaveAsReport)
-            $result .= "$designerProperty.onSaveAsReport = function (args, callback) { Stimulsoft.Helper.process(args, callback); }\n";
+            $result .= $this->getEventHtml('onSaveAsReport', true);
 
-        if ($this->report != null) {
+        if ($this->report instanceof StiReport) {
             if (!$this->report->isHtmlRendered)
                 $result .= $this->report->getHtml();
 
-            $result .= "$designerProperty.report = {$this->report->reportId};\n";
+            $result .= "$designerProperty.report = {$this->report->id};\n";
         }
 
         $result .= "$designerProperty.renderHtml(" . (strlen($element) > 0 ? "'$element'" : '') . ");\n";
