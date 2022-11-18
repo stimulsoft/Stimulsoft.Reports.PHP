@@ -66,8 +66,9 @@ class StiDataHandler
         return $result;
     }
 
-    public function __construct()
+    public function __construct($registerErrorHandlers = true)
     {
-        $this->registerErrorHandlers();
+        if ($registerErrorHandlers)
+            $this->registerErrorHandlers();
     }
 }

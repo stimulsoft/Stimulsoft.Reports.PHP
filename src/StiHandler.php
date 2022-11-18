@@ -573,11 +573,11 @@ class StiHandler extends StiDataHandler
         echo $this->getHtml();
     }
 
-    public function __construct($options = null)
+    public function __construct($registerErrorHandlers = true)
     {
-        parent::__construct();
+        parent::__construct($registerErrorHandlers);
 
-        $this->options = $options != null ? $options : new StiHandlerOptions();
+        $this->options = new StiHandlerOptions();
         $this->license = new StiLicense();
     }
 }
