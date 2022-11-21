@@ -13,11 +13,14 @@ class StiDesigner extends StiHtmlComponent
     /** @var StiReport */
     public $report;
 
+    /** The event is invoked before rendering a report after preparing report variables. */
+    public $onPrepareVariables = false;
+
     /** The event is invoked before data request, which are needed to render a report. */
     public $onBeginProcessData = false;
 
-    /** The event is invoked before rendering a report after preparing report variables. */
-    public $onPrepareVariables = false;
+    /** The event is invoked after loading data before rendering a report. */
+    public $onEndProcessData;
 
     /** The event is invoked after creation a new report in the designer. */
     public $onCreateReport = false;
@@ -51,6 +54,9 @@ class StiDesigner extends StiHtmlComponent
 
         if ($this->onBeginProcessData)
             $result .= $this->getEventHtml('onBeginProcessData', true);
+
+        if ($this->onEndProcessData)
+            $result .= $this->getEventHtml('onEndProcessData');
 
         if ($this->onCreateReport)
             $result .= $this->getEventHtml('onCreateReport', true);

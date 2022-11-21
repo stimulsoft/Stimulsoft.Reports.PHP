@@ -13,6 +13,9 @@ class StiReport extends StiHtmlComponent
     /** The event is invoked before data request, which needed to render a report. */
     public $onBeginProcessData;
 
+    /** The event is invoked after loading data before rendering a report. */
+    public $onEndProcessData;
+
     public $isTemplate = true;
 
     private $reportString;
@@ -125,7 +128,10 @@ class StiReport extends StiHtmlComponent
             $result .= $this->getEventHtml('onPrepareVariables', true);
 
         if ($this->onBeginProcessData)
-            $result .= $this->getEventHtml('onBeginProcessData'. true);
+            $result .= $this->getEventHtml('onBeginProcessData', true);
+
+        if ($this->onEndProcessData)
+            $result .= $this->getEventHtml('onEndProcessData');
 
         if (strlen($this->reportFile) > 0)
             $result .= "$this->id.loadFile('$this->reportFile');\n";

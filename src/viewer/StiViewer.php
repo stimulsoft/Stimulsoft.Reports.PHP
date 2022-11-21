@@ -19,6 +19,9 @@ class StiViewer extends StiHtmlComponent
     /** The event is invoked before data request, which needed to render a report. */
     public $onBeginProcessData;
 
+    /** The event is invoked after loading data before rendering a report. */
+    public $onEndProcessData;
+
     /** The event is invoked before printing a report. */
     public $onPrintReport;
 
@@ -54,6 +57,9 @@ class StiViewer extends StiHtmlComponent
 
         if ($this->onBeginProcessData)
             $result .= $this->getEventHtml('onBeginProcessData', true);
+
+        if ($this->onEndProcessData)
+            $result .= $this->getEventHtml('onEndProcessData');
 
         if ($this->onPrintReport)
             $result .= $this->getEventHtml('onPrintReport');
