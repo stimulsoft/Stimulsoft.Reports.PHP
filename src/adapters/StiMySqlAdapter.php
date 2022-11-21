@@ -105,12 +105,12 @@ class StiMySqlAdapter extends StiDataAdapter
 
             case MYSQLI_TYPE_STRING:
             case MYSQLI_TYPE_VAR_STRING:
+            case MYSQLI_TYPE_BLOB:
                 return $this->isBinaryStringType($meta) ? 'blob' : 'string';
 
             case MYSQLI_TYPE_TINY_BLOB:
             case MYSQLI_TYPE_MEDIUM_BLOB:
             case MYSQLI_TYPE_LONG_BLOB:
-            case MYSQLI_TYPE_BLOB:
             case MYSQLI_TYPE_GEOMETRY:
                 return 'blob';
         }
@@ -151,6 +151,7 @@ class StiMySqlAdapter extends StiDataAdapter
             case 'bit':
                 return 'int';
 
+            case 'decimal':
             case 'newdecimal':
             case 'float':
             case 'double':
