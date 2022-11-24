@@ -16,7 +16,7 @@ class StiReport extends StiHtmlComponent
     /** The event is invoked after loading data before rendering a report. */
     public $onEndProcessData;
 
-    private $isTemplate = true;
+
     private $isRenderCalled = false;
     private $isPrintCalled = false;
     private $isExportCalled = false;
@@ -33,7 +33,6 @@ class StiReport extends StiHtmlComponent
 
     private function clearReport()
     {
-        $this->isTemplate = true;
         $this->reportString = null;
         $this->reportFile = null;
         $this->documentString = null;
@@ -82,7 +81,6 @@ class StiReport extends StiHtmlComponent
     public function loadDocumentFile($filePath, $load = false)
     {
         $this->clearReport();
-        $this->isTemplate = false;
         $this->exportFile = pathinfo($filePath, PATHINFO_FILENAME);
         if ($load) {
             $extension = pathinfo($filePath, PATHINFO_EXTENSION);
@@ -104,7 +102,6 @@ class StiReport extends StiHtmlComponent
     public function loadDocument($data, $fileName = 'Report')
     {
         $this->clearReport();
-        $this->isTemplate = false;
         $this->exportFile = $fileName;
         $this->documentString = base64_encode(gzencode($data));
     }
@@ -159,10 +156,11 @@ class StiReport extends StiHtmlComponent
         else if (strlen($this->documentString) > 0)
             $result .= "$this->id.loadPackedDocument('$this->documentString');\n";
 
-        $isRenderAsyncCalled = false;
-        if ($this->isTemplate && ($this->isRenderCalled || $this->isPrintCalled || $this->isExportCalled)) {
-            $isRenderAsyncCalled = true;
+        if ($this->isRenderCalled) {
             $result .= "$this->id.renderAsync(function () {\n";
+
+            if ($this->renderCallback != null)
+                $result .= "$this->renderCallback();\n";
         }
 
         if ($this->isPrintCalled) {
@@ -186,10 +184,7 @@ class StiReport extends StiHtmlComponent
                     ";
         }
 
-        if ($isRenderAsyncCalled) {
-            if ($this->renderCallback != null)
-                $result .= "$this->renderCallback();\n";
-
+        if ($this->isRenderCalled) {
             $result .= "});\n";
         }
 
