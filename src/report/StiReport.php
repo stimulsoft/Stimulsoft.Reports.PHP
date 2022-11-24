@@ -16,15 +16,20 @@ class StiReport extends StiHtmlComponent
     /** The event is invoked after loading data before rendering a report. */
     public $onEndProcessData;
 
-    public $isTemplate = true;
+    private $isTemplate = true;
+    private $isRenderCalled = false;
+    private $isPrintCalled = false;
+    private $isExportCalled = false;
 
     private $reportString;
     private $reportFile;
     private $documentString;
     private $documentFile;
+
+    private $renderCallback;
+    private $pagesRange;
     private $exportFormat;
     private $exportFile;
-    private $renderCallback;
 
     private function clearReport()
     {
@@ -110,13 +115,22 @@ class StiReport extends StiHtmlComponent
      */
     public function exportDocument($format)
     {
+        $this->isExportCalled = true;
         $this->exportFormat = $format;
     }
 
     /** Building a report and calling a JavaScript callback function, if it is set. */
     public function render($callback = null)
     {
-        $this->renderCallback = $callback != null ? $callback : 'null';
+        $this->isRenderCalled = true;
+        $this->renderCallback = $callback;
+    }
+
+    /** Printing the rendered report. The browser print dialog will be called. */
+    public function printReport($pagesRange = null)
+    {
+        $this->isPrintCalled = true;
+        $this->pagesRange = $pagesRange;
     }
 
     /** Get the HTML representation of the component. */
@@ -145,26 +159,38 @@ class StiReport extends StiHtmlComponent
         else if (strlen($this->documentString) > 0)
             $result .= "$this->id.loadPackedDocument('$this->documentString');\n";
 
-        if ($this->renderCallback != null && $this->isTemplate) {
-            $callback = $this->renderCallback != 'null' ? $this->renderCallback : '';
-            $result .= "$this->id.renderAsync($callback);\n";
+        $isRenderAsyncCalled = false;
+        if ($this->isTemplate && ($this->isRenderCalled || $this->isPrintCalled || $this->isExportCalled)) {
+            $isRenderAsyncCalled = true;
+            $result .= "$this->id.renderAsync(function () {\n";
         }
 
-        if ($this->exportFormat != null) {
+        if ($this->isPrintCalled) {
+            $pagesRangeId = '';
+            if ($this->pagesRange instanceof StiPagesRange) {
+                $pagesRangeId = $this->pagesRange->id;
+                $result .= $this->pagesRange->getHtml();
+            }
+
+            $result .= "report.print($pagesRangeId);\n";
+        }
+
+        if ($this->isExportCalled) {
             $exportFileExt = StiExportFormat::getFileExtension($this->exportFormat);
             $exportMimeType = StiExportFormat::getMimeType($this->exportFormat);
             $exportName = StiExportFormat::getFormatName($this->exportFormat);
-
-            if ($this->isTemplate)
-                $result .= "$this->id.renderAsync(function () {\n";
 
             $result .= "report.exportDocumentAsync(function (data) {
                             Stimulsoft.System.StiObject.saveAs(data, '$this->exportFile.$exportFileExt', '$exportMimeType');
                         }, Stimulsoft.Report.StiExportFormat.$exportName);
                     ";
+        }
 
-            if ($this->isTemplate)
-                $result .= "});\n";
+        if ($isRenderAsyncCalled) {
+            if ($this->renderCallback != null)
+                $result .= "$this->renderCallback();\n";
+
+            $result .= "});\n";
         }
 
         $this->isHtmlRendered = true;
