@@ -62,7 +62,7 @@ class StiAppearanceOptions extends StiComponentOptions
     public $bookmarksTreeWidth = 180;
 
     /** Gets or sets a position of the parameters panel. */
-    public $parametersPanelPosition = StiParametersPanelPosition::Top;
+    public $parametersPanelPosition = StiParametersPanelPosition::FromReport;
 
     /** Gets or sets a max height of parameters panel in the viewer. */
     public $parametersPanelMaxHeight = 300;
