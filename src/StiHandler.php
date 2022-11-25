@@ -63,7 +63,7 @@ class StiHandler extends StiDataHandler
 
     private function checkEventResult($event, $args)
     {
-        if (isset($args) && ($args->sender == null || $args->sender == 'Report')) $args->sender = StiComponentType::Engine;
+        if (isset($args) && $args->sender == null) $args->sender = StiComponentType::Report;
         if (isset($event)) $result = $event($args);
         if (!isset($result)) $result = StiResult::success();
         if ($result === true) return StiResult::success();

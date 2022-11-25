@@ -4,7 +4,7 @@ namespace Stimulsoft\Enums;
 
 class StiComponentType
 {
-    const Engine = 'Engine';
+    const Report = 'Report';
     const Viewer = 'Viewer';
     const Designer = 'Designer';
 }
