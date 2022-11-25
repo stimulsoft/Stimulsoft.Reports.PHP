@@ -5,6 +5,7 @@ namespace Stimulsoft;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
 use Stimulsoft\Adapters\StiDataAdapter;
+use Stimulsoft\Enums\StiComponentType;
 use Stimulsoft\Enums\StiDataCommand;
 use Stimulsoft\Enums\StiEventType;
 use Stimulsoft\Enums\StiExportAction;
@@ -62,6 +63,7 @@ class StiHandler extends StiDataHandler
 
     private function checkEventResult($event, $args)
     {
+        if (isset($args) && ($args->sender == null || $args->sender == 'Report')) $args->sender = StiComponentType::Engine;
         if (isset($event)) $result = $event($args);
         if (!isset($result)) $result = StiResult::success();
         if ($result === true) return StiResult::success();

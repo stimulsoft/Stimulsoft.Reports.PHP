@@ -33,12 +33,15 @@ class StiViewer extends StiHtmlComponent
 
     /**
      * The event is invoked while interactive action of the viewer (dynamic sorting, collapsing, drill-down, applying of parameters)
-     * until processing values by the report generator. TODO
+     * until processing values by the report generator.
      */
-    //public $onInteraction;
+    public $onInteraction;
 
     /** The event is invoked after exporting a report before sending it by Email. */
     public $onEmailReport;
+
+    /** The event occurs when clicking on the Design button in the viewer toolbar. */
+    public $onDesignReport;
 
     /** Get the HTML representation of the component. */
     public function getHtml($element = null)
@@ -70,8 +73,14 @@ class StiViewer extends StiHtmlComponent
         if ($this->onEndExportReport)
             $result .= $this->getEventHtml('onEndExportReport', true, true);
 
+        if ($this->onInteraction)
+            $result .= $this->getEventHtml('onInteraction');
+
         if ($this->onEmailReport)
             $result .= $this->getEventHtml('onEmailReport');
+
+        if ($this->onDesignReport)
+            $result .= $this->getEventHtml('onDesignReport');
 
         if ($this->report instanceof StiReport) {
             if (!$this->report->isHtmlRendered)
