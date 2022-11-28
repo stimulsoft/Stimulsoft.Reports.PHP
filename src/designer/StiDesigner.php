@@ -25,8 +25,8 @@ class StiDesigner extends StiHtmlComponent
     /** The event is invoked after creation a new report in the designer. */
     public $onCreateReport = false;
 
-    /** The event is invoked before opening a report from the designer menu. TODO */
-    //public $onOpenReport = false;
+    /** The event is invoked before opening a report from the designer menu. */
+    public $onOpenReport = false;
 
     /** The event is invoked when saving a report in the designer. */
     public $onSaveReport = false;
@@ -34,8 +34,11 @@ class StiDesigner extends StiHtmlComponent
     /** The event is invoked when saving a report in the designer with a preliminary input of the file name. */
     public $onSaveAsReport = false;
 
-    /** The event is invoked when going to the report view tab. TODO */
-    //public $onPreviewReport = false;
+    /** The event is invoked when going to the report view tab. */
+    public $onPreviewReport = false;
+
+    /** The event is invoked when by clicking the Exit button in the main menu of the designer */
+    public $onExit = false;
 
     /** Get the HTML representation of the component. */
     public function getHtml($element = null)
@@ -61,11 +64,20 @@ class StiDesigner extends StiHtmlComponent
         if ($this->onCreateReport)
             $result .= $this->getEventHtml('onCreateReport', true);
 
+        if ($this->onOpenReport)
+            $result .= $this->getEventHtml('onOpenReport');
+
         if ($this->onSaveReport)
             $result .= $this->getEventHtml('onSaveReport', true);
 
         if ($this->onSaveAsReport)
             $result .= $this->getEventHtml('onSaveAsReport', true);
+
+        if ($this->onPreviewReport)
+            $result .= $this->getEventHtml('onPreviewReport');
+
+        if ($this->onExit)
+            $result .= $this->getEventHtml('onExit');
 
         if ($this->report instanceof StiReport) {
             if (!$this->report->isHtmlRendered)
