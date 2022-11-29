@@ -74,6 +74,18 @@ class StiReport extends StiHtmlComponent
     }
 
     /**
+     * Loading a report template from a packed string in Base64 format.
+     * @param string $data Report template as a packed string in Base64 format.
+     * @param string $fileName The name of the report file to be used for saving and exporting.
+     */
+    public function loadPacked($data, $fileName = 'Report')
+    {
+        $this->clearReport();
+        $this->exportFile = $fileName;
+        $this->reportString = $data;
+    }
+
+    /**
      * Load a rendered report from a file or URL address.
      * @param string $filePath The path to the file or the URL of the rendered report.
      * @param bool $load Loading a report file on the server side.
@@ -104,6 +116,18 @@ class StiReport extends StiHtmlComponent
         $this->clearReport();
         $this->exportFile = $fileName;
         $this->documentString = base64_encode(gzencode($data));
+    }
+
+    /**
+     * Loading a rendered report from a packed string in Base64 format.
+     * @param string $data Rendered report as a packed string in Base64 format.
+     * @param string $fileName The name of the report file to be used for saving and exporting.
+     */
+    public function loadPackedDocument($data, $fileName = 'Report')
+    {
+        $this->clearReport();
+        $this->exportFile = $fileName;
+        $this->documentString = $data;
     }
 
     /**
