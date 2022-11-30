@@ -24,7 +24,7 @@ class StiHtmlComponent
                 break;
         }
 
-        $eventValue = $this->{$event} === true ? '' : $this->{$event} . '(args); ';
+        $eventValue = $this->{$event} === true ? '' : 'if (typeof ' . $this->{$event} . ' === "function") ' . $this->{$event} . '(args); ';
         $callbackValue = $callback ? ', callback' : '';
         $preventValue = $prevent ? 'args.preventDefault = true; ' : '';
         return "$property.$event = function (args$callbackValue) { {$preventValue}{$eventValue}Stimulsoft.Helper.process(args$callbackValue); }\n";

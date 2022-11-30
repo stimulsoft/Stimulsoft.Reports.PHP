@@ -7,6 +7,9 @@ use Stimulsoft\StiHtmlComponent;
 
 class StiReport extends StiHtmlComponent
 {
+    /** The event is invoked called before all actions related to report rendering. */
+    public $onBeforeRender;
+
     /** The event is invoked before rendering a report after preparing report variables. */
     public $onPrepareVariables;
 
@@ -154,10 +157,20 @@ class StiReport extends StiHtmlComponent
         $this->pagesRange = $pagesRange;
     }
 
+    private function getBeforeRenderEventHtml()
+    {
+        $function = $this->onBeforeRender === true ? 'onBeforeRender' : $this->onBeforeRender;
+        $args = "{ args: { event: 'BeforeRender', sender: 'Report', report: $this->id } }";
+        return "if (typeof $function === 'function') $function($args);\n";
+    }
+
     /** Get the HTML representation of the component. */
     public function getHtml()
     {
         $result = "let $this->id = new Stimulsoft.Report.StiReport();\n";
+
+        if ($this->onBeforeRender)
+            $result .= $this->getBeforeRenderEventHtml();
 
         if ($this->onPrepareVariables)
             $result .= $this->getEventHtml('onPrepareVariables', true);
