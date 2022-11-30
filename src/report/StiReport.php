@@ -160,7 +160,7 @@ class StiReport extends StiHtmlComponent
     private function getBeforeRenderEventHtml()
     {
         $function = $this->onBeforeRender === true ? 'onBeforeRender' : $this->onBeforeRender;
-        $args = "{ args: { event: 'BeforeRender', sender: 'Report', report: $this->id } }";
+        $args = "{ event: 'BeforeRender', sender: 'Report', report: $this->id }";
         return "if (typeof $function === 'function') $function($args);\n";
     }
 
@@ -168,9 +168,6 @@ class StiReport extends StiHtmlComponent
     public function getHtml()
     {
         $result = "let $this->id = new Stimulsoft.Report.StiReport();\n";
-
-        if ($this->onBeforeRender)
-            $result .= $this->getBeforeRenderEventHtml();
 
         if ($this->onPrepareVariables)
             $result .= $this->getEventHtml('onPrepareVariables', true);
@@ -192,6 +189,9 @@ class StiReport extends StiHtmlComponent
 
         else if (strlen($this->documentString) > 0)
             $result .= "$this->id.loadPackedDocument('$this->documentString');\n";
+
+        if ($this->onBeforeRender)
+            $result .= $this->getBeforeRenderEventHtml();
 
         if ($this->isRenderCalled) {
             $result .= "$this->id.renderAsync(function () {\n";
