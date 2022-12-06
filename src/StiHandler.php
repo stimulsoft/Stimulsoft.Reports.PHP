@@ -18,7 +18,6 @@ use Stimulsoft\Events\StiVariablesEventArgs;
 
 class StiHandler extends StiDataHandler
 {
-    public $version = '2022.4.4';
     public $options;
     public $license;
     public $encryptData = true;
