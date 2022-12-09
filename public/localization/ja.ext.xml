@@ -56,6 +56,7 @@
     <StiPropertiesOnlyEngineV1ActionLong>EngineV2でサポートされていない '{0}'コンポーネントのプロパティを無効にします。</StiPropertiesOnlyEngineV1ActionLong>
     <StiPropertiesOnlyEngineV2ActionLong>EngineV1でサポートされていないコンポーネントのプロパティを無効にします。</StiPropertiesOnlyEngineV2ActionLong>
     <StiResetPageNumberActionLong>ページのResetPageNumberプロパティをfalseに設定します。</StiResetPageNumberActionLong>
+    <StiSwitchToParametersVerticalOrientationAction>レポートプロパティ「Parameters Orientation」の値を「Vertical」に変更します。</StiSwitchToParametersVerticalOrientationAction>
     <StiSwitchWidthAndHeightOfPageActionLong>ページの高さと幅を変更します。</StiSwitchWidthAndHeightOfPageActionLong>
     <StiVerySmallSizesOfComponentsLong>コンポーネントのサイズは、レポートのGridSize値に増加します。この操作では、100％正しい修正が保証されるわけではありません！</StiVerySmallSizesOfComponentsLong>
     <StiVerySmallSizesOfComponentsShort>サイズを大きくする</StiVerySmallSizesOfComponentsShort>
@@ -230,6 +231,8 @@
     <StiOrientationPageCheckShort>ページの向きが{0}で間違っています。</StiOrientationPageCheckShort>
   </CheckPage>
   <CheckReport>
+    <StiCategoryRequestFromUserCheckLong>ParametersOrientation」レポートプロパティの値が「Vertical」に設定されているときのみ可能なため、「{0}」変数のカテゴリをビューアのパラメータパネルに表示することができません。</StiCategoryRequestFromUserCheckLong>
+    <StiCategoryRequestFromUserCheckShort>パラメーターパネルにカテゴリーを表示する</StiCategoryRequestFromUserCheckShort>
     <StiCloudCompilationModeCheckLong>Stimulsoft Cloudは、このレポートをコンパイルモードでプレビューできません。レポートを通訳モードに変更します。</StiCloudCompilationModeCheckLong>
     <StiCloudCompilationModeCheckShort>このレポートはコンパイルモードです</StiCloudCompilationModeCheckShort>
     <StiCompilationErrorAssemblyCheckLong>ファイルまたはアセンブリ '{0}'またはその依存関係の1つを読み込めませんでした。</StiCompilationErrorAssemblyCheckLong>
@@ -1184,6 +1187,7 @@
     <KeepGroupTogether>グループをまとめて保持することを示す値</KeepGroupTogether>
     <KeepHeaderTogether>ヘッダーにデータが一緒に印刷されていることを示す値</KeepHeaderTogether>
     <MinRowsInColumn>1列の最小行数</MinRowsInColumn>
+    <MultipleInitialization>各コンテナ、詳細セクションのデータソースを初期化する。例えば、Relationが割り当てられていなくても、Filtersは各詳細セクションに適用されます。</MultipleInitialization>
     <OddStyle>奇数行のスタイルを示す値</OddStyle>
     <PrintIfDetailEmpty>詳細が空であればマスターデータを印刷する必要があることを示す値</PrintIfDetailEmpty>
     <PrintOnAllPages>コンポーネントがすべてのページに印刷されていることを示す値</PrintOnAllPages>

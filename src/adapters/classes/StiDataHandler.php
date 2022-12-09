@@ -8,7 +8,7 @@ use Stimulsoft\Enums\StiDataCommand;
 
 class StiDataHandler
 {
-    public $version = '2022.4.4';
+    public $version = '2023.1.1';
 
     private function stiErrorHandler($errNo, $errStr, $errFile, $errLine)
     {
