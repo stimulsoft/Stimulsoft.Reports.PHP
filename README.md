@@ -13,7 +13,7 @@ composer require stimulsoft/reports-php
 Add the minimum required namespaces to use to the page:
 ```php
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
+require_once 'vendor/autoload.php';
 
 use Stimulsoft\Enums\StiComponentType;
 use Stimulsoft\Report\StiReport;
