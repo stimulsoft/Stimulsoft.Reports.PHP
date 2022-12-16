@@ -7,7 +7,7 @@ use Stimulsoft\StiResult;
 
 class StiOdbcAdapter extends StiDataAdapter
 {
-    public $version = '2023.1.1';
+    public $version = '2023.1.2';
     public $checkVersion = true;
 
     protected function getLastErrorResult()
