@@ -2,7 +2,7 @@
 
 namespace Stimulsoft\Report;
 
-use Stimulsoft\Enums\StiExportFormat;
+use Stimulsoft\StiExportFormat;
 use Stimulsoft\StiHtmlComponent;
 
 class StiReport extends StiHtmlComponent

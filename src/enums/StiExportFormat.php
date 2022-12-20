@@ -1,8 +1,6 @@
 <?php
 
-namespace Stimulsoft\Enums;
-
-use ReflectionClass;
+namespace Stimulsoft;
 
 class StiExportFormat
 {
@@ -110,7 +108,7 @@ class StiExportFormat
 
     public static function getFormatName($format)
     {
-        $class = new ReflectionClass('\Stimulsoft\Enums\StiExportFormat');
+        $class = new \ReflectionClass('\Stimulsoft\StiExportFormat');
         $constants = $class->getConstants();
         $names = array_flip($constants);
 

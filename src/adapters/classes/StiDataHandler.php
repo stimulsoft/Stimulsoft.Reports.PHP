@@ -2,9 +2,7 @@
 
 namespace Stimulsoft;
 
-use ReflectionClass;
 use Stimulsoft\Adapters\StiDataAdapter;
-use Stimulsoft\Enums\StiDataCommand;
 
 class StiDataHandler
 {
@@ -39,7 +37,7 @@ class StiDataHandler
         $result = $request->parse();
         if ($result->success) {
             if ($result->object->command == StiDataCommand::GetSupportedAdapters) {
-                $reflectionClass = new ReflectionClass('\Stimulsoft\Enums\StiDatabaseType');
+                $reflectionClass = new \ReflectionClass('\Stimulsoft\StiDatabaseType');
                 $databases = $reflectionClass->getConstants();
                 $result = array(
                     'success' => true,

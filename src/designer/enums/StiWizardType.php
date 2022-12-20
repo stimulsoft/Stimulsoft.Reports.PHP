@@ -1,6 +1,6 @@
 <?php
 
-namespace Stimulsoft\Designer\Enums;
+namespace Stimulsoft\Designer;
 
 class StiWizardType
 {

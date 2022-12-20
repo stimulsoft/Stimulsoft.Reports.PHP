@@ -1,11 +1,6 @@
 <?php
 
-namespace Stimulsoft\Events;
-
-use Stimulsoft\Enums\StiExportAction;
-use Stimulsoft\Enums\StiExportFormat;
-use Stimulsoft\Enums\StiPrintAction;
-use Stimulsoft\StiEmailSettings;
+namespace Stimulsoft;
 
 class StiExportEventArgs extends StiEventArgs
 {

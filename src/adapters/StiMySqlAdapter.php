@@ -2,7 +2,6 @@
 
 namespace Stimulsoft\Adapters;
 
-use mysqli;
 use Stimulsoft\StiDataResult;
 use Stimulsoft\StiResult;
 
@@ -31,7 +30,7 @@ class StiMySqlAdapter extends StiDataAdapter
         if ($this->driverType == 'PDO')
             return parent::connect();
 
-        $this->link = new mysqli($this->info->host, $this->info->userId, $this->info->password, $this->info->database, $this->info->port);
+        $this->link = new \mysqli($this->info->host, $this->info->userId, $this->info->password, $this->info->database, $this->info->port);
 
         if ($this->link->connect_error)
             return StiResult::error("[{$this->link->connect_errno}] {$this->link->connect_error}");

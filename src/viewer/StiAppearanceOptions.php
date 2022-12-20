@@ -2,13 +2,6 @@
 
 namespace Stimulsoft\Viewer;
 
-use Stimulsoft\Report\Enums\StiHtmlExportMode;
-use Stimulsoft\Viewer\Enums\StiChartRenderType;
-use Stimulsoft\Viewer\Enums\StiContentAlignment;
-use Stimulsoft\Viewer\Enums\StiFirstDayOfWeek;
-use Stimulsoft\Viewer\Enums\StiInterfaceType;
-use Stimulsoft\Viewer\Enums\StiParametersPanelPosition;
-use Stimulsoft\Viewer\Enums\StiViewerTheme;
 use Stimulsoft\StiComponentOptions;
 
 /** A class which controls settings of the viewer appearance. */

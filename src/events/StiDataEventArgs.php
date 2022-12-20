@@ -1,9 +1,6 @@
 <?php
 
-namespace Stimulsoft\Events;
-
-use Stimulsoft\Enums\StiDatabaseType;
-use Stimulsoft\Enums\StiDataCommand;
+namespace Stimulsoft;
 
 class StiDataEventArgs extends StiEventArgs
 {

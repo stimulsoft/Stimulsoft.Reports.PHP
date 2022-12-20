@@ -2,9 +2,6 @@
 
 namespace Stimulsoft\Designer;
 
-use Stimulsoft\Designer\Enums\StiDesignerPermissions;
-use Stimulsoft\Designer\Enums\StiNewReportDictionary;
-use Stimulsoft\Designer\Enums\StiUseAliases;
 use Stimulsoft\StiComponentOptions;
 
 /** A class which controls settings of the dictionary. */

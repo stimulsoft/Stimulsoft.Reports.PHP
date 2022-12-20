@@ -1,6 +1,6 @@
 <?php
 
-namespace Stimulsoft\Viewer\Enums;
+namespace Stimulsoft\Viewer;
 
 class StiFirstDayOfWeek
 {

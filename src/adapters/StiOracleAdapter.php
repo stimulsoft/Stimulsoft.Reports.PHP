@@ -2,8 +2,6 @@
 
 namespace Stimulsoft\Adapters;
 
-use DateTime;
-use Exception;
 use Stimulsoft\StiDataResult;
 use Stimulsoft\StiResult;
 
@@ -135,7 +133,7 @@ class StiOracleAdapter extends StiDataAdapter
                 $data = $value->load();
                 return $type == 'blob' ? base64_encode($data) : $data . "\n";
             }
-            catch (Exception $e) {
+            catch (\Exception $e) {
                 return null;
             }
         }
@@ -148,7 +146,7 @@ class StiOracleAdapter extends StiDataAdapter
                 return base64_encode($value);
 
             case 'datetime':
-                $timestamp = DateTime::createFromFormat("d#M#y H#i#s*A", $value);
+                $timestamp = \DateTime::createFromFormat("d#M#y H#i#s*A", $value);
                 if ($timestamp === false) $timestamp = strtotime($value);
                 $format = date("Y-m-d\TH:i:s.v", $timestamp);
                 if (strpos($format, '.v') > 0) $format = date("Y-m-d\TH:i:s.000", $timestamp);

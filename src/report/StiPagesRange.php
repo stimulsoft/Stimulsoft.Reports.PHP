@@ -2,7 +2,6 @@
 
 namespace Stimulsoft\Report;
 
-use Stimulsoft\Report\Enums\StiRangeType;
 use Stimulsoft\StiHtmlComponent;
 
 class StiPagesRange extends StiHtmlComponent

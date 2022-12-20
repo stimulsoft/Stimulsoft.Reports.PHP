@@ -2,19 +2,8 @@
 
 namespace Stimulsoft;
 
-use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
 use Stimulsoft\Adapters\StiDataAdapter;
-use Stimulsoft\Enums\StiComponentType;
-use Stimulsoft\Enums\StiDataCommand;
-use Stimulsoft\Enums\StiEventType;
-use Stimulsoft\Enums\StiExportAction;
-use Stimulsoft\Enums\StiExportFormat;
-use Stimulsoft\Enums\StiPrintAction;
-use Stimulsoft\Events\StiDataEventArgs;
-use Stimulsoft\Events\StiExportEventArgs;
-use Stimulsoft\Events\StiReportEventArgs;
-use Stimulsoft\Events\StiVariablesEventArgs;
 
 class StiHandler extends StiDataHandler
 {
@@ -347,7 +336,7 @@ class StiHandler extends StiDataHandler
 
             $mail->Send();
         }
-        catch (Exception $e) {
+        catch (\Exception $e) {
             $error = strip_tags($e->getMessage());
         }
 

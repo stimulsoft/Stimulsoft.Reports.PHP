@@ -1,6 +1,6 @@
 <?php
 
-namespace Stimulsoft\Report\Enums;
+namespace Stimulsoft\Designer;
 
 class StiReportUnitType
 {
