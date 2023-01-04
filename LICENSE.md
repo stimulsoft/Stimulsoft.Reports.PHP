@@ -47,6 +47,7 @@ Stimulsoft.Blockly.dll
 Stimulsoft.BlocklyEditor.Wpf.dll  
 Stimulsoft.Controls.dll  
 Stimulsoft.Controls.Win.dll  
+Stimulsoft.Controls.Wpf.dll  
 Stimulsoft.Dashboard.dll  
 Stimulsoft.Dashboard.Design.dll  
 Stimulsoft.Dashboard.Drawing.dll  
@@ -156,6 +157,7 @@ Stimulsoft.Base.dll
 Stimulsoft.Blockly.dll  
 Stimulsoft.BlocklyEditor.Wpf.dll  
 Stimulsoft.Client.Designer.dll  
+Stimulsoft.Controls.Wpf.dll  
 Stimulsoft.Data.dll  
 Stimulsoft.Database.Wpf.dll  
 Stimulsoft.Dashboard.Drawing.Wpf.dll  
@@ -214,6 +216,7 @@ Stimulsoft.Blockly.dll
 Stimulsoft.BlocklyEditor.Wpf.dll  
 Stimulsoft.Controls.dll  
 Stimulsoft.Controls.Win.dll  
+Stimulsoft.Controls.Wpf.dll  
 Stimulsoft.Data.dll  
 Stimulsoft.Database.dll  
 Stimulsoft.Map.dll  
@@ -275,6 +278,7 @@ Stimulsoft.Base.dll
 Stimulsoft.Blockly.dll  
 Stimulsoft.BlocklyEditor.Wpf.dll  
 Stimulsoft.Client.Designer.dll  
+Stimulsoft.Controls.Wpf.dll  
 Stimulsoft.Data.dll  
 Stimulsoft.Database.Wpf.dll  
 Stimulsoft.Editor.Wpf.dll  
@@ -343,6 +347,7 @@ Stimulsoft.Blockly.dll
 Stimulsoft.BlocklyEditor.Wpf.dll  
 Stimulsoft.Controls.dll  
 Stimulsoft.Controls.Win.dll  
+Stimulsoft.Controls.Wpf.dll  
 Stimulsoft.Dashboard.dll  
 Stimulsoft.Dashboard.Design.dll  
 Stimulsoft.Dashboard.Drawing.dll  
@@ -397,6 +402,14 @@ Stimulsoft.System.dll
 Stimulsoft.System.Web.dll  
 All .xml localization files
 
+#### Stimulsoft Forms.WEB
+Stimulsoft.Base.dll  
+Stimulsoft.Form.dll  
+Stimulsoft.Form.Export.dll  
+Stimulsoft.Form.Web.dll  
+All files in stimulsoft-forms folder  
+All .xml localization files
+
 YOU ARE NOT AUTHORIZED TO REDISTRIBUTE ANY OTHER FILE CONTAINED IN THE SOFTWARE.
 
 ### COPYRIGHT
@@ -437,4 +450,4 @@ This license is subject to change without notice in future updates to the SOFTWA
 
 YOU ACKNOWLEDGE THAT YOU HAVE READ THIS AGREEMENT, UNDERSTAND IT AND AGREE TO BE BOUND BY ITS TERMS AND CONDITIONS. YOU FURTHER AGREE THAT IT IS THE COMPLETE AND EXCLUSIVE STATEMENT OF THE AGREEMENT BETWEEN US, WHICH SUPERSEDES ANY PROPOSAL OR PRIOR AGREEMENT, ORAL OR WRITTEN, AND ANY OTHER COMMUNICATIONS BETWEEN US RELATING TO THE SUBJECT MATTER OF THIS AGREEMENT.
 
-#### Copyright (C) 2003-2021 Stimulsoft, All rights reserved.
+#### Copyright (C) 2003-2023 Stimulsoft, All rights reserved.

@@ -10,17 +10,10 @@ composer require stimulsoft/reports-php
 ```
 
 # Usage
-Add the minimum required namespaces to use to the page:
+Add the minimum required code to the page:
 ```php
 <?php
 require_once 'vendor/autoload.php';
-
-use Stimulsoft\Enums\StiComponentType;
-use Stimulsoft\Report\StiReport;
-use Stimulsoft\StiHandler;
-use Stimulsoft\StiJavaScript;
-use Stimulsoft\Viewer\StiViewer;
-use Stimulsoft\Viewer\StiViewerOptions;
 ?>
 ```
 
@@ -28,8 +21,8 @@ Render the necessary scripts in the `<head>` section
 ```php
 <head>
 <?php
-    $helper = new StiJavaScript(StiComponentType::Viewer);
-    $helper->renderHtml();
+    $js = new \Stimulsoft\StiJavaScript(\Stimulsoft\StiComponentType::Viewer);
+    $js->renderHtml();
 ?>
 </head>
 ```
@@ -38,7 +31,7 @@ Create and render a request handler in the `<script>` section of the page:
 ```php
 <script>
 <?php
-    $handler = new StiHandler();
+    $handler = new \Stimulsoft\StiHandler();
     $handler->renderHtml();
 ?>
 </script>
@@ -48,9 +41,9 @@ Create and render the component in the `<script>` section of the page:
 ```php
 <script>
 <?php
-    $viewer = new StiViewer();
-    $report = new StiReport();
-    $report->loadFile("reports/SimpleList.mrt");
+    $viewer = new \Stimulsoft\Viewer\StiViewer();
+    $report = new \Stimulsoft\Report\StiReport();
+    $report->loadFile('reports/SimpleList.mrt');
     $viewer->report = $report;
     $viewer->renderHtml();
 ?>
@@ -59,11 +52,11 @@ Create and render the component in the `<script>` section of the page:
 
 # Useful links:
 
-You can try the [Live Demo](http://demo.stimulsoft.com/#Js)
+[Live Demo](http://demo.stimulsoft.com/#Js)
 
-[Sample projects](https://github.com/stimulsoft/Samples-JS-PHP)
+[Sample Projects](https://github.com/stimulsoft/Samples-JS-PHP)
 
-Read more about [Stimulsoft Reports.PHP](https://www.stimulsoft.com/en/products/reports-php)
+[Product Page](https://www.stimulsoft.com/en/products/reports-php)
 
 [Free Download](https://www.stimulsoft.com/en/downloads)
 
