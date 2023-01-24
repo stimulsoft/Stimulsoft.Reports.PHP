@@ -156,6 +156,12 @@ class StiOracleAdapter extends StiDataAdapter
         return $value;
     }
 
+    public function makeQuery($procedure, $parameters)
+    {
+        $paramsString = parent::makeQuery($procedure, $parameters);
+        return "SQLEXEC 'CALL $procedure ($paramsString)'";
+    }
+
     protected function executeNative($queryString, $result)
     {
         $query = oci_parse($this->link, $queryString);

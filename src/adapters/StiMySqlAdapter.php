@@ -210,6 +210,12 @@ class StiMySqlAdapter extends StiDataAdapter
         return $value;
     }
 
+    public function makeQuery($procedure, $parameters)
+    {
+        $paramsString = parent::makeQuery($procedure, $parameters);
+        return "CALL $procedure ($paramsString)";
+    }
+
     protected function executeNative($queryString, $result)
     {
         $query = $this->link->query($queryString);

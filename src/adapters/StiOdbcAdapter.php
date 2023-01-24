@@ -148,7 +148,7 @@ class StiOdbcAdapter extends StiDataAdapter
         return $value;
     }
 
-    public function execute($queryString)
+    public function executeQuery($queryString)
     {
         $result = $this->connect();
         if ($result->success) {
