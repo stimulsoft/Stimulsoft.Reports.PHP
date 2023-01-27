@@ -7,7 +7,7 @@ use Stimulsoft\StiResult;
 
 class StiMySqlAdapter extends StiDataAdapter
 {
-    public $version = '2023.1.5';
+    public $version = '2023.1.6';
     public $checkVersion = true;
 
     protected $driverName = 'mysql';
