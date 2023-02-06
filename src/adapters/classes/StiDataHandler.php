@@ -8,13 +8,13 @@ class StiDataHandler
 {
     public $version = '2023.1.6';
 
-    private function stiErrorHandler($errNo, $errStr, $errFile, $errLine)
+    public function stiErrorHandler($errNo, $errStr, $errFile, $errLine)
     {
         $result = StiResult::error("[$errNo] $errStr ($errFile, Line $errLine)");
         StiResponse::json($result);
     }
 
-    private function stiShutdownFunction()
+    public function stiShutdownFunction()
     {
         $err = error_get_last();
         if ($err != null && (($err['type'] & E_COMPILE_ERROR) || ($err['type'] & E_ERROR) || ($err['type'] & E_CORE_ERROR) || ($err['type'] & E_RECOVERABLE_ERROR))) {
@@ -23,7 +23,7 @@ class StiDataHandler
         }
     }
 
-    private function registerErrorHandlers()
+    public function registerErrorHandlers()
     {
         set_error_handler(array($this, 'stiErrorHandler'));
         register_shutdown_function(array($this, 'stiShutdownFunction'));
