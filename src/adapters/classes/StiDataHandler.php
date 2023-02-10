@@ -6,7 +6,7 @@ use Stimulsoft\Adapters\StiDataAdapter;
 
 class StiDataHandler
 {
-    public $version = '2023.1.6';
+    public $version = '2023.1.7';
 
     public function stiErrorHandler($errNo, $errStr, $errFile, $errLine)
     {
