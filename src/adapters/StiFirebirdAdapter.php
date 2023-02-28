@@ -126,7 +126,7 @@ class StiFirebirdAdapter extends StiDataAdapter
                 return $format;
 
             case 'string':
-                return utf8_encode($value);
+                return mb_convert_encoding($value, 'UTF-8', mb_list_encodings());
         }
 
         return $value;
