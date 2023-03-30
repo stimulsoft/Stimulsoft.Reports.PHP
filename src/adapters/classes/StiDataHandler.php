@@ -11,6 +11,7 @@ class StiDataHandler
     public function stiErrorHandler($errNo, $errStr, $errFile, $errLine)
     {
         $result = StiResult::error("[$errNo] $errStr ($errFile, Line $errLine)");
+        $result->handlerVersion = $this->version;
         StiResponse::json($result);
         exit();
     }
