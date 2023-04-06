@@ -4,6 +4,8 @@ namespace Stimulsoft;
 
 use PHPMailer\PHPMailer\PHPMailer;
 use Stimulsoft\Adapters\StiDataAdapter;
+use Stimulsoft\Report\StiVariable;
+use Stimulsoft\Report\StiVariableRange;
 
 class StiHandler extends StiDataHandler
 {
@@ -110,6 +112,7 @@ class StiHandler extends StiDataHandler
             foreach ($request->variables as $item) {
                 $request->variables[$item->name] = $item;
                 $variableObject = new StiVariable();
+                $variableObject->name = $item->name;
                 $variableObject->value = $item->value;
                 $variableObject->type = $item->type;
 
