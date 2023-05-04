@@ -2,15 +2,15 @@
 
 namespace Stimulsoft\Laravel;
 
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\ServiceProvider;
-
-class StiServiceProvider extends ServiceProvider
+if (class_exists('\Illuminate\Support\ServiceProvider'))
 {
-    public function boot()
-    {
-        Route::get('/vendor/stimulsoft/reports-php/scripts/{file}', function ($file) {
-            return file_get_contents(__DIR__ . "/../../scripts/$file");
-        });
-    }
+	class StiServiceProvider extends \Illuminate\Support\ServiceProvider
+	{
+		public function boot()
+		{
+			\Illuminate\Support\Facades\Route::get('/vendor/stimulsoft/reports-php/scripts/{file}', function ($file) {
+				return file_get_contents(__DIR__ . "/../../scripts/$file");
+			});
+		}
+	}
 }
