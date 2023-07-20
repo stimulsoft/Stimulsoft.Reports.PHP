@@ -133,6 +133,9 @@ class StiOracleAdapter extends StiDataAdapter
 
     protected function getValue($type, $value)
     {
+        if (is_null($value))
+            return null;
+
         if ($type == 'blob' || $type == 'clob') {
             try {
                 $data = $value->load();
@@ -143,7 +146,7 @@ class StiOracleAdapter extends StiDataAdapter
             }
         }
 
-        if (is_null($value) || strlen($value) == 0)
+        if (strlen($value) == 0)
             return null;
 
         switch ($type) {
@@ -151,9 +154,12 @@ class StiOracleAdapter extends StiDataAdapter
                 return base64_encode($value);
 
             case 'datetime':
-                $timestamp = \DateTime::createFromFormat("d#M#y H#i#s*A", $value);
-                if ($timestamp === false) $timestamp = strtotime($value);
-                $format = date("Y-m-d\TH:i:s.v", $timestamp);
+                $dateTime = \DateTime::createFromFormat("d#M#y H#i#s*A", $value);
+                if ($dateTime !== false) $format = $dateTime->format("Y-m-d\TH:i:s.v");
+                else {
+                    $timestamp = strtotime($value);
+                    $format = date("Y-m-d\TH:i:s.v", $timestamp);
+                }
                 if (strpos($format, '.v') > 0) $format = date("Y-m-d\TH:i:s.000", $timestamp);
                 return $format;
         }
