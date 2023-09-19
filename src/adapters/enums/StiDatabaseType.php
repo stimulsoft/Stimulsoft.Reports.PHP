@@ -10,4 +10,5 @@ class StiDatabaseType
     const Firebird = 'Firebird';
     const Oracle = 'Oracle';
     const ODBC = 'ODBC';
+    const MongoDB = 'MongoDB';
 }
