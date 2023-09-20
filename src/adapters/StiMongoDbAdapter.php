@@ -7,7 +7,7 @@ use Stimulsoft\StiResult;
 
 class StiMongoDbAdapter extends StiDataAdapter
 {
-    public $version = '2023.2.8';
+    public $version = '2023.4.1';
     public $checkVersion = true;
 
     protected $driverName = 'mongodb';
@@ -71,9 +71,9 @@ class StiMongoDbAdapter extends StiDataAdapter
         return true;
     }
 
-    protected function parseType($type)
+    protected function parseType($meta)
     {
-        switch ($type) {
+        switch ($meta) {
             case 'bool':
                 return 'boolean';
 

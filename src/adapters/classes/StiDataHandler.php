@@ -3,10 +3,11 @@
 namespace Stimulsoft;
 
 use Stimulsoft\Adapters\StiDataAdapter;
+use Stimulsoft\Adapters\StiMongoDbAdapter;
 
 class StiDataHandler
 {
-    public $version = '2023.3.4';
+    public $version = '2023.4.1';
 
     public function stiErrorHandler($errNo, $errStr, $errFile, $errLine)
     {
@@ -89,8 +90,13 @@ class StiDataHandler
         if ($request->command == StiDataCommand::TestConnection)
             return $dataAdapter->test();
 
-        if ($request->command == StiDataCommand::Execute || $request->command == StiDataCommand::ExecuteQuery)
-        {
+        if ($request->command == StiDataCommand::RetrieveSchema)
+            return $dataAdapter->executeQuery($request->dataSource);
+
+        if ($request->command == StiDataCommand::Execute || $request->command == StiDataCommand::ExecuteQuery) {
+            if ($dataAdapter instanceof StiMongoDbAdapter)
+                $request->queryString = $request->dataSource;
+
             if ($request->command == StiDataCommand::Execute)
                 $request->queryString = $dataAdapter->makeQuery($request->queryString, $request->parameters);
 
