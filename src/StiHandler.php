@@ -394,7 +394,7 @@ class StiHandler extends StiDataHandler
             "StiHelper.prototype.process = function (args, callback) {
                 if (args) {
                     if (callback)
-                        args.preventDefault = true;
+                        args.async = true;
 
                     if (args.event === 'BeginProcessData' || args.event === 'EndProcessData') {
                         if (args.database === 'XML' || args.database === 'JSON' || args.database === 'Excel')
