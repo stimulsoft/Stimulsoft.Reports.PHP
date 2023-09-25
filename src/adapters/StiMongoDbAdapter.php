@@ -2,6 +2,7 @@
 
 namespace Stimulsoft\Adapters;
 
+use Stimulsoft\StiConnectionInfo;
 use Stimulsoft\StiDataResult;
 use Stimulsoft\StiResult;
 
@@ -52,8 +53,8 @@ class StiMongoDbAdapter extends StiDataAdapter
 
     public function parse($connectionString)
     {
-        if (parent::parse($connectionString))
-            return true;
+        $this->connectionInfo = new StiConnectionInfo();
+        $this->connectionString = trim($connectionString);
 
         $url = parse_url($connectionString);
         $this->connectionInfo->host = isset($url['host']) ? $url['host'] : '';
@@ -62,8 +63,7 @@ class StiMongoDbAdapter extends StiDataAdapter
         $this->connectionInfo->password = isset($url['pass']) ? $url['pass'] : '';
         $this->connectionInfo->database = isset($url['path']) ? trim($url['path'], '/') : '';
 
-        $parameterNames = array();
-        return $this->parseParameters($parameterNames);
+        return true;
     }
 
     protected function parseParameters($parameterNames)
