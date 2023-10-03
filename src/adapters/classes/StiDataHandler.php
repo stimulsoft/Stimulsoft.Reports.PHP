@@ -41,11 +41,10 @@ class StiDataHandler
         $result = $request->parse();
         if ($result->success) {
             if ($result->object->command == StiDataCommand::GetSupportedAdapters) {
-                $reflectionClass = new \ReflectionClass('\Stimulsoft\StiDatabaseType');
-                $databases = $reflectionClass->getConstants();
+                $databases = StiDatabaseType::getTypes();
                 $result = array(
                     'success' => true,
-                    'types' => array_values($databases)
+                    'types' => $databases
                 );
             }
             else {

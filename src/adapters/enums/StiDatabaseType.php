@@ -11,4 +11,10 @@ class StiDatabaseType
     const Oracle = 'Oracle';
     const ODBC = 'ODBC';
     const MongoDB = 'MongoDB';
+
+    public static function getTypes() {
+        $reflectionClass = new \ReflectionClass('\Stimulsoft\StiDatabaseType');
+        $databases = $reflectionClass->getConstants();
+        return array_values($databases);
+    }
 }
