@@ -9,7 +9,7 @@ if (class_exists('\Illuminate\Support\ServiceProvider'))
 		public function boot()
 		{
 			\Illuminate\Support\Facades\Route::get('/vendor/stimulsoft/reports-php/scripts/{file}', function ($file) {
-				return file_get_contents(__DIR__ . "/../../scripts/$file");
+				return response()->file(__DIR__ . "/../../scripts/$file", ["Content-Type"=>'text/javascript']);
 			});
 		}
 	}
