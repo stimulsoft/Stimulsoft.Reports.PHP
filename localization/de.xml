@@ -3944,6 +3944,9 @@ Sie enthält den Link zur Bestätigung Ihrer Registrierung. Um Ihre Registrierun
     <DataAdapter>Daten-Adapter</DataAdapter>
     <DataAdapters>Daten-Adapter</DataAdapters>
     <DataBarCondition>Datenbalken</DataBarCondition>
+    <DataBarsNegative>Negative Farbe der Datenbalken</DataBarsNegative>
+    <DataBarsOverlapped>Die Farbe der Überlagerung der Datenbalken</DataBarsOverlapped>
+    <DataBarsPositive>Positive Farbe der Datenbalken</DataBarsPositive>
     <DataBindings>Datenbindungen</DataBindings>
     <DataCells>Datenzellen</DataCells>
     <DataColor>Datenfarbe</DataColor>
@@ -4188,6 +4191,9 @@ Sie enthält den Link zur Bestätigung Ihrer Registrierung. Um Ihre Registrierun
     <Increment>Steigerung</Increment>
     <Indent>Einzug</Indent>
     <Indicator>Indikator</Indicator>
+    <IndicatorNegative>Negative Farbe des Indikators</IndicatorNegative>
+    <IndicatorNeutral>Neutrale Farbe des Indikators</IndicatorNeutral>
+    <IndicatorPositive>Positive Farbe des Indikators</IndicatorPositive>
     <IndicatorValue>Indikator-Wert</IndicatorValue>
     <IndividualColor>Individuelle Farbe</IndividualColor>
     <InfographicsTitle>Titel</InfographicsTitle>
@@ -4642,6 +4648,7 @@ Sie enthält den Link zur Bestätigung Ihrer Registrierung. Um Ihre Registrierun
     <Space>Leerraum</Space>
     <SpaceRatio>Leerraum</SpaceRatio>
     <Spacing>Abstand</Spacing>
+    <Sparkline>Sparklines</Sparkline>
     <SqlCommand>SQL-Abfrage</SqlCommand>
     <StartAngle>Anfangswinkel</StartAngle>
     <StartCap>Startpunkt</StartCap>
@@ -4829,6 +4836,8 @@ Sie enthält den Link zur Bestätigung Ihrer Registrierung. Um Ihre Registrierun
     <Weights>Gewichte</Weights>
     <Width>Breite</Width>
     <WindowState>Fensterzustand</WindowState>
+    <WinLossNegative>Gewinn/Verlust Negative Farbe</WinLossNegative>
+    <WinLossPositive>Gewinn/Verlust Positive Farbe</WinLossPositive>
     <WordWrap>Automatischer Textumbruch</WordWrap>
     <Wrap>Zeilenumbruch</Wrap>
     <WrapGap>Zeilenumbruchshöhe</WrapGap>

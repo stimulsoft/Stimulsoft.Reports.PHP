@@ -3007,7 +3007,7 @@
     <DialogResultIgnore>Игнорировать</DialogResultIgnore>
     <DialogResultNo>Нет</DialogResultNo>
     <DialogResultNone>Не указано</DialogResultNone>
-    <DialogResultOK>Ок</DialogResultOK>
+    <DialogResultOK>ОК</DialogResultOK>
     <DialogResultRetry>Повторить</DialogResultRetry>
     <DialogResultYes>Да</DialogResultYes>
     <DuplexDefault>По умолчанию</DuplexDefault>
@@ -3944,6 +3944,9 @@
     <DataAdapter>Адаптер данных</DataAdapter>
     <DataAdapters>Адаптеры данных</DataAdapters>
     <DataBarCondition>Гистограмма</DataBarCondition>
+    <DataBarsNegative>Негативный цвет гистограммы</DataBarsNegative>
+    <DataBarsOverlapped>Цвет наложения гистограммы</DataBarsOverlapped>
+    <DataBarsPositive>Позитивный цвет гистограммы</DataBarsPositive>
     <DataBindings>Связывание данных</DataBindings>
     <DataCells>Ячейки данных</DataCells>
     <DataColor>Цвет данных</DataColor>
@@ -4189,6 +4192,9 @@
     <Increment>Приращение</Increment>
     <Indent>Отступ</Indent>
     <Indicator>Индикатор</Indicator>
+    <IndicatorNegative>Негативный цвет индикатора</IndicatorNegative>
+    <IndicatorNeutral>Нейтральный цвет индикатора</IndicatorNeutral>
+    <IndicatorPositive>Позитивный цвет индикатора</IndicatorPositive>
     <IndicatorValue>Значение индикатора</IndicatorValue>
     <IndividualColor>Индивидуальный цвет</IndividualColor>
     <InfographicsTitle>Заголовок</InfographicsTitle>
@@ -4642,6 +4648,7 @@
     <Space>Пробел</Space>
     <SpaceRatio>Межсимвольный интервал</SpaceRatio>
     <Spacing>Расстояние</Spacing>
+    <Sparkline>Спарклайны</Sparkline>
     <SqlCommand>SQL запрос</SqlCommand>
     <StartAngle>Начальный угол</StartAngle>
     <StartCap>Тип начала</StartCap>
@@ -4829,6 +4836,8 @@
     <Weights>Веса</Weights>
     <Width>Ширина</Width>
     <WindowState>Состояние окна</WindowState>
+    <WinLossNegative>Негативный цвет Выигрыш / проигрыш</WinLossNegative>
+    <WinLossPositive>Позитивный цвет Выигрыш / проигрыш</WinLossPositive>
     <WordWrap>Перенос слов</WordWrap>
     <Wrap>Перенос</Wrap>
     <WrapGap>Промежуток переноса</WrapGap>

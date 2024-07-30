@@ -1533,6 +1533,7 @@
     <Default>Default</Default>
     <DefaultSaveFormat>Default Save Format</DefaultSaveFormat>
     <DefaultScriptMode>Default Script Mode</DefaultScriptMode>
+    <DesignSize>Design Size</DesignSize>
     <Drawing>Drawing</Drawing>
     <DrawMarkersWhenMoving>Draw Markers When Moving</DrawMarkersWhenMoving>
     <EditAfterInsert>Edit After Insert</EditAfterInsert>
@@ -1583,6 +1584,7 @@
     <title>Options</title>
     <UseComponentColor>Use Component Color for Filling</UseComponentColor>
     <UseLastFormat>Use Last Format</UseLastFormat>
+    <ViewSize>View Size</ViewSize>
     <Welcome>Welcome</Welcome>
   </FormOptions>
   <FormPageSetup>
@@ -3883,6 +3885,9 @@
     <DataAdapter>Data Adapter</DataAdapter>
     <DataAdapters>Data Adapters</DataAdapters>
     <DataBarCondition>Data Bar Condition</DataBarCondition>
+    <DataBarsNegative>Data Bars Negative</DataBarsNegative>
+    <DataBarsOverlapped>Data Bars Overlapped</DataBarsOverlapped>
+    <DataBarsPositive>Data Bars Positive</DataBarsPositive>
     <DataBindings>Data Bindings</DataBindings>
     <DataCells>Data Cells</DataCells>
     <DataColor>Data Color</DataColor>
@@ -4127,6 +4132,9 @@
     <Increment>Increment</Increment>
     <Indent>Indent</Indent>
     <Indicator>Indicator</Indicator>
+    <IndicatorNegative>Indicator Negative</IndicatorNegative>
+    <IndicatorNeutral>Indicator Neutral</IndicatorNeutral>
+    <IndicatorPositive>Indicator Positive</IndicatorPositive>
     <IndicatorValue>Indicator Value</IndicatorValue>
     <IndividualColor>Individual Color</IndividualColor>
     <InitBy>Init by</InitBy>
@@ -4577,6 +4585,7 @@
     <Space>Space</Space>
     <SpaceRatio>Space Ratio</SpaceRatio>
     <Spacing>Spacing</Spacing>
+    <Sparkline>Sparkline</Sparkline>
     <SqlCommand>Sql Command</SqlCommand>
     <StartAngle>Start Angle</StartAngle>
     <StartCap>Start Cap</StartCap>
@@ -4764,6 +4773,8 @@
     <Weights>Weights</Weights>
     <Width>Width</Width>
     <WindowState>Window State</WindowState>
+    <WinLossNegative>Win Loss Negative</WinLossNegative>
+    <WinLossPositive>Win Loss Positive</WinLossPositive>
     <WordWrap>Word Wrap</WordWrap>
     <Wrap>Wrap</Wrap>
     <WrapGap>WrapGap</WrapGap>

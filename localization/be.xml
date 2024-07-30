@@ -3976,6 +3976,9 @@
     <DataAdapter>Адаптэр дадзеных</DataAdapter>
     <DataAdapters>Адаптэры дадзеных</DataAdapters>
     <DataBarCondition>Гістаграмы</DataBarCondition>
+    <DataBarsNegative>Негатыўны колер гістаграмы</DataBarsNegative>
+    <DataBarsOverlapped>Колер накладання гістаграмы</DataBarsOverlapped>
+    <DataBarsPositive>Пазітыўны колер гістаграмы</DataBarsPositive>
     <DataBindings>Злучэнне дадзеных</DataBindings>
     <DataCells>Вочкі дадзеных</DataCells>
     <DataColor>Колер дадзеных</DataColor>
@@ -4221,6 +4224,9 @@
     <Increment>Прырашчэнне</Increment>
     <Indent>Водступ</Indent>
     <Indicator>Індыкатар</Indicator>
+    <IndicatorNegative>Негатыўны колер індыкатара</IndicatorNegative>
+    <IndicatorNeutral>Нейтральны колер індыкатара</IndicatorNeutral>
+    <IndicatorPositive>Пазітыўны колер індыкатара</IndicatorPositive>
     <IndicatorValue>Значэнне індыкатара</IndicatorValue>
     <IndividualColor>Індывідуальны колер</IndividualColor>
     <InfographicsTitle>Title</InfographicsTitle>
@@ -4678,6 +4684,7 @@
     <Space>Прабел</Space>
     <SpaceRatio>Міжзнакавы інтэрвал</SpaceRatio>
     <Spacing>Адлегласць</Spacing>
+    <Sparkline>Спарклайны</Sparkline>
     <SqlCommand>SQL запыт</SqlCommand>
     <StartAngle>Пачатковы вугал</StartAngle>
     <StartCap>Тып пачатку</StartCap>
@@ -4865,6 +4872,8 @@
     <Weights>Вагі</Weights>
     <Width>Шырыня</Width>
     <WindowState>Стан акна</WindowState>
+    <WinLossNegative>Негатыўны колер Перамога / пройгрыш</WinLossNegative>
+    <WinLossPositive>Пазітыўны колер Перамога / пройгрыш</WinLossPositive>
     <WordWrap>Перанос тэксту</WordWrap>
     <Wrap>Перанос</Wrap>
     <WrapGap>Прамежак пераносу</WrapGap>
