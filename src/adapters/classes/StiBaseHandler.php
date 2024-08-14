@@ -59,10 +59,10 @@ class StiBaseHandler
     /** @var StiEvent The event is invoked before connecting to the database after all parameters have been received. */
     public $onDatabaseConnect;
 
-    /** @var StiEvent The event is invoked before data request, which needed to render a report. Python and JavaScript functions are supported. */
+    /** @var StiEvent The event is invoked before data request, which needed to render a report. */
     public $onBeginProcessData;
 
-    /** @var StiEvent The event is invoked after loading data before rendering a report. Python and JavaScript functions are supported. */
+    /** @var StiEvent The event is invoked after loading data before rendering a report. */
     public $onEndProcessData;
 
 

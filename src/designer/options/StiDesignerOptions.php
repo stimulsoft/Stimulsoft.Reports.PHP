@@ -26,7 +26,7 @@ class StiDesignerOptions extends StiComponentOptions
     /** @var StiCrossBandsOptions A class which controls settings of the cross-bands. */
     public $crossBands;
 
-    /** @var StiComponentOptions A class which controls settings of the components. */
+    /** @var StiReportComponentsOptions A class which controls settings of the components. */
     public $components;
 
     /** @var StiDashboardElementsOptions A class which controls settings of the dashboardElements. */

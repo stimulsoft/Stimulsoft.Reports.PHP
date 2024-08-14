@@ -6,13 +6,14 @@ use ReflectionClass;
 use ReflectionProperty;
 use Stimulsoft\StiBaseHandler;
 use Stimulsoft\StiFunctions;
+use Stimulsoft\Enums\StiEventType;
 
 class StiEventArgs
 {
 
 ### Properties
 
-    /** @var string Name of the current event. */
+    /** @var StiEventType|string [enum] Name of the current event. */
     public $event = null;
 
     /** @var object The component that sent the request. */

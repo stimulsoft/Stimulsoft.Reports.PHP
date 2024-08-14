@@ -63,7 +63,7 @@ class StiHandler extends StiBaseHandler
 
 ### Events: Component
 
-    /** @var StiComponentEvent The event is invoked before connecting to the database after all parameters have been received. */
+    /** @var StiComponentEvent The event is invoked before connecting to the database after all parameters have been received. Only PHP functions are supported. */
     public $onDatabaseConnect;
 
     /** @var StiComponentEvent The event is invoked before rendering a report after preparing report variables. PHP and JavaScript functions are supported. */
@@ -72,7 +72,7 @@ class StiHandler extends StiBaseHandler
     /** @var StiComponentEvent The event is invoked before data request, which needed to render a report. PHP and JavaScript functions are supported. */
     public $onBeginProcessData;
 
-    /** @var StiComponentEvent The event is invoked after loading data before rendering a report. Python and JavaScript functions are supported. */
+    /** @var StiComponentEvent The event is invoked after loading data before rendering a report. PHP and JavaScript functions are supported. */
     public $onEndProcessData;
 
 
