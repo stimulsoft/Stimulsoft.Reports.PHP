@@ -386,10 +386,18 @@ class StiReport extends StiComponent
      * Prepares the necessary JavaScript to print the report. The browser print dialog will be called.
      * @param StiPagesRange|string|int|null $pagesRange The pages range or the page number to print.
      */
-    public function printReport($pagesRange = null)
+    public function print($pagesRange = null)
     {
         $this->printCalled = true;
         $this->pagesRange = $pagesRange;
+    }
+
+    /**
+     * @deprecated Please use the 'print()' method.
+     */
+    public function printReport($pagesRange = null)
+    {
+        $this->print($pagesRange);
     }
 
     /**
