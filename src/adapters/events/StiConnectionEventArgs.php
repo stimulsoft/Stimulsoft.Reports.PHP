@@ -2,7 +2,6 @@
 
 namespace Stimulsoft\Events;
 
-use Stimulsoft\Enums\StiBaseEventType;
 use Stimulsoft\Enums\StiDatabaseType;
 use Stimulsoft\StiConnectionInfo;
 
@@ -27,7 +26,6 @@ class StiConnectionEventArgs extends StiEventArgs
     {
         parent::__construct();
 
-        $this->event = StiBaseEventType::DatabaseConnect;
         $this->database = $database;
         $this->driver = $driver;
         $this->info = $info;
