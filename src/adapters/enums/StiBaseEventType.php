@@ -6,6 +6,7 @@ use Stimulsoft\StiFunctions;
 
 class StiBaseEventType
 {
+    const DatabaseConnect = 'DatabaseConnect';
     const BeginProcessData = 'BeginProcessData';
     const EndProcessData = 'EndProcessData';
 

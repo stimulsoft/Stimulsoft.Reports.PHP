@@ -9,6 +9,7 @@ class StiEventType
 {
     const GetResource = 'GetResource';
     const PrepareVariables = 'PrepareVariables';
+    const DatabaseConnect = 'DatabaseConnect';
     const BeginProcessData = 'BeginProcessData';
     const EndProcessData = 'EndProcessData';
     const CreateReport = 'CreateReport';
