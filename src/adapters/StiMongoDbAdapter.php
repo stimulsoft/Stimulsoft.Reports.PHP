@@ -22,7 +22,7 @@ class StiMongoDbAdapter extends StiDataAdapter
 
 ### Properties
 
-    public $version = '2024.3.3';
+    public $version = '2024.3.4';
     public $checkVersion = true;
 
     protected $type = StiDatabaseType::MongoDB;
