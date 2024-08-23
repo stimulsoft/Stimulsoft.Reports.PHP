@@ -1,5 +1,5 @@
-
 <?php
+
 namespace Stimulsoft\Adapters;
 
 use Stimulsoft\Enums\StiDatabaseType;
