@@ -64,7 +64,7 @@ class StiReport extends StiComponent
     /** @var int */
     private $exportFormat;
     /** @var StiPagesRange|string|int */
-    private $pagesRange;
+    private $pageRange;
     /** @var StiExportSettings */
     private $exportSettings;
 
@@ -154,19 +154,19 @@ class StiReport extends StiComponent
     private function getPrintHtml(): string
     {
         if ($this->printCalled) {
-            $pagesRange = $this->pagesRange;
-            $pagesRangeHtml = '';
-            $pagesRangeId = '';
+            $pageRange = $this->pageRange;
+            $pageRangeHtml = '';
+            $pageRangeId = '';
 
-            if ($pagesRange !== null) {
-                if (!($pagesRange instanceof StiPagesRange) && strlen($pagesRange) > 0)
-                    $pagesRange = new StiPagesRange(StiRangeType::Pages, $this->pagesRange);
+            if ($pageRange !== null) {
+                if (!($pageRange instanceof StiPagesRange) && strlen($pageRange) > 0)
+                    $pageRange = new StiPagesRange(StiRangeType::Pages, $this->pageRange);
 
-                $pagesRangeHtml = $pagesRange->getHtml();
-                $pagesRangeId = $pagesRange->id;
+                $pageRangeHtml = $pageRange->getHtml();
+                $pageRangeId = $pageRange->id;
             }
 
-            return "{$pagesRangeHtml}report.print($pagesRangeId);\n";
+            return "{$pageRangeHtml}report.print($pageRangeId);\n";
         }
 
         return '';
@@ -384,20 +384,20 @@ class StiReport extends StiComponent
 
     /**
      * Prepares the necessary JavaScript to print the report. The browser print dialog will be called.
-     * @param StiPagesRange|string|int|null $pagesRange The pages range or the page number to print.
+     * @param StiPagesRange|string|int|null $pageRange The page range or the page number to print.
      */
-    public function print($pagesRange = null)
+    public function print($pageRange = null)
     {
         $this->printCalled = true;
-        $this->pagesRange = $pagesRange;
+        $this->pageRange = $pageRange;
     }
 
     /**
      * @deprecated Please use the 'print()' method.
      */
-    public function printReport($pagesRange = null)
+    public function printReport($pageRange = null)
     {
-        $this->print($pagesRange);
+        $this->print($pageRange);
     }
 
     /**

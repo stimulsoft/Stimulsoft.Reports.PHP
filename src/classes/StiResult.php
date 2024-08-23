@@ -15,6 +15,7 @@ class StiResult extends StiBaseResult
     public $variables;
     public $settings;
     public $report;
+    public $pageRange;
 
 
 ### JSON

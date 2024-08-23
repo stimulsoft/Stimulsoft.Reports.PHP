@@ -24,16 +24,17 @@ StiHandler.prototype.process = function (args, callback) {
         }
         
         let sendText = Stimulsoft.Report.Dictionary.StiSqlAdapterService.encodeCommand(command);
-        let callback2 = function (args2) {
-            if (args2.report) args.report = args2.report;
-            if (args2.settings) Stimulsoft.handler.copySettings(args2.settings, args.settings);
-            if (args2.fileName) args.fileName = args2.fileName;
+        let handlerCallback = function (handlerArgs) {
+            if (handlerArgs.report) args.report = handlerArgs.report;
+            if (handlerArgs.settings) Stimulsoft.handler.copySettings(handlerArgs.settings, args.settings);
+            if (handlerArgs.pageRange) Stimulsoft.handler.copySettings(handlerArgs.pageRange, args.pageRange);
+            if (handlerArgs.fileName) args.fileName = handlerArgs.fileName;
             
-            if (!Stimulsoft.System.StiString.isNullOrEmpty(args2.notice))
-                Stimulsoft.System.StiError.showError(args2.notice, true, args2.success);
-            if (callback) callback(args2);
+            if (!Stimulsoft.System.StiString.isNullOrEmpty(handlerArgs.notice))
+                Stimulsoft.System.StiError.showError(handlerArgs.notice, true, handlerArgs.success);
+            if (callback) callback(handlerArgs);
         }
-        Stimulsoft.handler.send(sendText, callback2);
+        Stimulsoft.handler.send(sendText, handlerCallback);
     }
 }
 
@@ -160,8 +161,11 @@ StiHandler.prototype.getVariables = function (variables) {
 
 StiHandler.prototype.copySettings = function (from, to) {
     for (let key in from) {
-        if (to.hasOwnProperty(key) && typeof to[key] != 'object' && typeof to[key] != 'function' && typeof from[key] == typeof to[key])
-            to[key] = from[key];
+        if (to.hasOwnProperty(key) && typeof to[key] != 'function') {
+            if (key == 'encoding') to[key] = eval(from[key]);
+            else if (key == 'pageRange') Stimulsoft.handler.copySettings(from[key], to[key]);
+            else if (typeof to[key] != 'object' && typeof from[key] == typeof to[key]) to[key] = from[key];
+        }
     }
 }
 
@@ -180,4 +184,4 @@ function StiHandler() {
 setTimeout(function () {
     let stimulsoft = Stimulsoft || {};
     stimulsoft.handler = new StiHandler();
-});
+})

@@ -21,6 +21,7 @@ class StiRequest extends StiBaseRequest
     public $isWizardUsed;
     public $report;
     public $autoSave;
+    public $pageRange;
 
 
 ### Helpers

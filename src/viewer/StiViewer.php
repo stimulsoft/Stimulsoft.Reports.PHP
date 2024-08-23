@@ -13,6 +13,7 @@ use Stimulsoft\Events\StiExportEventArgs;
 use Stimulsoft\Events\StiReportEventArgs;
 use Stimulsoft\Report\StiReport;
 use Stimulsoft\StiComponent;
+use Stimulsoft\StiEmailSettings;
 use Stimulsoft\StiFunctions;
 use Stimulsoft\StiHandler;
 use Stimulsoft\StiResult;
@@ -76,8 +77,12 @@ class StiViewer extends StiComponent
     {
         $args = new StiReportEventArgs($this->handler->request);
         $result = $this->getDefaultEventResult($this->onPrintReport, $args);
-        if ($result != null && $args->report != $this->handler->request->report)
-            $result->report = $args->report;
+        if ($result != null) {
+            if ($args->report != $this->handler->request->report)
+                $result->report = $args->report;
+            if ($args->pageRange != null && $args->pageRange->compareObject($this->handler->request->pageRange) === false)
+                $result->pageRange = $args->pageRange;
+        }
 
         return $result;
     }
@@ -89,7 +94,7 @@ class StiViewer extends StiComponent
         if ($result != null) {
             if ($args->fileName != $this->handler->request->fileName)
                 $result->fileName = $args->fileName;
-            if ($args->settings->compareObject($this->handler->request->settings) === false)
+            if ($args->settings != null && $args->settings->compareObject($this->handler->request->settings) === false)
                 $result->settings = $args->settings;
         }
 
@@ -111,6 +116,9 @@ class StiViewer extends StiComponent
     private function getEmailReportResult()
     {
         $args = new StiEmailEventArgs($this->handler->request);
+
+        if ($args->settings == null)
+            $args->settings = new StiEmailSettings();
 
         if (strlen($args->settings->attachmentName ?? '') == 0)
             $args->settings->attachmentName = StiFunctions::endsWith($args->fileName, '.' . $args->fileExtension)
