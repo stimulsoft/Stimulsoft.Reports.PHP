@@ -2,10 +2,8 @@
 
 namespace Stimulsoft\Events;
 
-use Stimulsoft\Report\StiPagesRange;
 use Stimulsoft\StiComponent;
 use Stimulsoft\StiHandler;
-use Stimulsoft\Viewer\Enums\StiPrintAction;
 
 class StiReportEventArgs extends StiEventArgs
 {
@@ -23,12 +21,6 @@ class StiReportEventArgs extends StiEventArgs
 
     /** @var bool A flag indicating that the report was saved automatically. */
     public $autoSave;
-
-    /** @var StiPrintAction|string [enum] The current print type of the report. */
-    public $printAction;
-
-    /** @var StiPagesRange The page range to print the report. */
-    public $pageRange;
 
     /**
      * @var string The current report object as a JSON string.
@@ -59,13 +51,6 @@ class StiReportEventArgs extends StiEventArgs
 
             if (StiHandler::$legacyMode)
                 $this->reportJson = $this->getReportJson();
-        }
-
-        if ($name == 'pageRange' && $value !== null) {
-            $this->pageRange = new StiPagesRange();
-            $this->pageRange->rangeType = $value->rangeType;
-            $this->pageRange->pageRanges = $value->pageRanges;
-            $this->pageRange->currentPage = $value->currentPage;
         }
     }
 

@@ -10,6 +10,7 @@ use Stimulsoft\Enums\StiHtmlMode;
 use Stimulsoft\Events\StiComponentEvent;
 use Stimulsoft\Events\StiEmailEventArgs;
 use Stimulsoft\Events\StiExportEventArgs;
+use Stimulsoft\Events\StiPrintEventArgs;
 use Stimulsoft\Events\StiReportEventArgs;
 use Stimulsoft\Report\StiReport;
 use Stimulsoft\StiComponent;
@@ -75,7 +76,7 @@ class StiViewer extends StiComponent
 
     private function getPrintReportResult()
     {
-        $args = new StiReportEventArgs($this->handler->request);
+        $args = new StiPrintEventArgs($this->handler->request);
         $result = $this->getDefaultEventResult($this->onPrintReport, $args);
         if ($result != null) {
             if ($args->report != $this->handler->request->report)

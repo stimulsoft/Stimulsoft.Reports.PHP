@@ -166,41 +166,73 @@ class StiHandler extends StiBaseHandler
 
         StiHandler::$legacyMode = true;
 
+        /** @deprecated Please use the 'Stimulsoft\Enums\StiComponentType' class. */
         class_alias('Stimulsoft\Enums\StiComponentType', 'Stimulsoft\StiComponentType');
+        /** @deprecated Please use the 'Stimulsoft\Enums\StiEventType' class. */
         class_alias('Stimulsoft\Enums\StiEventType', 'Stimulsoft\StiEventType');
+        /** @deprecated Please use the 'Stimulsoft\Export\Enums\StiExportFormat' class. */
         class_alias('Stimulsoft\Export\Enums\StiExportFormat', 'Stimulsoft\StiExportFormat');
+        /** @deprecated Please use the 'Stimulsoft\Viewer\Enums\StiExportAction' class. */
         class_alias('Stimulsoft\Viewer\Enums\StiExportAction', 'Stimulsoft\StiExportAction');
+        /** @deprecated Please use the 'Stimulsoft\Viewer\Enums\StiPrintAction' class. */
         class_alias('Stimulsoft\Viewer\Enums\StiPrintAction', 'Stimulsoft\StiPrintAction');
 
+        /** @deprecated Please use the 'Stimulsoft\Report\Enums\StiRangeType' class. */
         class_alias('Stimulsoft\Report\Enums\StiRangeType', 'Stimulsoft\Report\StiRangeType');
+        /** @deprecated Please use the 'Stimulsoft\Report\Enums\StiVariableType' class. */
         class_alias('Stimulsoft\Report\Enums\StiVariableType', 'Stimulsoft\Report\StiVariableType');
 
+        /** @deprecated Please use the 'Stimulsoft\Viewer\Enums\StiChartRenderType' class. */
         class_alias('Stimulsoft\Viewer\Enums\StiChartRenderType', 'Stimulsoft\Viewer\StiChartRenderType');
+        /** @deprecated Please use the 'Stimulsoft\Viewer\Enums\StiContentAlignment' class. */
         class_alias('Stimulsoft\Viewer\Enums\StiContentAlignment', 'Stimulsoft\Viewer\StiContentAlignment');
+        /** @deprecated Please use the 'Stimulsoft\Viewer\Enums\StiFirstDayOfWeek' class. */
         class_alias('Stimulsoft\Viewer\Enums\StiFirstDayOfWeek', 'Stimulsoft\Viewer\StiFirstDayOfWeek');
+        /** @deprecated Please use the 'Stimulsoft\Viewer\Enums\StiHtmlExportMode' class. */
         class_alias('Stimulsoft\Viewer\Enums\StiHtmlExportMode', 'Stimulsoft\Viewer\StiHtmlExportMode');
+        /** @deprecated Please use the 'Stimulsoft\Viewer\Enums\StiInterfaceType' class. */
         class_alias('Stimulsoft\Viewer\Enums\StiInterfaceType', 'Stimulsoft\Viewer\StiInterfaceType');
+        /** @deprecated Please use the 'Stimulsoft\Viewer\Enums\StiParametersPanelPosition' class. */
         class_alias('Stimulsoft\Viewer\Enums\StiParametersPanelPosition', 'Stimulsoft\Viewer\StiParametersPanelPosition');
+        /** @deprecated Please use the 'Stimulsoft\Viewer\Enums\StiPrintDestination' class. */
         class_alias('Stimulsoft\Viewer\Enums\StiPrintDestination', 'Stimulsoft\Viewer\StiPrintDestination');
+        /** @deprecated Please use the 'Stimulsoft\Viewer\Enums\StiShowMenuMode' class. */
         class_alias('Stimulsoft\Viewer\Enums\StiShowMenuMode', 'Stimulsoft\Viewer\StiShowMenuMode');
+        /** @deprecated Please use the 'Stimulsoft\Viewer\Enums\StiToolbarDisplayMode' class. */
         class_alias('Stimulsoft\Viewer\Enums\StiToolbarDisplayMode', 'Stimulsoft\Viewer\StiToolbarDisplayMode');
+        /** @deprecated Please use the 'Stimulsoft\Viewer\Enums\StiViewerTheme' class. */
         class_alias('Stimulsoft\Viewer\Enums\StiViewerTheme', 'Stimulsoft\Viewer\StiViewerTheme');
+        /** @deprecated Please use the 'Stimulsoft\Viewer\Enums\StiWebViewMode' class. */
         class_alias('Stimulsoft\Viewer\Enums\StiWebViewMode', 'Stimulsoft\Viewer\StiWebViewMode');
+        /** @deprecated Please use the 'Stimulsoft\Viewer\Enums\StiZoomMode' class. */
         class_alias('Stimulsoft\Viewer\Enums\StiZoomMode', 'Stimulsoft\Viewer\StiZoomMode');
 
+        /** @deprecated Please use the 'Stimulsoft\Designer\Enums\StiDesignerPermissions' class. */
         class_alias('Stimulsoft\Designer\Enums\StiDesignerPermissions', 'Stimulsoft\Designer\StiDesignerPermissions');
+        /** @deprecated Please use the 'Stimulsoft\Designer\Enums\StiDesignerTheme' class. */
         class_alias('Stimulsoft\Designer\Enums\StiDesignerTheme', 'Stimulsoft\Designer\StiDesignerTheme');
+        /** @deprecated Please use the 'Stimulsoft\Designer\Enums\StiFirstDayOfWeek' class. */
         class_alias('Stimulsoft\Designer\Enums\StiFirstDayOfWeek', 'Stimulsoft\Designer\StiFirstDayOfWeek');
+        /** @deprecated Please use the 'Stimulsoft\Designer\Enums\StiInterfaceType' class. */
         class_alias('Stimulsoft\Designer\Enums\StiInterfaceType', 'Stimulsoft\Designer\StiInterfaceType');
+        /** @deprecated Please use the 'Stimulsoft\Designer\Enums\StiNewReportDictionary' class. */
         class_alias('Stimulsoft\Designer\Enums\StiNewReportDictionary', 'Stimulsoft\Designer\StiNewReportDictionary');
+        /** @deprecated Please use the 'Stimulsoft\Designer\Enums\StiPropertiesGridPosition' class. */
         class_alias('Stimulsoft\Designer\Enums\StiPropertiesGridPosition', 'Stimulsoft\Designer\StiPropertiesGridPosition');
+        /** @deprecated Please use the 'Stimulsoft\Designer\Enums\StiReportUnitType' class. */
         class_alias('Stimulsoft\Designer\Enums\StiReportUnitType', 'Stimulsoft\Designer\StiReportUnitType');
+        /** @deprecated Please use the 'Stimulsoft\Designer\Enums\StiUseAliases' class. */
         class_alias('Stimulsoft\Designer\Enums\StiUseAliases', 'Stimulsoft\Designer\StiUseAliases');
+        /** @deprecated Please use the 'Stimulsoft\Designer\Enums\StiWizardType' class. */
         class_alias('Stimulsoft\Designer\Enums\StiWizardType', 'Stimulsoft\Designer\StiWizardType');
 
+        /** @deprecated Please use the 'Stimulsoft\Events\StiDataEventArgs' class. */
         class_alias('Stimulsoft\Events\StiDataEventArgs', 'Stimulsoft\StiDataEventArgs');
+        /** @deprecated Please use the 'Stimulsoft\Events\StiExportEventArgs' class. */
         class_alias('Stimulsoft\Events\StiExportEventArgs', 'Stimulsoft\StiExportEventArgs');
+        /** @deprecated Please use the 'Stimulsoft\Events\StiReportEventArgs' class. */
         class_alias('Stimulsoft\Events\StiReportEventArgs', 'Stimulsoft\StiReportEventArgs');
+        /** @deprecated Please use the 'Stimulsoft\Events\StiVariablesEventArgs' class. */
         class_alias('Stimulsoft\Events\StiVariablesEventArgs', 'Stimulsoft\StiVariablesEventArgs');
     }
 
