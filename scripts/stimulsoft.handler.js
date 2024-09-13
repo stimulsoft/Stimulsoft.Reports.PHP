@@ -16,7 +16,12 @@ StiHandler.prototype.process = function (args, callback) {
         let command = {};
         for (let p in args) {
             if (p === 'report' && args.report) command.report = args.report.isRendered ? args.report.saveDocumentToJsonString() : args.report.saveToJsonString();
-            else if (p === 'settings' && args.settings) command.settings = JSON.stringify(args.settings);
+            else if (p === 'settings' && args.settings) {
+                command.settings = JSON.stringify(args.settings);
+
+                let IStiDashboardExportSettings = Stimulsoft.Report.Dashboard.Export.IStiDashboardExportSettings;
+                command.reportType = typeof args.settings.is == 'function' && args.settings.is(IStiDashboardExportSettings) ? 2 : 1;
+            }
             else if (p === 'data') command.data = Stimulsoft.System.Convert.toBase64String(args.data);
             else if (p === 'variables') command[p] = this.getVariables(args[p]);
             else if (p === 'viewer') continue;

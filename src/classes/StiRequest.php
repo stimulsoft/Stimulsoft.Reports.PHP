@@ -22,6 +22,7 @@ class StiRequest extends StiBaseRequest
     public $report;
     public $autoSave;
     public $pageRange;
+    public $reportType;
 
 
 ### Helpers

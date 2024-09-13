@@ -89,4 +89,9 @@ class StiFunctions
 
         return false;
     }
+
+    public static function isDashboardsProduct(): bool
+    {
+        return class_exists('\Stimulsoft\Report\StiDashboard');
+    }
 }

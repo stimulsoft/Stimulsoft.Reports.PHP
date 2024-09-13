@@ -35,11 +35,6 @@ class StiJavaScript extends StiElement
 
 ### Helpers
 
-    private function isDashboardsProduct(): bool
-    {
-        return class_exists('\Stimulsoft\Report\StiDashboard');
-    }
-
     public function setComponent(StiComponent $component)
     {
         $this->component = $component;
@@ -85,7 +80,7 @@ class StiJavaScript extends StiElement
                 $scripts[] = "stimulsoft.reports.import.xlsx.$extension";
         }
 
-        if ($this->isDashboardsProduct())
+        if (StiFunctions::isDashboardsProduct())
             $scripts[] = "stimulsoft.dashboards.$extension";
 
         if ($this->componentType == StiComponentType::Viewer || $this->componentType == StiComponentType::Designer)

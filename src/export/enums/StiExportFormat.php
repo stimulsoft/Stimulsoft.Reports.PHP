@@ -2,6 +2,7 @@
 
 namespace Stimulsoft\Export\Enums;
 
+use Stimulsoft\Enums\StiReportType;
 use Stimulsoft\Export\StiDataExportSettings;
 use Stimulsoft\Export\StiExcelExportSettings;
 use Stimulsoft\Export\StiExportSettings;
@@ -112,11 +113,20 @@ class StiExportFormat
 
 ### Helpers
 
+    private static function getCorrectExportFormat(int $format): int
+    {
+        if ($format == 20) return StiExportFormat::ImageSvg;
+        if ($format == 37) return StiExportFormat::Csv;
+        return $format;
+    }
+
     /**
      * Returns the file extension for the selected export format.
      */
     public static function getFileExtension(int $format): string
     {
+        $format = self::getCorrectExportFormat($format);
+
         switch ($format) {
             case StiExportFormat::Text:
                 return 'txt';
@@ -146,6 +156,8 @@ class StiExportFormat
     /** Returns the mime type for the selected export format. */
     public static function getMimeType(int $format): string
     {
+        $format = self::getCorrectExportFormat($format);
+
         switch ($format) {
             case StiExportFormat::Pdf:
                 return 'application/pdf';
@@ -228,18 +240,19 @@ class StiExportFormat
     /** Returns the name of the export format suitable for use in JavaScript code. */
     public static function getFormatName(int $format)
     {
-        if ($format == 20) $format = StiExportFormat::ImageSvg;
-        if ($format == 37) $format = StiExportFormat::Json;
-
+        $format = self::getCorrectExportFormat($format);
         $constants = StiFunctions::getConstants('Stimulsoft\Export\Enums\StiExportFormat', true);
         return $constants[$format];
     }
 
     /** Returns the settings class for the specified export format. */
-    public static function getExportSettings(int $format): StiExportSettings
+    public static function getExportSettings(int $format, int $reportType = StiReportType::Auto): StiExportSettings
     {
+        $format = self::getCorrectExportFormat($format);
+
         switch ($format) {
             case StiExportFormat::Pdf:
+                if ($reportType == StiReportType::Dashboard) return new \Stimulsoft\Export\StiPdfDashboardExportSettings();
                 return new StiPdfExportSettings();
 
             case StiExportFormat::Xps:
@@ -252,6 +265,7 @@ class StiExportFormat
                 return new StiTxtExportSettings();
 
             case StiExportFormat::Excel:
+                if ($reportType == StiReportType::Dashboard) return new \Stimulsoft\Export\StiExcelDashboardExportSettings();
                 return new StiExcelExportSettings();
 
             case StiExportFormat::Word:
@@ -267,6 +281,7 @@ class StiExportFormat
                 return new StiOdtExportSettings();
 
             case StiExportFormat::Html:
+                if ($reportType == StiReportType::Dashboard) return new \Stimulsoft\Export\StiHtmlDashboardExportSettings();
                 return new StiHtmlExportSettings(StiHtmlType::Html);
 
             case StiExportFormat::Html5:
@@ -279,6 +294,7 @@ class StiExportFormat
                 return new StiDataExportSettings(StiDataType::Json);
 
             case StiExportFormat::Csv:
+                if ($reportType == StiReportType::Dashboard) return new \Stimulsoft\Export\StiDataDashboardExportSettings();
                 return new StiDataExportSettings(StiDataType::Csv);
 
             case StiExportFormat::Dif:
@@ -309,6 +325,7 @@ class StiExportFormat
                 return new StiImageExportSettings(StiImageType::Pcx);
 
             case StiExportFormat::ImageSvg:
+                if ($reportType == StiReportType::Dashboard) return new \Stimulsoft\Export\StiImageDashboardExportSettings();
                 return new StiImageExportSettings(StiImageType::Svg);
 
             case StiExportFormat::ImageSvgz:

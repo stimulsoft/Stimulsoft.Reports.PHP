@@ -2,6 +2,7 @@
 
 namespace Stimulsoft\Events;
 
+use Stimulsoft\Enums\StiReportType;
 use Stimulsoft\Export\StiExportSettings;
 use Stimulsoft\Export\Enums\StiExportFormat;
 use Stimulsoft\StiComponent;
@@ -40,6 +41,9 @@ class StiExportEventArgs extends StiEventArgs
     /** @var string The byte data of the exported report in the Base64 format. */
     public $data;
 
+    /** @var StiReportType|int [enum] The current type of report being exported. */
+    public $reportType = StiReportType::Auto;
+
     /** @deprecated Please use the '$args->settings' object in the 'StiEmailEventArgs' class. */
     public $emailSettings;
 
@@ -59,8 +63,8 @@ class StiExportEventArgs extends StiEventArgs
 
     protected function setSettings($value)
     {
-        if ($value !== null) {
-            $this->settings = StiExportFormat::getExportSettings($this->format);
+        if ($value !== null && $this->format !== null && $this->reportType !== StiReportType::Auto) {
+            $this->settings = StiExportFormat::getExportSettings($this->format, $this->reportType);
             $this->settings->setObject($value);
         }
     }
@@ -75,7 +79,10 @@ class StiExportEventArgs extends StiEventArgs
             $this->setSettings($this->settings);
         }
 
-        if ($name == 'settings' && $this->format !== null)
+        if ($name == 'settings')
             $this->setSettings($value);
+
+        if ($name == 'reportType')
+            $this->setSettings($this->settings);
     }
 }
