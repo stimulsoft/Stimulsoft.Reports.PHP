@@ -123,9 +123,10 @@ class StiExportFormat
     /**
      * Returns the file extension for the selected export format.
      */
-    public static function getFileExtension(int $format): string
+    public static function getFileExtension(int $format, StiExportSettings $settings = null): string
     {
         $format = self::getCorrectExportFormat($format);
+        $compressToArchive = $settings instanceof StiImageExportSettings && $settings->compressToArchive;
 
         switch ($format) {
             case StiExportFormat::Text:
@@ -150,13 +151,14 @@ class StiExportFormat
                 return 'mdc';
         }
 
-        return strtolower(str_replace('Image', '', StiExportFormat::getFormatName($format)));
+        return $compressToArchive ? 'zip' : strtolower(str_replace('Image', '', StiExportFormat::getFormatName($format)));
     }
 
     /** Returns the mime type for the selected export format. */
-    public static function getMimeType(int $format): string
+    public static function getMimeType(int $format, StiExportSettings $settings = null): string
     {
         $format = self::getCorrectExportFormat($format);
+        $compressToArchive = $settings instanceof StiImageExportSettings && $settings->compressToArchive;
 
         switch ($format) {
             case StiExportFormat::Pdf:
@@ -190,26 +192,26 @@ class StiExportFormat
                 return 'application/x-sylk';
 
             case StiExportFormat::ImageGif:
-                return 'image/gif';
+                return $compressToArchive ? 'application/x-zip' : 'image/gif';
 
             case StiExportFormat::ImageBmp:
-                return 'image/x-ms-bmp';
+                return $compressToArchive ? 'application/x-zip' : 'image/x-ms-bmp';
 
             case StiExportFormat::ImagePng:
-                return 'image/x-png';
+                return $compressToArchive ? 'application/x-zip' : 'image/x-png';
 
             case StiExportFormat::ImageTiff:
-                return 'image/tiff';
+                return $compressToArchive ? 'application/x-zip' : 'image/tiff';
 
             case StiExportFormat::ImageJpeg:
-                return 'image/jpeg';
+                return $compressToArchive ? 'application/x-zip' : 'image/jpeg';
 
             case StiExportFormat::ImagePcx:
-                return 'image/x-pcx';
+                return $compressToArchive ? 'application/x-zip' : 'image/x-pcx';
 
             case StiExportFormat::ImageSvg:
             case StiExportFormat::ImageSvgz:
-                return 'image/svg+xml';
+                return $compressToArchive ? 'application/x-zip' : 'image/svg+xml';
 
             case StiExportFormat::Dbf:
                 return 'application/dbf';

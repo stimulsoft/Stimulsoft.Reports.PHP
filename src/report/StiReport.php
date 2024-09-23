@@ -176,8 +176,8 @@ class StiReport extends StiComponent
     {
         $result = '';
         if ($this->exportCalled) {
-            $exportFileExt = StiExportFormat::getFileExtension($this->exportFormat);
-            $exportMimeType = StiExportFormat::getMimeType($this->exportFormat);
+            $exportFileExt = StiExportFormat::getFileExtension($this->exportFormat, $this->exportSettings);
+            $exportMimeType = StiExportFormat::getMimeType($this->exportFormat, $this->exportSettings);
             $exportName = StiExportFormat::getFormatName($this->exportFormat);
 
             $result = $this->exportSettings !== null && !$this->exportSettings->htmlRendered ? $this->exportSettings->getHtml() : "let settings = null;\n";
@@ -442,7 +442,7 @@ class StiReport extends StiComponent
             $result = $this->nodejs->run($script);
 
             if ($result && strlen($filePath ?? '') > 0) {
-                $extension = StiExportFormat::getFileExtension($format);
+                $extension = StiExportFormat::getFileExtension($format, $settings);
                 $result = $this->saveReportFile($filePath, $extension, $result);
             }
 
