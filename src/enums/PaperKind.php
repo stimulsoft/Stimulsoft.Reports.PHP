@@ -349,7 +349,7 @@ class PaperKind
     /** #4 rotated envelope (208 mm by 110 mm). Requires Windows 98, Windows NT 4.0, or later. */
     const PrcEnvelopeNumber4Rotated = 112;
 
-    /** Envelope #5 rotated envelope (220 mm by 110 mm). Requires Windows 98, Windows NT 4.0, or later.*/
+    /** Envelope #5 rotated envelope (220 mm by 110 mm). Requires Windows 98, Windows NT 4.0, or later. */
     const PrcEnvelopeNumber5Rotated = 113;
 
     /** #6 rotated envelope (230 mm by 120 mm). Requires Windows 98, Windows NT 4.0, or later. */
