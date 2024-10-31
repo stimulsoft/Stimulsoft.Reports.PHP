@@ -182,7 +182,7 @@ function StiHandler() {
     this.checkDataAdaptersVersion = {checkDataAdaptersVersion};
     this.escapeQueryParameters = {escapeQueryParameters};
     this.databases = {databases};
-    this.frameworkType = 'Python';
+    this.frameworkType = 'PHP';
     this.setOptions();
 }
 
