@@ -41,7 +41,10 @@ class StiDesigner extends StiComponent
     /** @var StiComponentEvent The event is invoked when going to the report preview tab. PHP and JavaScript functions are supported. */
     public $onPreviewReport;
 
-    /** @var StiComponentEvent The event is invoked after the report is closed in the designer. PHP and JavaScript functions are supported.  */
+    /**
+     * @var StiComponentEvent
+     * The event is invoked after the report is closed, before the report is unassigned from the designer. PHP and JavaScript functions are supported.
+     */
     public $onCloseReport;
 
     /**
