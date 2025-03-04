@@ -2,6 +2,7 @@
 
 namespace Stimulsoft\Events;
 
+use Stimulsoft\StiResult;
 use Stimulsoft\StiComponent;
 use Stimulsoft\StiFunctions;
 
@@ -15,6 +16,14 @@ class StiComponentEvent extends StiEvent
 
 
 ### Helpers
+
+    public function getResult(StiEventArgs $args, $resultClass = null)
+    {
+        if ($resultClass == null)
+            $resultClass = StiResult::class;
+
+        return parent::getResult($args, $resultClass);
+    }
 
     protected function setArgs(...$args)
     {

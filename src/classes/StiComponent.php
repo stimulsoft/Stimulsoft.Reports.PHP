@@ -90,27 +90,12 @@ class StiComponent extends StiElement
 
 ### Events
 
-    protected function getDefaultEventResult(StiEvent $event, StiEventArgs $args)
-    {
-        if ($event instanceof StiEvent && $event->getLength() > 0 || is_callable($event)) {
-            $result = $event->call($args);
-            if ($result === null || $result === true)
-                return StiResult::getSuccess();
-            if ($result === false)
-                return StiResult::getError("An error occurred while processing the {$this->getRequest()->event} event.");
-            if ($result instanceof StiResult)
-                return $result;
-            return StiResult::getSuccess(strval($result));
-        }
-
-        return null;
-    }
-
     protected function updateEvents()
     {
-        if ($this->onBeginProcessData === null) $this->onBeginProcessData = true;
-        $this->updateEvent('onBeginProcessData');
+        if ($this->onBeginProcessData === null)
+            $this->onBeginProcessData = true;
 
+        $this->updateEvent('onBeginProcessData');
         $this->updateEvent('onEndProcessData');
         $this->updateEvent('onDatabaseConnect');
         $this->updateEvent('onPrepareVariables');
@@ -118,11 +103,13 @@ class StiComponent extends StiElement
 
     protected function updateEvent(string $eventName)
     {
-        if ($this->$eventName instanceof StiComponentEvent) return;
+        if ($this->$eventName instanceof StiComponentEvent)
+            return;
 
         $callback = is_callable($this->$eventName) || is_string($this->$eventName) || is_bool($this->$eventName) ? $this->$eventName : null;
         $this->$eventName = new StiComponentEvent($this, $eventName);
-        if ($callback !== null) $this->$eventName->append($callback);
+        if ($callback !== null)
+            $this->$eventName->append($callback);
     }
 
     /** @return StiResult|null */

@@ -6,7 +6,7 @@ use Stimulsoft\Enums\StiDatabaseType;
 use Stimulsoft\Events\StiConnectionEventArgs;
 use Stimulsoft\StiDataResult;
 
-class StiPostgreSqlAdapter extends StiDataAdapter
+class StiPostgreSqlAdapter extends StiSqlAdapter
 {
 
 ### Constants
@@ -16,7 +16,10 @@ class StiPostgreSqlAdapter extends StiDataAdapter
 
 ### Properties
 
+    /** @var string Current version of the data adapter. */
     public $version = '2025.1.6';
+
+    /** @var bool Sets the version matching check on the server and client sides. */
     public $checkVersion = true;
 
     protected $type = StiDatabaseType::PostgreSQL;

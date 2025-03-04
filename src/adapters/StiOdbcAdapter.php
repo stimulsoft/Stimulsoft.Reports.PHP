@@ -7,12 +7,15 @@ use Stimulsoft\Events\StiConnectionEventArgs;
 use Stimulsoft\StiConnectionInfo;
 use Stimulsoft\StiDataResult;
 
-class StiOdbcAdapter extends StiDataAdapter
+class StiOdbcAdapter extends StiSqlAdapter
 {
 
 ### Properties
 
+    /** @var string Current version of the data adapter. */
     public $version = '2025.1.6';
+
+    /** @var bool Sets the version matching check on the server and client sides. */
     public $checkVersion = true;
 
     protected $type = StiDatabaseType::ODBC;

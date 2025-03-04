@@ -21,42 +21,55 @@ class StiPath
         return realpath(__DIR__ . "/../../../..");
     }
 
-    public static function normalize($path): string
+    public static function normalize($path, $checkFileNames = true): string
     {
-        $path = str_replace('\\', '/', $path != null ? $path : '');
-        $result = preg_replace(['~/{2,}~', '~/(\./)+~', '~([^/\.]+/(?R)*\.{2,}/)~', '~\.\./~'], ['/', '/', '', ''], $path);
+        $result = str_replace('\\', '/', $path ?? '');
+        $result = $checkFileNames ? preg_replace(['~/{2,}~', '~/(\./)+~', '~([^/\.]+/(?R)*\.{2,}/)~', '~\.\./~'], ['/', '/', '', ''], $result) : $result;
         $normalized = explode('?', $result)[0];
         return str_replace('/', DIRECTORY_SEPARATOR, $normalized);
     }
 
-    private static function getMissingFileName($filePath): string
+    private static function isUrl($path): bool
     {
-        $filePath = StiPath::normalize($filePath);
+        return StiFunctions::startsWith($path, "http://") || StiFunctions::startsWith($path, "https://");
+    }
+
+    private static function getMissingFileName($filePath, $checkFileNames): string
+    {
+        $filePath = StiPath::normalize($filePath, $checkFileNames);
         return basename($filePath);
     }
 
-    private static function getRealFilePath($filePath)
+    private static function getRealFilePath($filePath, $checkFileNames)
     {
-        $filePath = StiPath::normalize($filePath);
+        if (StiPath::isUrl($filePath)) {
+            $headers = get_headers($filePath);
+            return stripos($headers[0],"200 OK") ? $filePath : null;
+        }
+
+        $filePath = StiPath::normalize($filePath, $checkFileNames);
         if (is_file($filePath))
             return $filePath;
 
-        $filePath = StiPath::normalize(getcwd() . '/' . $filePath);
+        $filePath = StiPath::normalize(getcwd() . '/' . $filePath, $checkFileNames);
         if (is_file($filePath))
             return $filePath;
 
         return null;
     }
 
-    private static function getRealDirectoryPath($directoryPath)
+    private static function getRealDirectoryPath($directoryPath, $checkFileNames)
     {
-        $filePath = StiPath::normalize($directoryPath);
+        if (StiPath::isUrl($directoryPath))
+            return null;
+
+        $filePath = StiPath::normalize($directoryPath, $checkFileNames);
 
         $directoryPath = $filePath;
         if (is_dir($directoryPath))
             return $directoryPath;
 
-        $directoryPath = StiPath::normalize(getcwd() . '/' . $directoryPath);
+        $directoryPath = StiPath::normalize(getcwd() . '/' . $directoryPath, $checkFileNames);
         if (is_dir($directoryPath))
             return $directoryPath;
 
@@ -64,7 +77,7 @@ class StiPath
         if (is_dir($directoryPath))
             return $directoryPath;
 
-        $directoryPath = StiPath::normalize(getcwd() . '/' . $directoryPath);
+        $directoryPath = StiPath::normalize(getcwd() . '/' . $directoryPath, $checkFileNames);
         if (is_dir($directoryPath))
             return $directoryPath;
 
@@ -74,12 +87,12 @@ class StiPath
 
 ### Constructor
 
-    public function __construct($filePath)
+    public function __construct($filePath, $checkFileNames = true)
     {
-        $this->filePath = self::getRealFilePath($filePath);
-        $this->directoryPath = self::getRealDirectoryPath($filePath);
+        $this->filePath = self::getRealFilePath($filePath, $checkFileNames);
+        $this->directoryPath = self::getRealDirectoryPath($filePath, $checkFileNames);
 
-        $this->fileName = $this->filePath !== null ? basename($this->filePath) : self::getMissingFileName($filePath);
+        $this->fileName = $this->filePath !== null ? basename($this->filePath) : self::getMissingFileName($filePath, $checkFileNames);
         if ($this->filePath === null && StiFunctions::endsWith($this->directoryPath, $this->fileName))
             $this->fileName = null;
 

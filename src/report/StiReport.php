@@ -83,7 +83,7 @@ class StiReport extends StiComponent
 
     private function loadReportFile($path)
     {
-        $path = $path instanceof StiPath ? $path : new StiPath($path);
+        $path = $path instanceof StiPath ? $path : new StiPath($path, $this->handler->checkFileNames);
         if ($path->filePath !== null) {
             $data = file_get_contents($path->filePath);
             if ($path->fileExtension == 'mrz' || $path->fileExtension == 'mdz')
@@ -98,7 +98,7 @@ class StiReport extends StiComponent
 
     private function saveReportFile($path, $extension, $data): bool
     {
-        $path = $path instanceof StiPath ? $path : new StiPath($path);
+        $path = $path instanceof StiPath ? $path : new StiPath($path, $this->handler->checkFileNames);
         if ($path->directoryPath != null) {
             if ($path->fileName == null)
                 $path->fileName = $this->exportFile != null ? $this->exportFile : 'Report';
@@ -239,7 +239,7 @@ class StiReport extends StiComponent
     public function loadFile(string $filePath, bool $load = false)
     {
         $this->clearReport();
-        $path = new StiPath($filePath);
+        $path = new StiPath($filePath, $this->handler->checkFileNames);
         $this->exportFile = $path->fileNameOnly;
 
         if ($load) $this->reportString = $this->loadReportFile($path);
@@ -284,7 +284,7 @@ class StiReport extends StiComponent
     public function loadDocumentFile(string $filePath, bool $load = false)
     {
         $this->clearReport();
-        $path = new StiPath($filePath);
+        $path = new StiPath($filePath, $this->handler->checkFileNames);
         $this->exportFile = $path->fileNameOnly;
 
         if ($load) $this->documentString = $this->loadReportFile($path);

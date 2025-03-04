@@ -31,6 +31,9 @@ class StiResponse extends StiBaseResponse
         if ($this->result instanceof StiFileResult)
             return $this->result->data;
 
+        if ($this->result instanceof StiDataResult && $this->result->getType() == "SQL" && !$this->handler->encryptSqlData)
+            return json_encode($this->result, JSON_UNESCAPED_SLASHES);
+
         return parent::getData();
     }
 }
