@@ -19,6 +19,7 @@ require_once 'classes\StiBaseResult.php';
 require_once 'classes\StiDataResult.php';
 require_once 'classes\StiBaseResponse.php';
 require_once 'classes\StiBaseHandler.php';
+require_once 'classes\StiPath.php';
 require_once 'classes\StiParameter.php';
 
 // Data adapters for supported database types.
