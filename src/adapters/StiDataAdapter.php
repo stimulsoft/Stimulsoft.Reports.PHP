@@ -76,6 +76,11 @@ class StiDataAdapter
         return false;
     }
 
+    public function getDataResult($queryString, $maxDataRows = -1): StiDataResult
+    {
+        return StiDataResult::getSuccess()->getDataAdapterResult($this);
+    }
+
 
 ### Helpers
 
@@ -118,14 +123,6 @@ class StiDataAdapter
         }
 
         return null;
-    }
-
-
-### Methods
-
-    public function getDataResult($queryString, $maxDataRows): StiDataResult
-    {
-        return StiDataResult::getSuccess()->getDataAdapterResult($this);
     }
 
 
