@@ -4,7 +4,6 @@ namespace Stimulsoft\Adapters;
 
 use Stimulsoft\Enums\StiDatabaseType;
 use Stimulsoft\Enums\StiDataType;
-use Stimulsoft\StiDataResult;
 
 class StiCsvAdapter extends StiFileAdapter
 {
