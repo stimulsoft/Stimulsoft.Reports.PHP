@@ -240,6 +240,11 @@ class StiSqlAdapter extends StiDataAdapter
         return $result;
     }
 
+    public function getDataResult($queryString, $maxDataRows = -1): StiDataResult
+    {
+        return $this->executeQuery($queryString, $maxDataRows);
+    }
+
 
 ### Helpers
 

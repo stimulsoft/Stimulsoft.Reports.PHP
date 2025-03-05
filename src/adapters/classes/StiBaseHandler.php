@@ -295,7 +295,7 @@ class StiBaseHandler
 
         // Get the data source schema
         if ($this->request->command == StiDataCommand::RetrieveSchema) {
-            $args->result = $this->dataAdapter->executeQuery($args->dataSource, $args->maxDataRows);
+            $args->result = $this->dataAdapter->getDataResult($args->dataSource, $args->maxDataRows);
             $result = $this->onEndProcessData->getResult($args, StiDataResult::class);
             return $this->getDataResult($result, $notice, $args);
         }
@@ -314,18 +314,18 @@ class StiBaseHandler
             if (count($this->request->parameters) > 0)
                 $args->queryString = StiSqlAdapter::applyQueryParameters($args->queryString, $args->parameters, $this->request->escapeQueryParameters);
 
-            $args->result = $this->dataAdapter->executeQuery($args->queryString, $args->maxDataRows);
+            $args->result = $this->dataAdapter->getDataResult($args->queryString, $args->maxDataRows);
             $result = $this->onEndProcessData->getResult($args, StiDataResult::class);
             return $this->getDataResult($result, $notice, $args);
         }
 
         // Process file data
         if ($this->request->command == StiDataCommand::GetData || $this->request->command == StiDataCommand::GetSchema) {
-            $args->result = $this->dataAdapter->getFileDataResult();
+            $args->result = $this->dataAdapter->getDataResult($connectionString);
             $result = $this->onEndProcessData->getResult($args, StiDataResult::class);
 
-            // If the server side event is not set, the result is always successful.
-            // Required for loading file data on the JavaScript client-side.
+            // If the server side event is not set, the result is always successful
+            // Required for loading file data on the JavaScript client-side
             if (!$this->onEndProcessData->hasServerCallbacks())
                 $args->result->success = true;
 

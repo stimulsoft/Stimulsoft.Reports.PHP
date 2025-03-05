@@ -32,8 +32,11 @@ class StiFileAdapter extends StiDataAdapter
         return StiDataResult::getSuccess()->getDataAdapterResult($this);
     }
 
-    public function getFileDataResult(): StiDataResult
+    public function getDataResult($filePath, $maxDataRows = -1): StiDataResult
     {
+        $this->connectionString = $filePath;
+        $this->process();
+
         $result = $this->connect();
         if ($result->success) {
             try {

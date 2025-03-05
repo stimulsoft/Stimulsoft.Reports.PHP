@@ -121,6 +121,14 @@ class StiDataAdapter
     }
 
 
+### Methods
+
+    public function getDataResult($queryString, $maxDataRows): StiDataResult
+    {
+        return StiDataResult::getSuccess()->getDataAdapterResult($this);
+    }
+
+
 ### Constructor
 
     public function __construct($connectionString)
