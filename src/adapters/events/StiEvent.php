@@ -81,20 +81,30 @@ class StiEvent
 
     /**
      * Returns the total number of added event functions.
-     * @param string|null $type The event type, by default all events. The type can also be 'php', 'js', and 'bool'.
      */
-    public function getLength($type = null): int
+    public function getLength(): int
     {
-        if ($type == null)
-            return count($this->callbacks);
+        return count($this->callbacks);
+    }
 
-        $count = 0;
+    public function hasServerCallbacks(): bool
+    {
         foreach ($this->callbacks as $callback) {
-            if ($type == 'php' && is_callable($callback) || $type == 'js' && is_string($callback) || $type == 'bool' && is_bool($callback))
-                $count++;
+            if (is_callable($callback))
+                return true;
         }
 
-        return $count;
+        return false;
+    }
+
+    public function hasClientCallbacks(): bool
+    {
+        foreach ($this->callbacks as $callback) {
+            if (is_string($callback))
+                return true;
+        }
+
+        return false;
     }
 
     /**

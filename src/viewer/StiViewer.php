@@ -324,7 +324,10 @@ class StiViewer extends StiComponent
         $result .= $this->options->getHtml();
         $result .= "let $this->id = new Stimulsoft.Viewer.StiViewer({$this->options->id}, '$this->id', false);\n";
 
-        $result .= $this->onPrepareVariables->getHtml(true);
+        // Excluding the processing of variables on the server if there is only an event on the client side
+        $processPrepareVariables = $this->onPrepareVariables->hasServerCallbacks();
+        $result .= $this->onPrepareVariables->getHtml($processPrepareVariables, false, $processPrepareVariables);
+
         $result .= $this->onBeginProcessData->getHtml(true);
         $result .= $this->onEndProcessData->getHtml();
         $result .= $this->onOpenReport->getHtml();

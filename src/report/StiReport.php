@@ -207,7 +207,10 @@ class StiReport extends StiComponent
 
         $result .= "let $this->id = new Stimulsoft.Report.StiReport();\n";
 
-        $result .= $this->onPrepareVariables->getHtml(true);
+        // Excluding the processing of variables on the server if there is only an event on the client side
+        $processPrepareVariables = $this->onPrepareVariables->hasServerCallbacks();
+        $result .= $this->onPrepareVariables->getHtml($processPrepareVariables, false, $processPrepareVariables);
+
         $result .= $this->onBeginProcessData->getHtml(true);
         $result .= $this->onEndProcessData->getHtml(false, false, false);
         $result .= $this->getLoadReportHtml();
