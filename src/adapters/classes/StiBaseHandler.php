@@ -55,6 +55,12 @@ class StiBaseHandler
     /** @var bool Enables automatic passing of GET parameters from the current URL to event handler requests. */
     public $passQueryParameters = false;
 
+    /** @var bool
+     * Enables encryption of SQL data transmitted from the server to the report generator.
+     * This improves security but slows down the processing of large data.
+     */
+    public $encryptSqlData = true;
+
 
 ### Events
 

@@ -58,7 +58,8 @@ class StiBaseResponse
             return $this->result->data !== null ? $this->result->data : "";
 
         $result = json_encode($this->result, JSON_UNESCAPED_SLASHES);
-        return $this->handler->request->encryptData ? str_rot13(base64_encode($result)) : $result;
+        $encryptSqlData = $this->handler->encryptSqlData || $this->result->getType() != "SQL";
+        return $this->handler->request->encryptData && $encryptSqlData ? str_rot13(base64_encode($result)) : $result;
     }
 
 

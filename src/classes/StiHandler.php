@@ -54,12 +54,6 @@ class StiHandler extends StiBaseHandler
     /** @var bool Enables encryption of data transmitted between the client and the server. */
     public $encryptData = true;
 
-    /** @var bool
-     * Enables encryption of SQL data transmitted from the server to the report generator.
-     * This improves security but slows down the processing of large data.
-     */
-    public $encryptSqlData = true;
-
     /** @var bool Enables automatic escaping of parameters in SQL queries. */
     public $escapeQueryParameters = true;
 
