@@ -24,6 +24,9 @@ class StiHandler extends StiBaseHandler
 
     public static $legacyMode = false;
 
+    /** @var string|null */
+    private $cookie = null;
+
     /** @var StiComponent */
     public $component;
 
@@ -65,9 +68,6 @@ class StiHandler extends StiBaseHandler
 
     /** @var bool Enables server-side file name checking for loading and saving the report to eliminate dangerous values. */
     public $checkFileNames = true;
-
-    /** @var string Contains a string with cookies that will be passed when requesting events. */
-    public $cookie = null;
 
     /** @var bool
      * Allows server-side processing of file data such as XML, JSON, and CSV.
@@ -340,6 +340,12 @@ class StiHandler extends StiBaseHandler
             return $_COOKIE['csrftoken'];
 
         return null;
+    }
+
+    /** @var string|null Sets a string with cookies that will be passed when requesting events. */
+    public function setCookies($cookie)
+    {
+        $this->cookie = $cookie;
     }
 
 

@@ -230,6 +230,12 @@ StiHandler.prototype.getVariables = function (variables) {
     return variables;
 }
 
+StiHandler.prototype.getCookie = function (name) {
+    if (typeof document == 'undefined') return '';
+    let matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"));
+    return matches ? decodeURIComponent(matches[1]) : '';
+}
+
 StiHandler.prototype.copySettings = function (from, to) {
     for (let key in from) {
         if (to.hasOwnProperty(key) && typeof to[key] != 'function') {
@@ -250,7 +256,7 @@ function StiHandler() {
     this.databases = {databases};
     this.frameworkType = {framework};
     this.cookie = {cookie};
-    this.csrfToken = {csrfToken};
+    this.csrfToken = {csrfToken} || this.getCookie('csrftoken');
     this.allowFileDataAdapters = {allowFileDataAdapters};
     this.setOptions();
 }
