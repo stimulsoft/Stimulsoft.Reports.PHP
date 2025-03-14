@@ -16,6 +16,7 @@ class StiResult extends StiBaseResult
     public $settings;
     public $report;
     public $pageRange;
+    public $data;
 
 
 ### Helpers

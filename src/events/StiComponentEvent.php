@@ -39,31 +39,51 @@ class StiComponentEvent extends StiEvent
 
     /**
      * Gets the HTML representation of the event.
+     * @param bool $callback Adding a callback function.
+     * @param bool $prevent Preventing standard client-side processing.
+     * @param bool $process Processing event on the server side.
+     * @param bool $internal A custom event that is not supported by the JavaScript component.
      */
     public function getHtml($callback = false, $prevent = false, $process = true, $internal = false): string
     {
         if ($this->getLength() == 0 || $this->htmlRendered)
             return '';
 
+        $result = '';
         $componentId = $this->component->id;
-        $eventValue = '';
+        $clientScript = '';
+        $eventName = substr($this->name, 2);
+        $callback = $callback && $this->hasServerCallbacks();
+        $process = $process && $callback;
+
+        // Prepare client-side events
         foreach ($this->callbacks as $callbackName)
             if (is_string($callbackName))
-                $eventValue .= StiFunctions::isJavaScriptFunctionName($callbackName)
-                    ? "if (typeof $callbackName === \"function\") $callbackName(args);"
-                    : $callbackName;
+                $clientScript .= StiFunctions::isJavaScriptFunctionName($callbackName)
+                    ? "if (typeof $callbackName === \"function\") $callbackName(args); "
+                    : "$callbackName ";
 
+        // Prepare args for internal event
         if ($internal) {
-            $objectArgsName = substr($this->name, 2);
             $componentType = $this->component->getComponentType();
-            $eventArgs = "let args = {event: \"$objectArgsName\", sender: \"$componentType\", report: $componentId};";
-            return "$eventArgs\n$eventValue\n";
+            $result .= "let args = {event: \"$eventName\", sender: \"$componentType\", report: $componentId, preventDefault: false};\n";
+            if (!StiFunctions::isNullOrEmpty($clientScript))
+                $result .= "$clientScript\n";
         }
 
-        $callbackValue = $callback ? ', callback' : '';
-        $preventValue = $prevent ? 'args.preventDefault = true;' : '';
-        $processValue = $process ? "Stimulsoft.handler.process(args$callbackValue);" : ($callback ? 'callback();' : '');
-        $result = "$componentId.$this->name = function (args$callbackValue) { $preventValue$eventValue$processValue };\n";
+        // For an internal event, the args and the callback function must have a unique name
+        $callbackName = $internal ? $this->component->id . $eventName . 'Callback' : 'callback';
+        $argsArgument = $internal ? "args$eventName" : "args";
+
+        // Prepare event parameters
+        $callbackArgument = $callback ? ", $callbackName" : '';
+        $preventValue = $prevent ? 'args.preventDefault = true; ' : '';
+        $processValue = $process ? "Stimulsoft.handler.process($argsArgument$callbackArgument); " : ($callback ? "$callbackName(); " : '');
+
+        // For an internal event, the function is called in the next JavaScript frame (a zero timeout is used)
+        $result .= $internal
+            ? $callback ? "let $argsArgument = args;\nlet $callbackName = null;\nsetTimeout(function () { " . $preventValue . $processValue . "});\n" : ""
+            : "$componentId.$this->name = function (args$callbackArgument) { " . $preventValue . $clientScript . $processValue . "};\n";
 
         $this->htmlRendered = true;
         return $result;

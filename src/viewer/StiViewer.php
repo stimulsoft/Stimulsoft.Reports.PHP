@@ -62,7 +62,7 @@ class StiViewer extends StiComponent
     public $options;
 
 
-### Methods: Event handlers
+### Events
 
     private function getOpenedReportResult()
     {
@@ -218,11 +218,14 @@ class StiViewer extends StiComponent
         if ($request->event == StiEventType::EmailReport)
             return $this->getEmailReportResult();
 
+        if ($this->report != null)
+            return $this->report->getEventResult();
+
         return parent::getEventResult();
     }
 
 
-### Methods: Helpers
+### Helpers
 
     protected function updateObjects()
     {
@@ -263,6 +266,9 @@ class StiViewer extends StiComponent
         parent::setHandler($handler);
 
         if ($handler != null) {
+            if ($this->report != null)
+                $this->report->handler = $handler;
+
             $handler->onOpenReport = $this->onOpenReport;
             $handler->onOpenedReport = $this->onOpenedReport;
             $handler->onPrintReport = $this->onPrintReport;
@@ -315,7 +321,7 @@ class StiViewer extends StiComponent
     }
 
 
-### Methods: HTML
+### HTML
 
     protected function getComponentHtml(): string
     {
@@ -324,10 +330,7 @@ class StiViewer extends StiComponent
         $result .= $this->options->getHtml();
         $result .= "let $this->id = new Stimulsoft.Viewer.StiViewer({$this->options->id}, '$this->id', false);\n";
 
-        // Excluding the processing of variables on the server if there is only an event on the client side
-        $processPrepareVariables = $this->onPrepareVariables->hasServerCallbacks();
-        $result .= $this->onPrepareVariables->getHtml($processPrepareVariables, false, $processPrepareVariables);
-
+        $result .= $this->onPrepareVariables->getHtml(true);
         $result .= $this->onBeginProcessData->getHtml(true);
         $result .= $this->onEndProcessData->getHtml();
         $result .= $this->onOpenReport->getHtml();
@@ -343,7 +346,10 @@ class StiViewer extends StiComponent
             if (!$this->report->htmlRendered)
                 $result .= $this->report->getHtml(StiHtmlMode::Scripts);
 
-            $result .= "$this->id.report = {$this->report->id};\n";
+            $assignHtml = "$this->id.report = {$this->report->id};\n";
+            $result .= $this->report->onBeforeRender->hasServerCallbacks()
+                ? $this->getBeforeRenderCallback($assignHtml)
+                : $assignHtml;
         }
 
         $result .= "$this->id.renderHtml('{$this->id}Content');\n";

@@ -7,11 +7,23 @@ class StiPath
 
 ### Fields
 
+    /** @var string|null The full path to the file, if the file exists. */
     public $filePath;
+
+    /** @var string|null The full path to the file directory, if the file exists. */
     public $directoryPath;
+
+    /** @var string|null The file name. */
     public $fileName;
+
+    /** @var string|null The file name without the extension. */
     public $fileNameOnly;
+
+    /** @var string|null The file extension. */
     public $fileExtension;
+
+    /** @var string|null The URL to the file, if the file exists (code 200 was received when requesting the file). */
+    public $fileUrl;
 
 
 ### Helpers
@@ -91,6 +103,8 @@ class StiPath
     {
         $this->filePath = self::getRealFilePath($filePath, $checkFileNames);
         $this->directoryPath = self::getRealDirectoryPath($filePath, $checkFileNames);
+        if ($this->filePath !== null && StiPath::isUrl($filePath))
+            $this->fileUrl = $this->filePath;
 
         $this->fileName = $this->filePath !== null ? basename($this->filePath) : self::getMissingFileName($filePath, $checkFileNames);
         if ($this->filePath === null && StiFunctions::endsWith($this->directoryPath, $this->fileName))

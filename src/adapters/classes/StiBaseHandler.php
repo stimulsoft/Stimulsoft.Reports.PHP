@@ -256,9 +256,9 @@ class StiBaseHandler
 
     private function getDataResult($result, $notice, StiDataEventArgs $args)
     {
-        // The event did not return any result
+        // The event did not return any result, the result of the data adapter is used
         if ($result == null)
-            return $args->result;
+            $result = $args->result;
 
         // Copying message from event if data adapter message is empty
         if (StiFunctions::isNullOrEmpty($args->result->notice))

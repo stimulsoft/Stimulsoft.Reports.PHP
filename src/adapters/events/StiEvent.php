@@ -90,7 +90,7 @@ class StiEvent
     public function hasServerCallbacks(): bool
     {
         foreach ($this->callbacks as $callback) {
-            if (is_callable($callback))
+            if (is_callable($callback) || $callback === true)
                 return true;
         }
 

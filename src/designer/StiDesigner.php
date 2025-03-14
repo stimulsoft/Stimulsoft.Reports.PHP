@@ -132,6 +132,9 @@ class StiDesigner extends StiComponent
         if ($request->event == StiEventType::CloseReport)
             return $this->getCloseReportResult();
 
+        if ($this->report != null)
+            return $this->report->getEventResult();
+
         return parent::getEventResult();
     }
 
@@ -177,6 +180,9 @@ class StiDesigner extends StiComponent
         parent::setHandler($handler);
 
         if ($handler != null) {
+            if ($this->report != null)
+                $this->report->handler = $handler;
+
             $handler->onCreateReport = $this->onCreateReport;
             $handler->onOpenReport = $this->onOpenReport;
             $handler->onOpenedReport = $this->onOpenedReport;
@@ -219,10 +225,7 @@ class StiDesigner extends StiComponent
         $result .= $this->options->getHtml();
         $result .= "let $this->id = new Stimulsoft.Designer.StiDesigner({$this->options->id}, '$this->id', false);\n";
 
-        // Excluding the processing of variables on the server if there is only an event on the client side
-        $processPrepareVariables = $this->onPrepareVariables->hasServerCallbacks();
-        $result .= $this->onPrepareVariables->getHtml($processPrepareVariables, false, $processPrepareVariables);
-
+        $result .= $this->onPrepareVariables->getHtml(true);
         $result .= $this->onBeginProcessData->getHtml(true);
         $result .= $this->onEndProcessData->getHtml();
         $result .= $this->onCreateReport->getHtml(true);
@@ -238,7 +241,10 @@ class StiDesigner extends StiComponent
             if (!$this->report->htmlRendered)
                 $result .= $this->report->getHtml(StiHtmlMode::Scripts);
 
-            $result .= "$this->id.report = {$this->report->id};\n";
+            $assignHtml = "$this->id.report = {$this->report->id};\n";
+            $result .= $this->report->onBeforeRender->hasServerCallbacks()
+                ? $this->getBeforeRenderCallback($assignHtml)
+                : $assignHtml;
         }
 
         $result .= "$this->id.renderHtml('{$this->id}Content');\n";
