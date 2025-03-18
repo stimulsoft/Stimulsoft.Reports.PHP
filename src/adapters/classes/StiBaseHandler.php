@@ -285,7 +285,7 @@ class StiBaseHandler
             return $result;
 
         // Saving a message to return in the results of the next events
-        $notice = $result->notice;
+        $notice = $result != null ? $result->notice : null;
 
         // Prepare the connection string or the URL of the data file
         $connectionString = $args->connectionString;

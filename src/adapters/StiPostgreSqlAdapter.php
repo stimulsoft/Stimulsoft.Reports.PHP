@@ -47,7 +47,7 @@ class StiPostgreSqlAdapter extends StiSqlAdapter
         if (!function_exists('pg_connect'))
             return StiDataResult::getError(self::DriverNotFound)->getDataAdapterResult($this);
 
-        $args = new StiConnectionEventArgs($this->type, $this->driverName, $this->connectionInfo);
+        $args = new StiConnectionEventArgs($this->handler->request, $this->type, $this->driverName, $this->connectionInfo);
         $this->handler->onDatabaseConnect->call($args);
 
         if ($args->link !== null)

@@ -205,9 +205,7 @@ class StiComponent extends StiElement
         $result .= "$reportId.regData(args.data.name, args.data.name, args.data.data);\n";
         $result .= "if (args.data.synchronize) $reportId.dictionary.synchronize();\n";
         $result .= "}\n";
-
-        $result .= $renderHtml;
-        $result .= "}\n";
+        $result .= "$renderHtml}\n";
 
         return $result;
     }

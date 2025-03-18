@@ -40,7 +40,7 @@ class StiMySqlAdapter extends StiSqlAdapter
         if ($this->driverType == 'PDO')
             return parent::connect();
 
-        $args = new StiConnectionEventArgs($this->type, $this->driverName, $this->connectionInfo);
+        $args = new StiConnectionEventArgs($this->handler->request, $this->type, $this->driverName, $this->connectionInfo);
         $this->handler->onDatabaseConnect->call($args);
 
         $this->connectionLink = $args->link !== null ? $args->link : new mysqli(

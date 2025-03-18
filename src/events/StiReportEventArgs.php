@@ -30,7 +30,7 @@ class StiReportEventArgs extends StiEventArgs
     public $reportJson;
 
     /**
-     * @var mixed|null Predefined data object for building the report. Please use the 'regReportData()' method to set it.
+     * @var array|null Predefined data object for building the report. Please use the 'regReportData()' method to set it.
      */
     public $data;
 

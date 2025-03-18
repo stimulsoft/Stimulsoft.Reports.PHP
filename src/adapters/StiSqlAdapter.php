@@ -31,7 +31,7 @@ class StiSqlAdapter extends StiDataAdapter
     protected function connect(): StiDataResult
     {
         try {
-            $args = new StiConnectionEventArgs($this->type, "pdo_$this->driverName", $this->connectionInfo);
+            $args = new StiConnectionEventArgs($this->handler->request, $this->type, "pdo_$this->driverName", $this->connectionInfo);
             $this->handler->onDatabaseConnect->call($args);
 
             $this->connectionLink = $args->link !== null

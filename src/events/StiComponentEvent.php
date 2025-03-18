@@ -54,7 +54,7 @@ class StiComponentEvent extends StiEvent
         $clientScript = '';
         $eventName = substr($this->name, 2);
         $callback = $callback && $this->hasServerCallbacks();
-        $process = $process && $callback;
+        $process = $process && $this->hasServerCallbacks();
 
         // Prepare client-side events
         foreach ($this->callbacks as $callbackName)
@@ -81,9 +81,9 @@ class StiComponentEvent extends StiEvent
         $processValue = $process ? "Stimulsoft.handler.process($argsArgument$callbackArgument); " : ($callback ? "$callbackName(); " : '');
 
         // For an internal event, the function is called in the next JavaScript frame (a zero timeout is used)
-        $result .= $internal
-            ? $callback ? "let $argsArgument = args;\nlet $callbackName = null;\nsetTimeout(function () { " . $preventValue . $processValue . "});\n" : ""
-            : "$componentId.$this->name = function (args$callbackArgument) { " . $preventValue . $clientScript . $processValue . "};\n";
+        $internalValue = $callback ? "let $argsArgument = args;\nlet $callbackName = null;\nsetTimeout(function () { " . $preventValue . $processValue . "});\n" : "";
+        $eventValue = "$componentId.$this->name = function (args$callbackArgument) { " . $preventValue . $clientScript . $processValue . "};\n";
+        $result .= $internal ? $internalValue : $eventValue;
 
         $this->htmlRendered = true;
         return $result;

@@ -54,7 +54,7 @@ class StiMongoDbAdapter extends StiSqlAdapter
             return StiDataResult::getError('The database name cannot be empty.')->getDataAdapterResult($this);
 
         try {
-            $args = new StiConnectionEventArgs($this->type, $this->driverName, $this->connectionInfo);
+            $args = new StiConnectionEventArgs($this->handler->request, $this->type, $this->driverName, $this->connectionInfo);
             $this->handler->onDatabaseConnect->call($args);
 
             $this->connectionLink = $args->link !== null ? $args->link : new Manager($this->connectionString);
