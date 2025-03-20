@@ -116,7 +116,8 @@ StiHandler.prototype.send = function (data, callback) {
                     return callback(args);
                 }
                 catch (e) {
-                    Stimulsoft.System.StiError.showError(e.message);
+                    let message = typeof e == 'string' ? e : e.message;
+                    Stimulsoft.System.StiError.showError(message);
                 }
             } else {
                 Stimulsoft.System.StiError.showError('Server response error: [' + request.status + '] ' + request.statusText);
@@ -178,7 +179,8 @@ StiHandler.prototype.https = function (data, callback) {
                 callback(args);
             }
             catch (e) {
-                console.log('ResponseError: ' + e.message);
+                let message = typeof e == 'string' ? e : e.message;
+                console.log('ResponseError: ' + message);
                 console.log(responseText);
                 process.exit(1);
             }
