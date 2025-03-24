@@ -87,8 +87,13 @@ class StiReport extends StiComponent
             $args->regReportData($this->reportDataName, $this->reportData, $this->reportDataSynchronization);
 
         $result = $this->onBeforeRender->getResult($args);
-        if ($result != null && $result->success)
-            $result->data = $args->data;
+        if ($result != null) {
+            if ($args->report != $this->handler->request->report)
+                $result->report = $args->report;
+
+            if ($result->success)
+                $result->data = $args->data;
+        }
 
         return $result;
     }
