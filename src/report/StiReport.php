@@ -3,6 +3,7 @@
 namespace Stimulsoft\Report;
 
 use JetBrains\PhpStorm\Deprecated;
+use Stimulsoft\Enums\StiComponentType;
 use Stimulsoft\Enums\StiEventType;
 use Stimulsoft\Enums\StiHtmlMode;
 use Stimulsoft\Events\StiComponentEvent;
@@ -158,6 +159,11 @@ class StiReport extends StiComponent
 
         $this->updateEvent('onBeforeRender');
         $this->updateEvent('onAfterRender');
+    }
+
+    public function getComponentType()
+    {
+        return StiComponentType::Report;
     }
 
     public function setHandler(StiHandler $handler)
