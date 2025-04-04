@@ -24,6 +24,9 @@ class StiViewer extends StiComponent
 
 ### Events
 
+    /** @var StiComponentEvent The event is invoked after the JavaScript component is initialized. Only JavaScript functions are supported. */
+    public $onAfterInitialize;
+
     /** @var StiComponentEvent The event is invoked before opening a report from the viewer toolbar after clicking the button. Only JavaScript functions are supported. */
     public $onOpenReport;
 
@@ -240,6 +243,7 @@ class StiViewer extends StiComponent
     {
         parent::updateEvents();
 
+        $this->updateEvent('onAfterInitialize');
         $this->updateEvent('onOpenReport');
         $this->updateEvent('onOpenedReport');
         $this->updateEvent('onPrintReport');

@@ -15,9 +15,6 @@ class StiComponent extends StiElement
 
 ### Events
 
-    /** @var StiComponentEvent The event is invoked after the JavaScript component is initialized. Only JavaScript functions are supported. */
-    public $onAfterInitialize;
-
     /** @var StiComponentEvent The event is invoked before connecting to the database after all parameters have been received. Only PHP functions are supported. */
     public $onDatabaseConnect;
 
@@ -99,7 +96,6 @@ class StiComponent extends StiElement
         if ($this->onBeginProcessData === null)
             $this->onBeginProcessData = true;
 
-        $this->updateEvent('onAfterInitialize');
         $this->updateEvent('onBeginProcessData');
         $this->updateEvent('onEndProcessData');
         $this->updateEvent('onDatabaseConnect');

@@ -287,8 +287,6 @@ class StiReport extends StiComponent
         else
             $result .= $this->getAfterRenderHtml();
 
-        $result .= $this->onAfterInitialize->getHtml(false, false, false, true);
-
         return $result;
     }
 
