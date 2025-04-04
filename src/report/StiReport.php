@@ -26,7 +26,7 @@ class StiReport extends StiComponent
 
 ### Events
 
-    /** @var StiComponentEvent The event is invoked called before all actions related to report rendering. Only JavaScript functions are supported. */
+    /** @var StiComponentEvent The event is invoked called before all actions related to report rendering. PHP and JavaScript functions are supported. */
     public $onBeforeRender;
 
     /** @var StiComponentEvent The event is invoked called immediately after report rendering. Only JavaScript functions are supported. */
@@ -286,6 +286,8 @@ class StiReport extends StiComponent
         }
         else
             $result .= $this->getAfterRenderHtml();
+
+        $result .= $this->onAfterInitialize->getHtml(false, false, false, true);
 
         return $result;
     }

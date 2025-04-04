@@ -248,6 +248,7 @@ class StiDesigner extends StiComponent
         }
 
         $result .= "$this->id.renderHtml('{$this->id}Content');\n";
+        $result .= $this->onAfterInitialize->getHtml(false, false, false, true);
 
         return $result;
     }
