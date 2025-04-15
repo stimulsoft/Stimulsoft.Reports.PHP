@@ -88,7 +88,7 @@ class StiDataAdapter
      * @param StiDatabaseType|string $database [enum] The database type for which the command will be executed.
      * @param string $connectionString The connection string or URL for the current data source.
      */
-    public static function getDataAdapter(string $database, string|null $connectionString)
+    public static function getDataAdapter(string $database, $connectionString)
     {
         switch ($database) {
             case StiDatabaseType::MySQL:
