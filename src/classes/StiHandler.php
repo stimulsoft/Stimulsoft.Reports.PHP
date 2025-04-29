@@ -2,7 +2,9 @@
 
 namespace Stimulsoft;
 
+use Exception;
 use Stimulsoft\Designer\StiDesigner;
+use Stimulsoft\Enums\StiComponentType;
 use Stimulsoft\Enums\StiDatabaseType;
 use Stimulsoft\Enums\StiEventType;
 use Stimulsoft\Enums\StiHtmlMode;
@@ -11,6 +13,7 @@ use Stimulsoft\Events\StiVariablesEventArgs;
 use Stimulsoft\Report\Enums\StiVariableType;
 use Stimulsoft\Report\StiReport;
 use Stimulsoft\Viewer\StiViewer;
+use Stimulsoft\Report\Enums\StiEngineType;
 
 /**
  * Event handler for all requests from components. Processes the incoming request, communicates with data adapters,
@@ -358,8 +361,16 @@ class StiHandler extends StiBaseHandler
             $result->handlerVersion = $this->version;
             $result->variables = [];
 
-            if (!$result->success)
+            if (!$result->success) {
+                // An error message should be triggered if rendering is performed on the server side.
+                $component = $this->getComponent();
+                if ($component instanceof StiReport &&
+                    $component->engine == StiEngineType::ServerNodeJS &&
+                    !StiFunctions::isNullOrEmpty($result->notice))
+                    throw new Exception($this->component->nodejs->id . $result->notice . $this->component->nodejs->id);
+
                 return $result;
+            }
 
             foreach ($args->variables as $variable) {
                 $isChanged = true;
@@ -453,6 +464,10 @@ class StiHandler extends StiBaseHandler
             $script = str_replace('{cookie}', StiFunctions::getJavaScriptValue($this->cookie), $script);
             $script = str_replace('{csrfToken}', StiFunctions::getJavaScriptValue($this->getCsrfToken()), $script);
             $script = str_replace('{allowFileDataAdapters}', StiFunctions::getJavaScriptValue($this->allowFileDataAdapters), $script);
+
+            $component = $this->getComponent();
+            $nodejs = $component->getComponentType() == StiComponentType::Report ? $component->nodejs : null;
+            $script = str_replace('{nodejsId}', StiFunctions::getJavaScriptValue($nodejs != null ? $nodejs->id : null), $script);
 
             if (StiHandler::$legacyMode)
                 $script = str_replace(

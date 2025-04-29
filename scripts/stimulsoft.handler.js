@@ -149,7 +149,8 @@ StiHandler.prototype.https = function (data, callback) {
             'Pragma': 'no-cache',
             'Cookie': this.cookie,
             'X-CSRFToken': this.csrfToken,
-            'X-CSRF-Token': this.csrfToken
+            'X-CSRF-Token': this.csrfToken,
+            'X-NodeJS-Id': this.nodejsId
         }
     }
 
@@ -260,6 +261,7 @@ function StiHandler() {
     this.cookie = {cookie};
     this.csrfToken = {csrfToken} || this.getCookie('csrftoken');
     this.allowFileDataAdapters = {allowFileDataAdapters};
+    this.nodejsId = {nodejsId};
     this.setOptions();
 }
 

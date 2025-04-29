@@ -28,7 +28,7 @@ class StiFunctions
 
     public static function newGuid($length = 16): string
     {
-        return bin2hex(openssl_random_pseudo_bytes($length));
+        return substr(bin2hex(openssl_random_pseudo_bytes($length)), 0, $length);
     }
 
     public static function getJavaScriptValue($value): string

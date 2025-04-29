@@ -162,8 +162,11 @@ class StiNodeJs
                     }
 
                     // Handling a parser error from StiHandler
-                    if (mb_strpos($line, "] StiHandler (") > 0)
-                        return preg_replace("/\r/", "", $line);
+                    if (mb_strpos($line, "] StiHandler (") > 0) {
+                        $error = preg_replace("/\r/", "", $line);
+                        $errorText = $this->getMessageFromId($error);
+                        return $errorText !== false ? $errorText : $error;
+                    }
                 }
             }
         }
@@ -230,6 +233,24 @@ class StiNodeJs
             $newPath = "$path$separator$appPath";
             putenv('PATH=' . $newPath);
         }
+    }
+
+    private function getMessageFromId($text)
+    {
+        $textStart = mb_strpos($text, $this->id);
+        if ($textStart === false)
+            return false;
+
+        $textStart += strlen($this->id);
+        $textLength = mb_strpos($text, $this->id, $textStart) - $textStart;
+        return mb_substr($text, $textStart, $textLength);
+    }
+
+    private function getGuid()
+    {
+        $name = 'HTTP_X_NODEJS_ID';
+        $id = array_key_exists($name, $_SERVER) ? $_SERVER[$name] : '';
+        return strlen($id) > 0 ? $id : StiFunctions::newGuid();
     }
 
 
@@ -500,12 +521,11 @@ class StiNodeJs
 
         if (!StiFunctions::isNullOrEmpty($output)) {
             try {
-                $jsonStart = mb_strpos($output, $this->id) + strlen($this->id);
-                $jsonLength = mb_strpos($output, $this->id, $jsonStart) - $jsonStart;
-                $json = mb_substr($output, $jsonStart, $jsonLength);
-                $jsonObject = json_decode($json);
+                $json = $this->getMessageFromId($output);
+                if ($json !== false)
+                    $jsonObject = json_decode($json);
 
-                if ($jsonLength < 0 || $jsonObject === null) {
+                if ($json === false || $jsonObject === null) {
                     $this->error = "The report generator script did not return a response.";
                     return false;
                 }
@@ -533,7 +553,7 @@ class StiNodeJs
 
     public function __construct(StiComponent $component = null)
     {
-        $this->id = StiFunctions::newGuid();
+        $this->id = $this->getGuid();
         $this->component = $component;
         $this->system = $this->getSystem();
         $this->processor = $this->getProcessor();
