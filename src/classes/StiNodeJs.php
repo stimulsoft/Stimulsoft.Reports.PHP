@@ -64,7 +64,7 @@ class StiNodeJs
         return php_uname("m");
     }
 
-    private function getArchitecture()
+    private function getArchitecture(): string
     {
         $processor = $this->getProcessor();
         $bits = PHP_INT_SIZE * 8;
@@ -192,7 +192,7 @@ class StiNodeJs
         return StiFunctions::isNullOrEmpty($returnError) ? null : explode( "\n", $returnError);
     }
 
-    private function getSystemPath($app)
+    private function getSystemPath($app): string
     {
         if ($this->system == "win") {
             $execResult = shell_exec("where /F $app") ?? "";
@@ -218,7 +218,7 @@ class StiNodeJs
         }
     }
 
-    private function getInstallPath()
+    private function getInstallPath(): string
     {
         $vendor = StiPath::getVendorPath();
         return StiPath::normalize("$vendor/nodejs-v$this->version");
@@ -246,7 +246,7 @@ class StiNodeJs
         return mb_substr($text, $textStart, $textLength);
     }
 
-    private function getGuid()
+    private function getGuid(): string
     {
         $name = 'HTTP_X_NODEJS_ID';
         $id = array_key_exists($name, $_SERVER) ? $_SERVER[$name] : '';
@@ -256,7 +256,7 @@ class StiNodeJs
 
 ### Paths
 
-    private function getArchiveName()
+    private function getArchiveName(): string
     {
         $architecture = $this->processor == "armv6l" || $this->processor == "armv7l" ? $this->processor : $this->architecture;
         $extension = $this->system == "win" ? "zip" : "tar.gz";
@@ -264,13 +264,13 @@ class StiNodeJs
         return "node-v$this->version-$this->system-$architecture.$extension";
     }
 
-    private function getArchiveUrl()
+    private function getArchiveUrl(): string
     {
         $archiveName = $this->getArchiveName();
         return "https://nodejs.org/download/release/v$this->version/$archiveName";
     }
 
-    private function getArchivePath()
+    private function getArchivePath(): string
     {
         $installPath = $this->getInstallPath();
         $archiveName = $this->getArchiveName();
@@ -325,7 +325,7 @@ class StiNodeJs
 
 ### Methods
 
-    private function download()
+    private function download(): bool
     {
         $installPath = $this->getInstallPath();
         $archiveUrl = $this->getArchiveUrl();
@@ -380,7 +380,7 @@ class StiNodeJs
         rmdir($from);
     }
 
-    private function extract()
+    private function extract(): bool
     {
         $installPath = $this->getInstallPath();
         $archivePath = $this->getArchivePath();
@@ -522,8 +522,7 @@ class StiNodeJs
         if (!StiFunctions::isNullOrEmpty($output)) {
             try {
                 $json = $this->getMessageFromId($output);
-                if ($json !== false)
-                    $jsonObject = json_decode($json);
+                $jsonObject = $json !== false ? json_decode($json) : null;
 
                 if ($json === false || $jsonObject === null) {
                     $this->error = "The report generator script did not return a response.";
@@ -551,7 +550,7 @@ class StiNodeJs
 
 ### Constructor
 
-    public function __construct(StiComponent $component = null)
+    public function __construct(?StiComponent $component = null)
     {
         $this->id = $this->getGuid();
         $this->component = $component;

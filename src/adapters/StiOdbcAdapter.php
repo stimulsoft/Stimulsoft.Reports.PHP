@@ -139,8 +139,8 @@ class StiOdbcAdapter extends StiSqlAdapter
             case 'uniqueidentifier':
             case 'xml':
             case \PDO::PARAM_STR:
-            case \PDO::PARAM_STR_NATL:
-            case \PDO::PARAM_STR_CHAR:
+            case \PDO::PARAM_STR_NATL:  // PHP 7.2+
+            case \PDO::PARAM_STR_CHAR:  // PHP 7.2+
                 return 'string';
 
             case 'date':

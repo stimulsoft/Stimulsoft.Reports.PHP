@@ -367,7 +367,7 @@ class StiHandler extends StiBaseHandler
                 if ($component instanceof StiReport &&
                     $component->engine == StiEngineType::ServerNodeJS &&
                     !StiFunctions::isNullOrEmpty($result->notice))
-                    throw new Exception($this->component->nodejs->id . $result->notice . $this->component->nodejs->id);
+                    throw new Exception($component->nodejs->id . $result->notice . $component->nodejs->id);
 
                 return $result;
             }
@@ -466,7 +466,7 @@ class StiHandler extends StiBaseHandler
             $script = str_replace('{allowFileDataAdapters}', StiFunctions::getJavaScriptValue($this->allowFileDataAdapters), $script);
 
             $component = $this->getComponent();
-            $nodejs = $component->getComponentType() == StiComponentType::Report ? $component->nodejs : null;
+            $nodejs = $component !== null && $component->getComponentType() == StiComponentType::Report ? $component->nodejs : null;
             $script = str_replace('{nodejsId}', StiFunctions::getJavaScriptValue($nodejs != null ? $nodejs->id : null), $script);
 
             if (StiHandler::$legacyMode)
@@ -526,7 +526,7 @@ class StiHandler extends StiBaseHandler
 
 ### Constructor
 
-    public function __construct($url = null, $timeout = 30, $registerErrorHandlers = true)
+    public function __construct($url = null, int $timeout = 30, $registerErrorHandlers = true)
     {
         if (StiHandler::$legacyMode) {
             $this->options = new \stdClass();

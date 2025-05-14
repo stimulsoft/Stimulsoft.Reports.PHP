@@ -195,11 +195,11 @@ class StiBaseHandler
     /**
      * Processing an HTTP request from the client side of the component. If successful, it is necessary to return a response
      * with the processing result, which can be obtained using the 'getResponse()' function.
-     * @param string $query The GET query string if no framework request is specified.
-     * @param string $body The POST form data if no framework request is specified.
+     * @param string|null $query The GET query string if no framework request is specified.
+     * @param string|null $body The POST form data if no framework request is specified.
      * @return bool True if the request was processed successfully.
      */
-    public function processRequest(string $query = null, string $body = null): bool
+    public function processRequest(?string $query = null, ?string $body = null): bool
     {
         $this->error = null;
 
