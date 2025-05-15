@@ -175,10 +175,15 @@ class StiBaseHandler
         $this->request->parameters = $parameters;
     }
 
+    public function getPassQueryParameters(): bool
+    {
+        return $this->passQueryParameters;
+    }
+
     public function getUrl()
     {
         $url = $this->url ?? '';
-        if ($this->passQueryParameters) {
+        if ($this->getPassQueryParameters()) {
             foreach ($_GET as $key => $value)
                 if (strpos($url, $key) === false) {
                     $url .= strpos($url, '?') === false ? '?' : '&';
