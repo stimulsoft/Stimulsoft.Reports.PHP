@@ -36,8 +36,8 @@ class StiReport extends StiComponent
 
 ### Properties
 
-    /** @var StiEngineType Gets or sets the report building and export mode - on the client side in a browser window or on the server side using Node.js */
-    public $engine;
+    /** @var StiEngineType|int Gets or sets the report building and export mode - on the client side in a browser window or on the server side using Node.js */
+    public $engine = StiEngineType::ClientJS;
 
     /** @var StiDictionary Gets a report data dictionary that allows you to add new variables to an existing report. */
     public $dictionary;
