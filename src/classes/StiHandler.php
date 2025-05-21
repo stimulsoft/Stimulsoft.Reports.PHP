@@ -304,14 +304,16 @@ class StiHandler extends StiBaseHandler
         if ($this->component !== null)
             return $this->component;
 
-        if ($this->request->sender == 'Report')
-            return new StiReport();
+        if ($this->request !== null) {
+            if ($this->request->sender == 'Report')
+                return new StiReport();
 
-        if ($this->request->sender == 'Viewer')
-            return new StiViewer();
+            if ($this->request->sender == 'Viewer')
+                return new StiViewer();
 
-        if ($this->request->sender == 'Designer')
-            return new StiDesigner();
+            if ($this->request->sender == 'Designer')
+                return new StiDesigner();
+        }
 
         return null;
     }
