@@ -168,7 +168,7 @@ class StiBaseHandler
         if ($this->request->parameters !== null && $this->request->queryString !== null && strlen($this->request->queryString) > 0) {
             foreach ($this->request->parameters as $item) {
                 $name = mb_strpos($item->name, '@') === 0 || mb_strpos($item->name, ':') === 0 ? mb_substr($item->name, 1) : $item->name;
-                $parameters[$name] = new StiParameter($name, $item->type, $item->typeName, $item->typeGroup, $item->size ?? 0, $item->value);
+                $parameters[$name] = new StiParameter($name, $item->type ?? 0, $item->typeName ?? null, $item->typeGroup ?? null, $item->size ?? 0, $item->value ?? null);
             }
         }
 
