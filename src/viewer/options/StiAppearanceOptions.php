@@ -111,6 +111,9 @@ class StiAppearanceOptions extends StiComponentOptions
 
     /** @var StiWebUIIconSet [enum] Gets or sets the current icon set for the viewer. */
     public $iconSet = StiWebUIIconSet::Auto;
+    
+    /** @var bool Gets or sets a value that allows event propagation outside the viewer. */
+    public $allowPropagationEvents = true;
 
 
 ### Helpers
