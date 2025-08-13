@@ -97,6 +97,9 @@ class StiAppearanceOptions extends StiComponentOptions
     /** @var bool Gets or sets a value which allows touch zoom in the viewer. */
     public $allowTouchZoom = true;
 
+    /** @var bool Gets or sets a value which allows scroll zoom in the viewer. */
+    public $allowScrollZoom = true;
+
     /** @var bool Gets or sets a value which indicates that allows mobile mode of the viewer interface. */
     public $allowMobileMode = true;
 
