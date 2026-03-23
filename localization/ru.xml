@@ -669,7 +669,6 @@
     <StiCrossTitle>Кросс-заголовок</StiCrossTitle>
     <StiDashboard>Панель индикаторов</StiDashboard>
     <StiDataBand>Данные</StiDataBand>
-    <StiDataNavigatorUI>Навигатор данных</StiDataNavigatorUI>
     <StiDatePicker>Выбор даты</StiDatePicker>
     <StiElectronicSignature>Электронная подпись</StiElectronicSignature>
     <StiEmptyBand>Пустые данные</StiEmptyBand>
@@ -686,7 +685,6 @@
     <StiMap>Карта</StiMap>
     <StiMathFormula>Математическая формула</StiMathFormula>
     <StiMultipleSelection>Множественный выбор</StiMultipleSelection>
-    <StiNavigatorUI>Навигатор</StiNavigatorUI>
     <StiNumberBox>Числовое поле</StiNumberBox>
     <StiOnlineMap>Онлайн-карта</StiOnlineMap>
     <StiOverlayBand>Водяной знак</StiOverlayBand>
@@ -958,8 +956,8 @@
     <StiReportControl>Элемент управления</StiReportControl>
     <StiRichTextBoxControl>Rich текст</StiRichTextBoxControl>
     <StiSliderControl>Слайдер</StiSliderControl>
+    <StiSwitchControl>Тогл</StiSwitchControl>
     <StiTextBoxControl>Текстовое поле</StiTextBoxControl>
-    <StiToggleControl>Тогл</StiToggleControl>
     <StiTreeViewControl>Дерево</StiTreeViewControl>
   </Dialogs>
   <Editor>

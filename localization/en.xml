@@ -667,7 +667,6 @@
     <StiCrossTitle>Cross-Title</StiCrossTitle>
     <StiDashboard>Dashboard</StiDashboard>
     <StiDataBand>Data</StiDataBand>
-    <StiDataNavigatorUI>Data Navigator</StiDataNavigatorUI>
     <StiDatePicker>Date Picker</StiDatePicker>
     <StiElectronicSignature>Electronic Signature</StiElectronicSignature>
     <StiEmptyBand>Empty Data</StiEmptyBand>
@@ -684,7 +683,6 @@
     <StiMap>Map</StiMap>
     <StiMathFormula>Math Formula</StiMathFormula>
     <StiMultipleSelection>Multiple Selection</StiMultipleSelection>
-    <StiNavigatorUI>Navigator</StiNavigatorUI>
     <StiNumberBox>Number Box</StiNumberBox>
     <StiOnlineMap>Online Map</StiOnlineMap>
     <StiOverlayBand>Overlay</StiOverlayBand>
@@ -955,8 +953,8 @@
     <StiReportControl>Report Control</StiReportControl>
     <StiRichTextBoxControl>Rich Text Box</StiRichTextBoxControl>
     <StiSliderControl>Slider</StiSliderControl>
+    <StiSwitchControl>Toggle</StiSwitchControl>
     <StiTextBoxControl>Text Box</StiTextBoxControl>
-    <StiToggleControl>Toggle</StiToggleControl>
     <StiTreeViewControl>Tree View</StiTreeViewControl>
   </Dialogs>
   <Editor>
