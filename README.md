@@ -67,6 +67,7 @@ These code examples are basic. There are many features, options, and other varia
 # Useful links:
 * [Live Demo](http://demo.stimulsoft.com/#Js)
 * [Product Page](https://www.stimulsoft.com/en/products/reports-php)
+* [FAQ](https://stimulsoft.github.io/Developer-FAQ/Stimulsoft_Reports_PHP_FAQ)
 * [Sample Projects](https://github.com/stimulsoft/Samples-Reports.PHP)
 * [Documentation](https://www.stimulsoft.com/en/documentation/online/programming-manual/reports_and_dashboards_for_php.htm)
 * [Free Download](https://www.stimulsoft.com/en/downloads)
