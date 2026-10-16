@@ -39,6 +39,8 @@ For the avoidance of doubt, installation of the SOFTWARE through a package manag
 ## RIGHTS
 DEVELOPER may install and use the SOFTWARE, including any and all source code (if provided), or any prior version legally licensed for the same operating system, on a single computer per individual developer authorized under the license tier purchased by DEVELOPER, as described in the SUBSCRIPTION Section. DEVELOPER acknowledges and agrees that if the SOFTWARE's source code is provided, it remains a confidential trade secret of STIMULSOFT.
 
+DEVELOPER may also install and use the SOFTWARE on build servers, including CI/CD systems, without additional Subscriptions, provided that no development is performed on them and they are used solely for the automated compilation, packaging, testing, and deployment of DEVELOPER's permitted Applications.
+
 DEVELOPER may reassign the licensed developer seat to another individual within DEVELOPER's organization, provided that the previous individual ceases all use of the SOFTWARE, the SOFTWARE is removed from that individual's computer, and the new individual accepts this DLA. Any other assignment, transfer, sublicense, or sharing of the SOFTWARE is prohibited without STIMULSOFT's prior written consent.
 
 ## ACTIVATION
