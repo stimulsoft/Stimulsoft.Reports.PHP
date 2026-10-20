@@ -73,6 +73,15 @@ class StiHandler extends StiBaseHandler
      */
     public $allowFileDataAdapters = true;
 
+    /** @var array|null
+     * File extensions allowed for server-side processing of file data, without a dot, for example 'json'.
+     * If null, files with any extension are allowed. Not applied to data loaded by URL.
+     */
+    public $fileDataExtensions = ['xml', 'xsd', 'json', 'csv', 'txt'];
+
+    /** @var bool Allows server-side loading of file data by URL. */
+    public $allowFileDataUrls = true;
+
 
 ### Events: Component
 
