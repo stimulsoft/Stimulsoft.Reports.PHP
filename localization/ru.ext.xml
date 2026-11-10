@@ -18,6 +18,7 @@
     <SetGrowToHeightToTrue>Установить свойство GrowToHeight в true</SetGrowToHeightToTrue>
     <StiAllowHtmlTagsInTextActionLong>Задать у компонента значение свойства AllowHtmlTags равное true, для правильного отображения HTML-тегов.</StiAllowHtmlTagsInTextActionLong>
     <StiAllowOnDoublePassActionLong>Задать значение свойства NumberOfPass равное DoublePass, для правильного расчета переменных.</StiAllowOnDoublePassActionLong>
+    <StiAllowVariableAsSqlParameterActionLong>Разрешить использовать переменную как SQL-параметр, чтобы ее значение передавалось в запрос.</StiAllowVariableAsSqlParameterActionLong>
     <StiApplyGeneralTextFormatLong>Установить 'Общий' формат для компонента '{0}'.</StiApplyGeneralTextFormatLong>
     <StiApplyGeneralTextFormatShort>Применить Общий</StiApplyGeneralTextFormatShort>
     <StiCanBreakComponentInContainerActionLong>Задать у компонента значение свойства CanBreak равное true.</StiCanBreakComponentInContainerActionLong>
@@ -32,6 +33,7 @@
     <StiDeleteDataSourceActionLong>Удалить источник данных из отчета.</StiDeleteDataSourceActionLong>
     <StiDeleteLostPointsActionLong>Удалить все потерянные точки на странице</StiDeleteLostPointsActionLong>
     <StiDeletePageActionLong>Удалить страницу из отчета.</StiDeletePageActionLong>
+    <StiFilterVariableAsExpressionActionLong>Установить тип данных фильтра Expression, чтобы он сравнивал со значением переменной.</StiFilterVariableAsExpressionActionLong>
     <StiFixCrossLinePrimitiveActionLong>Создать новые точки вместо отсутствующих. Данное действие не дает 100% гарантию правильного исправления!</StiFixCrossLinePrimitiveActionLong>
     <StiGenerateNewNameComponentActionLong>Сгенерировать новое имя для компонента.</StiGenerateNewNameComponentActionLong>
     <StiGenerateNewNameDataSourceActionLong>Сгенерировать новое имя для источника данных.</StiGenerateNewNameDataSourceActionLong>
@@ -58,6 +60,7 @@
     <StiPropertiesOnlyEngineV1ActionLong>Выключить у компонента '{0}' свойства, которые не поддерживаются в EngineV2.</StiPropertiesOnlyEngineV1ActionLong>
     <StiPropertiesOnlyEngineV2ActionLong>Выключить у компонента свойства, которые не поддерживаются в EngineV1.</StiPropertiesOnlyEngineV2ActionLong>
     <StiResetPageNumberActionLong>Задать у страницы значение свойства ResetPageNumber равное false.</StiResetPageNumberActionLong>
+    <StiStyleNegativeBorderSizeActionLong>Установить отрицательные размеры границ стиля в 0.</StiStyleNegativeBorderSizeActionLong>
     <StiSwitchToParametersVerticalOrientationAction>Переключите значение свойства отчета «Расположение параметров» на «Вертикальный».</StiSwitchToParametersVerticalOrientationAction>
     <StiSwitchWidthAndHeightOfPageActionLong>Поменять местами ширину и высоту страницы.</StiSwitchWidthAndHeightOfPageActionLong>
     <StiVerySmallSizesOfComponentsLong>Размер компонента увеличится до значения GridSize отчета. Данное действие не дает 100% гарантию правильного исправления!</StiVerySmallSizesOfComponentsLong>
@@ -82,13 +85,13 @@
     <StiColumnsWidthGreaterPageWidthCheckLong>У страницы '{0}' суммарная ширина колонок больше ее собственной ширины. Это может привести к некорректному построению отчета. Также возможны проблемы с экспортом отчета в другие форматы.</StiColumnsWidthGreaterPageWidthCheckLong>
     <StiColumnsWidthGreaterPageWidthCheckShort>Суммарная ширина колонок больше ширины страницы</StiColumnsWidthGreaterPageWidthCheckShort>
     <StiComponentBoundsAreOutOfBandLong>Компонент '{0}' частично или полностью находится за пределами бэнда. Компонент с таким расположением может быть выведен на печать неверно. Однако, в некоторых случаях такое расположение компонента допустимо. Также возможны проблемы с экспортом отчета в другие форматы.</StiComponentBoundsAreOutOfBandLong>
-    <StiComponentBoundsAreOutOfBandShort>Компонент частично за пределами бэнда.</StiComponentBoundsAreOutOfBandShort>
-    <StiComponentExpressionCheckLong>Выражение в свойстве {0} компонента '{1}' не может быть вычислено!</StiComponentExpressionCheckLong>
-    <StiComponentExpressionCheckShort>Выражение не может быть вычислено!</StiComponentExpressionCheckShort>
+    <StiComponentBoundsAreOutOfBandShort>Компонент частично за пределами бэнда</StiComponentBoundsAreOutOfBandShort>
+    <StiComponentExpressionCheckLong>Выражение в свойстве {0} компонента '{1}' не может быть вычислено.</StiComponentExpressionCheckLong>
+    <StiComponentExpressionCheckShort>Выражение не может быть вычислено</StiComponentExpressionCheckShort>
     <StiComponentNameIsSystemVariableCheckLong>Имя компонента '{0}' конфликтует с именем системной переменной! Выражения с этой системной переменной будут работать некорректно, т.к. обращение к ней будет заменяться на обращение к компоненту.</StiComponentNameIsSystemVariableCheckLong>
     <StiComponentNameIsSystemVariableCheckShort>Имя компонента конфликтует с именем системной переменной</StiComponentNameIsSystemVariableCheckShort>
     <StiComponentResourceCheckLong>Ресурс '{0}', указанный для компонента '{1}', не найден в словаре отчета.</StiComponentResourceCheckLong>
-    <StiComponentResourceCheckShort>Указанный ресурс не найден!</StiComponentResourceCheckShort>
+    <StiComponentResourceCheckShort>Указанный ресурс не найден</StiComponentResourceCheckShort>
     <StiComponentStyleIsNotFoundCheckAtPageLong>У страницы '{0}' задан не существующий стиль.</StiComponentStyleIsNotFoundCheckAtPageLong>
     <StiComponentStyleIsNotFoundCheckLong>У компонента '{0}' задан не существующий стиль.</StiComponentStyleIsNotFoundCheckLong>
     <StiComponentStyleIsNotFoundCheckShort>Указанный стиль не существует</StiComponentStyleIsNotFoundCheckShort>
@@ -107,17 +110,25 @@
     <StiEventsAtInterpretationCheckLong>Скрипт в событии {0} в компоненте {1} не работает в режиме интерпретации.</StiEventsAtInterpretationCheckLong>
     <StiEventsAtInterpretationCheckShort>События в интерпретации</StiEventsAtInterpretationCheckShort>
     <StiExpressionElementCheckLong>Выражение '{0}' в '{1}' компоненте работает неверно. Следующее сообщение было получено от парсера: '{2}'.</StiExpressionElementCheckLong>
-    <StiExpressionElementCheckShort>Выражение работает неверно!</StiExpressionElementCheckShort>
+    <StiExpressionElementCheckShort>Выражение работает неверно</StiExpressionElementCheckShort>
+    <StiFilterAfterLoadingCheckLong>Бэнд данных '{0}' фильтрует строки источника данных '{1}' по переменной '{2}' после того, как все строки загружены из базы данных. Для большой таблицы лучше фильтровать в запросе: добавьте в запрос условие с параметром @{2} и разрешите использовать переменную как SQL-параметр.</StiFilterAfterLoadingCheckLong>
+    <StiFilterAfterLoadingCheckShort>Строки фильтруются после загрузки</StiFilterAfterLoadingCheckShort>
     <StiFilterCircularDependencyElementCheckLong>Циклическая зависимость фильтра найдена у '{0}' элемента. Пожалуйста, проверьте свойство 'Главный элемент' у '{0}' элемента!</StiFilterCircularDependencyElementCheckLong>
     <StiFilterCircularDependencyElementCheckShort>Циклическая зависимость фильтра</StiFilterCircularDependencyElementCheckShort>
+    <StiFilterColumnNotFoundCheckLong>Фильтр компонента '{0}' использует колонку '{1}', которой нет в источнике данных '{2}'. Фильтр не может быть обработан.</StiFilterColumnNotFoundCheckLong>
+    <StiFilterColumnNotFoundCheckShort>Колонка фильтра не найдена</StiFilterColumnNotFoundCheckShort>
     <StiFilterValueCheckLong>Для компонента {0} задан фильтр, но в нём не задано значение. Поэтому фильтр не применяется.</StiFilterValueCheckLong>
     <StiFilterValueCheckShort>В фильтре не задано значение</StiFilterValueCheckShort>
+    <StiFilterValueTypeCheckLong>Фильтр компонента '{0}' сравнивает со значением '{1}', которое не является значением типа {2}. Вместо него фильтр сравнивает со значением по умолчанию (0, текущей датой или false), поэтому бэнд выводит другие строки.</StiFilterValueTypeCheckLong>
+    <StiFilterValueTypeCheckShort>Значение фильтра не соответствует его типу данных</StiFilterValueTypeCheckShort>
+    <StiFilterVariableAsTextCheckLong>Фильтр компонента '{0}' сравнивает с переменной '{1}', но его тип данных {2}, поэтому фильтр сравнивает с именем как с текстом, а не со значением переменной. Установите тип данных фильтра Expression.</StiFilterVariableAsTextCheckLong>
+    <StiFilterVariableAsTextCheckShort>Фильтр воспринимает переменную как текст</StiFilterVariableAsTextCheckShort>
     <StiFontGlyphsMissingCheckLong>Шрифт '{0}' компонента '{1}' не содержит глифы для следующих символов: {2}. Эти символы будут выведены в PDF файле пустыми прямоугольниками.</StiFontGlyphsMissingCheckLong>
-    <StiFontGlyphsMissingCheckShort>Шрифт не содержит глифы для текста.</StiFontGlyphsMissingCheckShort>
+    <StiFontGlyphsMissingCheckShort>Шрифт не содержит глифы для текста</StiFontGlyphsMissingCheckShort>
     <StiFontMissingCheckLong>Шрифт '{0}', указанный для компонента '{1}', не найден.</StiFontMissingCheckLong>
-    <StiFontMissingCheckShort>Шрифт не найден.</StiFontMissingCheckShort>
+    <StiFontMissingCheckShort>Шрифт не найден</StiFontMissingCheckShort>
     <StiFunctionsOnlyForEngineV2CheckLong>В отчете используются системные переменные, которые не доступны в EngineV1. Вам необходимо переключиться на EngineV2.</StiFunctionsOnlyForEngineV2CheckLong>
-    <StiFunctionsOnlyForEngineV2CheckShort>Используются переменные, недоступные в EngineV1.</StiFunctionsOnlyForEngineV2CheckShort>
+    <StiFunctionsOnlyForEngineV2CheckShort>Используются переменные, недоступные в EngineV1</StiFunctionsOnlyForEngineV2CheckShort>
     <StiGroupHeaderNotEqualToGroupFooterOnContainerLong>В контейнере '{0}' количество GroupFooter не соответствует количеству GroupHeader. Лишние компоненты не будут построены.</StiGroupHeaderNotEqualToGroupFooterOnContainerLong>
     <StiGroupHeaderNotEqualToGroupFooterOnPageLong>На странице '{0}' количество GroupFooter не соответствует количеству GroupHeader. Лишние компоненты не будут построены.</StiGroupHeaderNotEqualToGroupFooterOnPageLong>
     <StiGroupHeaderNotEqualToGroupFooterShort>Некоторые компоненты не будет построены</StiGroupHeaderNotEqualToGroupFooterShort>
@@ -126,7 +137,7 @@
     <StiGrowToHeightOverlappingLong>У компонента '{0}' значение свойства GrowToHeight равно true. При построении отчета этот компонент может перекрыть один или несколько нижележащих компонентов.</StiGrowToHeightOverlappingLong>
     <StiGrowToHeightOverlappingShort>Возможно перекрытие компонентов</StiGrowToHeightOverlappingShort>
     <StiInsufficientTextHeightForOneLineCheckLong>Высота текстового компонента {0} слишком мала даже для одной строки текста. Это может вызвать проблемы с экспортом в некоторые форматы, а также с печатью в Web. Рекомендуется увеличить высоту или установить свойство Может расти в значение Да.</StiInsufficientTextHeightForOneLineCheckLong>
-    <StiInsufficientTextHeightForOneLineCheckShort>Недостаточно высоты для одной строки.</StiInsufficientTextHeightForOneLineCheckShort>
+    <StiInsufficientTextHeightForOneLineCheckShort>Недостаточно высоты для одной строки</StiInsufficientTextHeightForOneLineCheckShort>
     <StiIsFirstPageIsLastPageDoublePassCheckLong>Системные переменные IsFirstPage, IsFirstPageThrough, IsLastPage, IsLastPageThrough при одном проходе выдают некорректные результаты. Требуется задать значение свойства NumberOfPass равное DoublePass.</StiIsFirstPageIsLastPageDoublePassCheckLong>
     <StiIsFirstPageIsLastPageDoublePassCheckShort>В отчете используются системные переменные, которые требуют два прохода</StiIsFirstPageIsLastPageDoublePassCheckShort>
     <StiIsFirstPassIsSecondPassCheckLong>Для корректной работы функций IsFirstPass, IsSecondPass требуется построение отчета в два прохода. Возможно, вы забыли задать у отчета значение свойства NumberOfPass равное DoublePass.</StiIsFirstPassIsSecondPassCheckLong>
@@ -150,7 +161,7 @@
     <StiPageFooterOnlyLastPageCheckLong>Бэнд {0} со свойством PrintOn=OnlyLastPage создаёт нежелательные пустые места внизу страницы. Рекомендуется заменить такой бэнд на ReportSummary.</StiPageFooterOnlyLastPageCheckLong>
     <StiPageFooterOnlyLastPageCheckShort>Вероятность появления пустых мест внизу страницы</StiPageFooterOnlyLastPageCheckShort>
     <StiPageLineAndDoublePassCheckLong>Системная переменная PageLine требует использования двойного прохода при построении отчета.</StiPageLineAndDoublePassCheckLong>
-    <StiPageLineAndDoublePassCheckShort>PageLine требует Double-Pass!</StiPageLineAndDoublePassCheckShort>
+    <StiPageLineAndDoublePassCheckShort>PageLine требует Double-Pass</StiPageLineAndDoublePassCheckShort>
     <StiPanelInEngineV1CheckLong>В отчете, в котором применяется EngineV1, найдена панель '{0}'. Этот компонент недоступен в EngineV1, поэтому генератор отчетов попытается построить его как компонент Контейнер. Однако, компонент Панель имеет расширенные возможности по сравнению с компонентом Контейнер, и это может привести к неверному построению всего отчета.</StiPanelInEngineV1CheckLong>
     <StiPanelInEngineV1CheckShort>Панель в EngineV1</StiPanelInEngineV1CheckShort>
     <StiPrintHeadersAndFootersFromPreviousPageLong>У страницы '{0}' задано значение свойства PrintHeadersAndFootersFromPreviousPage равное true, но для первой или единственной страницы в отчете оно является бессмысленным.</StiPrintHeadersAndFootersFromPreviousPageLong>
@@ -158,7 +169,7 @@
     <StiPrintOnDoublePassCheckLong>У компонента '{0}' значение свойства PrintOn не равно AllPages. Для правильного построения отчета необходимо включить два прохода.</StiPrintOnDoublePassCheckLong>
     <StiPrintOnDoublePassCheckShort>Свойство PrintOn не равно AllPages</StiPrintOnDoublePassCheckShort>
     <StiPrintOnPreviousPageCheck2Long>У страницы '{0}' задано значение свойства PrintOnPreviousPage равное true. Все компоненты (кроме бэндов), которые лежат на этой странице, будут напечатаны только начиная со следующей новой страницы, или не будут напечатаны вообще, если новых страниц не будет.</StiPrintOnPreviousPageCheck2Long>
-    <StiPrintOnPreviousPageCheck2Short>Некоторые компоненты могут быть не напечатаны.</StiPrintOnPreviousPageCheck2Short>
+    <StiPrintOnPreviousPageCheck2Short>Некоторые компоненты могут быть не напечатаны</StiPrintOnPreviousPageCheck2Short>
     <StiPrintOnPreviousPageCheckLong>У страницы '{0}' задано значение свойства PrintOnPreviousPage равное true, но для первой или единственной страницы в отчете оно является бессмысленным.</StiPrintOnPreviousPageCheckLong>
     <StiPrintOnPreviousPageCheckShort>Возможно, неверно задано значение свойства PrintOnPreviousPage</StiPrintOnPreviousPageCheckShort>
     <StiPropertiesOnlyEngineV1CheckLong>У компонента '{0}' задано свойство StartNewPage, поддерживаемое только в EngineV1.</StiPropertiesOnlyEngineV1CheckLong>
@@ -168,7 +179,7 @@
     <StiResetPageNumberCheckLong>У страницы '{0}' задано значение свойства ResetPageNumber равное true, но для первой или единственной страницы в отчете оно является бессмысленным.</StiResetPageNumberCheckLong>
     <StiResetPageNumberCheckShort>Возможно, неверно задано значение свойства ResetPageNumber</StiResetPageNumberCheckShort>
     <StiRtlTextWithoutRightToLeftCheckLong>Компонент '{0}' содержит текст с письмом справа налево, но опция RightToLeft выключена.</StiRtlTextWithoutRightToLeftCheckLong>
-    <StiRtlTextWithoutRightToLeftCheckShort>RTL текст с выключенной опцией RightToLeft.</StiRtlTextWithoutRightToLeftCheckShort>
+    <StiRtlTextWithoutRightToLeftCheckShort>RTL текст с выключенной опцией RightToLeft</StiRtlTextWithoutRightToLeftCheckShort>
     <StiShowInsteadNullValuesCheckLong>У компонента '{0}' задано значение свойства NullValues, но не задано значение свойства DataColumn. Это не имеет смысла.</StiShowInsteadNullValuesCheckLong>
     <StiShowInsteadNullValuesCheckShort>Задано свойство NullValues</StiShowInsteadNullValuesCheckShort>
     <StiSubReportPageZeroCheckLong>Если у SubReport значение свойства SubReportPage не задано, то отчет не может быть построен.</StiSubReportPageZeroCheckLong>
@@ -178,9 +189,9 @@
     <StiTextColorEqualToBackColorCheckLong>Возможно, вы неверно задали значения свойств TextBrush и Brush у компонента '{0}'. Текст компонента не будет виден.</StiTextColorEqualToBackColorCheckLong>
     <StiTextColorEqualToBackColorCheckShort>Значение свойства TextBrush равно значению свойства Brush</StiTextColorEqualToBackColorCheckShort>
     <StiTextTextFormatCheckLong>Выбранный для компонента '{0}' текстовый формат не может быть применён, т.к. результат выражения уже является текстовой строкой.</StiTextTextFormatCheckLong>
-    <StiTextTextFormatCheckShort>Формат не может быть применён.</StiTextTextFormatCheckShort>
+    <StiTextTextFormatCheckShort>Формат не может быть применён</StiTextTextFormatCheckShort>
     <StiTextTextFormatFieldCheckLong>Колонка, используемая в компоненте {0}, имеет тип, отличный от даты. Рекомендуем изменить форматирование на Стандарт, чтобы избежать замедления работы и ошибок преобразования.</StiTextTextFormatFieldCheckLong>
-    <StiTextTextFormatFieldCheckShort>Тип колонки данных не подходит для выбранного формата.</StiTextTextFormatFieldCheckShort>
+    <StiTextTextFormatFieldCheckShort>Тип колонки данных не подходит для выбранного формата</StiTextTextFormatFieldCheckShort>
     <StiTotalPageCountDoublePassCheckLong>Системные переменные TotalPageCount, TotalPageCountThrough в скриптах и условиях при одном проходе выдают некорректные результаты. Требуется задать значение свойства NumberOfPass равное DoublePass.</StiTotalPageCountDoublePassCheckLong>
     <StiUndefinedComponentCheckLong>В отчете найден неизвестный компонент '{0}'. Генератор отчетов не может определить тип этого компонента. Возможно, это пользовательский компонент. В текущем состоянии отчет не может быть построен!</StiUndefinedComponentCheckLong>
     <StiUndefinedComponentCheckShort>Неизвестный компонент</StiUndefinedComponentCheckShort>
@@ -224,8 +235,18 @@
     <StiNoNameDataSourceCheckShort>Источник данных без имени</StiNoNameDataSourceCheckShort>
     <StiNoNameInSourceDataSourceCheckLong>У источника данных '{0}' не заполнено поле 'Наименование в источнике данных (Name In Source)'. Без заполнения этого поля, генератор отчетов не сможет найти данные для источника данных в базе данных и отчет не будет построен!</StiNoNameInSourceDataSourceCheckLong>
     <StiNoNameInSourceDataSourceCheckShort>У источника данных не заполнено поле 'Наименование в источнике данных'</StiNoNameInSourceDataSourceCheckShort>
+    <StiSqlParameterDuplicateCheckLong>У источника данных '{0}' несколько параметров с именем '{1}'. Запрос не может быть выполнен.</StiSqlParameterDuplicateCheckLong>
+    <StiSqlParameterDuplicateCheckShort>Повторяющийся SQL-параметр</StiSqlParameterDuplicateCheckShort>
+    <StiSqlParameterNotFoundCheckLong>Запрос источника данных '{0}' использует параметр @{1}, но у источника данных нет такого параметра, а в отчете нет переменной с таким именем. Запрос завершится ошибкой при построении отчета.</StiSqlParameterNotFoundCheckLong>
+    <StiSqlParameterNotFoundCheckShort>Запрос использует неопределенный параметр</StiSqlParameterNotFoundCheckShort>
+    <StiSqlParameterVariableNotFoundCheckLong>Параметр '{1}' источника данных '{0}' берет значение из '{2}', но в отчете нет переменной с таким именем. Запрос не получит значение этого параметра.</StiSqlParameterVariableNotFoundCheckLong>
+    <StiSqlParameterVariableNotFoundCheckShort>Параметр ссылается на отсутствующую переменную</StiSqlParameterVariableNotFoundCheckShort>
+    <StiSqlVariableNotAllowedCheckLong>Запрос источника данных '{0}' использует параметр @{1}. В отчете есть переменная '{1}', но ее не разрешено использовать как SQL-параметр, поэтому ее значение не передается в запрос и запрос завершается ошибкой.</StiSqlVariableNotAllowedCheckLong>
+    <StiSqlVariableNotAllowedCheckShort>Переменную не разрешено использовать как SQL-параметр</StiSqlVariableNotAllowedCheckShort>
     <StiUndefinedDataSourceCheckLong>В отчете найден источник данных '{0}' неизвестного типа. Генератор отчетов не сможет корректно обработать такой тип источника данных! Возможно в отчете используются пользовательские источники данных. Такой отчет не может быть построен!</StiUndefinedDataSourceCheckLong>
     <StiUndefinedDataSourceCheckShort>Неизвестный источник данных</StiUndefinedDataSourceCheckShort>
+    <StiUnusedSqlDataSourceCheckLong>Источник данных '{0}' не используется в отчете, но его запрос выполняется при каждом построении отчета. Отключите его свойство ConnectOnStart, удалите источник данных или установите свойство отчета RetrieveOnlyUsedData.</StiUnusedSqlDataSourceCheckLong>
+    <StiUnusedSqlDataSourceCheckShort>Загружается неиспользуемый источник данных</StiUnusedSqlDataSourceCheckShort>
   </CheckDataSource>
   <CheckGlobal>
     <Error>Ошибка! </Error>
@@ -242,7 +263,7 @@
     <StiLostPointsOnPageCheckShort>Потерянные точки</StiLostPointsOnPageCheckShort>
     <StiOrientationPageCheckLongLandscape>Ориентация страницы '{0}' не совпадает с указанными размерами страницы. Обычно, для альбомной ориентации страницы, ширина страницы должна быть больше, чем высота страницы. У указанной страницы ширина страницы меньше высоты. Это может привести к проблемам при выводе на печать данной страницы.</StiOrientationPageCheckLongLandscape>
     <StiOrientationPageCheckLongPortrait>Ориентация страницы '{0}' не совпадает с указанными размерами страницы. Обычно, для портретной ориентации страницы, ширина страницы должна быть меньше, чем высота страницы. У указанной страницы ширина страницы больше высоты. Это может привести к проблемам при выводе на печать данной страницы.</StiOrientationPageCheckLongPortrait>
-    <StiOrientationPageCheckShort>Возможно неверная ориентация страницы '{0}'.</StiOrientationPageCheckShort>
+    <StiOrientationPageCheckShort>Возможно неверная ориентация страницы '{0}'</StiOrientationPageCheckShort>
   </CheckPage>
   <CheckReport>
     <StiCategoryRequestFromUserCheckLong>Категории переменных '{0}' не могут отображаться на панели параметров во вьювере, поскольку это возможно только в том случае, если свойство отчета "Расположение параметров" установлено в значение "Вертикальный".</StiCategoryRequestFromUserCheckLong>
@@ -268,9 +289,9 @@
     <StiDuplicatedReportName2CheckLong>Имя отчёта '{0}' совпадает с именем источника данных.</StiDuplicatedReportName2CheckLong>
     <StiDuplicatedReportNameCheckLong>Имя отчёта '{0}' совпадает с именем компонента.</StiDuplicatedReportNameCheckLong>
     <StiFontNotEmbeddableCheckLong>Файл шрифта '{0}' не найден, шрифт не будет встроен в PDF файл. Шрифт встречается в компонентах: {1}</StiFontNotEmbeddableCheckLong>
-    <StiFontNotEmbeddableCheckShort>Шрифт не может быть встроен в PDF файл.</StiFontNotEmbeddableCheckShort>
+    <StiFontNotEmbeddableCheckShort>Шрифт не может быть встроен в PDF файл</StiFontNotEmbeddableCheckShort>
     <StiFontStyleNotAvailableCheckLong>Шрифт '{0}' не содержит начертание '{1}', при экспорте в PDF оно будет эмулировано. Шрифт встречается в компонентах: {2}</StiFontStyleNotAvailableCheckLong>
-    <StiFontStyleNotAvailableCheckShort>Начертание шрифта недоступно.</StiFontStyleNotAvailableCheckShort>
+    <StiFontStyleNotAvailableCheckShort>Начертание шрифта недоступно</StiFontStyleNotAvailableCheckShort>
     <StiMainPageMissingCheckLong>Отчёт не может быть построен, т.к. невозможно определить главную страницу. Проверьте ссылки на страницы в SubReports и DrillDown.</StiMainPageMissingCheckLong>
     <StiMainPageMissingCheckShort>Отсутствует главная страница</StiMainPageMissingCheckShort>
     <StiNetCoreCompilationModeCheckLong>Stimulsoft .NET Core генератор не может построить отчёт в режиме компиляции. Переключите отчёт в режим интерпретации.</StiNetCoreCompilationModeCheckLong>
@@ -281,16 +302,18 @@
     <StiScriptExecutionErrorCheck3Long>Ошибка выполнения сценария произошла в событии '{1}' компонента '{2}'.</StiScriptExecutionErrorCheck3Long>
     <StiScriptExecutionErrorCheckLong>Ошибка выполнения сценария произошла.</StiScriptExecutionErrorCheckLong>
     <StiScriptExecutionErrorCheckShort>Ошибка выполнения сценария</StiScriptExecutionErrorCheckShort>
+    <StiStyleNegativeBorderSizeCheckLong>У стиля '{0}' отрицательный размер границы: {1}. Размер границы не может быть меньше 0.</StiStyleNegativeBorderSizeCheckLong>
+    <StiStyleNegativeBorderSizeCheckShort>Отрицательный размер границы в стиле</StiStyleNegativeBorderSizeCheckShort>
   </CheckReport>
   <CheckVariable>
     <StiVariableInitializationCheckLong>Переменная '{0}' имеет неправильное значение по умолчанию. Невозможно инициализировать переменную указанным значением.</StiVariableInitializationCheckLong>
     <StiVariableInitializationCheckShort>Начальное значение</StiVariableInitializationCheckShort>
     <StiVariableNameCheckLong>Наименование переменной '{0}' нельзя использовать, поскольку оно зарезервировано.</StiVariableNameCheckLong>
-    <StiVariableNameCheckShort>Недопустимое наименование переменной.</StiVariableNameCheckShort>
+    <StiVariableNameCheckShort>Недопустимое наименование переменной</StiVariableNameCheckShort>
     <StiVariableRecursionCheckLong>Переменная '{0}' содержит выражение с рекурсией. Нельзя ссылаться на переменную в выражении этой же переменной.</StiVariableRecursionCheckLong>
     <StiVariableRecursionCheckShort>Рекурсивное выражение</StiVariableRecursionCheckShort>
     <StiVariableTypeCheckLong>Чтобы зависимые переменные работали правильно, их типы и типы их столбцов должны совпадать.</StiVariableTypeCheckLong>
-    <StiVariableTypeCheckShort>Типы переменных не совпадают.</StiVariableTypeCheckShort>
+    <StiVariableTypeCheckShort>Типы переменных не совпадают</StiVariableTypeCheckShort>
   </CheckVariable>
   <Font>
     <Bold>Значение определяет, что текст жирный.</Bold>
@@ -2004,14 +2027,14 @@
     <BackColor>Цвет фона.</BackColor>
     <DataColumn>Имя колонки, которая содержит RTF текст.</DataColumn>
     <DataUrl>Выражение для заполнения RTF текста компонента.</DataUrl>
-    <DetectUrls>Определение гиперссылок в Rich тексте.</DetectUrls>
+    <DetectUrls>Определение гиперссылок в форматированном тексте.</DetectUrls>
     <FullConvertExpression>Значение определяет, что необходимо полностью конвертировать выражение в формат RTF. Полное преобразование выражений замедляет построение отчета.</FullConvertExpression>
     <Margins>Границы текста (слева, справа, сверху, снизу).</Margins>
     <WordWrap>Перенос текста.</WordWrap>
     <Wysiwyg>Значение, которое определяет, что будет использоваться Wysiwyg режим отображения компонента.</Wysiwyg>
   </StiRichText>
   <StiRichTextBoxControl>
-    <Text>Текущий текст в RichTextBox.</Text>
+    <Text>Текущий текст в поле форматированного текста.</Text>
   </StiRichTextBoxControl>
   <StiRoundedRectanglePrimitive>
     <Round>Коэффициент скругления.</Round>

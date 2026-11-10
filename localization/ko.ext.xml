@@ -18,6 +18,7 @@
     <SetGrowToHeightToTrue>GrowToHeight 속성을 true로 설정합니다.</SetGrowToHeightToTrue>
     <StiAllowHtmlTagsInTextActionLong>HTML 태그를 올바르게 표시하기 위해 구성 요소의 AllowHtmlTags 속성 값을 true로 설정합니다.</StiAllowHtmlTagsInTextActionLong>
     <StiAllowOnDoublePassActionLong>변수의 올바른 계산을 위해 NumberOfPass 속성을 DoublePass로 설정합니다.</StiAllowOnDoublePassActionLong>
+    <StiAllowVariableAsSqlParameterActionLong>변수를 SQL 매개 변수로 사용할 수 있도록 허용하여 해당 값이 쿼리에 전달되도록 합니다.</StiAllowVariableAsSqlParameterActionLong>
     <StiApplyGeneralTextFormatLong>'{0}'구성 요소 '일반적인'형식을 설정합니다.</StiApplyGeneralTextFormatLong>
     <StiApplyGeneralTextFormatShort>일반적인 적용</StiApplyGeneralTextFormatShort>
     <StiCanBreakComponentInContainerActionLong>구성 요소 CanBreak 속성 값을 true로 설정합니다.</StiCanBreakComponentInContainerActionLong>
@@ -32,6 +33,7 @@
     <StiDeleteDataSourceActionLong>보고서에서 데이터 소스를 제거합니다.</StiDeleteDataSourceActionLong>
     <StiDeleteLostPointsActionLong>페이지에서 잃어버린 포인트를 모두 삭제</StiDeleteLostPointsActionLong>
     <StiDeletePageActionLong>보고서에서 페이지를 삭제합니다.</StiDeletePageActionLong>
+    <StiFilterVariableAsExpressionActionLong>필터의 데이터 형식을 Expression으로 설정하여 변수 값과 비교하도록 합니다.</StiFilterVariableAsExpressionActionLong>
     <StiFixCrossLinePrimitiveActionLong>잃어버린 포인트 대신에 새로운 포인트를 작성합니다. 이 작업은 100 % 올바른 해결을 보장하지 않습니다!</StiFixCrossLinePrimitiveActionLong>
     <StiGenerateNewNameComponentActionLong>구성 요소의 새 이름을 생성합니다.</StiGenerateNewNameComponentActionLong>
     <StiGenerateNewNameDataSourceActionLong>데이터 소스의 새 이름을 생성합니다.</StiGenerateNewNameDataSourceActionLong>
@@ -58,6 +60,7 @@
     <StiPropertiesOnlyEngineV1ActionLong>EngineV2에서 지원되지 않는 '{0}'구성 요소의 속성을 해제합니다.</StiPropertiesOnlyEngineV1ActionLong>
     <StiPropertiesOnlyEngineV2ActionLong>EngineV1에서 지원되지 않는 구성 요소의 속성을 해제합니다.</StiPropertiesOnlyEngineV2ActionLong>
     <StiResetPageNumberActionLong>페이지의 ResetPageNumber 속성을 false로 설정합니다.</StiResetPageNumberActionLong>
+    <StiStyleNegativeBorderSizeActionLong>스타일의 음수 테두리 크기를 0으로 설정합니다.</StiStyleNegativeBorderSizeActionLong>
     <StiSwitchToParametersVerticalOrientationAction>'매개변수 Orientation' 보고서 속성의 값을 '세로'로 전환합니다.</StiSwitchToParametersVerticalOrientationAction>
     <StiSwitchWidthAndHeightOfPageActionLong>페이지의 높이와 너비를 변경합니다.</StiSwitchWidthAndHeightOfPageActionLong>
     <StiVerySmallSizesOfComponentsLong>구성 요소의 크기는 보고서 GridSize 값으로 증가합니다. 이 작업은 100 % 정확한 수정이 보장되는 것은 아닙니다!</StiVerySmallSizesOfComponentsLong>
@@ -82,13 +85,13 @@
     <StiColumnsWidthGreaterPageWidthCheckLong>'{0}'페이지에 열의 합계 폭이 페이지 너비보다 커지고 있습니다. 이렇게하면 보고서의 렌더링이 제대로 작동하지 않을 수 있습니다. 또한 보고서를 다른 형식으로 내보낼 때 몇 가지 문제가 발생할 수 있습니다.</StiColumnsWidthGreaterPageWidthCheckLong>
     <StiColumnsWidthGreaterPageWidthCheckShort>총 열 너비가 페이지 너비보다</StiColumnsWidthGreaterPageWidthCheckShort>
     <StiComponentBoundsAreOutOfBandLong>'{0}'구성 요소는 완전히 또는 부분적으로 밴드의 바깥에 있습니다. 이 구성 요소는 제대로 인쇄되지 않습니다. 그러나 경우에 따라 구성 요소의 그런 위치는 허용 가능합니다. 또한 보고서를 다른 형식으로 내보낼 때 몇 가지 문제가 발생할 수 있습니다.</StiComponentBoundsAreOutOfBandLong>
-    <StiComponentBoundsAreOutOfBandShort>구성 요소가 부분적으로 밴드를 벗어납니다.</StiComponentBoundsAreOutOfBandShort>
-    <StiComponentExpressionCheckLong>'{1}'의 {0} 속성의 수식은 평가할 수 없습니다!</StiComponentExpressionCheckLong>
-    <StiComponentExpressionCheckShort>식을 계산할 수 없습니다!</StiComponentExpressionCheckShort>
+    <StiComponentBoundsAreOutOfBandShort>구성 요소가 부분적으로 밴드를 벗어납니다</StiComponentBoundsAreOutOfBandShort>
+    <StiComponentExpressionCheckLong>'{1}'의 {0} 속성의 수식은 평가할 수 없습니다.</StiComponentExpressionCheckLong>
+    <StiComponentExpressionCheckShort>식을 계산할 수 없습니다</StiComponentExpressionCheckShort>
     <StiComponentNameIsSystemVariableCheckLong>구성 요소 이름 '{0}'이(가) 시스템 변수 이름과 충돌합니다. 이 시스템 변수를 사용하는 표현식은 구성 요소 참조로 대체되므로 올바르게 작동하지 않습니다.</StiComponentNameIsSystemVariableCheckLong>
     <StiComponentNameIsSystemVariableCheckShort>구성 요소 이름이 시스템 변수 이름과 충돌합니다.</StiComponentNameIsSystemVariableCheckShort>
     <StiComponentResourceCheckLong>구성 요소 '{1}'에 지정된 리소스 '{0}'이 보고서 사전에 찾을 수 없습니다.</StiComponentResourceCheckLong>
-    <StiComponentResourceCheckShort>지정된 리소스를 찾을 수 없습니다!</StiComponentResourceCheckShort>
+    <StiComponentResourceCheckShort>지정된 리소스를 찾을 수 없습니다</StiComponentResourceCheckShort>
     <StiComponentStyleIsNotFoundCheckAtPageLong>'{0}'페이지에 지정된 스타일이 존재하지 않습니다.</StiComponentStyleIsNotFoundCheckAtPageLong>
     <StiComponentStyleIsNotFoundCheckLong>'{0}'구성 요소에 지정된 스타일이 존재하지 않습니다.</StiComponentStyleIsNotFoundCheckLong>
     <StiComponentStyleIsNotFoundCheckShort>지정된 스타일은 존재하지 않습니다.</StiComponentStyleIsNotFoundCheckShort>
@@ -107,26 +110,34 @@
     <StiEventsAtInterpretationCheckLong>'{1}'구성 요소에서 '{0}'이벤트의 스크립트가 해석 모드에서 작동하지 않습니다.</StiEventsAtInterpretationCheckLong>
     <StiEventsAtInterpretationCheckShort>해석 이벤트</StiEventsAtInterpretationCheckShort>
     <StiExpressionElementCheckLong>'{1}'구성 요소의 '{0}'표현식이 잘못 작동합니다. 파서에서 '{2}'메시지가 수신되었습니다.</StiExpressionElementCheckLong>
-    <StiExpressionElementCheckShort>식이 잘못 작동합니다!</StiExpressionElementCheckShort>
+    <StiExpressionElementCheckShort>식이 잘못 작동합니다</StiExpressionElementCheckShort>
+    <StiFilterAfterLoadingCheckLong>데이터 밴드 '{0}'은(는) 데이터베이스에서 모든 행을 로드한 후 데이터 원본 '{1}'의 행을 변수 '{2}'(으)로 필터링합니다. 큰 테이블의 경우 쿼리에서 필터링하십시오. 매개 변수 @{2}를 사용하는 조건을 쿼리에 추가하고 변수를 SQL 매개 변수로 사용할 수 있도록 허용하십시오.</StiFilterAfterLoadingCheckLong>
+    <StiFilterAfterLoadingCheckShort>행이 로드된 후 필터링됩니다</StiFilterAfterLoadingCheckShort>
     <StiFilterCircularDependencyElementCheckLong>필터의 순환 종속성은 '{0}' 요소에 있습니다. {0} '요소'의 '부모 키' 속성을 확인하세요!</StiFilterCircularDependencyElementCheckLong>
     <StiFilterCircularDependencyElementCheckShort>원형 필터 종속성입니다</StiFilterCircularDependencyElementCheckShort>
+    <StiFilterColumnNotFoundCheckLong>구성 요소 '{0}'의 필터가 열 '{1}'을(를) 사용하지만 데이터 원본 '{2}'에는 이 열이 없습니다. 필터를 처리할 수 없습니다.</StiFilterColumnNotFoundCheckLong>
+    <StiFilterColumnNotFoundCheckShort>필터 열을 찾을 수 없습니다</StiFilterColumnNotFoundCheckShort>
     <StiFilterValueCheckLong>필터 값 '{0}'이(가) 지정되지 않았습니다. 이 필터는 처리할 수 없습니다.</StiFilterValueCheckLong>
     <StiFilterValueCheckShort>필터 값이 지정되지 않았습니다</StiFilterValueCheckShort>
+    <StiFilterValueTypeCheckLong>구성 요소 '{0}'의 필터가 값 '{1}'과(와) 비교하지만 이 값은 {2} 형식의 값이 아닙니다. 대신 필터가 기본값(0, 현재 날짜 또는 false)과 비교하므로 밴드에 다른 행이 표시됩니다.</StiFilterValueTypeCheckLong>
+    <StiFilterValueTypeCheckShort>필터 값이 데이터 형식과 일치하지 않습니다</StiFilterValueTypeCheckShort>
+    <StiFilterVariableAsTextCheckLong>구성 요소 '{0}'의 필터가 변수 '{1}'과(와) 비교하지만 데이터 형식이 {2}이므로 변수 값이 아니라 이름을 텍스트로 비교합니다. 필터의 데이터 형식을 Expression으로 설정하십시오.</StiFilterVariableAsTextCheckLong>
+    <StiFilterVariableAsTextCheckShort>필터가 변수를 텍스트로 처리합니다</StiFilterVariableAsTextCheckShort>
     <StiFontGlyphsMissingCheckLong>구성 요소 '{1}'의 글꼴 '{0}'에 다음 문자의 글리프가 없습니다: {2}. 이 문자는 PDF 파일에서 빈 사각형으로 표시됩니다.</StiFontGlyphsMissingCheckLong>
-    <StiFontGlyphsMissingCheckShort>글꼴에 텍스트의 글리프가 없습니다.</StiFontGlyphsMissingCheckShort>
+    <StiFontGlyphsMissingCheckShort>글꼴에 텍스트의 글리프가 없습니다</StiFontGlyphsMissingCheckShort>
     <StiFontMissingCheckLong>구성 요소 '{1}'에 지정된 글꼴 '{0}'를 찾을 수 없습니다.</StiFontMissingCheckLong>
-    <StiFontMissingCheckShort>글꼴을 찾을 수 없습니다.</StiFontMissingCheckShort>
+    <StiFontMissingCheckShort>글꼴을 찾을 수 없습니다</StiFontMissingCheckShort>
     <StiFunctionsOnlyForEngineV2CheckLong>EngineV1에서 사용할 수없는 시스템 변수가 보고서에서 사용됩니다. EngineV2을 사용 하시겠습니까?</StiFunctionsOnlyForEngineV2CheckLong>
-    <StiFunctionsOnlyForEngineV2CheckShort>EngineV1에서 사용할 수없는 변수가 사용됩니다.</StiFunctionsOnlyForEngineV2CheckShort>
+    <StiFunctionsOnlyForEngineV2CheckShort>EngineV1에서 사용할 수없는 변수가 사용됩니다</StiFunctionsOnlyForEngineV2CheckShort>
     <StiGroupHeaderNotEqualToGroupFooterOnContainerLong>GroupFooter 수가 '{0}'컨테이너의 GroupHeader의 수에 대응하고 있지 않습니다. 홀수의 구성 요소는 렌더링되지 않습니다.</StiGroupHeaderNotEqualToGroupFooterOnContainerLong>
     <StiGroupHeaderNotEqualToGroupFooterOnPageLong>GroupFooter 수가 '{0}'페이지의 GroupHeader의 수에 대응하고 있지 않습니다. 홀수 성분은 렌더링되지 않습니다.</StiGroupHeaderNotEqualToGroupFooterOnPageLong>
     <StiGroupHeaderNotEqualToGroupFooterShort>일부 구성 요소는 렌더링되지 않습니다.</StiGroupHeaderNotEqualToGroupFooterShort>
     <StiGroupHeaderSummaryExpressionCheckLong>요약그룹 헤더 {0}에 대한 식에 집계 함수가 포함되어 있지만 이 함수는 별도의 속성에 설정되어 있습니다. 보고서를 생성할 수 없습니다.</StiGroupHeaderSummaryExpressionCheckLong>
     <StiGroupHeaderSummaryExpressionCheckShort>식에 잘못된 함수가 있습니다.</StiGroupHeaderSummaryExpressionCheckShort>
     <StiGrowToHeightOverlappingLong>'{0}'구성 요소의 GrowToHeight 속성이 true로 설정되어 있습니다. 보고서를 렌더링 할 때이 구성 요소는 하나 이상의 기본 구성 요소와 겹치는 수 있습니다.</StiGrowToHeightOverlappingLong>
-    <StiGrowToHeightOverlappingShort>구성 요소를 오버랩시킬 수 있습니다.</StiGrowToHeightOverlappingShort>
+    <StiGrowToHeightOverlappingShort>구성 요소를 오버랩시킬 수 있습니다</StiGrowToHeightOverlappingShort>
     <StiInsufficientTextHeightForOneLineCheckLong>텍스트 구성 요소 {0}의 높이가 텍스트 한 줄에 대해 너무 작습니다. 이로 인해 일부 형식으로 내보내거나 웹에서 인쇄하는 데 문제가 발생할 수 있습니다. 높이를 높이거나 CanGrow 속성을 true로 설정하는 것이 좋습니다.</StiInsufficientTextHeightForOneLineCheckLong>
-    <StiInsufficientTextHeightForOneLineCheckShort>한 줄에 대한 높이가 부족합니다.</StiInsufficientTextHeightForOneLineCheckShort>
+    <StiInsufficientTextHeightForOneLineCheckShort>한 줄에 대한 높이가 부족합니다</StiInsufficientTextHeightForOneLineCheckShort>
     <StiIsFirstPageIsLastPageDoublePassCheckLong>IsFirstPage, IsFirstPageThrough, IsLastPage, IsLastPageThrough 시스템 변수는 1 회 통과하면 잘못된 결과를 반환합니다. NumberOfPass 속성을 DoublePass로 설정해야합니다.</StiIsFirstPageIsLastPageDoublePassCheckLong>
     <StiIsFirstPageIsLastPageDoublePassCheckShort>더블 패스가 필요한 시스템 변수는 보고서</StiIsFirstPageIsLastPageDoublePassCheckShort>
     <StiIsFirstPassIsSecondPassCheckLong>IsFirstPass의 올바른 작업을 위해, IsSecondPass 함수는 보고서의 렌더링 더블패스이 필요합니다. 보고서 NumberOfPass 속성을 DoublePass로 설정하는 것을 잊었다 수 있습니다.</StiIsFirstPassIsSecondPassCheckLong>
@@ -140,7 +151,7 @@
     <StiMinRowsInColumnsCheckLong>밴드의 MinRowsInColumns 속성은 0으로 설정되어 있지 않지만 Columns 속성의 값은 0으로 설정되어 있습니다. 이것은 무의미합니다.</StiMinRowsInColumnsCheckLong>
     <StiMinRowsInColumnsCheckShort>MinRowsInColumns 속성이 올바르게 설정되어 있지 않을 수 있습니다</StiMinRowsInColumnsCheckShort>
     <StiNegativeSizesOfComponentsCheckLong>'{0}'구성 요소의 폭과 높이에 음수 값이 있습니다. 이렇게하면 보고서의 렌더링이 제대로되지 않을 수 있습니다.</StiNegativeSizesOfComponentsCheckLong>
-    <StiNegativeSizesOfComponentsCheckShort>컴퍼넌트의 폭과 높이에 음수 값이 있습니다.</StiNegativeSizesOfComponentsCheckShort>
+    <StiNegativeSizesOfComponentsCheckShort>컴퍼넌트의 폭과 높이에 음수 값이 있습니다</StiNegativeSizesOfComponentsCheckShort>
     <StiNoConditionAtGroupCheckLong>'{0}'구성 요소에 조건이 설정되어 있지 않습니다. 그것없이 그룹화되지 않습니다</StiNoConditionAtGroupCheckLong>
     <StiNoConditionAtGroupCheckShort>그룹의 조건이 설정되어 있지 않습니다.</StiNoConditionAtGroupCheckShort>
     <StiNoNameComponentCheckLong>요소에 이름이 없습니다. 구성 요소의 이름을 지정하면 보고서 엔진 보고서를 컴파일 할 수 없습니다.</StiNoNameComponentCheckLong>
@@ -150,7 +161,7 @@
     <StiPageFooterOnlyLastPageCheckLong>PrintOn=OnlyLastPage 속성이 설정된 밴드 {0}는 페이지 하단에 원치 않는 여백을 생성할 수 있습니다. ReportSummary로 교체하는 것을 권장합니다.</StiPageFooterOnlyLastPageCheckLong>
     <StiPageFooterOnlyLastPageCheckShort>여백이 발생할 가능성</StiPageFooterOnlyLastPageCheckShort>
     <StiPageLineAndDoublePassCheckLong>시스템 변수 PageLine은 보고서 엔진의 이중 패스(Double-Pass)를 필요로 합니다.</StiPageLineAndDoublePassCheckLong>
-    <StiPageLineAndDoublePassCheckShort>PageLine은 이중 패스가 필요합니다!</StiPageLineAndDoublePassCheckShort>
+    <StiPageLineAndDoublePassCheckShort>PageLine은 이중 패스가 필요합니다</StiPageLineAndDoublePassCheckShort>
     <StiPanelInEngineV1CheckLong>'{0}'패널은 EngineV1가 사용되는 보고서입니다. 이 구성 요소는 EngineV1는 사용할 수 없습니다. 따라서 보고서 도구는 컨테이너 구성 요소로 렌더링하려고합니다. 그러나 Panel 구성 요소는 Container에 비해 더 많은 기능을 가지고 잘못된 보고서 렌더링을 일으킬 수 있습니다.</StiPanelInEngineV1CheckLong>
     <StiPanelInEngineV1CheckShort>EngineV1 패널</StiPanelInEngineV1CheckShort>
     <StiPrintHeadersAndFootersFromPreviousPageLong>'{0}'페이지의 PrintHeadersAndFootersFromPreviousPage 속성이 true로 설정되어 있습니다. 그러나 첫 유일한 페이지에서는 의미가 없습니다.</StiPrintHeadersAndFootersFromPreviousPageLong>
@@ -158,7 +169,7 @@
     <StiPrintOnDoublePassCheckLong>'{0}'구성 요소의 PrintOn 속성이 AllPages에 설정되어 있지 않습니다. 보고서를 올바르게 표시하려면 더블패스를 활성화해야합니다.</StiPrintOnDoublePassCheckLong>
     <StiPrintOnDoublePassCheckShort>PrintOn 속성이 AllPages로 설정되지 않은</StiPrintOnDoublePassCheckShort>
     <StiPrintOnPreviousPageCheck2Long>'{0}'페이지의 PrintOnPreviousPage 속성이 true로 설정되어 있습니다. 이 페이지에있는 모든 요소 (밴드 제외)는 다음 새 페이지에서만 인쇄되거나 새로운 페이지가 없으면 전혀 인쇄되지 않습니다.</StiPrintOnPreviousPageCheck2Long>
-    <StiPrintOnPreviousPageCheck2Short>일부 구성 요소가 인쇄되지 않을 수 있습니다.</StiPrintOnPreviousPageCheck2Short>
+    <StiPrintOnPreviousPageCheck2Short>일부 구성 요소가 인쇄되지 않을 수 있습니다</StiPrintOnPreviousPageCheck2Short>
     <StiPrintOnPreviousPageCheckLong>'{0}'페이지의 PrintOnPreviousPage 속성이 true로 설정되어 있습니다. 그러나 첫 유일한 페이지에서는 의미가 없습니다.</StiPrintOnPreviousPageCheckLong>
     <StiPrintOnPreviousPageCheckShort>PrintOnPreviousPage 속성이 올바르게 설정되어 있지 않을 수 있습니다.</StiPrintOnPreviousPageCheckShort>
     <StiPropertiesOnlyEngineV1CheckLong>'{0}'구성 요소의 StartNewPage 속성은 EngineV1에서만 지원되고 있습니다.</StiPropertiesOnlyEngineV1CheckLong>
@@ -168,7 +179,7 @@
     <StiResetPageNumberCheckLong>'{0}'페이지의 ResetPageNumber 속성이 true로 설정되어 있습니다. 그러나 첫 유일한 페이지에서는 의미가 없습니다.</StiResetPageNumberCheckLong>
     <StiResetPageNumberCheckShort>ResetPageNumber 속성이 올바르게 설정되어 있지 않을 수 있습니다</StiResetPageNumberCheckShort>
     <StiRtlTextWithoutRightToLeftCheckLong>구성 요소 '{0}'에 오른쪽에서 왼쪽으로 쓰는 텍스트가 있지만 RightToLeft 텍스트 옵션이 비활성화되어 있습니다.</StiRtlTextWithoutRightToLeftCheckLong>
-    <StiRtlTextWithoutRightToLeftCheckShort>RightToLeft 옵션이 비활성화된 RTL 텍스트.</StiRtlTextWithoutRightToLeftCheckShort>
+    <StiRtlTextWithoutRightToLeftCheckShort>RightToLeft 옵션이 비활성화된 RTL 텍스트</StiRtlTextWithoutRightToLeftCheckShort>
     <StiShowInsteadNullValuesCheckLong>'{0}'구성 요소에 NullValues ​​속성이 설정되어 있습니다. 그러나 DataColumn 속성은 설정되어 있지 않습니다. 이것은 무의미합니다.</StiShowInsteadNullValuesCheckLong>
     <StiShowInsteadNullValuesCheckShort>NullValues ​​속성이 설정되어있는</StiShowInsteadNullValuesCheckShort>
     <StiSubReportPageZeroCheckLong>SubReport 구성 요소 SubReportPage 속성이 설정되어 있지 않은 경우, 보고서는 렌더링 할 수 없습니다.</StiSubReportPageZeroCheckLong>
@@ -180,7 +191,7 @@
     <StiTextTextFormatCheckLong>'{0}'구성 요소에 대해 선택한 형식이 지정되지 않았습니다.</StiTextTextFormatCheckLong>
     <StiTextTextFormatCheckShort>텍스트 형식을 적용 할 수 없습니다</StiTextTextFormatCheckShort>
     <StiTextTextFormatFieldCheckLong>{0} 구성 요소에 사용된 열이 날짜 유형이 아닙니다. 보고서 속도를 늦추지 않고 올바른 형식을 확인하려면 형식을 일반으로 변경하는 것이 좋습니다.</StiTextTextFormatFieldCheckLong>
-    <StiTextTextFormatFieldCheckShort>선택한 형식이 데이터 열 유형과 호환되지 않습니다.</StiTextTextFormatFieldCheckShort>
+    <StiTextTextFormatFieldCheckShort>선택한 형식이 데이터 열 유형과 호환되지 않습니다</StiTextTextFormatFieldCheckShort>
     <StiTotalPageCountDoublePassCheckLong>스크립트 및 조건 TotalPageCount, TotalPageCountThrough 시스템 변수는 1 회 통과하면 잘못된 결과를 반환합니다. NumberOfPass 속성을 DoublePass로 설정해야합니다.</StiTotalPageCountDoublePassCheckLong>
     <StiUndefinedComponentCheckLong>정의되지 않은 '{0}'구성 요소가 보고서를 찾았습니다. 보고서 도구는이 구성 요소를 식별 할 수 없습니다. 아마 이것은 사용자 정의 구성 요소입니다. 보고서는 표시되지 않습니다!</StiUndefinedComponentCheckLong>
     <StiUndefinedComponentCheckShort>정의되지 않은 구성 요소</StiUndefinedComponentCheckShort>
@@ -224,8 +235,18 @@
     <StiNoNameDataSourceCheckShort>데이터 소스의 이름이 아닙니다</StiNoNameDataSourceCheckShort>
     <StiNoNameInSourceDataSourceCheckLong>'{0}'데이터 소스의 NameInSource 필드가 입력되어 있지 않습니다. 이 필드를 채울 수없이보고 도구는 데이터베이스의 데이터 소스의 데이터를 찾을 수 없으며 보고서는 렌더링되지 않습니다!</StiNoNameInSourceDataSourceCheckLong>
     <StiNoNameInSourceDataSourceCheckShort>데이터 소스 필드의 NameInSource이 충족되지 않은</StiNoNameInSourceDataSourceCheckShort>
+    <StiSqlParameterDuplicateCheckLong>데이터 원본 '{0}'에 이름이 '{1}'인 매개 변수가 여러 개 있습니다. 쿼리를 실행할 수 없습니다.</StiSqlParameterDuplicateCheckLong>
+    <StiSqlParameterDuplicateCheckShort>SQL 매개 변수가 중복되었습니다</StiSqlParameterDuplicateCheckShort>
+    <StiSqlParameterNotFoundCheckLong>데이터 원본 '{0}'의 쿼리가 매개 변수 @{1}을(를) 사용하지만 데이터 원본에 이 매개 변수가 없고 보고서에도 이 이름의 변수가 없습니다. 보고서를 생성할 때 쿼리가 실패합니다.</StiSqlParameterNotFoundCheckLong>
+    <StiSqlParameterNotFoundCheckShort>쿼리가 정의되지 않은 매개 변수를 사용합니다</StiSqlParameterNotFoundCheckShort>
+    <StiSqlParameterVariableNotFoundCheckLong>데이터 원본 '{0}'의 매개 변수 '{1}'은(는) '{2}'에서 값을 가져오지만 보고서에 이 이름의 변수가 없습니다. 쿼리가 이 매개 변수의 값을 받지 못합니다.</StiSqlParameterVariableNotFoundCheckLong>
+    <StiSqlParameterVariableNotFoundCheckShort>매개 변수가 없는 변수를 참조합니다</StiSqlParameterVariableNotFoundCheckShort>
+    <StiSqlVariableNotAllowedCheckLong>데이터 원본 '{0}'의 쿼리가 매개 변수 @{1}을(를) 사용합니다. 보고서에 변수 '{1}'이(가) 있지만 SQL 매개 변수로 사용할 수 없으므로 값이 쿼리에 전달되지 않고 쿼리가 실패합니다.</StiSqlVariableNotAllowedCheckLong>
+    <StiSqlVariableNotAllowedCheckShort>변수를 SQL 매개 변수로 사용할 수 없습니다</StiSqlVariableNotAllowedCheckShort>
     <StiUndefinedDataSourceCheckLong>정의되지 않은 '{0}'데이터 소스가 보고서에 발견. 보고서 도구는 이러한 종류의 데이터 소스를 제대로 처리 할 수 ​​없습니다. 아마 사용자 정의 데이터 소스가 보고서에서 사용 될 수 있습니다. 이 보고서는 렌더링 할 수 없습니다!</StiUndefinedDataSourceCheckLong>
     <StiUndefinedDataSourceCheckShort>정의되지 않은 데이터 소스</StiUndefinedDataSourceCheckShort>
+    <StiUnusedSqlDataSourceCheckLong>데이터 원본 '{0}'은(는) 보고서에서 사용되지 않지만 보고서를 생성할 때마다 해당 쿼리가 실행됩니다. ConnectOnStart 속성을 끄거나, 데이터 원본을 삭제하거나, 보고서의 RetrieveOnlyUsedData 속성을 설정하십시오.</StiUnusedSqlDataSourceCheckLong>
+    <StiUnusedSqlDataSourceCheckShort>사용되지 않는 데이터 원본이 로드됩니다</StiUnusedSqlDataSourceCheckShort>
   </CheckDataSource>
   <CheckGlobal>
     <Error>오류!</Error>
@@ -242,7 +263,7 @@
     <StiLostPointsOnPageCheckShort>잃어버린 포인트</StiLostPointsOnPageCheckShort>
     <StiOrientationPageCheckLongLandscape>'{0}'페이지 방향이 지정된 페이지 크기와 일치하지 않습니다. 일반적으로 가로 경우 페이지의 너비는 페이지의 높이보다 커야합니다. 이 페이지의 폭이 높이보다 작습니다. 이 페이지를 인쇄 할 때 문제가 발생할 수 있습니다.</StiOrientationPageCheckLongLandscape>
     <StiOrientationPageCheckLongPortrait>'{0}'페이지 방향이 지정된 페이지 크기와 일치하지 않습니다. 일반적으로 세로 방향의 경우 페이지의 너비는 페이지의 높이보다 작아야합니다. 이 페이지의 폭이 높이보다 크다. 이 페이지를 인쇄 할 때 문제가 발생할 수 있습니다.</StiOrientationPageCheckLongPortrait>
-    <StiOrientationPageCheckShort>페이지 방향이 {0}에서 잘못된 것입니다.</StiOrientationPageCheckShort>
+    <StiOrientationPageCheckShort>페이지 방향이 {0}에서 잘못된 것입니다</StiOrientationPageCheckShort>
   </CheckPage>
   <CheckReport>
     <StiCategoryRequestFromUserCheckLong>'{0}' 변수의 카테고리는 'ParametersOrientation' 보고서 속성의 값이 'Vertical'로 설정된 경우에만 가능하기 때문에 뷰어의 매개변수 패널에 표시할 수 없습니다.</StiCategoryRequestFromUserCheckLong>
@@ -268,9 +289,9 @@
     <StiDuplicatedReportName2CheckLong>보고서 이름 '{0}'은(는) 데이터소스 이름과 동일합니다.</StiDuplicatedReportName2CheckLong>
     <StiDuplicatedReportNameCheckLong>보고서 이름 '{0}'은(는) 구성 요소 이름과 동일합니다.</StiDuplicatedReportNameCheckLong>
     <StiFontNotEmbeddableCheckLong>글꼴 '{0}' 글꼴 파일을 찾을 수 없으므로 글꼴이 PDF 파일에 포함되지 않습니다. 글꼴이 다음 구성 요소에서 사용됩니다: {1}</StiFontNotEmbeddableCheckLong>
-    <StiFontNotEmbeddableCheckShort>글꼴을 PDF 파일에 포함할 수 없습니다.</StiFontNotEmbeddableCheckShort>
+    <StiFontNotEmbeddableCheckShort>글꼴을 PDF 파일에 포함할 수 없습니다</StiFontNotEmbeddableCheckShort>
     <StiFontStyleNotAvailableCheckLong>글꼴 '{0}'에 '{1}' 스타일이 없으므로 PDF 내보내기 시 에뮬레이트됩니다. 글꼴이 다음 구성 요소에서 사용됩니다: {2}</StiFontStyleNotAvailableCheckLong>
-    <StiFontStyleNotAvailableCheckShort>글꼴 스타일을 사용할 수 없습니다.</StiFontStyleNotAvailableCheckShort>
+    <StiFontStyleNotAvailableCheckShort>글꼴 스타일을 사용할 수 없습니다</StiFontStyleNotAvailableCheckShort>
     <StiMainPageMissingCheckLong>기본 페이지를 확인할 수 없어 보고서를 렌더링할 수 없습니다. SubReport 및 DrillDown의 페이지 참조를 확인하세요.</StiMainPageMissingCheckLong>
     <StiMainPageMissingCheckShort>기본 페이지가 없습니다</StiMainPageMissingCheckShort>
     <StiNetCoreCompilationModeCheckLong>Stimulsoft .NET Core 엔진이 컴파일 모드에서 이 보고서를 렌더링 할 수 없습니다. 보고서를 해석 모드로 변경하십시오.</StiNetCoreCompilationModeCheckLong>
@@ -281,16 +302,18 @@
     <StiScriptExecutionErrorCheck3Long>'{2}' 구성 요소의 '{1}' 이벤트에서 스크립트 실행 오류가 발생했습니다.</StiScriptExecutionErrorCheck3Long>
     <StiScriptExecutionErrorCheckLong>스크립트 실행 오류가 발생했습니다.</StiScriptExecutionErrorCheckLong>
     <StiScriptExecutionErrorCheckShort>스크립트 실행 오류</StiScriptExecutionErrorCheckShort>
+    <StiStyleNegativeBorderSizeCheckLong>스타일 '{0}'의 테두리 크기가 음수입니다: {1}. 테두리 크기는 0보다 작을 수 없습니다.</StiStyleNegativeBorderSizeCheckLong>
+    <StiStyleNegativeBorderSizeCheckShort>스타일의 테두리 크기가 음수입니다</StiStyleNegativeBorderSizeCheckShort>
   </CheckReport>
   <CheckVariable>
     <StiVariableInitializationCheckLong>'{0}' 변수의 기본값이 잘못되었습니다. 지정한 값으로 변수를 초기화할 수 없습니다.</StiVariableInitializationCheckLong>
     <StiVariableInitializationCheckShort>초기화 값입니다.</StiVariableInitializationCheckShort>
     <StiVariableNameCheckLong>변수 이름 "{0}"은(는) 예약된 이름이기 때문에 사용할 수 없습니다.</StiVariableNameCheckLong>
-    <StiVariableNameCheckShort>변수 이름이 유효하지 않습니다.</StiVariableNameCheckShort>
+    <StiVariableNameCheckShort>변수 이름이 유효하지 않습니다</StiVariableNameCheckShort>
     <StiVariableRecursionCheckLong>'{0}'변수는 재귀를 수반하는 식입니다. Variable을 자신의 식에서 참조하는 것은 불가능합니다.</StiVariableRecursionCheckLong>
     <StiVariableRecursionCheckShort>재귀 식</StiVariableRecursionCheckShort>
     <StiVariableTypeCheckLong>종속 변수가 올바르게 작동하려면 해당 변수의 유형과 해당 열의 유형이 일치해야 합니다.</StiVariableTypeCheckLong>
-    <StiVariableTypeCheckShort>변수 유형이 일치하지 않음.</StiVariableTypeCheckShort>
+    <StiVariableTypeCheckShort>변수 유형이 일치하지 않음</StiVariableTypeCheckShort>
   </CheckVariable>
   <Font>
     <Bold>이 Font가 굵게 여부를 나타내는 값</Bold>

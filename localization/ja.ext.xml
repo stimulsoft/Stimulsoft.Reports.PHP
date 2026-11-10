@@ -18,6 +18,7 @@
     <SetGrowToHeightToTrue>GrowToHeightプロパティをtrueに設定します。</SetGrowToHeightToTrue>
     <StiAllowHtmlTagsInTextActionLong>HTMLタグを正しく表示するために、コンポーネントのAllowHtmlTagsプロパティの値をtrueに設定します。</StiAllowHtmlTagsInTextActionLong>
     <StiAllowOnDoublePassActionLong>変数の正しい計算のためにNumberOfPassプロパティをDoublePassに設定します。</StiAllowOnDoublePassActionLong>
+    <StiAllowVariableAsSqlParameterActionLong>変数を SQL パラメーターとして使用できるようにし、その値がクエリに渡されるようにします。</StiAllowVariableAsSqlParameterActionLong>
     <StiApplyGeneralTextFormatLong>'{0}'コンポーネントの '一般的な'形式を設定します。</StiApplyGeneralTextFormatLong>
     <StiApplyGeneralTextFormatShort>一般的な適用</StiApplyGeneralTextFormatShort>
     <StiCanBreakComponentInContainerActionLong>コンポーネントのCanBreakプロパティの値をtrueに設定します。</StiCanBreakComponentInContainerActionLong>
@@ -32,6 +33,7 @@
     <StiDeleteDataSourceActionLong>レポートからデータソースを削除します。</StiDeleteDataSourceActionLong>
     <StiDeleteLostPointsActionLong>ページ上の失われたポイントをすべて削除する</StiDeleteLostPointsActionLong>
     <StiDeletePageActionLong>レポートからページを削除します。</StiDeletePageActionLong>
+    <StiFilterVariableAsExpressionActionLong>フィルターのデータ型を Expression に設定し、変数の値と比較するようにします。</StiFilterVariableAsExpressionActionLong>
     <StiFixCrossLinePrimitiveActionLong>失われたポイントの代わりに新しいポイントを作成します。この操作では、100％正しい修正が保証されていません！</StiFixCrossLinePrimitiveActionLong>
     <StiGenerateNewNameComponentActionLong>コンポーネントの新しい名前を生成します。</StiGenerateNewNameComponentActionLong>
     <StiGenerateNewNameDataSourceActionLong>データソースの新しい名前を生成します。</StiGenerateNewNameDataSourceActionLong>
@@ -58,6 +60,7 @@
     <StiPropertiesOnlyEngineV1ActionLong>EngineV2でサポートされていない '{0}'コンポーネントのプロパティを無効にします。</StiPropertiesOnlyEngineV1ActionLong>
     <StiPropertiesOnlyEngineV2ActionLong>EngineV1でサポートされていないコンポーネントのプロパティを無効にします。</StiPropertiesOnlyEngineV2ActionLong>
     <StiResetPageNumberActionLong>ページのResetPageNumberプロパティをfalseに設定します。</StiResetPageNumberActionLong>
+    <StiStyleNegativeBorderSizeActionLong>スタイルの負の境界線サイズを 0 に設定します。</StiStyleNegativeBorderSizeActionLong>
     <StiSwitchToParametersVerticalOrientationAction>レポートプロパティ「Parameters Orientation」の値を「Vertical」に変更します。</StiSwitchToParametersVerticalOrientationAction>
     <StiSwitchWidthAndHeightOfPageActionLong>ページの高さと幅を変更します。</StiSwitchWidthAndHeightOfPageActionLong>
     <StiVerySmallSizesOfComponentsLong>コンポーネントのサイズは、レポートのGridSize値に増加します。この操作では、100％正しい修正が保証されるわけではありません！</StiVerySmallSizesOfComponentsLong>
@@ -82,13 +85,13 @@
     <StiColumnsWidthGreaterPageWidthCheckLong>'{0}'ページの列の合計幅がページ幅より大きくなっています。これにより、レポートのレンダリングが正しく行われないことがあります。また、レポートを他の形式にエクスポートする際にいくつかの問題が発生する可能性があります。</StiColumnsWidthGreaterPageWidthCheckLong>
     <StiColumnsWidthGreaterPageWidthCheckShort>合計列幅がページ幅より大きい</StiColumnsWidthGreaterPageWidthCheckShort>
     <StiComponentBoundsAreOutOfBandLong>'{0}'コンポーネントは完全にまたは部分的にバンドの外側にあります。このコンポーネントは正しく印刷されません。しかし、場合によっては、コンポーネントのそのような位置は許容可能です。また、レポートを他の形式にエクスポートする際にいくつかの問題が発生する可能性があります。</StiComponentBoundsAreOutOfBandLong>
-    <StiComponentBoundsAreOutOfBandShort>コンポーネントが部分的にバンド外にあります。</StiComponentBoundsAreOutOfBandShort>
-    <StiComponentExpressionCheckLong>'{1}'の{0}プロパティの式は評価できません！</StiComponentExpressionCheckLong>
-    <StiComponentExpressionCheckShort>式を評価できません！</StiComponentExpressionCheckShort>
+    <StiComponentBoundsAreOutOfBandShort>コンポーネントが部分的にバンド外にあります</StiComponentBoundsAreOutOfBandShort>
+    <StiComponentExpressionCheckLong>'{1}'の{0}プロパティの式は評価できません。</StiComponentExpressionCheckLong>
+    <StiComponentExpressionCheckShort>式を評価できません</StiComponentExpressionCheckShort>
     <StiComponentNameIsSystemVariableCheckLong>コンポーネント名 '{0}' がシステム変数名と競合しています。このシステム変数を使用する式は正しく機能しません。参照がコンポーネント参照に置き換えられるためです。</StiComponentNameIsSystemVariableCheckLong>
     <StiComponentNameIsSystemVariableCheckShort>コンポーネント名がシステム変数名と競合しています。</StiComponentNameIsSystemVariableCheckShort>
     <StiComponentResourceCheckLong>コンポーネント '{1}'に指定されたリソース '{0}'がレポート辞書に見つかりませんでした。</StiComponentResourceCheckLong>
-    <StiComponentResourceCheckShort>指定されたリソースが見つかりませんでした！</StiComponentResourceCheckShort>
+    <StiComponentResourceCheckShort>指定されたリソースが見つかりませんでした</StiComponentResourceCheckShort>
     <StiComponentStyleIsNotFoundCheckAtPageLong>'{0}'ページに指定されたスタイルが存在しません。</StiComponentStyleIsNotFoundCheckAtPageLong>
     <StiComponentStyleIsNotFoundCheckLong>'{0}'コンポーネントに指定されたスタイルが存在しません。</StiComponentStyleIsNotFoundCheckLong>
     <StiComponentStyleIsNotFoundCheckShort>指定されたスタイルは存在しません。</StiComponentStyleIsNotFoundCheckShort>
@@ -107,26 +110,34 @@
     <StiEventsAtInterpretationCheckLong>'{1}'コンポーネントの '{0}'イベントのスクリプトは、解析モードでは機能しません。</StiEventsAtInterpretationCheckLong>
     <StiEventsAtInterpretationCheckShort>解析イベント</StiEventsAtInterpretationCheckShort>
     <StiExpressionElementCheckLong>'{1}'コンポーネントの式 '{0}'は正しく機能しません。 次のメッセージがパーサーから受信されました： '{2}'</StiExpressionElementCheckLong>
-    <StiExpressionElementCheckShort>式が正しく機能しません！</StiExpressionElementCheckShort>
+    <StiExpressionElementCheckShort>式が正しく機能しません</StiExpressionElementCheckShort>
+    <StiFilterAfterLoadingCheckLong>データバンド '{0}' は、データベースからすべての行を読み込んだ後に、データソース '{1}' の行を変数 '{2}' でフィルターしています。大きなテーブルでは、クエリでフィルターしてください。パラメーター @{2} を使う条件をクエリに追加し、変数を SQL パラメーターとして使用できるようにします。</StiFilterAfterLoadingCheckLong>
+    <StiFilterAfterLoadingCheckShort>行は読み込み後にフィルターされます</StiFilterAfterLoadingCheckShort>
     <StiFilterCircularDependencyElementCheckLong>フィルターの循環依存関係が、要素 '{0}'で見つかりました。 {0}要素の「親キー」プロパティを確認してください。</StiFilterCircularDependencyElementCheckLong>
     <StiFilterCircularDependencyElementCheckShort>円形フィルターの依存関係</StiFilterCircularDependencyElementCheckShort>
+    <StiFilterColumnNotFoundCheckLong>コンポーネント '{0}' のフィルターは列 '{1}' を使用していますが、データソース '{2}' にはこの列がありません。フィルターを処理できません。</StiFilterColumnNotFoundCheckLong>
+    <StiFilterColumnNotFoundCheckShort>フィルターの列が見つかりません</StiFilterColumnNotFoundCheckShort>
     <StiFilterValueCheckLong>'{0}'のフィルター値が指定されていません。 このフィルターは処理できません。</StiFilterValueCheckLong>
     <StiFilterValueCheckShort>フィルター値が指定されていません</StiFilterValueCheckShort>
+    <StiFilterValueTypeCheckLong>コンポーネント '{0}' のフィルターは値 '{1}' と比較しますが、これは {2} 型の値ではありません。代わりに既定値 (0、現在の日付、または false) と比較されるため、バンドには別の行が表示されます。</StiFilterValueTypeCheckLong>
+    <StiFilterValueTypeCheckShort>フィルターの値がデータ型と一致しません</StiFilterValueTypeCheckShort>
+    <StiFilterVariableAsTextCheckLong>コンポーネント '{0}' のフィルターは変数 '{1}' と比較しますが、データ型が {2} のため、変数の値ではなく名前をテキストとして比較します。フィルターのデータ型を Expression に設定してください。</StiFilterVariableAsTextCheckLong>
+    <StiFilterVariableAsTextCheckShort>フィルターが変数をテキストとして扱っています</StiFilterVariableAsTextCheckShort>
     <StiFontGlyphsMissingCheckLong>コンポーネント '{1}' のフォント '{0}' には、次の文字のグリフが含まれていません: {2}。これらの文字はPDFファイルで空の四角形として表示されます。</StiFontGlyphsMissingCheckLong>
-    <StiFontGlyphsMissingCheckShort>フォントにテキストのグリフが含まれていません。</StiFontGlyphsMissingCheckShort>
+    <StiFontGlyphsMissingCheckShort>フォントにテキストのグリフが含まれていません</StiFontGlyphsMissingCheckShort>
     <StiFontMissingCheckLong>コンポーネント '{1}'に指定されたフォント '{0}'が見つかりません。</StiFontMissingCheckLong>
-    <StiFontMissingCheckShort>フォントが見つかりません。</StiFontMissingCheckShort>
+    <StiFontMissingCheckShort>フォントが見つかりません</StiFontMissingCheckShort>
     <StiFunctionsOnlyForEngineV2CheckLong>EngineV1で使用できないシステム変数がレポートで使用されます。 EngineV2を使用しますか？</StiFunctionsOnlyForEngineV2CheckLong>
-    <StiFunctionsOnlyForEngineV2CheckShort>EngineV1で使用できない変数が使用されます。</StiFunctionsOnlyForEngineV2CheckShort>
+    <StiFunctionsOnlyForEngineV2CheckShort>EngineV1で使用できない変数が使用されます</StiFunctionsOnlyForEngineV2CheckShort>
     <StiGroupHeaderNotEqualToGroupFooterOnContainerLong>GroupFooterの数が '{0}'コンテナのGroupHeaderの数に対応していません。奇数のコンポーネントはレンダリングされません。</StiGroupHeaderNotEqualToGroupFooterOnContainerLong>
     <StiGroupHeaderNotEqualToGroupFooterOnPageLong>GroupFooterの数が '{0}'ページのGroupHeaderの数に対応していません。奇数成分はレンダリングされません。</StiGroupHeaderNotEqualToGroupFooterOnPageLong>
     <StiGroupHeaderNotEqualToGroupFooterShort>一部のコンポーネントはレンダリングされません。</StiGroupHeaderNotEqualToGroupFooterShort>
     <StiGroupHeaderSummaryExpressionCheckLong>The SummaryExpression for the group header {0} contains an aggregate function, but this function is set in a separate property. Report generation is not possible.</StiGroupHeaderSummaryExpressionCheckLong>
     <StiGroupHeaderSummaryExpressionCheckShort>Invalid function in expression</StiGroupHeaderSummaryExpressionCheckShort>
     <StiGrowToHeightOverlappingLong>'{0}'コンポーネントのGrowToHeightプロパティがtrueに設定されています。レポートをレンダリングするとき、このコンポーネントは1つまたは複数の基本コンポーネントと重なり合うことがあります。</StiGrowToHeightOverlappingLong>
-    <StiGrowToHeightOverlappingShort>コンポーネントをオーバーラップさせることができます。</StiGrowToHeightOverlappingShort>
+    <StiGrowToHeightOverlappingShort>コンポーネントをオーバーラップさせることができます</StiGrowToHeightOverlappingShort>
     <StiInsufficientTextHeightForOneLineCheckLong>The height of the text component {0} is too small, even for one line of text. This can cause issues with exporting to some formats, as well as with printing on the Web. It is recommended to increase the height or set the CanGrow property to true.</StiInsufficientTextHeightForOneLineCheckLong>
-    <StiInsufficientTextHeightForOneLineCheckShort>Insufficient Height for one line.</StiInsufficientTextHeightForOneLineCheckShort>
+    <StiInsufficientTextHeightForOneLineCheckShort>Insufficient Height for one line</StiInsufficientTextHeightForOneLineCheckShort>
     <StiIsFirstPageIsLastPageDoublePassCheckLong>IsFirstPage、IsFirstPageThrough、IsLastPage、IsLastPageThroughシステム変数は、1回通過すると不正な結果を返します。 NumberOfPassプロパティをDoublePassに設定する必要があります。</StiIsFirstPageIsLastPageDoublePassCheckLong>
     <StiIsFirstPageIsLastPageDoublePassCheckShort>ダブルパスが必要なシステム変数は、レポート</StiIsFirstPageIsLastPageDoublePassCheckShort>
     <StiIsFirstPassIsSecondPassCheckLong>IsFirstPassの正しい作業のために、IsSecondPass関数はレポートのレンダリングのダブルパスが必要です。レポートのNumberOfPassプロパティをDoublePassに設定するのを忘れていた可能性があります。</StiIsFirstPassIsSecondPassCheckLong>
@@ -140,7 +151,7 @@
     <StiMinRowsInColumnsCheckLong>バンドのMinRowsInColumnsプロパティは0に設定されていませんが、Columnsプロパティの値は0に設定されています。これは無意味です。</StiMinRowsInColumnsCheckLong>
     <StiMinRowsInColumnsCheckShort>MinRowsInColumnsプロパティが正しく設定されていない可能性があります</StiMinRowsInColumnsCheckShort>
     <StiNegativeSizesOfComponentsCheckLong>'{0}'コンポーネントの幅と高さに負の値があります。これにより、レポートのレンダリングが正しく行われなくなる可能性があります。</StiNegativeSizesOfComponentsCheckLong>
-    <StiNegativeSizesOfComponentsCheckShort>コンポーネントの幅と高さに負の値があります。</StiNegativeSizesOfComponentsCheckShort>
+    <StiNegativeSizesOfComponentsCheckShort>コンポーネントの幅と高さに負の値があります</StiNegativeSizesOfComponentsCheckShort>
     <StiNoConditionAtGroupCheckLong>'{0}'コンポーネントに条件が設定されていません。それなしではグループ化は行われません</StiNoConditionAtGroupCheckLong>
     <StiNoConditionAtGroupCheckShort>グループの条件が設定されていません。</StiNoConditionAtGroupCheckShort>
     <StiNoNameComponentCheckLong>コンポーネントに名前がありません。コンポーネントの名前を指定すると、レポートエンジンはレポートをコンパイルできなくなります。</StiNoNameComponentCheckLong>
@@ -150,7 +161,7 @@
     <StiPageFooterOnlyLastPageCheckLong>PrintOn=OnlyLastPage プロパティを持つバンド {0} により、ページ下部に不要な空白が発生します。ReportSummary への置き換えを推奨します。</StiPageFooterOnlyLastPageCheckLong>
     <StiPageFooterOnlyLastPageCheckShort>空白が発生する可能性</StiPageFooterOnlyLastPageCheckShort>
     <StiPageLineAndDoublePassCheckLong>システム変数 PageLine を使用するには、レポートエンジンのダブルパスが必要です。</StiPageLineAndDoublePassCheckLong>
-    <StiPageLineAndDoublePassCheckShort>PageLine を使用するにはダブルパスが必要です！</StiPageLineAndDoublePassCheckShort>
+    <StiPageLineAndDoublePassCheckShort>PageLine を使用するにはダブルパスが必要です</StiPageLineAndDoublePassCheckShort>
     <StiPanelInEngineV1CheckLong>'{0}'パネルは、EngineV1が使用されているレポートにあります。このコンポーネントはEngineV1では使用できません。したがって、レポートツールはコンテナコンポーネントとしてレンダリングしようとします。しかしPanelコンポーネントはContainerと比較してより多くの機能を持ち、不正なレポートレンダリングを引き起こす可能性があります。</StiPanelInEngineV1CheckLong>
     <StiPanelInEngineV1CheckShort>EngineV1のパネル</StiPanelInEngineV1CheckShort>
     <StiPrintHeadersAndFootersFromPreviousPageLong>'{0}'ページのPrintHeadersAndFootersFromPreviousPageプロパティがtrueに設定されています。しかし最初の唯一のページでは意味がありません。</StiPrintHeadersAndFootersFromPreviousPageLong>
@@ -158,7 +169,7 @@
     <StiPrintOnDoublePassCheckLong>'{0}'コンポーネントのPrintOnプロパティがAllPagesに設定されていません。レポートを正しく表示するには、ダブルパスを有効にする必要があります。</StiPrintOnDoublePassCheckLong>
     <StiPrintOnDoublePassCheckShort>PrintOnプロパティがAllPagesに設定されていない</StiPrintOnDoublePassCheckShort>
     <StiPrintOnPreviousPageCheck2Long>'{0}'ページのPrintOnPreviousPageプロパティがtrueに設定されています。このページにあるすべてのコンポーネント（バンドを除く）は、次の新しいページからのみ印刷されるか、新しいページがない場合は全く印刷されません。</StiPrintOnPreviousPageCheck2Long>
-    <StiPrintOnPreviousPageCheck2Short>一部のコンポーネントが印刷されないことがあります。</StiPrintOnPreviousPageCheck2Short>
+    <StiPrintOnPreviousPageCheck2Short>一部のコンポーネントが印刷されないことがあります</StiPrintOnPreviousPageCheck2Short>
     <StiPrintOnPreviousPageCheckLong>'{0}'ページのPrintOnPreviousPageプロパティがtrueに設定されています。しかし、最初の唯一のページでは意味がありません。</StiPrintOnPreviousPageCheckLong>
     <StiPrintOnPreviousPageCheckShort>PrintOnPreviousPageプロパティが正しく設定されていない可能性があります。</StiPrintOnPreviousPageCheckShort>
     <StiPropertiesOnlyEngineV1CheckLong>'{0}'コンポーネントのStartNewPageプロパティはEngineV1のみでサポートされています。</StiPropertiesOnlyEngineV1CheckLong>
@@ -168,7 +179,7 @@
     <StiResetPageNumberCheckLong>'{0}'ページのResetPageNumberプロパティがtrueに設定されています。しかし、最初の唯一のページでは意味がありません。</StiResetPageNumberCheckLong>
     <StiResetPageNumberCheckShort>ResetPageNumberプロパティが正しく設定されていない可能性があります</StiResetPageNumberCheckShort>
     <StiRtlTextWithoutRightToLeftCheckLong>コンポーネント '{0}' には右から左へ記述するテキストが含まれていますが、テキストオプション RightToLeft が無効になっています。</StiRtlTextWithoutRightToLeftCheckLong>
-    <StiRtlTextWithoutRightToLeftCheckShort>RightToLeft オプションが無効なRTLテキスト。</StiRtlTextWithoutRightToLeftCheckShort>
+    <StiRtlTextWithoutRightToLeftCheckShort>RightToLeft オプションが無効なRTLテキスト</StiRtlTextWithoutRightToLeftCheckShort>
     <StiShowInsteadNullValuesCheckLong>'{0}'コンポーネントにNullValuesプロパティが設定されています。しかし、DataColumnプロパティは設定されていません。これは無意味です。</StiShowInsteadNullValuesCheckLong>
     <StiShowInsteadNullValuesCheckShort>NullValuesプロパティが設定されている</StiShowInsteadNullValuesCheckShort>
     <StiSubReportPageZeroCheckLong>SubReportコンポーネントのSubReportPageプロパティが設定されていない場合、レポートはレンダリングできません。</StiSubReportPageZeroCheckLong>
@@ -180,7 +191,7 @@
     <StiTextTextFormatCheckLong>式の結果が既にテキスト文字列であるため、コンポーネント '{0}'のテキスト形式を使用できません。</StiTextTextFormatCheckLong>
     <StiTextTextFormatCheckShort>テキスト形式を適用できません</StiTextTextFormatCheckShort>
     <StiTextTextFormatFieldCheckLong>0}コンポーネントで使用されている列は日付型ではありません。レポートの速度を低下させず、正しい書式を確保するために、書式設定を一般に変更することをお勧めします。</StiTextTextFormatFieldCheckLong>
-    <StiTextTextFormatFieldCheckShort>選択された書式はデータ列の型と互換性がありません。</StiTextTextFormatFieldCheckShort>
+    <StiTextTextFormatFieldCheckShort>選択された書式はデータ列の型と互換性がありません</StiTextTextFormatFieldCheckShort>
     <StiTotalPageCountDoublePassCheckLong>スクリプトと条件のTotalPageCount、TotalPageCountThroughシステム変数は、1回通過すると不正な結果を返します。 NumberOfPassプロパティをDoublePassに設定する必要があります。</StiTotalPageCountDoublePassCheckLong>
     <StiUndefinedComponentCheckLong>未定義の '{0}'コンポーネントがレポートに見つかりました。レポートツールはこのコンポーネントを識別できません。たぶんこれはカスタムコンポーネントです。レポートは表示されません！</StiUndefinedComponentCheckLong>
     <StiUndefinedComponentCheckShort>未定義のコンポーネント</StiUndefinedComponentCheckShort>
@@ -224,8 +235,18 @@
     <StiNoNameDataSourceCheckShort>データソースの名前はありません</StiNoNameDataSourceCheckShort>
     <StiNoNameInSourceDataSourceCheckLong>'{0}'データソースのNameInSourceフィールドが入力されていません。このフィールドを埋めることなく、レポートツールはデータベース内のデータソースのデータを見つけることができず、レポートはレンダリングされません！</StiNoNameInSourceDataSourceCheckLong>
     <StiNoNameInSourceDataSourceCheckShort>データソースフィールドのNameInSourceが満たされていない</StiNoNameInSourceDataSourceCheckShort>
+    <StiSqlParameterDuplicateCheckLong>データソース '{0}' には '{1}' という名前のパラメーターが複数あります。クエリを実行できません。</StiSqlParameterDuplicateCheckLong>
+    <StiSqlParameterDuplicateCheckShort>SQL パラメーターが重複しています</StiSqlParameterDuplicateCheckShort>
+    <StiSqlParameterNotFoundCheckLong>データソース '{0}' のクエリはパラメーター @{1} を使用していますが、データソースにはこのパラメーターがなく、レポートにもこの名前の変数がありません。レポートの作成時にクエリが失敗します。</StiSqlParameterNotFoundCheckLong>
+    <StiSqlParameterNotFoundCheckShort>クエリが未定義のパラメーターを使用しています</StiSqlParameterNotFoundCheckShort>
+    <StiSqlParameterVariableNotFoundCheckLong>データソース '{0}' のパラメーター '{1}' は '{2}' から値を取得しますが、レポートにはこの名前の変数がありません。クエリはこのパラメーターの値を受け取りません。</StiSqlParameterVariableNotFoundCheckLong>
+    <StiSqlParameterVariableNotFoundCheckShort>パラメーターが存在しない変数を参照しています</StiSqlParameterVariableNotFoundCheckShort>
+    <StiSqlVariableNotAllowedCheckLong>データソース '{0}' のクエリはパラメーター @{1} を使用しています。レポートには変数 '{1}' がありますが、SQL パラメーターとしての使用が許可されていないため、その値はクエリに渡されず、クエリが失敗します。</StiSqlVariableNotAllowedCheckLong>
+    <StiSqlVariableNotAllowedCheckShort>変数は SQL パラメーターとして使用できません</StiSqlVariableNotAllowedCheckShort>
     <StiUndefinedDataSourceCheckLong>未定義の '{0}'データソースがレポートに見つかりました。レポートツールは、このような種類のデータソースを正しく処理できません。たぶん、カスタムデータソースがレポートで使用されることがあります。このレポートはレンダリングできません！</StiUndefinedDataSourceCheckLong>
     <StiUndefinedDataSourceCheckShort>未定義のデータソース</StiUndefinedDataSourceCheckShort>
+    <StiUnusedSqlDataSourceCheckLong>データソース '{0}' はレポートで使用されていませんが、そのクエリはレポートを作成するたびに実行されます。ConnectOnStart プロパティをオフにするか、データソースを削除するか、レポートの RetrieveOnlyUsedData プロパティを設定してください。</StiUnusedSqlDataSourceCheckLong>
+    <StiUnusedSqlDataSourceCheckShort>使用されていないデータソースが読み込まれます</StiUnusedSqlDataSourceCheckShort>
   </CheckDataSource>
   <CheckGlobal>
     <Error>エラー！ </Error>
@@ -242,7 +263,7 @@
     <StiLostPointsOnPageCheckShort>失われたポイント</StiLostPointsOnPageCheckShort>
     <StiOrientationPageCheckLongLandscape>'{0}'ページの向きが、指定されたページサイズに一致しません。通常、横向きの場合、ページの幅はページの高さよりも大きくなければなりません。このページの幅は高さよりも小さい。このページを印刷するときに問題が発生する可能性があります。</StiOrientationPageCheckLongLandscape>
     <StiOrientationPageCheckLongPortrait>'{0}'ページの向きが、指定されたページサイズに一致しません。通常、縦向きの場合、ページの幅はページの高さより小さくする必要があります。このページの幅は高さよりも大きい。このページを印刷するときに問題が発生することがあります。</StiOrientationPageCheckLongPortrait>
-    <StiOrientationPageCheckShort>ページの向きが{0}で間違っています。</StiOrientationPageCheckShort>
+    <StiOrientationPageCheckShort>ページの向きが{0}で間違っています</StiOrientationPageCheckShort>
   </CheckPage>
   <CheckReport>
     <StiCategoryRequestFromUserCheckLong>ParametersOrientation」レポートプロパティの値が「Vertical」に設定されているときのみ可能なため、「{0}」変数のカテゴリをビューアのパラメータパネルに表示することができません。</StiCategoryRequestFromUserCheckLong>
@@ -268,9 +289,9 @@
     <StiDuplicatedReportName2CheckLong>レポート名 '{0}'はデータソース名と同じです。</StiDuplicatedReportName2CheckLong>
     <StiDuplicatedReportNameCheckLong>レポート名 '{0}'はコンポーネント名と同じです。</StiDuplicatedReportNameCheckLong>
     <StiFontNotEmbeddableCheckLong>フォント '{0}' のフォントファイルが見つからないため、フォントはPDFファイルに埋め込まれません。フォントは次のコンポーネントで使用されています: {1}</StiFontNotEmbeddableCheckLong>
-    <StiFontNotEmbeddableCheckShort>フォントをPDFファイルに埋め込むことができません。</StiFontNotEmbeddableCheckShort>
+    <StiFontNotEmbeddableCheckShort>フォントをPDFファイルに埋め込むことができません</StiFontNotEmbeddableCheckShort>
     <StiFontStyleNotAvailableCheckLong>フォント '{0}' には '{1}' スタイルが含まれていないため、PDFエクスポート時にエミュレートされます。フォントは次のコンポーネントで使用されています: {2}</StiFontStyleNotAvailableCheckLong>
-    <StiFontStyleNotAvailableCheckShort>フォントスタイルが利用できません。</StiFontStyleNotAvailableCheckShort>
+    <StiFontStyleNotAvailableCheckShort>フォントスタイルが利用できません</StiFontStyleNotAvailableCheckShort>
     <StiMainPageMissingCheckLong>メインページを特定できないため、レポートをレンダリングできません。SubReports および DrillDowns のページ参照を確認してください。</StiMainPageMissingCheckLong>
     <StiMainPageMissingCheckShort>メインページがありません</StiMainPageMissingCheckShort>
     <StiNetCoreCompilationModeCheckLong>Stimulsoft .NET Coreエンジンは、このレポートをコンパイルモードでレンダリングできません。 レポートを解釈モードに変更します。</StiNetCoreCompilationModeCheckLong>
@@ -281,16 +302,18 @@
     <StiScriptExecutionErrorCheck3Long>'{2}' コンポーネントの '{1}' イベントでスクリプト実行エラーが発生しました。</StiScriptExecutionErrorCheck3Long>
     <StiScriptExecutionErrorCheckLong>スクリプト実行エラーが発生しました。</StiScriptExecutionErrorCheckLong>
     <StiScriptExecutionErrorCheckShort>スクリプト実行エラー</StiScriptExecutionErrorCheckShort>
+    <StiStyleNegativeBorderSizeCheckLong>スタイル '{0}' の境界線サイズが負の値です: {1}。境界線のサイズは 0 未満にできません。</StiStyleNegativeBorderSizeCheckLong>
+    <StiStyleNegativeBorderSizeCheckShort>スタイルの境界線サイズが負の値です</StiStyleNegativeBorderSizeCheckShort>
   </CheckReport>
   <CheckVariable>
     <StiVariableInitializationCheckLong>'{0}'変数のデフォルト値が間違っています。 指定された値で変数を初期化することはできません。</StiVariableInitializationCheckLong>
     <StiVariableInitializationCheckShort>初期化値</StiVariableInitializationCheckShort>
     <StiVariableNameCheckLong>変数名 "{0}" は予約されているため使用できません。</StiVariableNameCheckLong>
-    <StiVariableNameCheckShort>変数名が無効です。</StiVariableNameCheckShort>
+    <StiVariableNameCheckShort>変数名が無効です</StiVariableNameCheckShort>
     <StiVariableRecursionCheckLong>'{0}'変数には再帰を伴う式があります。 Variableを独自の式で参照することは不可能です。</StiVariableRecursionCheckLong>
     <StiVariableRecursionCheckShort>再帰式</StiVariableRecursionCheckShort>
     <StiVariableTypeCheckLong>従属変数が正しく機能するためには、それらの型と列の型が一致する必要があります。</StiVariableTypeCheckLong>
-    <StiVariableTypeCheckShort>変数のタイプが一致しません。</StiVariableTypeCheckShort>
+    <StiVariableTypeCheckShort>変数のタイプが一致しません</StiVariableTypeCheckShort>
   </CheckVariable>
   <Font>
     <Bold>このFontが太字かどうかを示す値</Bold>

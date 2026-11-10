@@ -47,6 +47,7 @@
     <Help>کمک</Help>
     <Ok>&amp;تایید</Ok>
     <Open>باز کردن</Open>
+    <OpenInSafeMode>باز کردن در حالت امن</OpenInSafeMode>
     <Print>چاپ</Print>
     <Remove>از بین بردن</Remove>
     <Rename>تغییر نام</Rename>
@@ -152,6 +153,9 @@
     <StripsEditorForm>فرم ویرایش نوارها</StripsEditorForm>
     <Style>سبک</Style>
   </Chart>
+  <Cloud>
+    <DoNotAskMe>دیگر سؤال نشود</DoNotAskMe>
+  </Cloud>
   <Components>
     <StiBarCode>رمز میله ای</StiBarCode>
     <StiChart>نمودار</StiChart>
@@ -183,6 +187,7 @@
     <StiHierarchicalBand>باند سلسله مراتبی</StiHierarchicalBand>
     <StiHorizontalLinePrimitive>خط افقی</StiHorizontalLinePrimitive>
     <StiImage>تصویر</StiImage>
+    <StiMarkdown>Markdown</StiMarkdown>
     <StiOverlayBand>روی هم قرار دادن</StiOverlayBand>
     <StiPage>صفحه</StiPage>
     <StiPageFooterBand>زیرنویس صفحه</StiPageFooterBand>
@@ -202,6 +207,10 @@
     <StiWinControl>Win کنترل</StiWinControl>
     <StiZipCode>کد فشرده</StiZipCode>
   </Components>
+  <Dashboard>
+    <ViewEditCompilationNotice>نمی‌توانید گزارشی را ویرایش کنید که ویژگی 'Report.CalculationMode' آن روی 'Compilation' تنظیم شده است. لطفاً این ویژگی را روی 'Interpretation' تنظیم کنید.</ViewEditCompilationNotice>
+    <ViewEditCompilationTitle>ویرایش در دسترس نیست</ViewEditCompilationTitle>
+  </Dashboard>
   <Database>
     <Connection>ارتباط</Connection>
     <DatabaseDB2>IBM DB2 ارتباط با پایگاه داده</DatabaseDB2>
@@ -216,6 +225,9 @@
     <DatabaseVistaDB>VistaDB ارتباط یا پایگاه داده</DatabaseVistaDB>
     <DatabaseXml>XML داده</DatabaseXml>
   </Database>
+  <DesignerFx>
+    <TextNotFound>متن مشخص شده یافت نشد. متن: {0}</TextNotFound>
+  </DesignerFx>
   <Dialogs>
     <StiButtonControl>دکمه</StiButtonControl>
     <StiCheckBoxControl>جعبه چک</StiCheckBoxControl>
@@ -239,7 +251,9 @@
     <StiTreeViewControl>دید درختی</StiTreeViewControl>
   </Dialogs>
   <Editor>
+    <Blockquote>نقل قول</Blockquote>
     <CantFind>داده ای که شما به دنبالش می گردید نمی توان پیدا کرد </CantFind>
+    <CodeBlock>بلوک کد</CodeBlock>
     <CollapseToDefinitions>خراب شدن تعاریف</CollapseToDefinitions>
     <Column>ستون:{0}</Column>
     <EntireScope>&amp;کل میدان دید</EntireScope>
@@ -248,13 +262,16 @@
     <FindWhat>پیدا کن چه چیز را:</FindWhat>
     <FromCursor>از نشانه رو</FromCursor>
     <GotoLine> خط&amp;برو به</GotoLine>
+    <InsertLink>درج پیوند</InsertLink>
     <Line>خط:{0}</Line>
     <LineNumber>خط شماره:</LineNumber>
     <LineNumberIndex>({0} - {1})خط شماره </LineNumberIndex>
     <MarkAll>&amp;همه را نشانه بگذار</MarkAll>
     <MatchCase>مورد &amp;تطبیق بده</MatchCase>
     <MatchWholeWord>تمام کلمه &amp;تطبیق بده</MatchWholeWord>
+    <OrderedList>فهرست شماره گذاری شده</OrderedList>
     <Outlining>خط کشی&amp;بیرون</Outlining>
+    <Paragraph>پاراگراف</Paragraph>
     <PromptOnReplace>اجازه برای جایگزینی</PromptOnReplace>
     <Replace>&amp;جایگزین</Replace>
     <ReplaceAll>همه&amp;جایگزین</ReplaceAll>
@@ -264,7 +281,9 @@
     <SearchUp>به بالا &amp;جستجو</SearchUp>
     <SelectionOnly>فقط &amp;انتخاب</SelectionOnly>
     <ShowLineNumbers>نمایش اعداد خطوط</ShowLineNumbers>
+    <Split>تقسیم</Split>
     <StopOutlining>متوقف کن&amp;خلاصه کردن</StopOutlining>
+    <TaskList>فهرست کارها</TaskList>
     <titleFind>پیدا کردن</titleFind>
     <titleGotoLine>برو به خط</titleGotoLine>
     <titleReplace>جایگزین</titleReplace>
@@ -691,7 +710,14 @@
     <Bullets>گلوله</Bullets>
     <FontName>نام فونت</FontName>
     <FontSize>اندازه فونت</FontSize>
+    <ImportFromFile>وارد کردن از فایل</ImportFromFile>
+    <ImportQuestion>ویرایشگر از قبل متن دارد. آن را با متن «{0}» جایگزین شود یا فایل در محل مکان‌نما درج شود؟ هر دو قابل بازگشت هستند.</ImportQuestion>
     <Insert>ورود عبارت</Insert>
+    <InsertAtCursor>درج در محل مکان‌نما</InsertAtCursor>
+    <PreviewHintData>یک ستون داده، متغیر یا منبع انتخاب کنید</PreviewHintData>
+    <PreviewHintFile>یک فایل انتخاب کنید</PreviewHintFile>
+    <PreviewHintURL>یک URL یا عبارت وارد کنید</PreviewHintURL>
+    <ReplaceAll>جایگزینی همه</ReplaceAll>
     <title>Rich Text ویرایشگر</title>
   </FormRichTextEditor>
   <FormStyleDesigner>
@@ -745,6 +771,7 @@
     <Close>بستن</Close>
     <CollapseAll>خرابی همه</CollapseAll>
     <ContextMenu>منوی محتوا</ContextMenu>
+    <Editor>ویرایشگر</Editor>
     <ExpandAll>گسترش همه</ExpandAll>
     <Export>صادرات</Export>
     <FirstPage>صفحه اول</FirstPage>
@@ -766,7 +793,7 @@
     <PrevPage>صفحه قبل</PrevPage>
     <Print>چاپ</Print>
     <qnPageDelete>میخواهید صفحه را پاک کنید؟</qnPageDelete>
-    <Save>ذخیره</Save>
+    <Save>ذخیره...</Save>
     <SendEMail>نامه الکترونیکی بفرست</SendEMail>
     <StatusBar>میله وضعیت</StatusBar>
     <Thumbnails>کوچک</Thumbnails>
@@ -795,6 +822,18 @@
     <FindWhat>کدام را پیدا کن:</FindWhat>
     <title>پیدا کردن</title>
   </FormViewerFind>
+  <HelpDesigner>
+    <CompilationAccess1>این سند از فرایند کامپایل استفاده می‌کند. اگر سند از منبعی مطمئن است، می‌توانید برای دسترسی به آن روی دکمه "باز کردن" کلیک کنید.</CompilationAccess1>
+    <CompilationAccess2>اگر از منبع سند مطمئن نیستید اما همچنان می‌خواهید آن را مشاهده کنید، می‌توانید روی دکمه "باز کردن در حالت امن" کلیک کنید. در این صورت به جای کامپایل از تفسیر استفاده می‌شود و می‌توانید سند را با امنیت اجرا کنید.</CompilationAccess2>
+    <CompilationAccess3>این سند از فرایند کامپایل استفاده می‌کند و ممکن است ناامن باشد. نمی‌توانید آن را باز کنید.</CompilationAccess3>
+    <CompilationAccessDeniedTitle>نمی‌توان سند را باز کرد</CompilationAccessDeniedTitle>
+    <CompilationAccessTitle>سند از کامپایل استفاده می‌کند</CompilationAccessTitle>
+  </HelpDesigner>
+  <HelpViewer>
+    <UnsafeCompilation1>این سند از فرایند کامپایل استفاده می‌کند. در برخی موارد ممکن است این کار امن نباشد. بنابراین سند برای کاهش خطرات احتمالی در حالت امن بارگذاری می‌شود.</UnsafeCompilation1>
+    <UnsafeCompilation2>اگر لازم است این سند به شکل اصلی خود استفاده شود، لطفاً با توسعه‌دهندگان خود تماس بگیرید.</UnsafeCompilation2>
+    <UnsafeCompilationTitle>سند در حالت امن باز می‌شود</UnsafeCompilationTitle>
+  </HelpViewer>
   <MainMenu>
     <menuContextClone>تکثیر...</menuContextClone>
     <menuContextDesign>طراحی...</menuContextDesign>
@@ -883,7 +922,9 @@
     <menuViewToolbars>نوار ابزار</menuViewToolbars>
   </MainMenu>
   <Messages>
-    <TextRegistrationSuccessfully>برای تکمیل ثبت‌نام تنها یک گام باقی مانده است! ایمیلی به "{0}" ارسال شد. این ایمیل حاوی پیوندی برای تأیید ثبت‌نام شماست. برای تکمیل ثبت‌نام لطفاً روی پیوند موجود در ایمیل دریافتی کلیک کنید.</TextRegistrationSuccessfully>
+    <TextRegistrationSuccessfully>برای تکمیل ثبت‌نام تنها یک گام باقی مانده است!
+
+ایمیلی به "{0}" ارسال شد. این ایمیل حاوی پیوندی برای تأیید ثبت‌نام شماست. برای تکمیل ثبت‌نام لطفاً روی پیوند موجود در ایمیل دریافتی کلیک کنید.</TextRegistrationSuccessfully>
   </Messages>
   <Panels>
     <Dictionary>دیکشنری</Dictionary>
@@ -1183,6 +1224,7 @@
     <StiButtonUITypeOutline>کادر</StiButtonUITypeOutline>
     <StiButtonUITypePrimary>اصلی</StiButtonUITypePrimary>
     <StiButtonUITypeSecondary>ثانویه</StiButtonUITypeSecondary>
+    <StiCalculationModeCompilation>کامپایل</StiCalculationModeCompilation>
     <StiChartTitleDockBottom>پایین</StiChartTitleDockBottom>
     <StiChartTitleDockLeft>چپ</StiChartTitleDockLeft>
     <StiChartTitleDockRight>راست</StiChartTitleDockRight>
@@ -1645,6 +1687,7 @@
     <HeaderFont>فونت سرصفحه</HeaderFont>
     <HeaderForeColor>رنگ جلو سرصفحه</HeaderForeColor>
     <HeaderText>متن سرصفحه</HeaderText>
+    <Heading>عنوان</Heading>
     <Height>ارتفاع</Height>
     <HideZeros>پنهان سازی صفرها</HideZeros>
     <High>ارتفاع</High>
@@ -1871,6 +1914,7 @@
     <StopBeforePrint>توقف قبل از چاپ</StopBeforePrint>
     <Stretch>کشش</Stretch>
     <StretchToPrintArea>کشش به محوطه چاپ</StretchToPrintArea>
+    <Strikeout>خط خورده</Strikeout>
     <StripBrush>برس باریک</StripBrush>
     <Strips>نوارها</Strips>
     <Style>سبک</Style>
@@ -1879,6 +1923,7 @@
     <Summary>خلاصه</Summary>
     <SystemVariable>متغیر سیستم</SystemVariable>
     <SystemVariables>متغیرهای سیستم</SystemVariables>
+    <Table>جدول</Table>
     <Tag>برچسب</Tag>
     <TagValue>مقدار برچسب</TagValue>
     <Tension>کشش</Tension>
@@ -2039,6 +2084,7 @@
   <Questions>
     <qnDataWriting>اجازه دادن به این گزینه به برنامه امکان می‌دهد داده‌های پایگاه‌های داده شما را تغییر دهد: سطرهای جدول‌ها می‌توانند درج، به‌روزرسانی و حذف شوند و تغییر داده‌ها توسط طراح قابل بازگرداندن نیست.</qnDataWriting>
     <qnDataWritingResponsibility>مسئولیت آنچه نوشته می‌شود بر عهده شماست. آیا نوشتن مجاز باشد؟</qnDataWritingResponsibility>
+    <qnDeleteAll>آیا می خواهید همه موارد را حذف کنید؟</qnDeleteAll>
     <qnDictionaryNew>آیا می خواهید دیکشنری جدید ایجاد کنید؟</qnDictionaryNew>
     <qnLanguageNew>شما زبان گزارش را تغییر دادید.این منتهی به تولید کد گزارش جدید می شود.ایا شما مطمئنید که میخواهید زبان جدید را ذخیره کنید؟</qnLanguageNew>
     <qnPageDelete>آیا می خواهید صفحه را حذف کنید؟</qnPageDelete>
@@ -2070,6 +2116,7 @@
     <FinishingReport>در حال اتمام گزارش</FinishingReport>
     <FirstPass>اولین گذر</FirstPass>
     <GenerateNewCode>کد جدید را تولید کنید</GenerateNewCode>
+    <ImportDropHint>یک فایل {0} یا {1} را اینجا رها کنید یا یکی را انتخاب کنید</ImportDropHint>
     <LabelAlias>نام مستعار:</LabelAlias>
     <LabelAuthor>مولف:</LabelAuthor>
     <LabelBackground>پیش زمینه:</LabelBackground>
@@ -2107,6 +2154,7 @@
     <RangeInfo>شماره صفحه و/یا محدوده صفحات که بوسیله کاما جدا شدهرا وارد کنید.برای مثال 1و3و5-12</RangeInfo>
     <RangePage>برد صفحه</RangePage>
     <RangePages>صفحات:</RangePages>
+    <RecentFiles>فایل‌های اخیر</RecentFiles>
     <SavingReport>ذخیره سازی گزارش</SavingReport>
     <SecondPass>دومین گذر</SecondPass>
     <StiEmptyBrush>خالی</StiEmptyBrush>
@@ -2148,6 +2196,9 @@
     <Triangle>مثلث</Triangle>
     <VerticalLine>خط عمودی</VerticalLine>
   </Shapes>
+  <Signature>
+    <InsertImage>درج تصویر</InsertImage>
+  </Signature>
   <Toolbars>
     <Align>تنظیم</Align>
     <AlignBottom>توازن پایینی</AlignBottom>

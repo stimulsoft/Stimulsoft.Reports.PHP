@@ -144,7 +144,7 @@
     <EditAsData>Edit sebagai Data</EditAsData>
     <EditAsText>Edit sebagai Teks</EditAsText>
     <Export>Export</Export>
-    <ForceDelete>Hapus Paksa</ForceDelete>
+    <ForceDelete>Tetap Hapus</ForceDelete>
     <Help>Bantuan</Help>
     <Install>Unduh</Install>
     <InvertAll>Balikkan Semua</InvertAll>
@@ -181,7 +181,8 @@
     <Test>Tes</Test>
     <TryToReconnect>Coba Sambungkan Kembali</TryToReconnect>
     <Up>Naik</Up>
-    <Upgrade>Meningkatkan</Upgrade>
+    <Update>Perbarui</Update>
+    <Upgrade>Tingkatkan</Upgrade>
     <UpgradeNow>Tingkatkan sekarang</UpgradeNow>
     <Upload>Mengunggah</Upload>
     <Waiting>Menunggu</Waiting>
@@ -419,7 +420,7 @@
     <ButtonLogInWith>Masuk dengan {0}</ButtonLogInWith>
     <ButtonLogout>Keluar</ButtonLogout>
     <ButtonPublish>Publikasikan</ButtonPublish>
-    <ButtonPurchase>Pembelian</ButtonPurchase>
+    <ButtonPurchase>Beli</ButtonPurchase>
     <ButtonRecover>Recover</ButtonRecover>
     <ButtonRenew>Perbarui</ButtonRenew>
     <ButtonResendEmail>Kirim Ulang Email</ButtonResendEmail>
@@ -439,6 +440,7 @@
     <CheckForUpdate>Memeriksa Pemberitahuan</CheckForUpdate>
     <Cloud>Akun Cloud/awan</Cloud>
     <Collection>Koleksi</Collection>
+    <ConfirmEmailAddress>Konfirmasikan alamat Email Anda</ConfirmEmailAddress>
     <Create>Membuat</Create>
     <CreateError>Kesalahan saat membuat laporan!</CreateError>
     <CreateNewCollection>Membuat Koleksi Baru</CreateNewCollection>
@@ -448,7 +450,7 @@
     <DeleteFile>Hapus File</DeleteFile>
     <DoNotAskMe>Janagan Tanyakan Lagi</DoNotAskMe>
     <EnglishSearchRequired>Silakan gunakan bahasa Inggris untuk kueri pencarian.</EnglishSearchRequired>
-    <EnterUserNameToLogin>Masukkan Nama Pengguna (email) untuk masuk.</EnterUserNameToLogin>
+    <EnterUserNameToLogin>Masukkan Nama Pengguna (Email) untuk masuk.</EnterUserNameToLogin>
     <ExecutionError>Kesalahan Eksekusi</ExecutionError>
     <ExpiredDate>Tanggal Kadaluarsa</ExpiredDate>
     <FileStorageWindowTitleEdit>Ubah Tempat penyimpanan file</FileStorageWindowTitleEdit>
@@ -480,7 +482,7 @@
     <LabelForeground>taruh di depan</LabelForeground>
     <LabelFromReport>Dari Laporan</LabelFromReport>
     <LabelFromReportCode>Dari Laporan (mendefinisikan dalam kode)</LabelFromReportCode>
-    <LabelInviteUser>Undang pengguna baru ke tim Anda. Kirim undangan ke email mereka</LabelInviteUser>
+    <LabelInviteUser>Undang pengguna baru ke tim Anda. Kirim undangan ke Email mereka</LabelInviteUser>
     <LabelLastLogin>Terakhir masuk</LabelLastLogin>
     <LabelLastTime>Waktu terakhir</LabelLastTime>
     <LabelModified>Diubah</LabelModified>
@@ -542,6 +544,7 @@
     <SaveFile>Simpan File</SaveFile>
     <SavingToStimulsoftCloudPleaseWait>Menyimpan laporan ke StimulsoftCloud. Mohon tunggu!</SavingToStimulsoftCloudPleaseWait>
     <SearchForOnlineTemplates>Cari template online</SearchForOnlineTemplates>
+    <SendingEmail>Mengirim Email...</SendingEmail>
     <ShareWindowTitleNew>Bagikan</ShareWindowTitleNew>
     <ShowAllFiles>Perlihatkan Semua File</ShowAllFiles>
     <ShowNotificationMessages>Tampilkan Pesan Pemberitahuan</ShowNotificationMessages>
@@ -684,6 +687,7 @@
     <StiIndicator>Indikator</StiIndicator>
     <StiListBox>Kotak daftar</StiListBox>
     <StiMap>Peta</StiMap>
+    <StiMarkdown>Markdown</StiMarkdown>
     <StiMathFormula>Rumus Matematika</StiMathFormula>
     <StiMultipleSelection>Seleksi Ganda</StiMultipleSelection>
     <StiNumberBox>Kotak Angka</StiNumberBox>
@@ -828,6 +832,7 @@
     <TransformationHint>Klik pada header tabel untuk menerapkan pengurutan, pemfilteran, atau perubahan data. Transformasi ini hanya akan diterapkan pada data item ini.</TransformationHint>
     <Trend>Tren</Trend>
     <ViewEditCompilationNotice>Anda tidak dapat mengedit laporan yang memiliki properti 'Report.CalculationMode' sama dengan nilai 'Compilation'. Harap setel properti itu ke nilai 'Interpretasi'.</ViewEditCompilationNotice>
+    <ViewEditCompilationTitle>Pengeditan tidak tersedia</ViewEditCompilationTitle>
     <ViewModeDesktop>Desktop</ViewModeDesktop>
     <ViewModeMobile>Seluler</ViewModeMobile>
   </Dashboard>
@@ -974,7 +979,9 @@
     <AllowSQLFormatting>Izinkan Pemformatan SQL</AllowSQLFormatting>
     <AutomaticallyGeneratedExpression>Ini adalah ekspresi yang dihasilkan secara otomatis.</AutomaticallyGeneratedExpression>
     <BetweenMetrics>Antara 1 dan 10 metrik dapat dipilih.</BetweenMetrics>
+    <Blockquote>Kutipan</Blockquote>
     <CantFind>Tidak dapat menemukan data yang anda cari.</CantFind>
+    <CodeBlock>Blok kode</CodeBlock>
     <CollapseToDefinitions>C&amp;ollapse ke definisi</CollapseToDefinitions>
     <Column>Kolom: {0}</Column>
     <EntireScope>&amp;Semua Bidang</EntireScope>
@@ -994,7 +1001,9 @@
     <MatchWholeWord>Sama &amp;Seluruh Kata</MatchWholeWord>
     <MaximumDimensions>Maksimum 7 dimensi dapat dipilih..</MaximumDimensions>
     <NotFound>Tidak Ditemukan</NotFound>
+    <OrderedList>Daftar bernomor</OrderedList>
     <Outlining>Out&amp;lining</Outlining>
+    <Paragraph>Paragraf</Paragraph>
     <PromptOnReplace>Tanyakan ketika mengganti</PromptOnReplace>
     <Replace>&amp;Menganti</Replace>
     <ReplaceAll>Menganti &amp;Semua</ReplaceAll>
@@ -1006,7 +1015,9 @@
     <SelectionOnly>Pilihan &amp;Hanya</SelectionOnly>
     <ShowAutoGeneratedCode>Tunjukkan Kode yang dihasilkan secara otomatis</ShowAutoGeneratedCode>
     <ShowLineNumbers>Tunjukkan Nomer Garis</ShowLineNumbers>
+    <Split>Terbagi</Split>
     <StopOutlining>Sto&amp;p Outlining</StopOutlining>
+    <TaskList>Daftar tugas</TaskList>
     <titleFind>Cari</titleFind>
     <titleGotoLine>Pergi ke Garis</titleGotoLine>
     <titleReplace>Mengganti</titleReplace>
@@ -1038,7 +1049,10 @@
   </Errors>
   <ExceptionProvider>
     <Assemblies>Assemblies</Assemblies>
+    <BackupsKeptFor30Days>Cadangan yang tidak Anda pulihkan sekarang disimpan selama 30 hari.</BackupsKeptFor30Days>
     <ClickIgnore>Klik 'Abaikan' untuk menghapus semua file yang disimpan secara otomatis.</ClickIgnore>
+    <DeleteAllBackups>Hapus Semua Cadangan...</DeleteAllBackups>
+    <DesignerClosedUnexpectedly>Desainer tertutup secara tiba-tiba terakhir kali</DesignerClosedUnexpectedly>
     <Exception>Pengecualian</Exception>
     <ExceptionReport>Laporan Pengecualian</ExceptionReport>
     <Framework>Kerangka</Framework>
@@ -1049,6 +1063,7 @@
     <SaveToFile>Simpan ke File</SaveToFile>
     <SendErrorFailed>Gagal mengirimkan pesan </SendErrorFailed>
     <SendErrorSuccess>Pesan kesalahan berhasil dikirim.</SendErrorSuccess>
+    <Sending>Mengirim...</Sending>
     <Source>Sumber</Source>
     <StackTrace>Jejak Tumpukan</StackTrace>
     <YouCanRestore>Anda dapat memulihkan perubahan yang belum disimpan dari file cadangan.</YouCanRestore>
@@ -1730,7 +1745,14 @@
     <Bullets>Peluru</Bullets>
     <FontName>Nama Huruf</FontName>
     <FontSize>Ukuran Huruf</FontSize>
+    <ImportFromFile>Impor dari File</ImportFromFile>
+    <ImportQuestion>Editor sudah berisi teks. Ganti dengan teks dari "{0}" atau sisipkan file di posisi kursor? Keduanya dapat dibatalkan.</ImportQuestion>
     <Insert>Masukkan Ekspresi</Insert>
+    <InsertAtCursor>Sisipkan di Kursor</InsertAtCursor>
+    <PreviewHintData>Pilih kolom data, variabel, atau sumber daya</PreviewHintData>
+    <PreviewHintFile>Pilih file</PreviewHintFile>
+    <PreviewHintURL>Masukkan URL atau ekspresi</PreviewHintURL>
+    <ReplaceAll>Ganti Semua</ReplaceAll>
     <title>Perubah Teks Kaya Format</title>
   </FormRichTextEditor>
   <FormStyleDesigner>
@@ -1907,6 +1929,7 @@
     <ClickAndDragPickColor>Klik dan Seret untuk memilih warna</ClickAndDragPickColor>
     <colorpicker_morecolors>&amp;Warna yang Lain ...</colorpicker_morecolors>
     <colorpicker_nofill>&amp;Tidak Terisi</colorpicker_nofill>
+    <colorpicker_recentcolorslabel>Warna Terbaru</colorpicker_recentcolorslabel>
     <colorpicker_standardcolorslabel>Warna Standar</colorpicker_standardcolorslabel>
     <colorpicker_themecolorslabel>Warna Tema</colorpicker_themecolorslabel>
     <colorpickerdialog_alphalabel>&amp;Alpha:</colorpickerdialog_alphalabel>
@@ -2120,8 +2143,10 @@
     <CompilationAccess3>Dokumen ini menggunakan proses kompilasi dan bisa jadi tidak aman. Anda tidak dapat membukanya.</CompilationAccess3>
     <CompilationAccessAllow>Izinkan membuka dokumen dengan kompilasi tanpa peringatan atau pembatasan apa pun.</CompilationAccessAllow>
     <CompilationAccessAsk>Jika dokumen menggunakan proses kompilasi, jendela peringatan dengan tindakan yang telah ditentukan akan ditampilkan.</CompilationAccessAsk>
+    <CompilationAccessDeniedTitle>Dokumen tidak dapat dibuka</CompilationAccessDeniedTitle>
     <CompilationAccessDeny>Tolak membuka dokumen apa pun yang menggunakan proses kompilasi. Jendela khusus akan ditampilkan.</CompilationAccessDeny>
     <CompilationAccessForceInterpretation>Dokumen dengan kompilasi akan dibuka tanpa prompt apa pun tetapi akan otomatis dikonversi ke mode interpretasi, yang tidak menggunakan proses kompilasi.</CompilationAccessForceInterpretation>
+    <CompilationAccessTitle>Dokumen menggunakan kompilasi</CompilationAccessTitle>
     <CompilationModeEnabling>Anda beralih ke mode kompilasi. Mode ini memungkinkan Anda menjalankan kode yang berbeda dan terkadang bisa berbahaya. Harap gunakan mode ini hanya jika Anda memahami semua risiko dan menyetujuinya. Klik tombol {0} untuk melanjutkan.</CompilationModeEnabling>
     <ComponentSize>Rubah ukuran dari komponen yang dipilih.</ComponentSize>
     <ComponentsMenu>Membuka menu Komponen yang berisi elemen dasbor yang tidak terpakai pada permukaan seluler.</ComponentsMenu>
@@ -2221,6 +2246,7 @@
     <ReportOpen>Buka laporan pada designer.</ReportOpen>
     <ReportPreview>Pratinjau suatu laporan yang diedit pada pelihat.</ReportPreview>
     <ReportSave>Simpan laporan yang dirubah ini.</ReportSave>
+    <ScreenNew>Buat layar baru.</ScreenNew>
     <ScriptEvalAccess1>Dokumen ini menggunakan Script Eval. Jika dokumen berasal dari sumber tepercaya, Anda dapat mengeklik tombol "Buka" untuk mengaksesnya.</ScriptEvalAccess1>
     <ScriptEvalAccess2>Jika Anda tidak yakin dengan sumber dokumen tetapi tetap ingin melihatnya, Anda dapat mengklik tombol "Open in safe mode". Dalam hal ini, Script Eval akan diabaikan dan tidak dijalankan.</ScriptEvalAccess2>
     <ScriptSecurityFullAccess>Akses skrip penuh (tanpa batasan, berpotensi tidak aman).</ScriptSecurityFullAccess>
@@ -2353,6 +2379,7 @@
     <TypeExport>File laporan akan diubah menjadi.</TypeExport>
     <UnsafeCompilation1>Dokumen ini menggunakan proses kompilasi. Dalam beberapa kasus, hal ini mungkin tidak aman. Oleh karena itu, dokumen akan dimuat dalam mode aman untuk meminimalkan potensi risiko.</UnsafeCompilation1>
     <UnsafeCompilation2>Jika Anda memerlukan dokumen ini digunakan dalam bentuk aslinya, silakan hubungi pengembang Anda.</UnsafeCompilation2>
+    <UnsafeCompilationTitle>Dokumen akan dibuka dalam Mode Aman</UnsafeCompilationTitle>
     <UseDefaultSystemEncoding>Gunakan sistem pengkodean secara default atau menentukan encoding dengan standar.</UseDefaultSystemEncoding>
     <UseOnePageHeaderAndFooter>Tentukan band halaman Header dan Footer sebagai header dan footer dari dokumen Microsoft Word.</UseOnePageHeaderAndFooter>
     <UsePageHeadersAndFooters>Tentukan band Halaman Header dan Footer sebagai header dan footer dari dokumen Microsoft Word.</UsePageHeadersAndFooters>
@@ -2529,7 +2556,9 @@
     <SwitchingBetweenModes>Beralih antar mode akan menyebabkan hilangnya perubahan. Apakah Anda ingin melanjutkan?</SwitchingBetweenModes>
     <SwitchParametersOrientation>Silakan ubah nilai properti laporan 'ParametersOrientation' menjadi '{0}' untuk menampilkan kategori ini pada panel parameter.</SwitchParametersOrientation>
     <TextRegistrationSuccessfully>
-     Satu langkah terakhir untuk menyelesaikan pendaftaran Anda! Email telah dikirim ke "{0}". Ini berisi tautan untuk mengonfirmasi pendaftaran Anda. Untuk menyelesaikan pendaftaran, silakan ikuti tautan dari Email yang Anda terima.
+     Satu langkah terakhir untuk menyelesaikan pendaftaran Anda!
+
+Email telah dikirim ke "{0}". Ini berisi tautan untuk mengonfirmasi pendaftaran Anda. Untuk menyelesaikan pendaftaran, silakan ikuti tautan dari Email yang Anda terima.
     </TextRegistrationSuccessfully>
     <ThisFieldIsNotSpecified>Field ini Tidak Ditentukan!</ThisFieldIsNotSpecified>
     <ThisFunctionEmbedsAllReportDataToTheReport>Fungsi ini menyematkan semua data laporan ke sumber laporan dan membuat laporan Anda berdiri sendiri. Hati-hati! Semua pengaturan data Anda akan diubah dan tidak dapat dipulihkan. Harap buat salinan cadangan laporan Anda terlebih dahulu.{0}Yakin?</ThisFunctionEmbedsAllReportDataToTheReport>
@@ -2552,14 +2581,14 @@
     <ActivationServerIsNotAvailableNow>Stimulsoft Aktivasi Server tidak tersedia sekarang! Silakan coba lagi nanti.</ActivationServerIsNotAvailableNow>
     <ActivationServerVersionNotAllowed>Anda tidak dapat mengaktifkan versi Stimulsoft Server karena Program Langganan Anda berakhir! Silahkan login ke akun Anda dan periksa versi Stimulsoft Server yang Anda dapat intall dan mengaktifkan.</ActivationServerVersionNotAllowed>
     <ActivationSomeTroublesOccurred>Terjadi kesalahan saat aktivasi. Silakan coba lagi nanti.</ActivationSomeTroublesOccurred>
-    <ActivationTrialExpired>Anda dapat terus menggunakan StimulsoftDesigner dengan membeli perangkat lunak.</ActivationTrialExpired>
+    <ActivationTrialExpired>Anda dapat terus menggunakan produk Stimulsoft dengan membeli perangkat lunak.</ActivationTrialExpired>
     <ActivationTrialExtend1>Jika Anda tertarik untuk memperpanjang masa percobaan Anda, silakan</ActivationTrialExtend1>
     <ActivationTrialExtend2>beri tahu kami alasannya.</ActivationTrialExtend2>
     <ActivationUserNameOrPasswordIsWrong>Nama Anda pengguna (Email) atau password salah!</ActivationUserNameOrPasswordIsWrong>
     <ActivationWrongAccountType>jenis akun Anda tidak memungkinkan untuk mengaktifkan Stimulsoft Server!</ActivationWrongAccountType>
     <AITokensExhausted>Token Anda telah habis! Silakan hubungi departemen penjualan kami di sales@stimulsoft.com!</AITokensExhausted>
     <Alert>Peringatan</Alert>
-    <AuthAccountAlreadyExists>Akun dengan User Name (email) ini sudah ada. Untuk mengaitkannya dengan akun {0} Anda, silakan gunakan kata sandi akun Stimulsoft Anda.</AuthAccountAlreadyExists>
+    <AuthAccountAlreadyExists>Akun dengan User Name (Email) ini sudah ada. Untuk mengaitkannya dengan akun {0} Anda, silakan gunakan kata sandi akun Stimulsoft Anda.</AuthAccountAlreadyExists>
     <AuthAccountCantBeUsedNow>Account tidak dapat digunakan sekarang!</AuthAccountCantBeUsedNow>
     <AuthAccountIsNotActivated>Akun tersebut belum diaktifkan! Ikuti petunjuk yang dikirim ke Email yang saat pendaftaran.</AuthAccountIsNotActivated>
     <AuthCantChangeRoleBecauseLastAdministratorUser>Peran pengguna tidak dapat diubah karena ini adalah pengguna administrator terakhir di ruang kerja ini!</AuthCantChangeRoleBecauseLastAdministratorUser>
@@ -2585,9 +2614,9 @@
     <AuthSendMessageWithInstructions>Suatu pesan dengan instruksi lebih lanjut dikirim ke "{0}"!</AuthSendMessageWithInstructions>
     <AuthTokenIsNotCorrect>Token tidak benar!</AuthTokenIsNotCorrect>
     <AuthUserHasLoggedOut>Anda telah log out!</AuthUserHasLoggedOut>
-    <AuthUserHasLoggedOutPrevDevice>Anda telah keluar karena terdeteksi adanya login dari perangkat lain!</AuthUserHasLoggedOutPrevDevice>
+    <AuthUserHasLoggedOutPrevDevice>Seseorang masuk ke akun Anda dari perangkat lain. Masuk kembali untuk melanjutkan.</AuthUserHasLoggedOutPrevDevice>
     <AuthUserNameAlreadyExists>Username (Email) sudah digunakan!</AuthUserNameAlreadyExists>
-    <AuthUserNameEmailIsBlocked>Alamat email ini tidak dapat digunakan!</AuthUserNameEmailIsBlocked>
+    <AuthUserNameEmailIsBlocked>Alamat Email ini tidak dapat digunakan!</AuthUserNameEmailIsBlocked>
     <AuthUserNameIsNotSpecified>Username (Email) tidak ditentukan!</AuthUserNameIsNotSpecified>
     <AuthUserNameIsTooLong>Nama pengguna (Email) terlalu panjang!</AuthUserNameIsTooLong>
     <AuthUserNameNotAssociatedWithYourAccount>Pengguna (Email) {0} tidak terkait dengan akun {1} Anda!</AuthUserNameNotAssociatedWithYourAccount>
@@ -2597,12 +2626,15 @@
     <CertificateNotFound>Sertifikat Tidak Ditemukan!</CertificateNotFound>
     <CommandTimeOut>Waktu tunggu untuk memproses perintah telah berlalu!</CommandTimeOut>
     <Congratulations>Selamat!</Congratulations>
+    <ContentNeedsAdditionalPackage>Konten ini memerlukan paket tambahan</ContentNeedsAdditionalPackage>
     <DeveloperInformation>Informasi Pengembang</DeveloperInformation>
     <EndDateShouldBeGreaterThanCurrentDate>Tanggal akhir harus lebih besar dari tanggal sekarang!</EndDateShouldBeGreaterThanCurrentDate>
     <EndDateShouldBeGreaterThanStartDate>Tanggal akhir harus lebih besar dari tanggal mulai!</EndDateShouldBeGreaterThanStartDate>
     <Error>Kesalahan</Error>
     <ExecutionError>kesalahan Eksekusi</ExecutionError>
     <ExpressionValidationFailed>Validasi ekspresi gagal.</ExpressionValidationFailed>
+    <FileCreatedInNewerVersion>File ini memerlukan versi {0} untuk dibuka, tetapi Anda menggunakan versi {1}. Perbarui perangkat lunak.</FileCreatedInNewerVersion>
+    <FileNeedsNewerVersion>Perangkat lunak sudah usang</FileNeedsNewerVersion>
     <GracePeriod>Masa tenggang langganan Anda akan berakhir dalam {0} hari.</GracePeriod>
     <IsIdentical>"{0}" dan "{1}" identik."</IsIdentical>
     <IsNotAuthorized>Tidak ada akses ke "{0}"!</IsNotAuthorized>
@@ -2627,6 +2659,7 @@
     <MinimumValue>Minimum adalah {0}.</MinimumValue>
     <NewDesignerAvailable>StimulsoftDesigner {0} tersedia.</NewDesignerAvailable>
     <NewProduct>Produk baru ditambahkan ke langganan Anda!</NewProduct>
+    <NewProductAddedToSubscription>Produk baru telah ditambahkan ke langganan Anda</NewProductAddedToSubscription>
     <NewVersionsAvailable>Versi baru</NewVersionsAvailable>
     <NotificationConnectPackage>Hubungkan paket "{0}" untuk pengoperasian yang benar.</NotificationConnectPackage>
     <NotificationFailed>Hasil Gagal!</NotificationFailed>
@@ -2676,6 +2709,9 @@
     <OutOfRange>Di luar range ( "{0}")!</OutOfRange>
     <ParsingCommandException>Pengecualian pengolahan perintah dalam xml tertentu: {0}</ParsingCommandException>
     <PleaseLogin>Please login using your Stimulsoft account credentials or register a new account before publishing report.</PleaseLogin>
+    <PurchaseSubscriptionBeforeTrialEnds>Beli langganan atau tambahkan kunci lisensi Anda ke aplikasi untuk terus menggunakan produk Stimulsoft setelah masa uji coba.</PurchaseSubscriptionBeforeTrialEnds>
+    <PurchaseSubscriptionDesignerTrialEnds>Beli langganan untuk terus menggunakan produk Stimulsoft setelah masa uji coba.</PurchaseSubscriptionDesignerTrialEnds>
+    <PurchaseSubscriptionTrialExpired>Beli langganan atau tambahkan kunci lisensi Anda ke aplikasi untuk terus menggunakan produk Stimulsoft. Menutup jendela ini juga akan menutup aplikasi.</PurchaseSubscriptionTrialExpired>
     <QuotaMaximumComputingCyclesCountExceeded>siklus komputasi maksimum hitungan terlampaui.</QuotaMaximumComputingCyclesCountExceeded>
     <QuotaMaximumDataRowsCountExceeded>Baris data maksimum dalam satu sumber data terlampaui.</QuotaMaximumDataRowsCountExceeded>
     <QuotaMaximumFileSizeExceeded>ukuran file maksimum terlampaui.</QuotaMaximumFileSizeExceeded>
@@ -2686,18 +2722,26 @@
     <QuotaMaximumResourceSizeExceeded>Ukuran sumber daya maksimum terlampaui.</QuotaMaximumResourceSizeExceeded>
     <QuotaMaximumUsersCountExceeded>pengguna maksimum hitungan melebihi.</QuotaMaximumUsersCountExceeded>
     <QuotaMaximumWorkspacesCountExceeded>ruang kerja maksimum hitungan terlampaui.</QuotaMaximumWorkspacesCountExceeded>
+    <RenewSubscriptionBeforeGracePeriodEnds>Langganan {0} Anda telah berakhir. Perpanjang sebelum masa tenggang berakhir.</RenewSubscriptionBeforeGracePeriodEnds>
+    <RenewSubscriptionToGetNewVersions>Perpanjang langganan {0} Anda agar tetap mendapatkan peningkatan yang berkelanjutan.</RenewSubscriptionToGetNewVersions>
+    <RenewSubscriptionToGetNewVersionsAgain>Perpanjang langganan {0} Anda untuk kembali mendapatkan versi baru.</RenewSubscriptionToGetNewVersionsAgain>
     <SchedulerCantRunItSelf>scheduler tidak bisa berjalan sendiri!</SchedulerCantRunItSelf>
+    <SeatLimitUpgradeBeforeDate>Langganan Anda menggunakan lebih banyak kursi pengembang daripada yang termasuk di dalamnya. Tingkatkan paket Anda sebelum {0} agar dapat terus bekerja tanpa gangguan.</SeatLimitUpgradeBeforeDate>
+    <SeatLimitUpgradeToContinue>Langganan Anda menggunakan lebih banyak kursi pengembang daripada yang termasuk di dalamnya. Tingkatkan paket Anda untuk melanjutkan. Menutup jendela ini juga akan menutup aplikasi.</SeatLimitUpgradeToContinue>
     <SessionTimeOut>Waktu tunggu sesi</SessionTimeOut>
     <SnapshotAlreadyProcessed>Laporan snapshot sudah diproses!</SnapshotAlreadyProcessed>
     <SpecifiedItemIsNot>Item yang ditentukan tidak "{0}"!</SpecifiedItemIsNot>
+    <SubscriptionEndedBeforeVersion>Periode pemeliharaan Anda berakhir pada {0}, sebelum versi {1} dirilis. Perpanjang langganan Anda untuk terus menggunakan versi terbaru tanpa gangguan.</SubscriptionEndedBeforeVersion>
     <SubscriptionExpired>Langganan Anda telah kedaluwarsa!</SubscriptionExpired>
     <SubscriptionExpiredDate>Langganan Anda akan berakhir pada {0}</SubscriptionExpiredDate>
     <SubscriptionExpiredDays>Kedaluwarsa dalam {0} hari</SubscriptionExpiredDays>
     <SubscriptionExpiredExt>Langganan Anda telah kedaluwarsa. Perbarui langganan Anda untuk mendapatkan versi terakhir.</SubscriptionExpiredExt>
     <SubscriptionExpiredShort>Langganan kedaluwarsa</SubscriptionExpiredShort>
+    <SubscriptionIsActiveUntil>Langganan {0} Anda kini aktif hingga {1}.</SubscriptionIsActiveUntil>
     <SubscriptionLimitExceeded>Langganan Anda telah melampaui batas kursi pengembang. Aplikasi akan ditutup. Silakan tingkatkan paket Anda untuk melanjutkan.</SubscriptionLimitExceeded>
     <SubscriptionLimitTitle>Batas langganan</SubscriptionLimitTitle>
     <SubscriptionLimitWarning>Langganan Anda menggunakan lebih banyak kursi pengembang daripada yang diizinkan. Harap pertimbangkan untuk meningkatkan paket Anda agar dapat terus bekerja tanpa gangguan.</SubscriptionLimitWarning>
+    <SubscriptionNowIncludes>Langganan Anda kini mencakup {0}. Terima kasih telah memilih Stimulsoft.</SubscriptionNowIncludes>
     <SubscriptionsOut10>10 hari tersisa saat langganan berakhir!</SubscriptionsOut10>
     <SubscriptionsOut20>Periode berlangganan akan berakhir dalam 20 hari</SubscriptionsOut20>
     <SuccessfullyRenewed>Langganan Anda telah berhasil diperbarui!</SuccessfullyRenewed>
@@ -2713,11 +2757,22 @@
     <VersionCreatedFromItem>Dibuat dari item "{0}".</VersionCreatedFromItem>
     <VersionLoadedFromFile>Loaded dari file "{0}".</VersionLoadedFromFile>
     <VersionNewItemCreation>pembuatan item baru.</VersionNewItemCreation>
+    <VersionNotInSubscription>Versi ini tidak tercakup dalam langganan Anda</VersionNotInSubscription>
     <Warning>Peringatan</Warning>
     <WindowClosePreventWhileUploading>Beberapa file upload sekarang, jika Anda menutup halaman mereka akan hilang. Apakah Anda yakin ingin menutup halaman?</WindowClosePreventWhileUploading>
     <WithSpecifiedKeyIsNotFound>"{0}" dengan kunci yang ditentukan tidak ditemukan!</WithSpecifiedKeyIsNotFound>
     <WouldYouLikeToUpdateNow>Apakah Anda ingin memperbarui sekarang?</WouldYouLikeToUpdateNow>
+    <YouHaveBeenLoggedOut>Anda telah keluar</YouHaveBeenLoggedOut>
+    <YourGracePeriodEndsInDays>Masa tenggang Anda berakhir dalam {0} hari</YourGracePeriodEndsInDays>
+    <YourSubscriptionEndsInDays>Langganan Anda berakhir dalam {0} hari</YourSubscriptionEndsInDays>
+    <YourSubscriptionHasBeenBlocked>Langganan Anda telah diblokir</YourSubscriptionHasBeenBlocked>
+    <YourSubscriptionHasBeenRenewed>Langganan Anda telah diperpanjang</YourSubscriptionHasBeenRenewed>
+    <YourSubscriptionHasExpired>Langganan Anda telah berakhir</YourSubscriptionHasExpired>
+    <YourSubscriptionNeedsAttention>Langganan Anda memerlukan perhatian</YourSubscriptionNeedsAttention>
     <YourTimeSessionHasExpired>waktu sesi Anda telah berakhir!</YourTimeSessionHasExpired>
+    <YourTrialEndsInDays>Uji coba Anda berakhir dalam {0} hari</YourTrialEndsInDays>
+    <YourTrialEndsToday>Uji coba Anda berakhir hari ini</YourTrialEndsToday>
+    <YourTrialEndsTomorrow>Uji coba Anda berakhir besok</YourTrialEndsTomorrow>
     <YourTrialHasExpired>Uji coba Anda telah kedaluwarsa</YourTrialHasExpired>
     <YourTrialWillExpire>Uji coba Anda akan berakhir dalam {0} hari.</YourTrialWillExpire>
     <YouUsingTrialVersion>Anda menggunakan versi percobaan!</YouUsingTrialVersion>
@@ -2727,6 +2782,7 @@
     <AssemblyLoadedSuccessfully>Perakitan berhasil dimuat.</AssemblyLoadedSuccessfully>
     <AssemblyNotFound>Tidak mungkin untuk menemukan {0} perakitan menggunakan {1} koneksi!</AssemblyNotFound>
     <Author>Penulis</Author>
+    <ChooseDataAdapter>Untuk terhubung ke {0}, unduh salah satu paket NuGet berikut.</ChooseDataAdapter>
     <Dependencies>Dependensi:</Dependencies>
     <Download>Unduh</Download>
     <DownloadAll>Ambil Semua</DownloadAll>
@@ -5125,6 +5181,7 @@
     <qnCovertColumnType>Anda telah mengubah tipe kolom. Apakah Anda ingin mengaktifkan transformasi data kolom untuk sumber data ini?</qnCovertColumnType>
     <qnDataWriting>Mengizinkan ini membuat aplikasi dapat mengubah data basis data Anda: baris tabel dapat ditambahkan, diperbarui, dan dihapus, dan perubahan data tidak dapat dibatalkan oleh perancang.</qnDataWriting>
     <qnDataWritingResponsibility>Anda mengambil tanggung jawab atas apa yang ditulis. Izinkan penulisan?</qnDataWritingResponsibility>
+    <qnDeleteAll>Anda ingin menghapus semua item?</qnDeleteAll>
     <qnDictionaryNew>Anda ingin membuat kamus baru?</qnDictionaryNew>
     <qnLanguageNew>Anda telah merubah bahasa dari laporan. Ini akan mengakibatkan perubahan bahasa pada kode laporan. Yakin anda ingin menyimpan bahasa ini?</qnLanguageNew>
     <qnPageDelete>Anda ingin menghapus halaman?</qnPageDelete>
@@ -5221,6 +5278,7 @@
     <HideUnlistedExportsInTheViewer>Sembunyikan Ekspor Tidak Terdaftar di Penampil</HideUnlistedExportsInTheViewer>
     <History>Riwayat</History>
     <IfEmpty>Jika {0} Kosong</IfEmpty>
+    <ImportDropHint>Letakkan file {0} atau {1} di sini, atau pilih salah satu</ImportDropHint>
     <Infographics>Infografis</Infographics>
     <InfoMessage>{0} - {1} Ditemukan.</InfoMessage>
     <InformationMessages>Pesan Informasi</InformationMessages>
@@ -5278,6 +5336,7 @@
     <RangeInfo>Masukkan Nomor Halaman dan/atau rentang Halaman dibagi oleh koma. Sebagai contoh : 1, 3, 5-12</RangeInfo>
     <RangePage>Rentang Halaman</RangePage>
     <RangePages>Halaman:</RangePages>
+    <RecentFiles>File terbaru</RecentFiles>
     <ReportChecker>Pemeriksa Laporan</ReportChecker>
     <ReportRenderingMessages>Pesan Pembuatan Laporan</ReportRenderingMessages>
     <RestartDesigner>Anda perlu merestart Report Designer</RestartDesigner>

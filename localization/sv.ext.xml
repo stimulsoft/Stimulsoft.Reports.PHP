@@ -18,6 +18,7 @@
     <SetGrowToHeightToTrue>Ställ in egenskapen GrowToHeight till True</SetGrowToHeightToTrue>
     <StiAllowHtmlTagsInTextActionLong>Ställ in värdet för egenskapen AllowHtmlTags för komponenten till true för att visa HTML-taggar korrekt.</StiAllowHtmlTagsInTextActionLong>
     <StiAllowOnDoublePassActionLong>Ställ in egenskapen NumberOfPass till DoublePass för korrekt beräkning av variabler.</StiAllowOnDoublePassActionLong>
+    <StiAllowVariableAsSqlParameterActionLong>Tillåt att variabeln används som SQL-parameter, så att dess värde skickas till frågan.</StiAllowVariableAsSqlParameterActionLong>
     <StiApplyGeneralTextFormatLong>Ange formatet 'General' för komponenten '{0}'.</StiApplyGeneralTextFormatLong>
     <StiApplyGeneralTextFormatShort>Tillämpa allmänt</StiApplyGeneralTextFormatShort>
     <StiCanBreakComponentInContainerActionLong>Ställ in värdet för egenskapen CanBreak av komponenten till true.</StiCanBreakComponentInContainerActionLong>
@@ -32,6 +33,7 @@
     <StiDeleteDataSourceActionLong>Ta bort Datakällan från rapporten.</StiDeleteDataSourceActionLong>
     <StiDeleteLostPointsActionLong>Ta bort alla förlorade punkter på en sida</StiDeleteLostPointsActionLong>
     <StiDeletePageActionLong>Ta bort sidan från rapporten.</StiDeletePageActionLong>
+    <StiFilterVariableAsExpressionActionLong>Ställ in filtrets datatyp på Expression, så att det jämför med variabelns värde.</StiFilterVariableAsExpressionActionLong>
     <StiFixCrossLinePrimitiveActionLong>Skapa nya punkter i stället för de förlorade. Denna operation garanterar inte en 100% korrekt fix!</StiFixCrossLinePrimitiveActionLong>
     <StiGenerateNewNameComponentActionLong>Skapa ett nytt namn för komponenten.</StiGenerateNewNameComponentActionLong>
     <StiGenerateNewNameDataSourceActionLong>Skapa ett nytt namn för datakällan.</StiGenerateNewNameDataSourceActionLong>
@@ -58,6 +60,7 @@
     <StiPropertiesOnlyEngineV1ActionLong>Inaktivera egenskaper för komponenten '{0}' som inte stöds i EngineV2.</StiPropertiesOnlyEngineV1ActionLong>
     <StiPropertiesOnlyEngineV2ActionLong>Inaktivera egenskaper hos den komponent som inte stöds i EngineV1.</StiPropertiesOnlyEngineV2ActionLong>
     <StiResetPageNumberActionLong>Ställ in egenskapen ResetPageNumber för en sida till false.</StiResetPageNumberActionLong>
+    <StiStyleNegativeBorderSizeActionLong>Ställ in stilens negativa kantstorlekar på 0.</StiStyleNegativeBorderSizeActionLong>
     <StiSwitchToParametersVerticalOrientationAction>Växla värdet för rapportegenskapen 'Parameters Orientation' till 'Vertical'.</StiSwitchToParametersVerticalOrientationAction>
     <StiSwitchWidthAndHeightOfPageActionLong>Ordna höjden och bredden på sidan.</StiSwitchWidthAndHeightOfPageActionLong>
     <StiVerySmallSizesOfComponentsLong>Storleken på en komponent kommer att ökas till rapportens GridSize-värde. Denna operation garanterar inte en 100% korrekt fix!</StiVerySmallSizesOfComponentsLong>
@@ -82,13 +85,13 @@
     <StiColumnsWidthGreaterPageWidthCheckLong>Den totala bredden på kolumnerna på sidan '{0}' är större än sidans bredd. Detta kan leda till felaktig rapportrendering. Det kan också orsaka en del problem med att exportera en rapport till andra format.</StiColumnsWidthGreaterPageWidthCheckLong>
     <StiColumnsWidthGreaterPageWidthCheckShort>Den totala kolumnbredden är större än sidans bredd</StiColumnsWidthGreaterPageWidthCheckShort>
     <StiComponentBoundsAreOutOfBandLong>Komponenten "{0}" är helt eller delvis utanför bandet. Denna komponent kommer inte att skrivas ut på rätt sätt. Men i vissa fall är en sådan position av komponenten acceptabel. Det kan också orsaka en del problem med att exportera en rapport till andra format.</StiComponentBoundsAreOutOfBandLong>
-    <StiComponentBoundsAreOutOfBandShort>Komponenten är delvis utanför bandet.</StiComponentBoundsAreOutOfBandShort>
-    <StiComponentExpressionCheckLong>Uttrycket i egenskapen {0} för "{1}" kan inte utvärderas!</StiComponentExpressionCheckLong>
-    <StiComponentExpressionCheckShort>Uttrycket kan inte utvärderas!</StiComponentExpressionCheckShort>
+    <StiComponentBoundsAreOutOfBandShort>Komponenten är delvis utanför bandet</StiComponentBoundsAreOutOfBandShort>
+    <StiComponentExpressionCheckLong>Uttrycket i egenskapen {0} för "{1}" kan inte utvärderas.</StiComponentExpressionCheckLong>
+    <StiComponentExpressionCheckShort>Uttrycket kan inte utvärderas</StiComponentExpressionCheckShort>
     <StiComponentNameIsSystemVariableCheckLong>Komponentnamnet '{0}' står i konflikt med ett systemvariabelnamn. Uttryck som använder denna systemvariabel fungerar inte korrekt, eftersom referensen ersätts av komponentreferensen.</StiComponentNameIsSystemVariableCheckLong>
     <StiComponentNameIsSystemVariableCheckShort>Komponentnamnet står i konflikt med ett systemvariabelnamn</StiComponentNameIsSystemVariableCheckShort>
     <StiComponentResourceCheckLong>Resursen '{0}' som angetts för komponenten '{1}' hittades inte i rapportens ordlista.</StiComponentResourceCheckLong>
-    <StiComponentResourceCheckShort>Den angivna resursen hittades inte!</StiComponentResourceCheckShort>
+    <StiComponentResourceCheckShort>Den angivna resursen hittades inte</StiComponentResourceCheckShort>
     <StiComponentStyleIsNotFoundCheckAtPageLong>Stilen som angetts för sidan "{0}" finns inte.</StiComponentStyleIsNotFoundCheckAtPageLong>
     <StiComponentStyleIsNotFoundCheckLong>Stilen som angetts för komponenten "{0}" finns inte.</StiComponentStyleIsNotFoundCheckLong>
     <StiComponentStyleIsNotFoundCheckShort>Den angivna stilen finns inte</StiComponentStyleIsNotFoundCheckShort>
@@ -107,26 +110,34 @@
     <StiEventsAtInterpretationCheckLong>Skriptet i händelsen '{0}' i komponenten '{1}' fungerar inte i tolkningsläget.</StiEventsAtInterpretationCheckLong>
     <StiEventsAtInterpretationCheckShort>Händelser i tolkning</StiEventsAtInterpretationCheckShort>
     <StiExpressionElementCheckLong>Uttrycket '{0}' i komponenten '{1}' fungerar felaktigt. Följande meddelande togs emot från parsern: '{2}'.</StiExpressionElementCheckLong>
-    <StiExpressionElementCheckShort>Ett uttryck fungerar felaktigt!</StiExpressionElementCheckShort>
+    <StiExpressionElementCheckShort>Ett uttryck fungerar felaktigt</StiExpressionElementCheckShort>
+    <StiFilterAfterLoadingCheckLong>Databandet '{0}' filtrerar raderna i datakällan '{1}' efter variabeln '{2}' efter att alla rader har lästs in från databasen. För en stor tabell bör du filtrera i frågan i stället: lägg till ett villkor med parametern @{2} i frågan och tillåt att variabeln används som SQL-parameter.</StiFilterAfterLoadingCheckLong>
+    <StiFilterAfterLoadingCheckShort>Raderna filtreras efter inläsningen</StiFilterAfterLoadingCheckShort>
     <StiFilterCircularDependencyElementCheckLong>Filtrets cirkulära beroende hittades vid elementet '{0}'. Kontrollera egenskapen 'Parent Key' för elementet '{0}'!</StiFilterCircularDependencyElementCheckLong>
     <StiFilterCircularDependencyElementCheckShort>Cirkulärt filterberoende</StiFilterCircularDependencyElementCheckShort>
+    <StiFilterColumnNotFoundCheckLong>Ett filter för komponenten '{0}' använder kolumnen '{1}', som datakällan '{2}' inte har. Filtret kan inte bearbetas.</StiFilterColumnNotFoundCheckLong>
+    <StiFilterColumnNotFoundCheckShort>Filterkolumnen hittades inte</StiFilterColumnNotFoundCheckShort>
     <StiFilterValueCheckLong>Ett filtervärde för '{0}' har inte angetts. Detta filter kan inte bearbetas.</StiFilterValueCheckLong>
     <StiFilterValueCheckShort>Ett filtervärde har inte angetts</StiFilterValueCheckShort>
+    <StiFilterValueTypeCheckLong>Ett filter för komponenten '{0}' jämför med värdet '{1}', som inte är ett värde av typen {2}. Filtret jämför i stället med ett standardvärde (0, dagens datum eller false), så bandet visar andra rader.</StiFilterValueTypeCheckLong>
+    <StiFilterValueTypeCheckShort>Filtervärdet matchar inte dess datatyp</StiFilterValueTypeCheckShort>
+    <StiFilterVariableAsTextCheckLong>Ett filter för komponenten '{0}' jämför med variabeln '{1}', men dess datatyp är {2}, så filtret jämför med namnet som text och inte med variabelns värde. Ställ in filtrets datatyp på Expression.</StiFilterVariableAsTextCheckLong>
+    <StiFilterVariableAsTextCheckShort>Filtret tolkar en variabel som text</StiFilterVariableAsTextCheckShort>
     <StiFontGlyphsMissingCheckLong>Typsnittet '{0}' för komponenten '{1}' innehåller inte glyfer för följande tecken: {2}. Dessa tecken visas som tomma rektanglar i PDF-filen.</StiFontGlyphsMissingCheckLong>
-    <StiFontGlyphsMissingCheckShort>Typsnittet innehåller inte glyfer för texten.</StiFontGlyphsMissingCheckShort>
+    <StiFontGlyphsMissingCheckShort>Typsnittet innehåller inte glyfer för texten</StiFontGlyphsMissingCheckShort>
     <StiFontMissingCheckLong>Typsnittet "{0}" som anges för komponenten "{1}" finns inte.</StiFontMissingCheckLong>
-    <StiFontMissingCheckShort>Typsnittet hittas inte.</StiFontMissingCheckShort>
+    <StiFontMissingCheckShort>Typsnittet hittas inte</StiFontMissingCheckShort>
     <StiFunctionsOnlyForEngineV2CheckLong>Systemvariabler som inte är tillgängliga i EngineV1 används i rapporten. Vill du använda EngineV2?</StiFunctionsOnlyForEngineV2CheckLong>
-    <StiFunctionsOnlyForEngineV2CheckShort>Variabler som inte är tillgängliga i EngineV1 används.</StiFunctionsOnlyForEngineV2CheckShort>
+    <StiFunctionsOnlyForEngineV2CheckShort>Variabler som inte är tillgängliga i EngineV1 används</StiFunctionsOnlyForEngineV2CheckShort>
     <StiGroupHeaderNotEqualToGroupFooterOnContainerLong>Antalet GroupFooter motsvarar inte antalet GroupHeader i behållaren '{0}'. Udda komponenter kommer inte att renderas.</StiGroupHeaderNotEqualToGroupFooterOnContainerLong>
     <StiGroupHeaderNotEqualToGroupFooterOnPageLong>Antalet GroupFooter motsvarar inte antalet GroupHeader på sidan "{0}". Udda komponenter kommer inte att renderas.</StiGroupHeaderNotEqualToGroupFooterOnPageLong>
     <StiGroupHeaderNotEqualToGroupFooterShort>Vissa komponenter kommer inte att renderas</StiGroupHeaderNotEqualToGroupFooterShort>
     <StiGroupHeaderSummaryExpressionCheckLong>Summeringsuttrycket för grupphuvudet {0} innehåller en aggregatfunktion, men denna funktion är angiven i en separat egenskap. Rapportgenerering är inte möjlig.</StiGroupHeaderSummaryExpressionCheckLong>
     <StiGroupHeaderSummaryExpressionCheckShort>Ogiltig funktion i uttryck</StiGroupHeaderSummaryExpressionCheckShort>
     <StiGrowToHeightOverlappingLong>Egenskapen GrowToHeight för komponenten '{0}' är inställd på true. När en rapport renderas kan denna komponent överlappa en eller flera underliggande komponenter.</StiGrowToHeightOverlappingLong>
-    <StiGrowToHeightOverlappingShort>Komponenter kan överlappa.</StiGrowToHeightOverlappingShort>
+    <StiGrowToHeightOverlappingShort>Komponenter kan överlappa</StiGrowToHeightOverlappingShort>
     <StiInsufficientTextHeightForOneLineCheckLong>Höjden på textkomponenten {0} är för liten, även för en textrad. Detta kan orsaka problem vid export till vissa format samt vid utskrift på webben. Det rekommenderas att öka höjden eller ange egenskapen CanGrow till true.</StiInsufficientTextHeightForOneLineCheckLong>
-    <StiInsufficientTextHeightForOneLineCheckShort>Otillräcklig höjd för en rad.</StiInsufficientTextHeightForOneLineCheckShort>
+    <StiInsufficientTextHeightForOneLineCheckShort>Otillräcklig höjd för en rad</StiInsufficientTextHeightForOneLineCheckShort>
     <StiIsFirstPageIsLastPageDoublePassCheckLong>Systemvariablerna IsFirstPage, IsFirstPageThrough, IsLastPage, IsLastPageThrough ger felaktiga resultat vid ett pass. Det krävs att egenskapen NumberOfPass ställs in på DoublePass.</StiIsFirstPageIsLastPageDoublePassCheckLong>
     <StiIsFirstPageIsLastPageDoublePassCheckShort>Systemvariabler som kräver dubbla pass används i rapporten</StiIsFirstPageIsLastPageDoublePassCheckShort>
     <StiIsFirstPassIsSecondPassCheckLong>För att funktionerna IsFirstPass och IsSecondPass ska fungera korrekt krävs dubbla pass vid rapportrendering. Kanske glömde du att ställa in egenskapen NumberOfPass för rapporten till DoublePass.</StiIsFirstPassIsSecondPassCheckLong>
@@ -140,7 +151,7 @@
     <StiMinRowsInColumnsCheckLong>Egenskapen MinRowsInColumns för bandet är inte inställd på 0. Men värdet för egenskapen Columns är inställt på 0. Detta är meningslöst.</StiMinRowsInColumnsCheckLong>
     <StiMinRowsInColumnsCheckShort>Kanske är egenskapen MinRowsInColumns felaktigt inställd</StiMinRowsInColumnsCheckShort>
     <StiNegativeSizesOfComponentsCheckLong>Bredden och höjden för komponenten "{0}" har negativa värden. Detta kan leda till felaktig rapportrendering.</StiNegativeSizesOfComponentsCheckLong>
-    <StiNegativeSizesOfComponentsCheckShort>Bredden och höjden på komponenten har negativa värden.</StiNegativeSizesOfComponentsCheckShort>
+    <StiNegativeSizesOfComponentsCheckShort>Bredden och höjden på komponenten har negativa värden</StiNegativeSizesOfComponentsCheckShort>
     <StiNoConditionAtGroupCheckLong>Ett villkor är inte inställt för komponenten "{0}". Gruppering kommer inte att ske utan det</StiNoConditionAtGroupCheckLong>
     <StiNoConditionAtGroupCheckShort>Ett villkor för gruppen är inte inställt</StiNoConditionAtGroupCheckShort>
     <StiNoNameComponentCheckLong>Komponenten har inget namn. Om namnet på komponenten inte anges kommer rapportmotorn inte att kunna kompilera rapporten.</StiNoNameComponentCheckLong>
@@ -150,7 +161,7 @@
     <StiPageFooterOnlyLastPageCheckLong>Bandet {0} med egenskapen PrintOn=OnlyLastPage skapar oönskade mellanrum längst ned på sidan. Vi rekommenderar att du ersätter det med ReportSummary.</StiPageFooterOnlyLastPageCheckLong>
     <StiPageFooterOnlyLastPageCheckShort>Sannolikhet för att luckor uppstår</StiPageFooterOnlyLastPageCheckShort>
     <StiPageLineAndDoublePassCheckLong>Systemvariabeln PageLine kräver Double-Pass av rapportmotorn.</StiPageLineAndDoublePassCheckLong>
-    <StiPageLineAndDoublePassCheckShort>PageLine kräver Double-Pass!</StiPageLineAndDoublePassCheckShort>
+    <StiPageLineAndDoublePassCheckShort>PageLine kräver Double-Pass</StiPageLineAndDoublePassCheckShort>
     <StiPanelInEngineV1CheckLong>Panelen "{0}" finns i rapporten där EngineV1 används. Denna komponent är inte tillgänglig i EngineV1. Därför försöker rapporteringsverktyget rendera den som en Container-komponent. Men Panel-komponenten har fler möjligheter jämfört med Container och detta kan leda till felaktig rapportrendering.</StiPanelInEngineV1CheckLong>
     <StiPanelInEngineV1CheckShort>Panelen i EngineV1</StiPanelInEngineV1CheckShort>
     <StiPrintHeadersAndFootersFromPreviousPageLong>Egenskapen PrintHeadersAndFootersFromPreviousPage för sidan '{0}' är inställd på true. Men för den första och enda sidan är det meningslöst.</StiPrintHeadersAndFootersFromPreviousPageLong>
@@ -158,7 +169,7 @@
     <StiPrintOnDoublePassCheckLong>Egenskapen PrintOn för komponenten '{0}' är inte inställd på AllPages. För korrekt rapportrendering bör dubbla pass vara aktiverat.</StiPrintOnDoublePassCheckLong>
     <StiPrintOnDoublePassCheckShort>Egenskapen PrintOn är inte inställd på AllPages</StiPrintOnDoublePassCheckShort>
     <StiPrintOnPreviousPageCheck2Long>Egenskapen PrintOnPreviousPage för sidan '{0}' är inställd på true. Alla komponenter (utom band) som ligger på den här sidan kommer endast att skrivas ut från nästa nya sida, eller kanske inte skrivs ut alls om det inte blir några nya sidor.</StiPrintOnPreviousPageCheck2Long>
-    <StiPrintOnPreviousPageCheck2Short>Vissa komponenter kan inte skrivas ut.</StiPrintOnPreviousPageCheck2Short>
+    <StiPrintOnPreviousPageCheck2Short>Vissa komponenter kan inte skrivas ut</StiPrintOnPreviousPageCheck2Short>
     <StiPrintOnPreviousPageCheckLong>Egenskapen PrintOnPreviousPage för sidan '{0}' är inställd på true. Men för den första och enda sidan är det meningslöst.</StiPrintOnPreviousPageCheckLong>
     <StiPrintOnPreviousPageCheckShort>Kanske är egenskapen PrintOnPreviousPage felaktigt inställd</StiPrintOnPreviousPageCheckShort>
     <StiPropertiesOnlyEngineV1CheckLong>Egenskapen StartNewPage för komponenten '{0}' stöds endast i EngineV1.</StiPropertiesOnlyEngineV1CheckLong>
@@ -168,7 +179,7 @@
     <StiResetPageNumberCheckLong>Egenskapen ResetPageNumber för sidan '{0}' är inställd på true. Men för den första och enda sidan är det meningslöst.</StiResetPageNumberCheckLong>
     <StiResetPageNumberCheckShort>Kanske egenskapen ResetPageNumber är felaktigt inställd</StiResetPageNumberCheckShort>
     <StiRtlTextWithoutRightToLeftCheckLong>Komponenten '{0}' innehåller en höger-till-vänster-text, men textalternativet RightToLeft är inaktiverat.</StiRtlTextWithoutRightToLeftCheckLong>
-    <StiRtlTextWithoutRightToLeftCheckShort>RTL-text med inaktiverat RightToLeft-alternativ.</StiRtlTextWithoutRightToLeftCheckShort>
+    <StiRtlTextWithoutRightToLeftCheckShort>RTL-text med inaktiverat RightToLeft-alternativ</StiRtlTextWithoutRightToLeftCheckShort>
     <StiShowInsteadNullValuesCheckLong>Den NullValues ​​egenskapen är inställd för "{0}" komponent. Men egenskapen DataColumn inte är inställd. Det är meningslöst.</StiShowInsteadNullValuesCheckLong>
     <StiShowInsteadNullValuesCheckShort>Den NullValues ​​egenskapen är inställd</StiShowInsteadNullValuesCheckShort>
     <StiSubReportPageZeroCheckLong>Om egenskapen SubReportPage för SubReport-komponenten inte är inställd kan rapporten inte renderas.</StiSubReportPageZeroCheckLong>
@@ -178,9 +189,9 @@
     <StiTextColorEqualToBackColorCheckLong>En möjlig orsak är att värdena för egenskaperna TextBrush och Brush för komponenten '{0}' angavs felaktigt. Texten kommer inte att vara synlig.</StiTextColorEqualToBackColorCheckLong>
     <StiTextColorEqualToBackColorCheckShort>Egenskapen TextBrush är lika med egenskapen Brush</StiTextColorEqualToBackColorCheckShort>
     <StiTextTextFormatCheckLong>Det valda textformatet för komponenten '{0}' kan inte tillämpas eftersom resultatet av uttrycket är en textsträng.</StiTextTextFormatCheckLong>
-    <StiTextTextFormatCheckShort>Formatet kan inte tillämpas.</StiTextTextFormatCheckShort>
+    <StiTextTextFormatCheckShort>Formatet kan inte tillämpas</StiTextTextFormatCheckShort>
     <StiTextTextFormatFieldCheckLong>Kolumnen som används i komponenten {0} är inte av datumtyp. Det rekommenderas att ändra formateringen till General för att undvika att rapporten blir långsam och för att säkerställa korrekt formatering.</StiTextTextFormatFieldCheckLong>
-    <StiTextTextFormatFieldCheckShort>Det valda formatet är inte kompatibelt med datakolumnens typ.</StiTextTextFormatFieldCheckShort>
+    <StiTextTextFormatFieldCheckShort>Det valda formatet är inte kompatibelt med datakolumnens typ</StiTextTextFormatFieldCheckShort>
     <StiTotalPageCountDoublePassCheckLong>Systemvariablerna TotalPageCount och TotalPageCountThrough i skript och villkor ger felaktiga resultat vid ett pass. Det krävs att egenskapen NumberOfPass ställs in på DoublePass.</StiTotalPageCountDoublePassCheckLong>
     <StiUndefinedComponentCheckLong>En odefinierad komponent "{0}" finns i rapporten. Rapporteringsverktyget kan inte identifiera denna komponent. Kanske är detta en anpassad komponent. Rapporten kan inte renderas!</StiUndefinedComponentCheckLong>
     <StiUndefinedComponentCheckShort>Odefinierad komponent</StiUndefinedComponentCheckShort>
@@ -224,8 +235,18 @@
     <StiNoNameDataSourceCheckShort>Det finns inget namn på datakälla</StiNoNameDataSourceCheckShort>
     <StiNoNameInSourceDataSourceCheckLong>NameInSource-fältet är inte ifyllt för datakällan '{0}'. Utan att fylla i detta fält kommer rapporteringsverktyget inte att kunna hitta data för datakällan i databasen och rapporten kommer inte att genereras!</StiNoNameInSourceDataSourceCheckLong>
     <StiNoNameInSourceDataSourceCheckShort>NameInSource-fältet för datakällan är inte ifyllt</StiNoNameInSourceDataSourceCheckShort>
+    <StiSqlParameterDuplicateCheckLong>Datakällan '{0}' har flera parametrar med namnet '{1}'. Frågan kan inte köras.</StiSqlParameterDuplicateCheckLong>
+    <StiSqlParameterDuplicateCheckShort>Dubblerad SQL-parameter</StiSqlParameterDuplicateCheckShort>
+    <StiSqlParameterNotFoundCheckLong>Frågan i datakällan '{0}' använder parametern @{1}, men datakällan har ingen sådan parameter och rapporten har ingen variabel med detta namn. Frågan misslyckas när rapporten skapas.</StiSqlParameterNotFoundCheckLong>
+    <StiSqlParameterNotFoundCheckShort>Frågan använder en odefinierad parameter</StiSqlParameterNotFoundCheckShort>
+    <StiSqlParameterVariableNotFoundCheckLong>Parametern '{1}' i datakällan '{0}' hämtar sitt värde från '{2}', men rapporten har ingen variabel med detta namn. Frågan får inget värde för parametern.</StiSqlParameterVariableNotFoundCheckLong>
+    <StiSqlParameterVariableNotFoundCheckShort>En parameter refererar till en saknad variabel</StiSqlParameterVariableNotFoundCheckShort>
+    <StiSqlVariableNotAllowedCheckLong>Frågan i datakällan '{0}' använder parametern @{1}. Rapporten har variabeln '{1}', men den får inte användas som SQL-parameter, så dess värde skickas inte till frågan och frågan misslyckas.</StiSqlVariableNotAllowedCheckLong>
+    <StiSqlVariableNotAllowedCheckShort>Variabeln får inte användas som SQL-parameter</StiSqlVariableNotAllowedCheckShort>
     <StiUndefinedDataSourceCheckLong>Den odefinierade datakällan '{0}' hittades i rapporten. Rapporteringsverktyget kan inte korrekt bearbeta denna typ av datakälla! Kanske används anpassade datakällor i rapporten. Rapporten kan inte genereras!</StiUndefinedDataSourceCheckLong>
     <StiUndefinedDataSourceCheckShort>Odefinierad datakälla</StiUndefinedDataSourceCheckShort>
+    <StiUnusedSqlDataSourceCheckLong>Datakällan '{0}' används inte i rapporten, men dess fråga körs varje gång rapporten skapas. Stäng av egenskapen ConnectOnStart, ta bort datakällan eller ställ in rapportens egenskap RetrieveOnlyUsedData.</StiUnusedSqlDataSourceCheckLong>
+    <StiUnusedSqlDataSourceCheckShort>En oanvänd datakälla läses in</StiUnusedSqlDataSourceCheckShort>
   </CheckDataSource>
   <CheckGlobal>
     <Error>Fel!</Error>
@@ -242,7 +263,7 @@
     <StiLostPointsOnPageCheckShort>Förlorade punkter</StiLostPointsOnPageCheckShort>
     <StiOrientationPageCheckLongLandscape>Sidorienteringen '{0}' motsvarar inte den angivna sidstorleken. Vanligtvis, för liggande orientering, bör sidbredden vara större än sidhöjden. Bredden på denna sida är mindre än höjden. Detta kan leda till problem när du skriver ut den här sidan.</StiOrientationPageCheckLongLandscape>
     <StiOrientationPageCheckLongPortrait>Sidorienteringen '{0}' motsvarar inte den angivna sidstorleken. Vanligtvis, för stående orientering, bör sidbredden vara mindre än sidhöjden. Bredden på denna sida är större än höjden. Detta kan leda till problem när du skriver ut den här sidan.</StiOrientationPageCheckLongPortrait>
-    <StiOrientationPageCheckShort>Felaktig sidorientering '{0}'.</StiOrientationPageCheckShort>
+    <StiOrientationPageCheckShort>Felaktig sidorientering '{0}'</StiOrientationPageCheckShort>
   </CheckPage>
   <CheckReport>
     <StiCategoryRequestFromUserCheckLong>Kategorierna för variabeln '{0}' kan inte visas på visarens parameterpanel eftersom det endast är möjligt när värdet för rapportegenskapen 'ParametersOrientation' är inställt på 'Vertical'.</StiCategoryRequestFromUserCheckLong>
@@ -268,9 +289,9 @@
     <StiDuplicatedReportName2CheckLong>Rapportnamnet '{0}' är samma som datakällans namn.</StiDuplicatedReportName2CheckLong>
     <StiDuplicatedReportNameCheckLong>Rapportnamnet '{0}' är samma som komponentnamnet.</StiDuplicatedReportNameCheckLong>
     <StiFontNotEmbeddableCheckLong>Typsnittsfilen för typsnittet '{0}' hittades inte, typsnittet bäddas inte in i PDF-filen. Typsnittet används i komponenterna: {1}</StiFontNotEmbeddableCheckLong>
-    <StiFontNotEmbeddableCheckShort>Typsnittet kan inte bäddas in i PDF-filen.</StiFontNotEmbeddableCheckShort>
+    <StiFontNotEmbeddableCheckShort>Typsnittet kan inte bäddas in i PDF-filen</StiFontNotEmbeddableCheckShort>
     <StiFontStyleNotAvailableCheckLong>Typsnittet '{0}' innehåller inte stilen '{1}', den emuleras vid PDF-export. Typsnittet används i komponenterna: {2}</StiFontStyleNotAvailableCheckLong>
-    <StiFontStyleNotAvailableCheckShort>Typsnittsstilen är inte tillgänglig.</StiFontStyleNotAvailableCheckShort>
+    <StiFontStyleNotAvailableCheckShort>Typsnittsstilen är inte tillgänglig</StiFontStyleNotAvailableCheckShort>
     <StiMainPageMissingCheckLong>Rapporten kan inte genereras eftersom huvudsidan inte kan fastställas. Kontrollera sidhänvisningen i SubReports och DrillDowns.</StiMainPageMissingCheckLong>
     <StiMainPageMissingCheckShort>Huvudsidan saknas</StiMainPageMissingCheckShort>
     <StiNetCoreCompilationModeCheckLong>Stimulsoft .NET Core-motorn kan inte rendera denna rapport i kompileringsläge. Ändra rapporten till tolkningsläge.</StiNetCoreCompilationModeCheckLong>
@@ -281,16 +302,18 @@
     <StiScriptExecutionErrorCheck3Long>Ett skriptkörningsfel uppstod i händelsen '{1}' för komponenten '{2}'.</StiScriptExecutionErrorCheck3Long>
     <StiScriptExecutionErrorCheckLong>Ett skriptkörningsfel uppstod.</StiScriptExecutionErrorCheckLong>
     <StiScriptExecutionErrorCheckShort>Fel vid skriptkörning</StiScriptExecutionErrorCheckShort>
+    <StiStyleNegativeBorderSizeCheckLong>Stilen '{0}' har en negativ kantstorlek: {1}. En kantstorlek kan inte vara mindre än 0.</StiStyleNegativeBorderSizeCheckLong>
+    <StiStyleNegativeBorderSizeCheckShort>Negativ kantstorlek i en stil</StiStyleNegativeBorderSizeCheckShort>
   </CheckReport>
   <CheckVariable>
     <StiVariableInitializationCheckLong>Variabeln '{0}' har fel standardvärde. Det är omöjligt att initiera variabeln med ett angivet värde.</StiVariableInitializationCheckLong>
     <StiVariableInitializationCheckShort>Initieringsvärde</StiVariableInitializationCheckShort>
     <StiVariableNameCheckLong>Variabelnamnet "{0}" kan inte användas eftersom det är reserverat.</StiVariableNameCheckLong>
-    <StiVariableNameCheckShort>Variabelnamnet är ogiltigt.</StiVariableNameCheckShort>
+    <StiVariableNameCheckShort>Variabelnamnet är ogiltigt</StiVariableNameCheckShort>
     <StiVariableRecursionCheckLong>Variabeln '{0}' har ett uttryck med rekursion. Det är omöjligt att referera till variabeln i dess eget uttryck.</StiVariableRecursionCheckLong>
     <StiVariableRecursionCheckShort>Rekursivt uttryck</StiVariableRecursionCheckShort>
     <StiVariableTypeCheckLong>För att de beroende variablerna ska fungera korrekt måste deras typer och typerna för deras kolumner matcha.</StiVariableTypeCheckLong>
-    <StiVariableTypeCheckShort>Variabeltyperna matchar inte.</StiVariableTypeCheckShort>
+    <StiVariableTypeCheckShort>Variabeltyperna matchar inte</StiVariableTypeCheckShort>
   </CheckVariable>
   <Font>
     <Bold>Ett värde som anger om detta teckensnitt är fett.</Bold>

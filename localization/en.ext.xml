@@ -18,6 +18,7 @@
     <SetGrowToHeightToTrue>Set the GrowToHeight property to true</SetGrowToHeightToTrue>
     <StiAllowHtmlTagsInTextActionLong>Set the value of the AllowHtmlTags property of the component to true, to display the HTML tags correctly.</StiAllowHtmlTagsInTextActionLong>
     <StiAllowOnDoublePassActionLong>Set the NumberOfPass property to DoublePass for correct calculation of variables.</StiAllowOnDoublePassActionLong>
+    <StiAllowVariableAsSqlParameterActionLong>Allow the variable to be used as a SQL parameter, so its value is passed to the query.</StiAllowVariableAsSqlParameterActionLong>
     <StiApplyGeneralTextFormatLong>Set the 'General' format for the '{0}' component.</StiApplyGeneralTextFormatLong>
     <StiApplyGeneralTextFormatShort>Apply General</StiApplyGeneralTextFormatShort>
     <StiCanBreakComponentInContainerActionLong>Set the value of the CanBreak property of the component to true.</StiCanBreakComponentInContainerActionLong>
@@ -32,6 +33,7 @@
     <StiDeleteDataSourceActionLong>Delete the Data Source from the report.</StiDeleteDataSourceActionLong>
     <StiDeleteLostPointsActionLong>Delete all lost points on a page</StiDeleteLostPointsActionLong>
     <StiDeletePageActionLong>Delete the page from the report.</StiDeletePageActionLong>
+    <StiFilterVariableAsExpressionActionLong>Set the data type of the filter to Expression, so it compares with the value of the variable.</StiFilterVariableAsExpressionActionLong>
     <StiFixCrossLinePrimitiveActionLong>Create new points instead of the lost ones. This operation does not guarantee the 100% correct fix!</StiFixCrossLinePrimitiveActionLong>
     <StiGenerateNewNameComponentActionLong>Generate a new name for the component.</StiGenerateNewNameComponentActionLong>
     <StiGenerateNewNameDataSourceActionLong>Generate a new name for the Data Source.</StiGenerateNewNameDataSourceActionLong>
@@ -58,6 +60,7 @@
     <StiPropertiesOnlyEngineV1ActionLong>Disable properties of the '{0}' component which are not supported in the EngineV2.</StiPropertiesOnlyEngineV1ActionLong>
     <StiPropertiesOnlyEngineV2ActionLong>Disable properties of the component which are not supported in the EngineV1.</StiPropertiesOnlyEngineV2ActionLong>
     <StiResetPageNumberActionLong>Set the ResetPageNumber property of a page to false.</StiResetPageNumberActionLong>
+    <StiStyleNegativeBorderSizeActionLong>Set the negative border sizes of the style to 0.</StiStyleNegativeBorderSizeActionLong>
     <StiSwitchToParametersVerticalOrientationAction>Switch the value of the 'Parameters Orientation' report property to 'Vertical'.</StiSwitchToParametersVerticalOrientationAction>
     <StiSwitchWidthAndHeightOfPageActionLong>Rearrange the height and width of the page.</StiSwitchWidthAndHeightOfPageActionLong>
     <StiVerySmallSizesOfComponentsLong>The size of a component will be increased to the GridSize value of a report. This operation does not guarantee the 100% correct fix!</StiVerySmallSizesOfComponentsLong>
@@ -82,13 +85,13 @@
     <StiColumnsWidthGreaterPageWidthCheckLong>The total width of columns of the '{0}' page is greater than the page width. This may cause incorrect report rendering. Also it may cause some problems with exporting a report to other formats.</StiColumnsWidthGreaterPageWidthCheckLong>
     <StiColumnsWidthGreaterPageWidthCheckShort>The total column width is greater than page width</StiColumnsWidthGreaterPageWidthCheckShort>
     <StiComponentBoundsAreOutOfBandLong>The '{0}' component is completely or partially outside the band. This component will not be printed correctly. But, in some cases, such a position of the component is acceptable. Also it may cause some problems with exporting a report to other formats.</StiComponentBoundsAreOutOfBandLong>
-    <StiComponentBoundsAreOutOfBandShort>The component is partially outside the band.</StiComponentBoundsAreOutOfBandShort>
-    <StiComponentExpressionCheckLong>Expression in {0} property of '{1}' can't be evaluated!</StiComponentExpressionCheckLong>
-    <StiComponentExpressionCheckShort>Expression can't be evaluated!</StiComponentExpressionCheckShort>
+    <StiComponentBoundsAreOutOfBandShort>The component is partially outside the band</StiComponentBoundsAreOutOfBandShort>
+    <StiComponentExpressionCheckLong>Expression in {0} property of '{1}' can't be evaluated.</StiComponentExpressionCheckLong>
+    <StiComponentExpressionCheckShort>Expression can't be evaluated</StiComponentExpressionCheckShort>
     <StiComponentNameIsSystemVariableCheckLong>The component name '{0}' conflicts with a system variable name. Expressions using this system variable will not function correctly, as the reference will be replaced by the component reference.</StiComponentNameIsSystemVariableCheckLong>
     <StiComponentNameIsSystemVariableCheckShort>The component name conflicts with a system variable name</StiComponentNameIsSystemVariableCheckShort>
     <StiComponentResourceCheckLong>The resource '{0}' specified for component '{1}' was not found in the report dictionary.</StiComponentResourceCheckLong>
-    <StiComponentResourceCheckShort>The specified resource was not found!</StiComponentResourceCheckShort>
+    <StiComponentResourceCheckShort>The specified resource was not found</StiComponentResourceCheckShort>
     <StiComponentStyleIsNotFoundCheckAtPageLong>The style specified for the '{0}' page does not exist.</StiComponentStyleIsNotFoundCheckAtPageLong>
     <StiComponentStyleIsNotFoundCheckLong>The style specified for the '{0}' component does not exist.</StiComponentStyleIsNotFoundCheckLong>
     <StiComponentStyleIsNotFoundCheckShort>The specified style does not exist</StiComponentStyleIsNotFoundCheckShort>
@@ -107,26 +110,34 @@
     <StiEventsAtInterpretationCheckLong>The script in the '{0}' event in the '{1}' component doesn't work in the interpretation mode.</StiEventsAtInterpretationCheckLong>
     <StiEventsAtInterpretationCheckShort>Events in Interpretation</StiEventsAtInterpretationCheckShort>
     <StiExpressionElementCheckLong>The expression '{0}' in the '{1}' component works incorrectly. The following message was received from the parser: '{2}'.</StiExpressionElementCheckLong>
-    <StiExpressionElementCheckShort>An expression works incorrectly!</StiExpressionElementCheckShort>
+    <StiExpressionElementCheckShort>An expression works incorrectly</StiExpressionElementCheckShort>
+    <StiFilterAfterLoadingCheckLong>The '{0}' data band filters the rows of the '{1}' data source by the '{2}' variable after all rows are loaded from the database. For a large table, filter in the query instead: add a condition with the @{2} parameter to the query and allow the variable to be used as a SQL parameter.</StiFilterAfterLoadingCheckLong>
+    <StiFilterAfterLoadingCheckShort>Rows are filtered after loading</StiFilterAfterLoadingCheckShort>
     <StiFilterCircularDependencyElementCheckLong>The circular dependency of the filter is found at the element '{0}'. Please check the 'Parent Key' property of the '{0}' element!</StiFilterCircularDependencyElementCheckLong>
     <StiFilterCircularDependencyElementCheckShort>Circular filter dependency</StiFilterCircularDependencyElementCheckShort>
+    <StiFilterColumnNotFoundCheckLong>A filter of the '{0}' component uses the '{1}' column, which the '{2}' data source does not have. The filter cannot be processed.</StiFilterColumnNotFoundCheckLong>
+    <StiFilterColumnNotFoundCheckShort>The filter column is not found</StiFilterColumnNotFoundCheckShort>
     <StiFilterValueCheckLong>A filter value of '{0}' is not specified. This filter can't be processed.</StiFilterValueCheckLong>
     <StiFilterValueCheckShort>A filter Value is not specified</StiFilterValueCheckShort>
+    <StiFilterValueTypeCheckLong>A filter of the '{0}' component compares with the '{1}' value, which is not a {2} value. The filter compares with a default value instead (0, the current date or false), so the band shows other rows.</StiFilterValueTypeCheckLong>
+    <StiFilterValueTypeCheckShort>The filter value does not match its data type</StiFilterValueTypeCheckShort>
+    <StiFilterVariableAsTextCheckLong>A filter of the '{0}' component compares with the '{1}' variable, but its data type is {2}, so the filter compares with the name as text, not with the value of the variable. Set the data type of the filter to Expression.</StiFilterVariableAsTextCheckLong>
+    <StiFilterVariableAsTextCheckShort>The filter takes a variable as text</StiFilterVariableAsTextCheckShort>
     <StiFontGlyphsMissingCheckLong>The font '{0}' of the component '{1}' does not contain glyphs for the following characters: {2}. These characters will be shown as empty rectangles in a PDF file.</StiFontGlyphsMissingCheckLong>
-    <StiFontGlyphsMissingCheckShort>The font does not contain glyphs for the text.</StiFontGlyphsMissingCheckShort>
+    <StiFontGlyphsMissingCheckShort>The font does not contain glyphs for the text</StiFontGlyphsMissingCheckShort>
     <StiFontMissingCheckLong>The font '{0}' specified for the component '{1}' is not found.</StiFontMissingCheckLong>
-    <StiFontMissingCheckShort>The font is not found.</StiFontMissingCheckShort>
+    <StiFontMissingCheckShort>The font is not found</StiFontMissingCheckShort>
     <StiFunctionsOnlyForEngineV2CheckLong>System variables which are not available in the EngineV1 are used in the report. Do you want to use EngineV2?</StiFunctionsOnlyForEngineV2CheckLong>
-    <StiFunctionsOnlyForEngineV2CheckShort>Variables unavailable in the EngineV1 are used.</StiFunctionsOnlyForEngineV2CheckShort>
+    <StiFunctionsOnlyForEngineV2CheckShort>Variables unavailable in the EngineV1 are used</StiFunctionsOnlyForEngineV2CheckShort>
     <StiGroupHeaderNotEqualToGroupFooterOnContainerLong>The number of GroupFooter does not correspond to the number of GroupHeader in the '{0}' container. Odd components will not be rendered.</StiGroupHeaderNotEqualToGroupFooterOnContainerLong>
     <StiGroupHeaderNotEqualToGroupFooterOnPageLong>The number of GroupFooter does not correspond to the number of GroupHeader on the '{0}' page. Odd components will not be rendered.</StiGroupHeaderNotEqualToGroupFooterOnPageLong>
     <StiGroupHeaderNotEqualToGroupFooterShort>Some components will not be rendered</StiGroupHeaderNotEqualToGroupFooterShort>
     <StiGroupHeaderSummaryExpressionCheckLong>The Summary Expression for the group header {0} contains an aggregate function, but this function is set in a separate property. Report generation is not possible.</StiGroupHeaderSummaryExpressionCheckLong>
     <StiGroupHeaderSummaryExpressionCheckShort>Invalid function in expression</StiGroupHeaderSummaryExpressionCheckShort>
     <StiGrowToHeightOverlappingLong>The GrowToHeight property of the '{0}' component is set to true. When rendering a report, this component can overlap one or more underlying components.</StiGrowToHeightOverlappingLong>
-    <StiGrowToHeightOverlappingShort>Components may overlap.</StiGrowToHeightOverlappingShort>
+    <StiGrowToHeightOverlappingShort>Components may overlap</StiGrowToHeightOverlappingShort>
     <StiInsufficientTextHeightForOneLineCheckLong>The height of the text component {0} is too small, even for one line of text. This can cause issues with exporting to some formats, as well as with printing on the Web. It is recommended to increase the height or set the CanGrow property to true.</StiInsufficientTextHeightForOneLineCheckLong>
-    <StiInsufficientTextHeightForOneLineCheckShort>Insufficient height for one line.</StiInsufficientTextHeightForOneLineCheckShort>
+    <StiInsufficientTextHeightForOneLineCheckShort>Insufficient height for one line</StiInsufficientTextHeightForOneLineCheckShort>
     <StiIsFirstPageIsLastPageDoublePassCheckLong>The IsFirstPage, IsFirstPageThrough, IsLastPage, IsLastPageThrough system variables provide incorrect results with one pass. It is required to set the NumberOfPass property to DoublePass.</StiIsFirstPageIsLastPageDoublePassCheckLong>
     <StiIsFirstPageIsLastPageDoublePassCheckShort>System variables which require double pass are used in the report</StiIsFirstPageIsLastPageDoublePassCheckShort>
     <StiIsFirstPassIsSecondPassCheckLong>For correct work of IsFirstPass, IsSecondPass functions double pass of the report rendering is required. Maybe you forgot to set the NumberOfPass property of the report to DoublePass.</StiIsFirstPassIsSecondPassCheckLong>
@@ -140,7 +151,7 @@
     <StiMinRowsInColumnsCheckLong>The MinRowsInColumns property of the band is not set to 0. But the value of the Columns property is set to 0. This is senseless.</StiMinRowsInColumnsCheckLong>
     <StiMinRowsInColumnsCheckShort>Maybe the MinRowsInColumns property is set incorrectly</StiMinRowsInColumnsCheckShort>
     <StiNegativeSizesOfComponentsCheckLong>The Width and Height of the '{0}' component have negative values. This may cause incorrect report rendering.</StiNegativeSizesOfComponentsCheckLong>
-    <StiNegativeSizesOfComponentsCheckShort>The Width and Height of the component have negative values.</StiNegativeSizesOfComponentsCheckShort>
+    <StiNegativeSizesOfComponentsCheckShort>The Width and Height of the component have negative values</StiNegativeSizesOfComponentsCheckShort>
     <StiNoConditionAtGroupCheckLong>A condition is not set for the '{0}' component. Grouping will not be done without it</StiNoConditionAtGroupCheckLong>
     <StiNoConditionAtGroupCheckShort>A condition for the group is not set</StiNoConditionAtGroupCheckShort>
     <StiNoNameComponentCheckLong>The component has no name. If the name of the component is not specified then the report engine will not be able to compile the report.</StiNoNameComponentCheckLong>
@@ -150,7 +161,7 @@
     <StiPageFooterOnlyLastPageCheckLong>Band {0} with the property PrintOn=OnlyLastPage creates unwanted gaps at the bottom of the page. We recommend replacing it with ReportSummary.</StiPageFooterOnlyLastPageCheckLong>
     <StiPageFooterOnlyLastPageCheckShort>Probability of gaps appearing</StiPageFooterOnlyLastPageCheckShort>
     <StiPageLineAndDoublePassCheckLong>The system variable PageLine requires Double-Pass of the report engine.</StiPageLineAndDoublePassCheckLong>
-    <StiPageLineAndDoublePassCheckShort>The PageLine requires Double-Pass!</StiPageLineAndDoublePassCheckShort>
+    <StiPageLineAndDoublePassCheckShort>The PageLine requires Double-Pass</StiPageLineAndDoublePassCheckShort>
     <StiPanelInEngineV1CheckLong>The '{0}' panel is found in the report where the EngineV1 is used. This component is not available in the EngineV1. So the reporting tool attempts to render it as a Container component. But the Panel component has more capabilities in comparison with the Container and this may cause incorrect report rendering.</StiPanelInEngineV1CheckLong>
     <StiPanelInEngineV1CheckShort>The panel in EngineV1</StiPanelInEngineV1CheckShort>
     <StiPrintHeadersAndFootersFromPreviousPageLong>The PrintHeadersAndFootersFromPreviousPage property of the '{0}' page is set to true. But for the first and the only page it makes no sense.</StiPrintHeadersAndFootersFromPreviousPageLong>
@@ -158,7 +169,7 @@
     <StiPrintOnDoublePassCheckLong>The PrintOn property of the '{0}' component is not set to AllPages. For correct report rendering double pass should be enabled.</StiPrintOnDoublePassCheckLong>
     <StiPrintOnDoublePassCheckShort>The PrintOn property is not set to AllPages</StiPrintOnDoublePassCheckShort>
     <StiPrintOnPreviousPageCheck2Long>The PrintOnPreviousPage property of the '{0}' page is set to true. All components (except bands), which lie on this page will be printed only from the next new page, or may not be printed at all if there will be no new pages.</StiPrintOnPreviousPageCheck2Long>
-    <StiPrintOnPreviousPageCheck2Short>Some components may not be printed.</StiPrintOnPreviousPageCheck2Short>
+    <StiPrintOnPreviousPageCheck2Short>Some components may not be printed</StiPrintOnPreviousPageCheck2Short>
     <StiPrintOnPreviousPageCheckLong>The PrintOnPreviousPage property of the '{0}' page is set to true. But for the first and the only page it makes no sense.</StiPrintOnPreviousPageCheckLong>
     <StiPrintOnPreviousPageCheckShort>Maybe the PrintOnPreviousPage property is set incorrectly</StiPrintOnPreviousPageCheckShort>
     <StiPropertiesOnlyEngineV1CheckLong>The StartNewPage property of the '{0}' component is supported in the EngineV1 only.</StiPropertiesOnlyEngineV1CheckLong>
@@ -168,7 +179,7 @@
     <StiResetPageNumberCheckLong>The ResetPageNumber property of the '{0}' page is set to true. But for the first and the only page it makes no sense.</StiResetPageNumberCheckLong>
     <StiResetPageNumberCheckShort>Maybe the ResetPageNumber property is set incorrectly</StiResetPageNumberCheckShort>
     <StiRtlTextWithoutRightToLeftCheckLong>The component '{0}' contains a right-to-left text, but the RightToLeft text option is disabled.</StiRtlTextWithoutRightToLeftCheckLong>
-    <StiRtlTextWithoutRightToLeftCheckShort>The RTL text with the disabled RightToLeft option.</StiRtlTextWithoutRightToLeftCheckShort>
+    <StiRtlTextWithoutRightToLeftCheckShort>The RTL text with the disabled RightToLeft option</StiRtlTextWithoutRightToLeftCheckShort>
     <StiShowInsteadNullValuesCheckLong>The NullValues property is set for the '{0}' component. But the DataColumn property is not set. This is senseless.</StiShowInsteadNullValuesCheckLong>
     <StiShowInsteadNullValuesCheckShort>The NullValues property is set</StiShowInsteadNullValuesCheckShort>
     <StiSubReportPageZeroCheckLong>If the SubReportPage property of the SubReport component is not set then the report cannot be rendered.</StiSubReportPageZeroCheckLong>
@@ -178,9 +189,9 @@
     <StiTextColorEqualToBackColorCheckLong>A possible reason is that the values of the TextBrush and Brush properties of the '{0}' component were set incorrectly. The text will not be visible.</StiTextColorEqualToBackColorCheckLong>
     <StiTextColorEqualToBackColorCheckShort>The TextBrush property is equal to the Brush property</StiTextColorEqualToBackColorCheckShort>
     <StiTextTextFormatCheckLong>The selected text format for the '{0}' component can't be applied, because the result of the expression is a text string.</StiTextTextFormatCheckLong>
-    <StiTextTextFormatCheckShort>The format can't be applied.</StiTextTextFormatCheckShort>
+    <StiTextTextFormatCheckShort>The format can't be applied</StiTextTextFormatCheckShort>
     <StiTextTextFormatFieldCheckLong>The column used in the {0} component is not a date type. Changing the formatting to General is recommended to avoid slowing down the report and to ensure correct formatting.</StiTextTextFormatFieldCheckLong>
-    <StiTextTextFormatFieldCheckShort>The selected format is not compatible with the data column type.</StiTextTextFormatFieldCheckShort>
+    <StiTextTextFormatFieldCheckShort>The selected format is not compatible with the data column type</StiTextTextFormatFieldCheckShort>
     <StiTotalPageCountDoublePassCheckLong>The TotalPageCount, TotalPageCountThrough system variables in scripts and conditions provide incorrect results when one pass. It is required to set the NumberOfPass property to DoublePass.</StiTotalPageCountDoublePassCheckLong>
     <StiUndefinedComponentCheckLong>Undefined '{0}' component is found in the report. The reporting tool cannot identify this component. Maybe this is a custom component. The report cannot be rendered!</StiUndefinedComponentCheckLong>
     <StiUndefinedComponentCheckShort>Undefined component</StiUndefinedComponentCheckShort>
@@ -224,8 +235,18 @@
     <StiNoNameDataSourceCheckShort>There is no name for the Data Source</StiNoNameDataSourceCheckShort>
     <StiNoNameInSourceDataSourceCheckLong>NameInSource field is not filled for the '{0}' data source. Without filling this field, the reporting tool will not be able to find the data for the data source in the database and the report will not be rendered!</StiNoNameInSourceDataSourceCheckLong>
     <StiNoNameInSourceDataSourceCheckShort>NameInSource of the data source field is not filled</StiNoNameInSourceDataSourceCheckShort>
+    <StiSqlParameterDuplicateCheckLong>The '{0}' data source has several parameters named '{1}'. The query cannot be executed.</StiSqlParameterDuplicateCheckLong>
+    <StiSqlParameterDuplicateCheckShort>Duplicated SQL parameter</StiSqlParameterDuplicateCheckShort>
+    <StiSqlParameterNotFoundCheckLong>The query of the '{0}' data source uses the @{1} parameter, but the data source has no such parameter and the report has no variable with this name. The query fails when the report is rendered.</StiSqlParameterNotFoundCheckLong>
+    <StiSqlParameterNotFoundCheckShort>The query uses an undefined parameter</StiSqlParameterNotFoundCheckShort>
+    <StiSqlParameterVariableNotFoundCheckLong>The '{1}' parameter of the '{0}' data source takes its value from '{2}', but the report has no variable with this name. The query gets no value for the parameter.</StiSqlParameterVariableNotFoundCheckLong>
+    <StiSqlParameterVariableNotFoundCheckShort>A parameter refers to a missing variable</StiSqlParameterVariableNotFoundCheckShort>
+    <StiSqlVariableNotAllowedCheckLong>The query of the '{0}' data source uses the @{1} parameter. The report has the '{1}' variable, but it is not allowed to be used as a SQL parameter, so its value is not passed to the query and the query fails.</StiSqlVariableNotAllowedCheckLong>
+    <StiSqlVariableNotAllowedCheckShort>The variable is not allowed as a SQL parameter</StiSqlVariableNotAllowedCheckShort>
     <StiUndefinedDataSourceCheckLong>The undefined '{0}' data source is found in the report. The reporting tool cannot correctly process this type of data source! Maybe custom data sources are used in the report. This report cannot be rendered!</StiUndefinedDataSourceCheckLong>
     <StiUndefinedDataSourceCheckShort>Undefined Data Source</StiUndefinedDataSourceCheckShort>
+    <StiUnusedSqlDataSourceCheckLong>The '{0}' data source is not used in the report, but its query runs every time the report is rendered. Turn its ConnectOnStart property off, delete the data source, or set the RetrieveOnlyUsedData property of the report.</StiUnusedSqlDataSourceCheckLong>
+    <StiUnusedSqlDataSourceCheckShort>An unused data source is loaded</StiUnusedSqlDataSourceCheckShort>
   </CheckDataSource>
   <CheckGlobal>
     <Error>Error! </Error>
@@ -242,7 +263,7 @@
     <StiLostPointsOnPageCheckShort>Lost points</StiLostPointsOnPageCheckShort>
     <StiOrientationPageCheckLongLandscape>The '{0}' page orientation does not correspond to the specified page size. Usually, for Landscape orientation, the page width should be greater than the page height. The width of this page is less than the height. This may cause problems when printing this page.</StiOrientationPageCheckLongLandscape>
     <StiOrientationPageCheckLongPortrait>The '{0}' page orientation does not correspond to the specified page size. Usually, for Portrait orientation, the page width should be less than the page height. The width of this page is greater than the height. This may cause problems when printing this page.</StiOrientationPageCheckLongPortrait>
-    <StiOrientationPageCheckShort>Incorrect '{0}' page orientation.</StiOrientationPageCheckShort>
+    <StiOrientationPageCheckShort>Incorrect '{0}' page orientation</StiOrientationPageCheckShort>
   </CheckPage>
   <CheckReport>
     <StiCategoryRequestFromUserCheckLong>The '{0}' variable's categories can't be shown on the parameters panel of the viewer because it is possible only when the value of the 'ParametersOrientation' report property is set to 'Vertical'.</StiCategoryRequestFromUserCheckLong>
@@ -268,9 +289,9 @@
     <StiDuplicatedReportName2CheckLong>The report name '{0}' is the same as the data source name.</StiDuplicatedReportName2CheckLong>
     <StiDuplicatedReportNameCheckLong>The report name '{0}' is the same as the component name.</StiDuplicatedReportNameCheckLong>
     <StiFontNotEmbeddableCheckLong>The font file of the font '{0}' is not found, the font will not be embedded into a PDF file. The font is used in the components: {1}</StiFontNotEmbeddableCheckLong>
-    <StiFontNotEmbeddableCheckShort>The font cannot be embedded into a PDF file.</StiFontNotEmbeddableCheckShort>
+    <StiFontNotEmbeddableCheckShort>The font cannot be embedded into a PDF file</StiFontNotEmbeddableCheckShort>
     <StiFontStyleNotAvailableCheckLong>The font '{0}' does not contain the '{1}' style, it will be emulated in the PDF export. The font is used in the components: {2}</StiFontStyleNotAvailableCheckLong>
-    <StiFontStyleNotAvailableCheckShort>The font style is not available.</StiFontStyleNotAvailableCheckShort>
+    <StiFontStyleNotAvailableCheckShort>The font style is not available</StiFontStyleNotAvailableCheckShort>
     <StiMainPageMissingCheckLong>The report cannot be rendered because the main page cannot be determined. Check the page reference in SubReports and DrillDowns.</StiMainPageMissingCheckLong>
     <StiMainPageMissingCheckShort>The main page is missing</StiMainPageMissingCheckShort>
     <StiNetCoreCompilationModeCheckLong>Stimulsoft .NET Core engine cannot render this report in the compilation mode. Change the report to the interpretation mode.</StiNetCoreCompilationModeCheckLong>
@@ -281,16 +302,18 @@
     <StiScriptExecutionErrorCheck3Long>The script execution error occurred in the '{1}' event of the '{2}' component.</StiScriptExecutionErrorCheck3Long>
     <StiScriptExecutionErrorCheckLong>The script execution error occurred.</StiScriptExecutionErrorCheckLong>
     <StiScriptExecutionErrorCheckShort>Script execution error</StiScriptExecutionErrorCheckShort>
+    <StiStyleNegativeBorderSizeCheckLong>The '{0}' style has a negative border size: {1}. A border size cannot be less than 0.</StiStyleNegativeBorderSizeCheckLong>
+    <StiStyleNegativeBorderSizeCheckShort>A negative border size in a style</StiStyleNegativeBorderSizeCheckShort>
   </CheckReport>
   <CheckVariable>
     <StiVariableInitializationCheckLong>The '{0}' variable has the wrong default value. It is impossible to initialize the variable with a specified value.</StiVariableInitializationCheckLong>
     <StiVariableInitializationCheckShort>Initialization value</StiVariableInitializationCheckShort>
     <StiVariableNameCheckLong>The variable name "{0}" cannot be used because it is reserved.</StiVariableNameCheckLong>
-    <StiVariableNameCheckShort>The variable name is invalid.</StiVariableNameCheckShort>
+    <StiVariableNameCheckShort>The variable name is invalid</StiVariableNameCheckShort>
     <StiVariableRecursionCheckLong>The '{0}' variable has an expression with recursion. It's impossible to refer to the Variable in its own expression.</StiVariableRecursionCheckLong>
     <StiVariableRecursionCheckShort>Recursive Expression</StiVariableRecursionCheckShort>
     <StiVariableTypeCheckLong>For the dependent variables to work correctly, their types and the types of their columns must match.</StiVariableTypeCheckLong>
-    <StiVariableTypeCheckShort>Variable types do not match.</StiVariableTypeCheckShort>
+    <StiVariableTypeCheckShort>Variable types do not match</StiVariableTypeCheckShort>
   </CheckVariable>
   <Font>
     <Bold>A value that indicates whether this Font is bold.</Bold>
